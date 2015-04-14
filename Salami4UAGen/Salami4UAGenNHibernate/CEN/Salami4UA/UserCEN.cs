@@ -32,7 +32,7 @@ public IUserCAD get_IUserCAD ()
         return this._IUserCAD;
 }
 
-public string New_ (string p_Nickname, string p_Password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum p_HairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum p_EyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum p_HairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum p_HairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum p_BodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum p_Ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum p_Religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum p_Smoke, System.Collections.Generic.IList<string> p_pets, System.Collections.Generic.IList<string> p_characteristicFeatures, System.Collections.Generic.IList<string> p_hobbies, System.Collections.Generic.IList<string> p_sports, System.Collections.Generic.IList<string> p_musicalTastes, System.Collections.Generic.IList<string> p_genreFilms, string p_nacionalidad, string p_email, Nullable<DateTime> p_Birthday, int p_height_0, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum p_Gender)
+public string New_ (string p_Nickname, string p_Password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum p_HairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum p_EyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum p_HairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum p_HairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum p_BodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum p_Ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum p_Religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum p_Smoke, bool p_Offspring, System.Collections.Generic.IList<string> p_pets, System.Collections.Generic.IList<string> p_characteristicFeatures, System.Collections.Generic.IList<string> p_hobbies, System.Collections.Generic.IList<string> p_sports, System.Collections.Generic.IList<string> p_musicalTastes, System.Collections.Generic.IList<string> p_genreFilms, string p_nacionalidad, string p_email, Nullable<DateTime> p_Birthday, int p_height_0)
 {
         UserEN userEN = null;
         string oid;
@@ -58,6 +58,8 @@ public string New_ (string p_Nickname, string p_Password, Salami4UAGenNHibernate
         userEN.Religion = p_Religion;
 
         userEN.Smoke = p_Smoke;
+
+        userEN.Offspring = p_Offspring;
 
 
         userEN.Pets = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN>();
@@ -159,15 +161,13 @@ public string New_ (string p_Nickname, string p_Password, Salami4UAGenNHibernate
                 userEN.Height_0.Height = p_height_0;
         }
 
-        userEN.Gender = p_Gender;
-
         //Call to UserCAD
 
         oid = _IUserCAD.New_ (userEN);
         return oid;
 }
 
-public void Modify (string p_User_OID, string p_Password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum p_HairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum p_EyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum p_HairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum p_HairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum p_BodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum p_Ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum p_Religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum p_Smoke, string p_email, Nullable<DateTime> p_Birthday, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum p_Gender)
+public void Modify (string p_User_OID, string p_Password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum p_HairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum p_EyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum p_HairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum p_HairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum p_BodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum p_Ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum p_Religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum p_Smoke, bool p_Offspring, string p_email, Nullable<DateTime> p_Birthday)
 {
         UserEN userEN = null;
 
@@ -183,9 +183,9 @@ public void Modify (string p_User_OID, string p_Password, Salami4UAGenNHibernate
         userEN.Ethnicity = p_Ethnicity;
         userEN.Religion = p_Religion;
         userEN.Smoke = p_Smoke;
+        userEN.Offspring = p_Offspring;
         userEN.Email = p_email;
         userEN.Birthday = p_Birthday;
-        userEN.Gender = p_Gender;
         //Call to UserCAD
 
         _IUserCAD.Modify (userEN);
@@ -207,42 +207,6 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.User
 public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameTodosLosUsuarios ()
 {
         return _IUserCAD.DameTodosLosUsuarios ();
-}
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorBodyType (Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum bodyType)
-{
-        return _IUserCAD.DameUsuarioPorBodyType (bodyType);
-}
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorEthnicity (Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum etnia)
-{
-        return _IUserCAD.DameUsuarioPorEthnicity (etnia);
-}
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorEyeColor (Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum color)
-{
-        return _IUserCAD.DameUsuarioPorEyeColor (color);
-}
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorHairColor (Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum color)
-{
-        return _IUserCAD.DameUsuarioPorHairColor (color);
-}
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorHairLength (Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum tamanyo)
-{
-        return _IUserCAD.DameUsuarioPorHairLength (tamanyo);
-}
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorHairStyle (Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum estilo)
-{
-        return _IUserCAD.DameUsuarioPorHairStyle (estilo);
-}
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorReligion (Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion)
-{
-        return _IUserCAD.DameUsuarioPorReligion (religion);
-}
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorFumar (Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum fumar)
-{
-        return _IUserCAD.DameUsuarioPorFumar (fumar);
-}
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorGender (Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum genero)
-{
-        return _IUserCAD.DameUsuarioPorGender (genero);
 }
 }
 }

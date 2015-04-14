@@ -8,7 +8,7 @@
 						<column name="[Password]"  not-null="true"/>
 					</property>
 					<property name="HairColor" > 
-						<column name="[HairColor]"  not-null="true"/>
+						<column name="[Hair Color]"  not-null="true"/>
 					</property>
 					<property name="EyeColor" > 
 						<column name="[EyeColor]"  not-null="true"/>
@@ -31,15 +31,16 @@
 					<property name="Smoke" > 
 						<column name="[Smoke]"  not-null="true"/>
 					</property>
+					<property name="Offspring" type="boolean"> 
+						<column name="[Offspring]"  not-null="true"/>
+					</property>
 					<property name="Email" type="string"> 
 						<column name="[email]"  not-null="true"/>
 					</property>
 					<property name="Birthday" type="date"> 
 						<column name="[Birthday]"  not-null="true"/>
 					</property>
-					<property name="Gender" > 
-						<column name="[Gender]"  not-null="true"/>
-					</property>
+			
 			
 			
 			
@@ -124,7 +125,6 @@
 								<column name="[FK_value_idHeight_0]"/>
 						</many-to-one>
 											 					
-			
 					
 					
 					
@@ -153,14 +153,5 @@
 		  <query name="UserENdameUsuarioPorEmailHQL"><![CDATA[FROM UserEN c WHERE c.Email = :mail]]></query>
 		  <query name="UserENdameUsuarioPorNicknameHQL"><![CDATA[FROM UserEN c WHERE c.Nickname = :nombre]]></query>
 		  <query name="UserENdameTodosLosUsuariosHQL"><![CDATA[FROM UserEN]]></query>
-		  <query name="UserENdameUsuarioPorBodyTypeHQL"><![CDATA[FROM UserEN c WHERE c.BodyType = :bodyType]]></query>
-		  <query name="UserENdameUsuarioPorEthnicityHQL"><![CDATA[FROM UserEN c WHERE c.Ethnicity = :etnia]]></query>
-		  <query name="UserENdameUsuarioPorEyeColorHQL"><![CDATA[FROM UserEN c WHERE c.EyeColor = :color]]></query>
-		  <query name="UserENdameUsuarioPorHairColorHQL"><![CDATA[FROM UserEN c WHERE c.HairColor = :color]]></query>
-		  <query name="UserENdameUsuarioPorHairLengthHQL"><![CDATA[FROM UserEN c WHERE c.HairLength = :tamanyo]]></query>
-		  <query name="UserENdameUsuarioPorHairStyleHQL"><![CDATA[FROM UserEN c WHERE c.HairStyle = :estilo]]></query>
-		  <query name="UserENdameUsuarioPorReligionHQL"><![CDATA[FROM UserEN c WHERE c.Religion = :religion]]></query>
-		  <query name="UserENdameUsuarioPorFumarHQL"><![CDATA[FROM UserEN c WHERE c.Smoke = :fumar]]></query>
-		  <query name="UserENdameUsuarioPorGenderHQL"><![CDATA[FROM UserEN c WHERE c.Gender = :genero]]></query>
 		</hibernate-mapping>
 	
