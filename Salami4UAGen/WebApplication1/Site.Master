@@ -62,7 +62,7 @@
                 </asp:LoginView>
                 <asp:LoginView ID="LoginView2" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
-                        [ <a href="~/Account/Register.aspx" ID="HeadLoginStatus0" runat="server">Profile</a> ]
+                        [ <a href="~/Perfil.aspx" ID="HeadLoginStatus0" runat="server">Profile</a> ]
                     </AnonymousTemplate>
                     <LoggedInTemplate>
                         Pantalla de bienvenida <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!

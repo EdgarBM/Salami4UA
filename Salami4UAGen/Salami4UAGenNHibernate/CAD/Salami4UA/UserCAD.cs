@@ -157,9 +157,6 @@ public void Modify (UserEN user)
                 userEN.Smoke = user.Smoke;
 
 
-                userEN.Offspring = user.Offspring;
-
-
                 userEN.Email = user.Email;
 
 

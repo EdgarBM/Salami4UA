@@ -13,9 +13,7 @@
     <p>
         Las contraseñas nuevas deben tener una longitud mínima de <%= Membership.MinRequiredPasswordLength %> caracteres.
     </p>
-    <asp:ChangePassword ID="ChangeUserPassword" runat="server" CancelDestinationPageUrl="~/" EnableViewState="false" RenderOuterTable="false" 
-         SuccessPageUrl="ChangePasswordSuccess.aspx">
-        <ChangePasswordTemplate>
+    
             <span class="failureNotification">
                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
             </span>
@@ -24,6 +22,13 @@
             <div class="accountInfo">
                 <fieldset class="changePassword">
                     <legend>Información de cuenta</legend>
+                    <p>
+                        <asp:Label ID="UsernameLabel" runat="server" AssociatedControlID="Username">Username:</asp:Label>
+                        <asp:TextBox ID="Username" runat="server" ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Username" 
+                             CssClass="failureNotification" ErrorMessage="The username is mandatory." ToolTip="The username is mandatory." 
+                             ValidationGroup="ChangeUserPasswordValidationGroup">*</asp:RequiredFieldValidator>
+                    </p>
 
                     <p>
                         <asp:Label ID="CurrentPasswordLabel" runat="server" AssociatedControlID="CurrentPassword">Contraseña anterior:</asp:Label>
@@ -53,9 +58,11 @@
                 <p class="submitButton">
                     <asp:Button ID="CancelPushButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar"/>
                     <asp:Button ID="ChangePasswordPushButton" runat="server" CommandName="ChangePassword" Text="Cambiar contraseña" 
-                         ValidationGroup="ChangeUserPasswordValidationGroup"/>
+                         ValidationGroup="ChangeUserPasswordValidationGroup" OnClick="Continuar_Click"/>
                 </p>
             </div>
-        </ChangePasswordTemplate>
-    </asp:ChangePassword>
+
+    <asp:Label ID="LoginOk" runat="server" ForeColor="Green"></asp:Label>
+    <asp:Label ID="LoginFail" runat="server" ForeColor="Red"></asp:Label>
+        
 </asp:Content>

@@ -32,7 +32,7 @@ public IUserCAD get_IUserCAD ()
         return this._IUserCAD;
 }
 
-public string New_ (string p_Nickname, string p_Password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum p_HairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum p_EyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum p_HairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum p_HairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum p_BodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum p_Ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum p_Religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum p_Smoke, bool p_Offspring, System.Collections.Generic.IList<string> p_pets, System.Collections.Generic.IList<string> p_characteristicFeatures, System.Collections.Generic.IList<string> p_hobbies, System.Collections.Generic.IList<string> p_sports, System.Collections.Generic.IList<string> p_musicalTastes, System.Collections.Generic.IList<string> p_genreFilms, string p_nacionalidad, string p_email, Nullable<DateTime> p_Birthday, int p_height_0)
+public string New_ (string p_Nickname, string p_Password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum p_HairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum p_EyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum p_HairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum p_HairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum p_BodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum p_Ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum p_Religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum p_Smoke, System.Collections.Generic.IList<string> p_pets, System.Collections.Generic.IList<string> p_characteristicFeatures, System.Collections.Generic.IList<string> p_hobbies, System.Collections.Generic.IList<string> p_sports, System.Collections.Generic.IList<string> p_musicalTastes, System.Collections.Generic.IList<string> p_genreFilms, string p_nacionalidad, string p_email, Nullable<DateTime> p_Birthday, int p_height_0)
 {
         UserEN userEN = null;
         string oid;
@@ -58,8 +58,6 @@ public string New_ (string p_Nickname, string p_Password, Salami4UAGenNHibernate
         userEN.Religion = p_Religion;
 
         userEN.Smoke = p_Smoke;
-
-        userEN.Offspring = p_Offspring;
 
 
         userEN.Pets = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN>();
@@ -167,7 +165,7 @@ public string New_ (string p_Nickname, string p_Password, Salami4UAGenNHibernate
         return oid;
 }
 
-public void Modify (string p_User_OID, string p_Password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum p_HairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum p_EyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum p_HairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum p_HairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum p_BodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum p_Ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum p_Religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum p_Smoke, bool p_Offspring, string p_email, Nullable<DateTime> p_Birthday)
+public void Modify (string p_User_OID, string p_Password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum p_HairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum p_EyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum p_HairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum p_HairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum p_BodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum p_Ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum p_Religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum p_Smoke, string p_email, Nullable<DateTime> p_Birthday)
 {
         UserEN userEN = null;
 
@@ -183,7 +181,6 @@ public void Modify (string p_User_OID, string p_Password, Salami4UAGenNHibernate
         userEN.Ethnicity = p_Ethnicity;
         userEN.Religion = p_Religion;
         userEN.Smoke = p_Smoke;
-        userEN.Offspring = p_Offspring;
         userEN.Email = p_email;
         userEN.Birthday = p_Birthday;
         //Call to UserCAD

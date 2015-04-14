@@ -31,16 +31,12 @@
 					<property name="Smoke" > 
 						<column name="[Smoke]"  not-null="true"/>
 					</property>
-					<property name="Offspring" type="boolean"> 
-						<column name="[Offspring]"  not-null="true"/>
-					</property>
 					<property name="Email" type="string"> 
 						<column name="[email]"  not-null="true"/>
 					</property>
 					<property name="Birthday" type="date"> 
 						<column name="[Birthday]"  not-null="true"/>
 					</property>
-			
 			
 			
 			
@@ -125,7 +121,6 @@
 								<column name="[FK_value_idHeight_0]"/>
 						</many-to-one>
 											 					
-					
 					
 					
 					

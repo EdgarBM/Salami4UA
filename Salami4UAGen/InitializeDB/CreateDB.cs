@@ -173,24 +173,24 @@ public static void InitializeData ()
 
                 MusicalTastesCEN musica = new MusicalTastesCEN ();
 
-                musica.New_ ("Pop");
-                musica.New_ ("Disco");
-                musica.New_ ("Dance");
-                musica.New_ ("Blues");
-                musica.New_ ("Jazz");
-                musica.New_ ("Rap");
-                musica.New_ ("Country");
-                musica.New_ ("Rock");
-                musica.New_ ("Latin");
-                musica.New_ ("Classical");
-                musica.New_ ("Soul");
-                musica.New_ ("Gospel");
-                musica.New_ ("Hip-Hop");
-                musica.New_ ("Opera");
-                musica.New_ ("Tecno");
-                musica.New_ ("International");
-                musica.New_ ("Soundtracks");
-                musica.New_ ("Traditional");
+                musica.New_ ("pop");
+                musica.New_ ("disco");
+                musica.New_ ("dance");
+                musica.New_ ("blues");
+                musica.New_ ("jazz");
+                musica.New_ ("rap");
+                musica.New_ ("country");
+                musica.New_ ("rock");
+                musica.New_ ("latin");
+                musica.New_ ("classical");
+                musica.New_ ("soul");
+                musica.New_ ("gospel");
+                musica.New_ ("hip-hp");
+                musica.New_ ("opera");
+                musica.New_ ("tecno");
+                musica.New_ ("international");
+                musica.New_ ("soundtracks");
+                musica.New_ ("traditional");
 
                 // Nacionalidad
 
