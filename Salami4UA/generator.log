@@ -1,0 +1,93 @@
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+2    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.2.1, Build v201206110920
+2    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+2    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+2    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/Users/Alberto/Documents/Workspace OOH4RIA/Salami4UA/templates/workflow/generator.mwe
+2    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+372  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\Users\Alberto\Documents\Workspace OOH4RIA'
+689  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+747  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+853  [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/Users/Alberto/Documents/Workspace OOH4RIA/Salami4UA/templates/workflow/generator.mwe:10
+854  [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+1033 [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+1409 [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [../Salami4UAGen, CONFIGURATION:../Salami4UAGen(overwrite=false,append=false,fileEncoding=utf-8)]
+configuroConf:C:\Users\Alberto\AppData\Local\Temp\OOH4RIA240250218482183318.cfg
+enc:utf-8
+2832 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+3146 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan finished in 0.314s
+3146 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Files scanned: 145
+3146 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Regions found: 9
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+6107 [main] INFO         org.eclipse.xpand2.Generator  - Written 4 files to outlet [default](../Salami4UAGen)
+6107 [main] INFO         org.eclipse.xpand2.Generator  - Skipped writing of 74 files to outlet [default](../Salami4UAGen)
+6107 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CreateSolution
+6123 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.UpdateSolution
+6143 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CopyDLLs
+../Salami4UAGen\Salami4UAGenNHibernate\AppLib\Antlr3.Runtime.dll
+../Salami4UAGen\Salami4UAGenNHibernate\AppLib\Castle.DynamicProxy2.dll
+../Salami4UAGen\Salami4UAGenNHibernate\AppLib\Iesi.Collections.dll
+../Salami4UAGen\Salami4UAGenNHibernate\AppLib\LinFu.DynamicProxy.dll
+../Salami4UAGen\Salami4UAGenNHibernate\AppLib\log4net.dll
+../Salami4UAGen\Salami4UAGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll
+../Salami4UAGen\Salami4UAGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll
+../Salami4UAGen\Salami4UAGenNHibernate\AppLib\NHibernate.dll
+../Salami4UAGen\Salami4UAGenNHibernate\AppLib\nunit.core.dll
+../Salami4UAGen\Salami4UAGenNHibernate\AppLib\nunit.framework.dll
+6150 [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - workflow completed in 5297ms!

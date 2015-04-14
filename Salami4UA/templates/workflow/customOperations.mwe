@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<workflow>
+  <property name="es.ua.dlsi.ooh.conceptual.model" value=""/>
+  <property name="src-gen" value="../Salami4UAGen"/>
+  <property name="id" value=""/>
+  <property name="projectName" value="'Salami4UAGen'"/>
+  <cartridge file="workflow::nhibernate::customOperations.mwe" inheritAll="true"/>
+</workflow>
