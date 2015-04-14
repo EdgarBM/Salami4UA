@@ -351,6 +351,70 @@ public static void InitializeData ()
                 feature.New_ ("Shy");
                 feature.New_ ("Quiet");
 
+                // Usuario admin
+
+                UserCEN usuario = new UserCEN ();
+
+                PetsCEN animal = new PetsCEN ();
+                IList<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN> animalesEN = animal.DameTodosLosAnimales ();
+                List<string> animales = new List<string>();
+                foreach (PetsEN p in animalesEN) {
+                        animales.Add (p.Name);
+                }
+
+
+
+                HobbiesCEN hobbie = new HobbiesCEN ();
+                IList<Salami4UAGenNHibernate.EN.Salami4UA.HobbiesEN> hobbiesEN = hobbie.DameTodosLosHobbies ();
+                List<string> hobbiesString = new List<string>();
+                foreach (HobbiesEN p in hobbiesEN) {
+                        hobbiesString.Add (p.Name);
+                }
+
+
+
+
+                CharacteristicFeaturesCEN caracteristica = new CharacteristicFeaturesCEN ();
+                IList<Salami4UAGenNHibernate.EN.Salami4UA.CharacteristicFeaturesEN> caracteristicasEN = caracteristica.DameTodasLasCaracteristicas ();
+                List<string> caracteristicas = new List<string>();
+                foreach (CharacteristicFeaturesEN p in caracteristicasEN) {
+                        caracteristicas.Add (p.Name);
+                }
+
+
+
+                GenreFilmsCEN cine = new GenreFilmsCEN ();
+                IList<Salami4UAGenNHibernate.EN.Salami4UA.GenreFilmsEN> cinesEN = cine.DameTodosLosGenerosCine ();
+                List<string> cines = new List<string>();
+                foreach (GenreFilmsEN p in cinesEN) {
+                        cines.Add (p.Name);
+                }
+
+
+
+                MusicalTastesCEN music = new MusicalTastesCEN ();
+                IList<Salami4UAGenNHibernate.EN.Salami4UA.MusicalTastesEN> musicasEN = musica.DameTodosLosGustosMusicales ();
+                List<string> musicas = new List<string>();
+                foreach (MusicalTastesEN p in musicasEN) {
+                        musicas.Add (p.Name);
+                }
+
+
+                SportsCEN deporte = new SportsCEN ();
+                IList<Salami4UAGenNHibernate.EN.Salami4UA.SportsEN> deportesEN = deporte.DameTodosLosDeportes ();
+                List<string> deportes = new List<string>();
+                foreach (SportsEN p in deportesEN) {
+                        deportes.Add (p.Name);
+                }
+
+
+                usuario.New_ ("admin", "1234", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde,
+                        Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Hairless,
+                        Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent,
+                        Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Agnostic,
+                        Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No, animales, caracteristicas, hobbiesString, deportes, musicas, cines, "Spanish", "admin@alu.ua.es", DateTime.Today, 180, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man);
+
+
 
 
 
