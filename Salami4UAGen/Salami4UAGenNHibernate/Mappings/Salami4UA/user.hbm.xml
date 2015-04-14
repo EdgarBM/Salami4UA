@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="Salami4UAGenNHibernate"
+		                   namespace="Salami4UAGenNHibernate.EN.Salami4UA">
+			<class name="UserEN" table="[User]">
+						<id name="Nickname" column="[Nickname]"/>
+					<property name="Password" type="string"> 
+						<column name="[Password]"  not-null="true"/>
+					</property>
+					<property name="HairColor" > 
+						<column name="[Hair Color]"  not-null="true"/>
+					</property>
+					<property name="EyeColor" > 
+						<column name="[EyeColor]"  not-null="true"/>
+					</property>
+					<property name="HairLength" > 
+						<column name="[HairLength]"  not-null="true"/>
+					</property>
+					<property name="HairStyle" > 
+						<column name="[HairStyle]"  not-null="true"/>
+					</property>
+					<property name="BodyType" > 
+						<column name="[BodyType]"  not-null="true"/>
+					</property>
+					<property name="Ethnicity" > 
+						<column name="[Ethnicity]"  not-null="true"/>
+					</property>
+					<property name="Religion" > 
+						<column name="[Religion]"  not-null="true"/>
+					</property>
+					<property name="Smoke" > 
+						<column name="[Smoke]"  not-null="true"/>
+					</property>
+					<property name="Offspring" type="boolean"> 
+						<column name="[Offspring]"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="[email]"  not-null="true"/>
+					</property>
+					<property name="Birthday" type="date"> 
+						<column name="[Birthday]"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Pets" table="[user_pets]"  >
+							<key>
+									<column name="[FK_Nickname_idUser]"/>
+							</key>
+      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.PetsEN">
+									<column name="[FK_Name_idPets]"/>
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="CharacteristicFeatures" table="[user_characteristicFeatures]"  >
+							<key>
+									<column name="[FK_Nickname_idUser]"/>
+							</key>
+      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.CharacteristicFeaturesEN">
+									<column name="[FK_Name_idCharacteristicFeatures]"/>
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Hobbies" table="[hobbies_user]" inverse="true" >
+							<key>
+									<column name="[FK_Nickname_idUser]"/>
+							</key>
+      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.HobbiesEN">
+									<column name="[FK_Name_idHobbies]"/>
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Sports" table="[sports_user]" inverse="true" >
+							<key>
+									<column name="[FK_Nickname_idUser]"/>
+							</key>
+      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.SportsEN">
+									<column name="[FK_Name_idSports]"/>
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="MusicalTastes" table="[musicalTastes_user]" inverse="true" >
+							<key>
+									<column name="[FK_Nickname_idUser]"/>
+							</key>
+      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.MusicalTastesEN">
+									<column name="[FK_Name_idMusicalTastes]"/>
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="GenreFilms" table="[user_genreFilms]"  >
+							<key>
+									<column name="[FK_Nickname_idUser]"/>
+							</key>
+      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.GenreFilmsEN">
+									<column name="[FK_Name_idGenreFilms]"/>
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="Nacionalidad" class="Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN" >	
+								<column name="[FK_Name_idNacionalidad]"/>
+						</many-to-one>
+											 					
+			
+			
+			
+		  			
+						<many-to-one name="Height_0" class="Salami4UAGenNHibernate.EN.Salami4UA.HeightEN" >	
+								<column name="[FK_value_idHeight_0]"/>
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		  </class>
+		  
+		  <query name="UserENReadAllHQL">from UserEN</query>
+		  <query name="UserENdameUsuarioPorEmailHQL"><![CDATA[FROM UserEN c WHERE c.Email = :mail]]></query>
+		  <query name="UserENdameUsuarioPorNicknameHQL"><![CDATA[FROM UserEN c WHERE c.Nickname = :nombre]]></query>
+		  <query name="UserENdameTodosLosUsuariosHQL"><![CDATA[FROM UserEN]]></query>
+		</hibernate-mapping>
+	

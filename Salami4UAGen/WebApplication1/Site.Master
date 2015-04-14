@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title> Salami4UA </title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header"> 
+            <div class="imagen">
+                <asp:ImageButton ID="LogoSalamiUA" runat="server" 
+                    ImageUrl="~/Imagenes/logoSalami4UA.png"   
+                    Height="200px" Width="200px" />
+          
+            </div>
+
+            <h1> Salami4UA </h1>
+
+            <div class="loginDisplay">
+            
+            <% if (Session["login"] == null)
+                   {
+                        %>
+                
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log in</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Pantalla de bienvenida <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+                <asp:LoginView ID="HeadLoginView0" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Register.aspx" ID="HeadLoginStatus0" runat="server">Register</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Pantalla de bienvenida <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+                 <% }
+                   else
+                   { 
+                 %>
+                 <asp:Label ID="PasswordLabel" runat="server"> Welcome! </asp:Label> 
+                 <asp:LoginView ID="LoginView1" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log out</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Pantalla de bienvenida <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+                <asp:LoginView ID="LoginView2" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Register.aspx" ID="HeadLoginStatus0" runat="server">Profile</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Pantalla de bienvenida <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+                 
+                 <% } %>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home Page"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About us"/>
+                        <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact us"/>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="Salami4UAGenNHibernate"
+		                   namespace="Salami4UAGenNHibernate.EN.Salami4UA">
+			<class name="NationalityEN" table="[Nationality]">
+						<id name="Name" column="[Name]"/>
+			
+			
+		  			
+						<bag name="User" >
+							<key>
+								<column name="[FK_Name_idNacionalidad]"/>
+					      	</key>
+							<one-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.UserEN"/>
+					    </bag>
+					
+					
+					
+		
+		  </class>
+		  
+		  <query name="NationalityENReadAllHQL">from NationalityEN</query>
+		  <query name="NationalityENdameTodaslasNacionalidadesHQL"><![CDATA[FROM NationalityEN]]></query>
+		</hibernate-mapping>
+	
