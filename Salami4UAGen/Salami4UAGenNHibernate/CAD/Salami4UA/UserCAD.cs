@@ -157,13 +157,13 @@ public void Modify (UserEN user)
                 userEN.Smoke = user.Smoke;
 
 
-                userEN.Offspring = user.Offspring;
-
-
                 userEN.Email = user.Email;
 
 
                 userEN.Birthday = user.Birthday;
+
+
+                userEN.Gender = user.Gender;
 
                 session.Update (userEN);
                 SessionCommit ();
@@ -275,6 +275,276 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.User
                 //String sql = @"FROM UserEN self where FROM UserEN";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UserENdameTodosLosUsuariosHQL");
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorBodyType (Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum bodyType)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.BodyType = :bodyType";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorBodyTypeHQL");
+                query.SetParameter ("bodyType", bodyType);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorEthnicity (Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum etnia)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.Ethnicity = :etnia";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorEthnicityHQL");
+                query.SetParameter ("etnia", etnia);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorEyeColor (Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum color)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.EyeColor = :color";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorEyeColorHQL");
+                query.SetParameter ("color", color);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorHairColor (Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum color)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.HairColor = :color";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorHairColorHQL");
+                query.SetParameter ("color", color);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorHairLength (Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum tamanyo)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.HairLength = :tamanyo";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorHairLengthHQL");
+                query.SetParameter ("tamanyo", tamanyo);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorHairStyle (Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum estilo)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.HairStyle = :estilo";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorHairStyleHQL");
+                query.SetParameter ("estilo", estilo);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorReligion (Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.Religion = :religion";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorReligionHQL");
+                query.SetParameter ("religion", religion);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorFumar (Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum fumar)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.Smoke = :fumar";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorFumarHQL");
+                query.SetParameter ("fumar", fumar);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorGender (Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum genero)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.Gender = :genero";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorGenderHQL");
+                query.SetParameter ("genero", genero);
 
                 result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
                 SessionCommit ();

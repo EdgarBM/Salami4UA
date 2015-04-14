@@ -94,6 +94,9 @@
 	<Compile Include="CAD\Salami4UA\IUserCAD.cs" />
 	<Compile Include="CAD\Salami4UA\UserCAD.cs" />
 			<Compile Include="CEN\Salami4UA\UserCEN_ValidationUser.cs" />
+			<Compile Include="CEN\Salami4UA\UserCEN_CambiarPassword.cs" />
+			<Compile Include="CEN\Salami4UA\UserCEN_DameUsuarioPorNacionalidad.cs" />
+			<Compile Include="CEN\Salami4UA\UserCEN_DameUsuarioPorAltura.cs" />
 	<Compile Include="EN\Salami4UA\PetsEN.cs" />
 	<Compile Include="CEN\Salami4UA\PetsCEN.cs" />
 	<Compile Include="CAD\Salami4UA\IPetsCAD.cs" />
@@ -134,6 +137,7 @@
 	<Compile Include="Enumerated\Salami4UA\EthnicityEnum.cs" />
 	<Compile Include="Enumerated\Salami4UA\ReligionEnum.cs" />
 	<Compile Include="Enumerated\Salami4UA\SmokeEnum.cs" />
+	<Compile Include="Enumerated\Salami4UA\GenderEnum.cs" />
 	
 	
 
