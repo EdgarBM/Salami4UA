@@ -9,7 +9,7 @@
     </h2>
     <p>
         Please introduce your nickname and password. If you don't have an accout you can 
-        <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">register</asp:HyperLink> right now.
+        <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">register</asp:HyperLink> now.
     </p>
 
     <asp:Label ID="ErrorValidacion" runat="server" CssClass="failureNotification"></asp:Label>
@@ -42,11 +42,13 @@
                              CssClass="failureNotification" ErrorMessage="The password is mandatory." ToolTip="The password is mandatory." 
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                     </p>
-                    <p>
-                        <asp:Button ID="LoginButton" runat="server" Text="Login" ValidationGroup="LoginUserValidationGroup" onclick="LoginButton_Click" />
-                        <asp:Button ID="ChangePasswordButton" runat="server" Text="ChangePassword" onclick="change_password" />
-                    </p>
+                    
                 </fieldset>
+
+                <p style="text-align: left; margin-left: 5%;">
+                    <asp:Button ID="LoginButton" runat="server" Text="Login" ValidationGroup="LoginUserValidationGroup" onclick="LoginButton_Click" />
+                    <asp:Button ID="ChangePasswordButton" runat="server" Text="ChangePassword" onclick="change_password" />
+                </p>
             </div>
         </LayoutTemplate>
     </asp:Login>

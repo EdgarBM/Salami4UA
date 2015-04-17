@@ -69,8 +69,10 @@
     <Content Include="Imagenes\arajpg.jpg" />
     <Content Include="Imagenes\descarga.jpg" />
     <Content Include="Imagenes\fondo_ua.png" />
+    <Content Include="Imagenes\Gente.png" />
     <Content Include="Imagenes\logoSalami4UA.png" />
     <Content Include="Imagenes\ua.jpg" />
+    <Content Include="Imagenes\universidadalicante.jpg" />
     <Content Include="Perfil.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />

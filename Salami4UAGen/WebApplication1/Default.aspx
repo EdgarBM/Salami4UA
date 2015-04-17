@@ -9,9 +9,9 @@
     <h2>
         Meet people from the University of Alicante, easy and quick!
     </h2>
-    <p>
+    <p style="padding-left: 10%;">
         <br />
-        <asp:Image ID="University" runat="server"  ImageUrl="~/Imagenes/ua.jpg" />
+        <asp:Image ID="University" runat="server"  ImageUrl="~/Imagenes/Gente.png" />
         
     </p>
 </asp:Content>

@@ -55,11 +55,13 @@
                              ValidationGroup="ChangeUserPasswordValidationGroup">*</asp:CompareValidator>
                     </p>
                 </fieldset>
-                <p class="submitButton">
+                <p style="margin-left: 5%">
                     <asp:Button ID="CancelPushButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"/>
                     <asp:Button ID="ChangePasswordPushButton" runat="server" CommandName="ChangePassword" Text="Change Password" 
-                         ValidationGroup="ChangeUserPasswordValidationGroup" OnClick="Continuar_Click"/>
+                            ValidationGroup="ChangeUserPasswordValidationGroup" OnClick="Continuar_Click"/>
+                    <br />
                 </p>
+                
             </div>
 
     <asp:Label ID="LoginOk" runat="server" ForeColor="Green"></asp:Label>

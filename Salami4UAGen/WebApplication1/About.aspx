@@ -4,9 +4,9 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h1>
+    <h2>
         About us
-    </h1>
+    </h2>
     
     <br />
     <p class="MsoNormal">

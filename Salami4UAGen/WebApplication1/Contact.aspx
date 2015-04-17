@@ -1,14 +1,19 @@
-﻿<%@ Page Title="" Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="WebApplication1.Contact" %>
+﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="WebApplication1.Contact" %>
 
 
 <asp:Content ID="aboutContent" ContentPlaceHolderID="MainContent" runat="server">
    
-   <h1> Contact </h1>
+    <h2>
+        Contact
+    </h2>
 
-    <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-&nbsp;<asp:Label ID="Label1" runat="server" ></asp:Label>
-    <% if (Label1.Text == "") { %>
+   <% if (Label1.Text != "") { %>
+
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+    &nbsp;<asp:Label ID="Label1" runat="server" ></asp:Label>
+
+    <% } else { %>
 
     <p>
         If you have any doubt or you want to give any advice please contact us in our 

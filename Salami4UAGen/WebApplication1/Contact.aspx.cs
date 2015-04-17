@@ -34,7 +34,7 @@ namespace WebApplication1
                 smtpClient.EnableSsl = true;
                 smtpClient.Credentials = new System.Net.NetworkCredential("salami4ua@gmail.com", "salamiforua");
                 smtpClient.Send(message);
-                Label1.Text = "Message sended.";
+                Label1.Text = "Message sended. Thank you for collaborating with Salami4UA!";
                 TextBox1.Text = "";
                 TextBox2.Text = "";
                 TextBox3.Text = "";
