@@ -13,7 +13,7 @@ namespace WebApplication1
         // executed loading the page
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Label1.Text = "";
         }
 
         // function that sends an email to our gmail account

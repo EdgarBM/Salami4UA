@@ -24,7 +24,6 @@ public bool CambiarPassword (string nick, string contrasenyaAntigua, string cont
         UserEN usuario = _IUserCAD.ReadOIDDefault (nick);
 
         if (usuario.Password == contrasenyaAntigua) {
-
                 usuario.Password = contrasenyaNueva;
                 _IUserCAD.Modify(usuario);
                 ok = true;
