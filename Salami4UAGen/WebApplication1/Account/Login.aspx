@@ -22,19 +22,18 @@
             <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="LoginUserValidationGroup"/>
             
-            
-                
-            <div class="accountInfo">
-                <fieldset class="login">
+            <div class="accountInfo" style="width:50%;">
+                <fieldset class="login" style="background-color: #FBFDFF">
                     <legend>Information Account</legend>
                     <p>
 
                         <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Nickname</asp:Label>
-                        <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
+                        <asp:TextBox ID="UserName" runat="server" class="textEntry" Width="320px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
                              CssClass="failureNotification" ErrorMessage="The nickname is mandatory." ToolTip="The nickname is mandatory." 
                              ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                     </p>
+                    <br />
                     <p>
                         <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password</asp:Label>
                         <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
@@ -46,9 +45,10 @@
                 </fieldset>
 
                 <p style="text-align: left; margin-left: 5%;">
-                    <asp:Button ID="LoginButton" runat="server" Text="Login" ValidationGroup="LoginUserValidationGroup" onclick="LoginButton_Click" />
-                    <asp:Button ID="ChangePasswordButton" runat="server" Text="ChangePassword" onclick="change_password" />
+                    <asp:Button ID="LoginButton" runat="server" class='button' Text="Login" ValidationGroup="LoginUserValidationGroup" onclick="LoginButton_Click" />
+                    <asp:Button ID="ChangePasswordButton" runat="server" class='button' Text="ChangePassword" onclick="change_password" />
                 </p>
+
             </div>
         </LayoutTemplate>
     </asp:Login>

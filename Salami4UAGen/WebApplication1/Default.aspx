@@ -11,7 +11,7 @@
     </h2>
     <p style="padding-left: 10%;">
         <br />
-        <asp:Image ID="University" runat="server"  ImageUrl="~/Imagenes/Gente.png" />
+        <asp:Image ID="University" runat="server" ImageUrl="~/Imagenes/Gente.png" />
         
     </p>
 </asp:Content>

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
+using Salami4UAGenNHibernate.CEN.Salami4UA;
+using Salami4UAGenNHibernate.EN.Salami4UA;
 
 namespace WebApplication1
 {
@@ -14,6 +16,23 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             Label1.Text = "";
+            if (Session["Login"] != null){
+
+                String nick = Session["Login"].ToString();
+
+                try
+                {
+                    UserCEN usuario = new UserCEN();
+                    IList<UserEN> usuarios = usuario.DameUsuarioPorNickname(nick);
+
+                    foreach (UserEN us in usuarios)
+                    {
+                        TextBox1.Text = us.Name;
+                        TextBox2.Text = us.Email;
+                    }
+                }
+                catch (Exception ex) { }
+            }
         }
 
         // function that sends an email to our gmail account

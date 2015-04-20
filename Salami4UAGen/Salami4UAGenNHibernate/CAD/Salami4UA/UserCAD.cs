@@ -165,6 +165,18 @@ public void Modify (UserEN user)
 
                 userEN.Gender = user.Gender;
 
+
+                userEN.Likes = user.Likes;
+
+
+                userEN.Name = user.Name;
+
+
+                userEN.Surname = user.Surname;
+
+
+                userEN.Comment = user.Comment;
+
                 session.Update (userEN);
                 SessionCommit ();
         }
@@ -545,6 +557,97 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.User
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorGenderHQL");
                 query.SetParameter ("genero", genero);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.Nacionalidad = :nacionalidad";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorNacionalidadHQL");
+                query.SetParameter ("nacionalidad", nacionalidad);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorAltura (Salami4UAGenNHibernate.EN.Salami4UA.HeightEN altura)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.Height_0 = :altura";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorAlturaHQL");
+                query.SetParameter ("altura", altura);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorRangoEdad (int min, int max)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE year(c.Birthday) < :min AND year(c.Birthday) > :max";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorRangoEdadHQL");
+                query.SetParameter ("min", min);
+                query.SetParameter ("max", max);
 
                 result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
                 SessionCommit ();
