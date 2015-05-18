@@ -65,6 +65,8 @@ namespace WebApplication1
                         Smoke.Text = us.Smoke.ToString();
                         Religion.Text = us.Religion.ToString();
                         Birth.Text = Convert.ToString(us.Birthday).Substring(0, 10);
+                        StudiesLabel.Text = us.Career;
+                        CourseLabel.Text = us.Course.ToString();
 
                         if (us.Comment != "")
                         {
@@ -287,6 +289,15 @@ namespace WebApplication1
                 Response.Redirect(url);
             }
             catch (Exception) { }
+        }
+
+        protected void ButtonEnviarMensaje_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SendMessage.aspx?msgTo=" + nick);
+        }
+
+        protected void ButtonEnviarPinchito_Click(object sender, EventArgs e)
+        {
         }
     }
 

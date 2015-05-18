@@ -11,9 +11,10 @@
             <% if (Session["login"] != null){ %>
     <p>
         Select your preferences to find your ideal salami.&nbsp;
-        <asp:RadioButton id="CalmSearch" Text="Calm search" Checked="True" GroupName="SearchType" runat="server" /> &nbsp;&nbsp;&nbsp;
+        
        
-        <asp:RadioButton id="StrictSearch" Text="Strict search" GroupName="SearchType" runat="server" />
+        <asp:RadioButton id="StrictSearch" Text="Strict search" Checked="True" GroupName="SearchType" runat="server" />&nbsp;&nbsp;&nbsp;
+        <asp:RadioButton id="CalmSearch" Text="Calm search"  GroupName="SearchType" runat="server" /> 
     </p>
         <span class="failureNotification">
             <asp:Literal ID="ErrorMessage" runat="server"></asp:Literal>
@@ -26,9 +27,9 @@
                 <legend>Filter</legend>
                 <p>
                     <asp:RadioButton id="RadioWoman" Text="Woman" Checked="True" GroupName="RadioGroup1" runat="server" />
-                    <asp:RadioButton id="RadioMan" Text="Man" GroupName="RadioGroup1" runat="server" />
-                    &nbsp;&nbsp;&nbsp; 
-                    
+                    <asp:RadioButton id="RadioMan" Text="Man" GroupName="RadioGroup1" runat="server" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     Interested in me?
+                    <asp:CheckBox ID="Interested" runat="server" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Age between:&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="MinAge" runat="server" Width="34px" ToolTip="Number Please"></asp:TextBox>
 
@@ -47,22 +48,22 @@
                     <asp:Label ID="NationalityLabel" runat="server">Nationality: </asp:Label>
                     <asp:DropDownList ID="NacionalidadList" runat="server"></asp:DropDownList>
 
-                    &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;
 
                     <asp:Label ID="BodyTypeLabel" runat="server">Body type: </asp:Label>
                     <asp:DropDownList ID="TiposDeCuerpo" runat="server"> </asp:DropDownList>
 
-                    &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;
 
                     <asp:Label ID="AlturaLabel" runat="server">Height: </asp:Label>
                     <asp:DropDownList ID="Height" runat="server"></asp:DropDownList>
                     
-                    &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;
 
                     <asp:Label ID="EthnicityLabel" runat="server">Ethnicity: </asp:Label>
-                    <asp:DropDownList ID="Etnia" runat="server" style="margin-left: 10px"></asp:DropDownList>
+                    <asp:DropDownList ID="Etnia" runat="server" style="margin-left: 0px"></asp:DropDownList>
 
-                     &nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;
 
                     <asp:Label ID="EyeColorLabel" runat="server">Eye Color: </asp:Label>
                     <asp:DropDownList ID="ColorOjos" runat="server" Height="16px" style="margin-left: 0px"> </asp:DropDownList>
@@ -93,11 +94,21 @@
                     <asp:DropDownList ID="Fumador" runat="server"> </asp:DropDownList>
 
                     <br /><br />
+                    <asp:Label ID="StudiesLabel" runat="server">Studies: </asp:Label>
+                    <asp:DropDownList ID="Estudios" runat="server" Width="200px"> </asp:DropDownList>
+
+                    &nbsp;&nbsp;&nbsp;
+
+                    <asp:Label ID="CourseLabel" runat="server">Course: </asp:Label>
+                    <asp:DropDownList ID="Curso" runat="server"> </asp:DropDownList>
+
+                    
                 </p>
                 
                 
                 <p class="submitButton">
-                    <asp:Button ID="BuscarButton" runat="server" class="button" CommandName="MoveNext" Text="Search" OnClick="Search_Click"/>
+                    <asp:Button Style="float:left" ID="ButtonRecomend" runat="server" class="button"  Text="See perfect match" OnClick="Recomend_Click"/>
+                    <asp:Button Style="float:right" ID="BuscarButton" runat="server" class="button" CommandName="MoveNext" Text="Search" OnClick="Search_Click"/>
                 </p>
                             
             </fieldset>
@@ -105,7 +116,7 @@
         </div>
     
     
-        <div class="resoultInfo" style="margin-left: 40px">
+        <div class="resoultInfo" style="margin-left: 10px">
             <h3>
                 <asp:Label ID="LabelSalami" runat="server"></asp:Label>
             </h3>
@@ -117,15 +128,43 @@
             -->
 
             <asp:GridView ID="GridView1" runat="server"
-                 AutoGenerateColumns="False" BorderColor="White" BorderStyle="None" >
-                <HeaderStyle BackColor="#CCCCCC" />
+                 AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
+                GridLines="None" >
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                 <RowStyle HorizontalAlign="Center" BorderColor="White" BorderStyle="Solid" 
-                    BorderWidth="2px" />
-                <AlternatingRowStyle BackColor="#CCCCCC" />
+                    BorderWidth="2px" BackColor="#EFF3FB" />
+                <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="Nickname" HeaderText="Nickname" />
-                    <asp:BoundField DataField="Email" HeaderText="Email" />
+                    <asp:TemplateField HeaderText="Picture">
+                        <ItemTemplate>
+                           <asp:ImageButton ID="ImagenPerfilBuscador" runat="server" Height="70px" Width="70px" 
+                                    PostBackUrl='<%#"VerPerfil.aspx/" + Eval("Nickname") %>' ImageUrl='<%# Eval("UrlFoto") %>'/>
+                         </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Nickname">
+                        <ItemTemplate>
+                           <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#"VerPerfil.aspx/" + Eval("Nickname") %>' 
+                                            Text='<%#Bind("Nickname") %>'></asp:HyperLink>
+                         </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="Name" HeaderText="Name" />
+                    <asp:BoundField DataField="Surname" HeaderText="Surname" />
+                    <asp:BoundField DataField="Gender" HeaderText="Genre" />
+                    <asp:BoundField DataField="Likes" HeaderText="Interested in" />
+                    <asp:TemplateField HeaderText="Birthday">
+                        <ItemTemplate>
+                            <asp:Label ID="BirthLabel" runat="server" Text='<%# ChopString(Eval("Birthday").ToString()) %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
             <asp:ObjectDataSource ID="ObjectDataSource1" runat="server">

@@ -64,8 +64,9 @@ System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> 
 
 
 
-void AnyadirMensajeEnviado (string p_Usuario_OID, System.Collections.Generic.IList<int> p_messagesEnviados_OIDs);
+System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorCarrera (string carrera);
 
-void AnyadirMensajeRecibido (string p_Usuario_OID, System.Collections.Generic.IList<int> p_messagesRecibidos_OIDs);
+
+System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorCurso (string curso);
 }
 }
