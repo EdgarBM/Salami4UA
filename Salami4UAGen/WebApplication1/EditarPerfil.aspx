@@ -1,9 +1,29 @@
 ﻿<%@ Page Title="EditarPerfil" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="EditarPerfil.aspx.cs" Inherits="WebApplication1.EditarPerfil" %>
+    <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<style type="text/css">
+    .modalBackground
+    {
+        background-color: Black;
+        filter: alpha(opacity=90);
+        opacity: 0.8;
+    }
+    .modalPopup
+    {
+        background-color: #FFFFFF;
+        border-width: 3px;
+        border-style: solid;
+        border-color: black;
+        padding-top: 10px;
+        padding-left: 10px;
+        width: 650px;
+        height: 250px;
+    }
+</style>
     <h2>
         Edit Profile
     </h2>
@@ -13,11 +33,91 @@
     
     <br />
     <br />
-    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 599px; width: 213px; float: left'>
-        <img alt="" src="Imagenes/user.png" align="middle" height="200px" width:"200px" />
+    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 220px; float: left'>
+        <asp:Image ID="ImagenPerfil" runat="server" Height="200px" Width="200px" />
+        <br /><br />
+        
+        <form id="form2">
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnShow" runat="server" Text="Change photo" class="button" OnClick="PopUpChangePhoto_Click"/>
+            <asp:Button ID="btn" runat="server" style="display:none;" />
+            <!-- ModalPopupExtender -->
+            
+            <cc1:modalpopupextender ID="mp2" runat="server" PopupControlID="Panel1" TargetControlID="btn"
+                CancelControlID="btnClose" BackgroundCssClass="modalBackground">
+            </cc1:modalpopupextender>
+
+            <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" style = "display:none">
+               
+                <asp:ValidationSummary ID="ChangePhotoSummary" runat="server" CssClass="failureNotification" 
+                ValidationGroup="ChangePhotoGroup"/>
+               
+                <p>
+                    <strong>Change Photo</strong>
+                </p>
+                <p style="text-align:left; margin-left:2%; color:Black">
+                    Here you can change your photo profile, please introduce a valid URL of your favourite photo (JPG, PNG)
+                    
+                </p>
+
+                <p style="text-align:left; margin-left:2%; color:GrayText">
+                    Example: http://www.fotofoto.com/perfil.jpg
+                </p>
+
+                
+                
+                <p style="text-align:left; margin-left:5%">  
+                    
+                    <asp:Label ID="URLLabel" runat="server">URL: *</asp:Label>
+                    <br />
+                    
+                     <asp:TextBox ID="URL" runat="server" Width="400px"></asp:TextBox>
+                    <br />
+                    
+                    <asp:RequiredFieldValidator ID="nameReportReq" runat="server"
+                                                ControlToValidate="URL" ForeColor="Red"
+                                                ErrorMessage="Please introduce a valid URL" ValidationGroup="ChangePhotoGroup">
+                    </asp:RequiredFieldValidator>
+                   
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="The photo must be on JPG or PNG"
+                    ControlToValidate="URL" ForeColor="Red" ValidationExpression="(^\S+\.)+(png|jpg)$"
+                    ValidationGroup="ChangePhotoGroup">
+                    </asp:RegularExpressionValidator>
+
+                    <br />
+
+                    
+                    
+
+                </p>
+
+
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                    
+                        <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="send_Click" class="button" ValidationGroup="reportGroup"/>      
+                    
+                        <asp:Button ID="btnClose" runat="server" Text="Close" class="button" OnClick="close_Click"/>
+                        <br /><br />
+
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
+                <br />
+
+            </asp:Panel>
+            <!-- ModalPopupExtender -->
+            </form>
+         
+        
+        
+        
+        
     </div>
-    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 596px; width: 310px; float: left' >
-    
+
+    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 310px; float: left' >
+
         <!--<asp:Label ID="Label2" runat="server" Text="Nationality" Width="100px"></asp:Label>
         <asp:DropDownList ID="Nationality" runat="server" Width="100px"></asp:DropDownList>
 
@@ -36,8 +136,27 @@
         <asp:RequiredFieldValidator ID="RequiredSurname" runat="server" ControlToValidate="Surname" 
             CssClass="failureNotification" ErrorMessage="The surname is mandatory." ToolTip="The surname is mandatory." 
             ValidationGroup="EditUserValidationGroup">*</asp:RequiredFieldValidator>
-        <br />
-        <br />
+        <br /><br />
+
+        <asp:Label ID="NationalityLabel" runat="server" Text="Nationality" Width="100px"></asp:Label>
+        <asp:DropDownList ID="Nacionalidades" runat="server" Width="100px"></asp:DropDownList>
+
+        <br /><br />
+
+        <asp:Label ID="AlturaLabel" runat="server" Text="Heigth" Width="100px"></asp:Label>
+        <asp:DropDownList ID="Alturas" runat="server" Width="100px"></asp:DropDownList>
+
+        <br /><br />
+
+        <asp:Label ID="CareerLabel" runat="server" Text="Career" Width="100px"></asp:Label>
+        <asp:DropDownList ID="Carreras" runat="server" Width="100px"></asp:DropDownList>
+
+        <br /><br />
+
+        <asp:Label ID="CourseLabel" runat="server" Text="Course" Width="100px"></asp:Label>
+        <asp:DropDownList ID="Courses" runat="server" Width="100px"></asp:DropDownList>
+
+        <br /><br />
 
         <asp:Label ID="Label20" runat="server" Text="Body Type" Width="100px"></asp:Label>
         <asp:DropDownList ID="TiposDeCuerpo" runat="server" Width="100px"></asp:DropDownList>
@@ -104,23 +223,69 @@
             ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"></asp:RegularExpressionValidator>
     
     </div>
-    <br /><br /><br /><br /><br /><br />
-    
-    <p>
-        <asp:Label ID="LabelComment" runat="server" Text="Something about you"></asp:Label>
 
-        <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div style= 'height: 800px; width: 380px; border: 3px; float: left' >  
+            
+            <p>
+            <asp:Label ID="LabelComment" runat="server" Text="Something about you"></asp:Label>
 
-        <asp:TextBox ID="Comment" runat="server" CssClass="textEntry" 
-            TextMode="MultiLine" Height="191px" Width="390px"></asp:TextBox>
-        <asp:RegularExpressionValidator ID="CommentValidator" runat="server"             
-            ErrorMessage="The maximum characters allowed are 200"            
-            ValidationExpression="^([\S\s]{0,200})$" ValidationGroup="EditUserValidationGroup"           
-            ControlToValidate="Comment" ForeColor=Red          
-            Display="Dynamic"></asp:RegularExpressionValidator>
+            <br />
+
+            <asp:TextBox ID="Comment" runat="server" CssClass="textEntry" 
+                TextMode="MultiLine" Height="191px" Width="340px"></asp:TextBox>
+        </p>
+            <p>
+            <asp:RegularExpressionValidator ID="CommentValidator" runat="server"             
+                ErrorMessage="The maximum characters allowed are 200"            
+                ValidationExpression="^([\S\s]{0,200})$" ValidationGroup="EditUserValidationGroup"           
+                ControlToValidate="Comment" ForeColor=Red          
+                Display="Dynamic"></asp:RegularExpressionValidator>
                     
-        <br />
-    </p>
+            <br />
+        </p>
+
+    </div>
+    
+    <div style= 'height: 1100px; width: 910px; border: 3px; float: left' >  
+
+        <asp:Label ID="LabelAnimales" runat="server" Text="Pets" BorderColor="#33CCFF" BorderStyle="None" Font-Bold="True" Font-Names="Tahoma" Font-Size="Large" Font-Strikeout="False" ForeColor="Silver"></asp:Label>
+        <asp:Label ID="ErrorAnimales" runat="server" Text="" ForeColor="Red" ></asp:Label>
+        <asp:CheckBoxList id="Animales" runat="server" RepeatDirection="Horizontal"
+                            CellPadding="5" CellSpacing="5" RepeatColumns="10"></asp:CheckBoxList>
+        <br /><br /><br />
+
+        <asp:Label ID="LabelCaracteristicas" runat="server" Text="Features" BorderColor="#33CCFF" BorderStyle="None" Font-Bold="True" Font-Names="Tahoma" Font-Size="Large" Font-Strikeout="False" ForeColor="Silver"></asp:Label>
+        <asp:Label ID="ErrorCaracteristicas" runat="server" Text="" ForeColor="Red" ></asp:Label>
+        <asp:CheckBoxList id="Caracteristicas" runat="server" RepeatDirection="Horizontal"
+                                CellPadding="5" CellSpacing="5" RepeatColumns="10"></asp:CheckBoxList>
+        <br /><br /><br />
+    
+        <asp:Label ID="LabelCine" runat="server" Text="Film Tastes" BorderColor="#33CCFF" BorderStyle="None" Font-Bold="True" Font-Names="Tahoma" Font-Size="Large" Font-Strikeout="False" ForeColor="Silver"></asp:Label>
+        <asp:Label ID="ErrorCine" runat="server" Text="" ForeColor="Red" ></asp:Label>
+        <asp:CheckBoxList id="Cine" runat="server" RepeatDirection="Horizontal" 
+                            CellPadding="5" CellSpacing="5" RepeatColumns="10"></asp:CheckBoxList>
+        <br /><br /><br />
+    
+        <asp:Label ID="LabelMusica" runat="server" Text="Music Tastes" BorderColor="#33CCFF" BorderStyle="None" Font-Bold="True" Font-Names="Tahoma" Font-Size="Large" Font-Strikeout="False" ForeColor="Silver"></asp:Label>
+        <asp:Label ID="ErrorMusica" runat="server" Text="" ForeColor="Red" ></asp:Label>
+        <asp:CheckBoxList id="Musica" runat="server" RepeatDirection="Horizontal"
+                                CellPadding="5" CellSpacing="5" RepeatColumns="10"></asp:CheckBoxList>
+        <br /><br /><br />
+    
+        <asp:Label ID="LabelDeporte" runat="server" Text="Sports" BorderColor="#33CCFF" BorderStyle="None" Font-Bold="True" Font-Names="Tahoma" Font-Size="Large" Font-Strikeout="False" ForeColor="Silver"></asp:Label>
+        <asp:Label ID="ErrorDeportes" runat="server" Text="" ForeColor="Red" ></asp:Label>
+        <asp:CheckBoxList id="Deportes" runat="server" RepeatDirection="Horizontal"
+                            CellPadding="5" CellSpacing="5" RepeatColumns="10"></asp:CheckBoxList>
+        <br /><br /><br />
+    
+        <asp:Label ID="LabelHobbies" runat="server" Text="Hobbies" BorderColor="#33CCFF" BorderStyle="None" Font-Bold="True" Font-Names="Tahoma" Font-Size="Large" Font-Strikeout="False" ForeColor="Silver"></asp:Label>
+        <asp:Label ID="ErrorHobbies" runat="server" Text="" ForeColor="Red" ></asp:Label>
+        <asp:CheckBoxList id="Hobbies" runat="server" RepeatDirection="Horizontal"
+                            CellPadding="5" CellSpacing="5" RepeatColumns="10"></asp:CheckBoxList>
+        
+    </div>
+
+    <br /><br />
 
     <div style= 'height: 50px; width: 800px; border: 3px; float: Right' >  
         

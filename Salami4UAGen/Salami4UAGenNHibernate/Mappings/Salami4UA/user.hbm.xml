@@ -55,6 +55,64 @@
 					<property name="ValidationCode" type="string"> 
 						<column name="[ValidationCode]"  not-null="true"/>
 					</property>
+					<property name="Career" type="string"> 
+						<column name="[Career]"  not-null="true"/>
+					</property>
+					<property name="Course" > 
+						<column name="[Course]"  not-null="true"/>
+					</property>
+					<property name="Nationality" type="string"> 
+						<column name="[Nationality]"  not-null="true"/>
+					</property>
+					<property name="Height" type="integer"> 
+						<column name="[Height]"  not-null="true"/>
+					</property>
+					<bag name="Pets" table="[Pets]">
+						<key>
+							<column name="[Nickname]"/>
+						</key>
+						<element column="[Pets]" type="string"/>
+    				</bag>
+					<bag name="Films" table="[Films]">
+						<key>
+							<column name="[Nickname]"/>
+						</key>
+						<element column="[Films]" type="string"/>
+    				</bag>
+					<bag name="Musics" table="[Musics]">
+						<key>
+							<column name="[Nickname]"/>
+						</key>
+						<element column="[Musics]" type="string"/>
+    				</bag>
+					<bag name="Characteristics" table="[Characteristics]">
+						<key>
+							<column name="[Nickname]"/>
+						</key>
+						<element column="[Characteristics]" type="string"/>
+    				</bag>
+					<bag name="Sports" table="[Sports]">
+						<key>
+							<column name="[Nickname]"/>
+						</key>
+						<element column="[Sports]" type="string"/>
+    				</bag>
+					<bag name="Hobbies" table="[Hobbies]">
+						<key>
+							<column name="[Nickname]"/>
+						</key>
+						<element column="[Hobbies]" type="string"/>
+    				</bag>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			
 			
@@ -67,84 +125,34 @@
 			
 			
 		  			
-						<bag name="Pets" table="[user_pets]"  >
+						<bag name="MessagesEnviados" >
 							<key>
-									<column name="[FK_Nickname_idUser]"/>
-							</key>
-      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.PetsEN">
-									<column name="[FK_Name_idPets]"/>
-      						</many-to-many>
-    					</bag>
+								<column name="[FK_Nickname_idUser]"/>
+					      	</key>
+							<one-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN"/>
+					    </bag>
+					
 			
 		  			
-						<bag name="CharacteristicFeatures" table="[user_characteristicFeatures]"  >
+						<bag name="MessagesRecibidos" >
 							<key>
-									<column name="[FK_Nickname_idUser]"/>
-							</key>
-      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.CharacteristicFeaturesEN">
-									<column name="[FK_Name_idCharacteristicFeatures]"/>
-      						</many-to-many>
-    					</bag>
-			
-		  			
-						<bag name="Hobbies" table="[hobbies_user]" inverse="true" >
-							<key>
-									<column name="[FK_Nickname_idUser]"/>
-							</key>
-      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.HobbiesEN">
-									<column name="[FK_Name_idHobbies]"/>
-      						</many-to-many>
-    					</bag>
-			
-		  			
-						<bag name="Sports" table="[sports_user]" inverse="true" >
-							<key>
-									<column name="[FK_Nickname_idUser]"/>
-							</key>
-      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.SportsEN">
-									<column name="[FK_Name_idSports]"/>
-      						</many-to-many>
-    					</bag>
-			
-		  			
-						<bag name="MusicalTastes" table="[musicalTastes_user]" inverse="true" >
-							<key>
-									<column name="[FK_Nickname_idUser]"/>
-							</key>
-      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.MusicalTastesEN">
-									<column name="[FK_Name_idMusicalTastes]"/>
-      						</many-to-many>
-    					</bag>
-			
-		  			
-						<bag name="GenreFilms" table="[user_genreFilms]"  >
-							<key>
-									<column name="[FK_Nickname_idUser]"/>
-							</key>
-      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.GenreFilmsEN">
-									<column name="[FK_Name_idGenreFilms]"/>
-      						</many-to-many>
-    					</bag>
-			
-		  			
-						<many-to-one name="Nacionalidad" class="Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN" >	
-								<column name="[FK_Name_idNacionalidad]"/>
-						</many-to-one>
-											 					
-			
-			
-			
-		  			
-						<many-to-one name="Height_0" class="Salami4UAGenNHibernate.EN.Salami4UA.HeightEN" >	
-								<column name="[FK_value_idHeight_0]"/>
-						</many-to-one>
-											 					
+								<column name="[FK_Nickname_idUser]"/>
+					      	</key>
+							<one-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN"/>
+					    </bag>
+					
 			
 			
 			
 			
 			
 			
+			
+			
+					
+					
+					
+					
 					
 					
 					
@@ -187,8 +195,8 @@
 		  <query name="UserENdameUsuarioPorReligionHQL"><![CDATA[FROM UserEN c WHERE c.Religion = :religion]]></query>
 		  <query name="UserENdameUsuarioPorFumarHQL"><![CDATA[FROM UserEN c WHERE c.Smoke = :fumar]]></query>
 		  <query name="UserENdameUsuarioPorGenderHQL"><![CDATA[FROM UserEN c WHERE c.Gender = :genero]]></query>
-		  <query name="UserENdameUsuarioPorNacionalidadHQL"><![CDATA[FROM UserEN c WHERE c.Nacionalidad = :nacionalidad]]></query>
-		  <query name="UserENdameUsuarioPorAlturaHQL"><![CDATA[FROM UserEN c WHERE c.Height_0 = :altura]]></query>
+		  <query name="UserENdameUsuarioPorNacionalidadHQL"><![CDATA[FROM UserEN c WHERE c.Nationality = :nacionalidad]]></query>
+		  <query name="UserENdameUsuarioPorAlturaHQL"><![CDATA[FROM UserEN c WHERE c.Height = :altura]]></query>
 		  <query name="UserENdameUsuarioPorRangoEdadHQL"><![CDATA[FROM UserEN c WHERE year(c.Birthday) < :min AND year(c.Birthday) > :max]]></query>
 		</hibernate-mapping>
 	

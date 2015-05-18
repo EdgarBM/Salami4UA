@@ -5,16 +5,6 @@
 			<class name="NationalityEN" table="[Nationality]">
 						<id name="Name" column="[Name]"/>
 			
-			
-		  			
-						<bag name="User" >
-							<key>
-								<column name="[FK_Name_idNacionalidad]"/>
-					      	</key>
-							<one-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.UserEN"/>
-					    </bag>
-					
-					
 					
 		
 		  </class>
