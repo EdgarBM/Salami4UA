@@ -26,9 +26,9 @@
                 <legend>Filter</legend>
                 <p>
                     <asp:RadioButton id="RadioWoman" Text="Woman" Checked="True" GroupName="RadioGroup1" runat="server" />
-                    <asp:RadioButton id="RadioMan" Text="Man" GroupName="RadioGroup1" runat="server" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     Interested in me?
-                    <asp:CheckBox ID="Interested" runat="server" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:RadioButton id="RadioMan" Text="Man" GroupName="RadioGroup1" runat="server" />
+                    &nbsp;&nbsp;&nbsp; 
+                    
                     Age between:&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="MinAge" runat="server" Width="34px" ToolTip="Number Please"></asp:TextBox>
 
@@ -105,7 +105,7 @@
         </div>
     
     
-        <div class="resoultInfo" style="margin-left: 10px">
+        <div class="resoultInfo" style="margin-left: 40px">
             <h3>
                 <asp:Label ID="LabelSalami" runat="server"></asp:Label>
             </h3>
@@ -117,43 +117,15 @@
             -->
 
             <asp:GridView ID="GridView1" runat="server"
-                 AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
-                GridLines="None" >
-                <EditRowStyle BackColor="#2461BF" />
-                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                 AutoGenerateColumns="False" BorderColor="White" BorderStyle="None" >
+                <HeaderStyle BackColor="#CCCCCC" />
                 <RowStyle HorizontalAlign="Center" BorderColor="White" BorderStyle="Solid" 
-                    BorderWidth="2px" BackColor="#EFF3FB" />
-                <AlternatingRowStyle BackColor="White" />
+                    BorderWidth="2px" />
+                <AlternatingRowStyle BackColor="#CCCCCC" />
                 <Columns>
-                    <asp:TemplateField HeaderText="Picture">
-                        <ItemTemplate>
-                           <asp:ImageButton ID="ImagenPerfilBuscador" runat="server" Height="70px" Width="70px" 
-                                    PostBackUrl='<%#"VerPerfil.aspx/" + Eval("Nickname") %>' ImageUrl='<%# Eval("UrlFoto") %>'/>
-                         </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Nickname">
-                        <ItemTemplate>
-                           <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#"VerPerfil.aspx/" + Eval("Nickname") %>' 
-                                            Text='<%#Bind("Nickname") %>'></asp:HyperLink>
-                         </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="Name" HeaderText="Name" />
-                    <asp:BoundField DataField="Surname" HeaderText="Surname" />
-                    <asp:BoundField DataField="Gender" HeaderText="Genre" />
-                    <asp:BoundField DataField="Likes" HeaderText="Interested in" />
-                    <asp:TemplateField HeaderText="Birthday">
-                        <ItemTemplate>
-                            <asp:Label ID="BirthLabel" runat="server" Text='<%# ChopString(Eval("Birthday").ToString()) %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    <asp:BoundField DataField="Nickname" HeaderText="Nickname" />
+                    <asp:BoundField DataField="Email" HeaderText="Email" />
                 </Columns>
-                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
             <asp:ObjectDataSource ID="ObjectDataSource1" runat="server">

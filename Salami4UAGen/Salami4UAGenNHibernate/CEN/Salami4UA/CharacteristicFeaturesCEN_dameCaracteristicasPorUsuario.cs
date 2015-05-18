@@ -34,10 +34,8 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Char
                 UserCAD usuarioCAD = new UserCAD (basic.session);
                 UserEN usuarioEN = usuarioCAD.ReadOIDDefault (nickname);
 
-                foreach (String caracteristica in usuarioEN.Characteristics) {
-                        CharacteristicFeaturesEN c = new CharacteristicFeaturesEN ();
-                        c.Name = caracteristica;
-                        todascaracteristicas.Add (c);
+                foreach (CharacteristicFeaturesEN caracteristica in usuarioEN.CharacteristicFeatures) {
+                        todascaracteristicas.Add (caracteristica);
                 }
         }
         catch (Exception ex)

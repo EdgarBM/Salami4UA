@@ -21,10 +21,10 @@ namespace WebApplication1.Account
 
                 try
                 {
-                    UsuarioCEN usuario = new UsuarioCEN();
-                    IList<UsuarioEN> usuarios = usuario.DameUsuarioPorNickname(nick);
+                    UserCEN usuario = new UserCEN();
+                    IList<UserEN> usuarios = usuario.DameUsuarioPorNickname(nick);
 
-                    foreach (UsuarioEN us in usuarios)
+                    foreach (UserEN us in usuarios)
                     {
                         Username.Text = nick;
                     }
@@ -38,7 +38,7 @@ namespace WebApplication1.Account
 
         protected void Continuar_Click(object sender, EventArgs e)
         {
-            Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
+            Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN();
             try
             {
 
@@ -51,9 +51,9 @@ namespace WebApplication1.Account
                     MailMessage message = new MailMessage();
                     try
                     {
-                        IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> user = new List<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN>();
+                        IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user = new List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
                         user = usuario.DameUsuarioPorNickname(Username.Text);
-                        Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN usuario1 = user.ElementAt(0);
+                        Salami4UAGenNHibernate.EN.Salami4UA.UserEN usuario1 = user.ElementAt(0);
                         
 
                         MailAddress fromAddress = new MailAddress("salami4ua@gmail.com", "Salami4UA");
@@ -62,8 +62,7 @@ namespace WebApplication1.Account
                         message.To.Add(toAddress);
                         message.Subject = "Salami4ua";
                         message.Body = "Your password has been changed. Thank you for using Salami4UA as " + Username.Text + ". \n\n " +
-                            "Please click the following link: \n http://localhost:49837/Account/Login.aspx"+
-                            "\n\n Regards, Salami4UA Team.";
+                            "Please click the following link: \n http://localhost:49837/Account/Login.aspx";
                         smtpClient.EnableSsl = true;
                         smtpClient.Credentials = new System.Net.NetworkCredential("salami4ua@gmail.com", "salamiforua");
 

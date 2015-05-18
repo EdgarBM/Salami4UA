@@ -11,7 +11,8 @@ namespace WebApplication1.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);            
+            RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
+            Session.Clear();
         }
 
         protected void LoginButton_Click(object LoginButton, EventArgs e)
@@ -23,13 +24,15 @@ namespace WebApplication1.Account
 
                 if (usuario.ValidationUser(LoginUser.UserName, LoginUser.Password))
                 {
+                    
                     ErrorValidacion.Text = "";
-                    Response.Redirect("Default.aspx");
+                    Session["login"] = LoginUser.UserName;
+                    Response.Redirect("~/Default.aspx");
                 }
 
                 else
                 {
-                    ErrorValidacion.Text = "The nickname and the password don't match";
+                    ErrorValidacion.Text = "The nickname or the password are wrong.";
                 }
 
 
@@ -37,9 +40,14 @@ namespace WebApplication1.Account
             }
             catch (Exception ex)
             {
+                ErrorValidacion.Text = "The nickname or the password are wrong.";
             }
         }
 
+        protected void change_password(object changeButton, EventArgs e)
+        {
+            Response.Redirect("~/ChangePassword.aspx");
+        }
 
     }
 }

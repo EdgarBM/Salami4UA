@@ -34,10 +34,8 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Genr
                 UserCAD usuarioCAD = new UserCAD (basic.session);
                 UserEN usuarioEN = usuarioCAD.ReadOIDDefault (nickname);
 
-                foreach (String cine in usuarioEN.Films) {
-                        GenreFilmsEN g = new GenreFilmsEN ();
-                        g.Name = cine;
-                        todosCines.Add (g);
+                foreach (GenreFilmsEN cine in usuarioEN.GenreFilms) {
+                        todosCines.Add (cine);
                 }
         }
         catch (Exception ex)

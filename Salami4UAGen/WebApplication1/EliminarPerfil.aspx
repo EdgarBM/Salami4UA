@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        Delete User
+        Delete Profile
     </h2>
     
     
@@ -19,8 +19,8 @@
             <asp:ValidationSummary ID="DeleteUserValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="DeleteUserValidationGroup"/>
             <div class="accountInfo">
-                <fieldset class="changePassword" style="background-color: #FBFDFF">
-                    <legend>Account Information</legend>
+                <fieldset class="changePassword">
+                    <legend>Account Information de cuenta</legend>
                     <p>
                         <asp:Label ID="UsernameLabel" Text="Nickname:  " runat="server"></asp:Label>
                         <asp:Label ID="Username" runat="server" ></asp:Label>
@@ -35,7 +35,7 @@
                              ValidationGroup="DeleteUserValidationGroup">*</asp:RequiredFieldValidator>
                     </p>
                     <p>
-                        <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword">Confirm the password:</asp:Label>
+                        <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword">Confirm the password</asp:Label>
                         <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="ConfirmNewPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" 
                              CssClass="failureNotification" Display="Dynamic" ErrorMessage="The confirmation of the password is mandatory."
