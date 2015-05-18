@@ -23,32 +23,20 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.User
 
 
         UserCEN usuariocen = new UserCEN ();
-        NationalityEN n = new NationalityEN ();
 
-        n.Name = nacionalidad;
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> todosUsuarios = usuariocen.DameTodosLosUsuarios ();
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> resultado = usuariocen.DameTodosLosUsuarios ();
+        while (resultado.Count != 0) {
+                resultado.RemoveAt (0);
+        }
 
-        return usuariocen.Pruebas(n);
+        foreach (UserEN usuario in todosUsuarios) {
+                if (usuario.Nacionalidad.Name == nacionalidad) {
+                        resultado.Add (usuario);
+                }
+        }
 
-
-        /*
-         * System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> todosUsuarios = usuariocen.DameTodosLosUsuarios ();
-         * System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> resultado = usuariocen.DameTodosLosUsuarios ();
-         * while (resultado.Count != 0) {
-         *      resultado.RemoveAt (0);
-         * }
-         *
-         * foreach (UserEN usuario in todosUsuarios) {
-         *      if (usuario.Nacionalidad.Name == nacionalidad) {
-         *              resultado.Add (usuario);
-         *      }
-         * }
-         *
-         * return resultado;*/
-
-
-
-
-
+        return resultado;
 
         /*PROTECTED REGION END*/
 }

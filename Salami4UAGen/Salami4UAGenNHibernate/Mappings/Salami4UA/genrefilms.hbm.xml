@@ -5,6 +5,17 @@
 			<class name="GenreFilmsEN" table="[GenreFilms]">
 						<id name="Name" column="[Name]"/>
 			
+			
+		  			
+						<bag name="User" table="[user_genreFilms]" inverse="true" >
+							<key>
+									<column name="[FK_Name_idGenreFilms]"/>
+							</key>
+      						<many-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.UserEN">
+									<column name="[FK_Nickname_idUser]"/>
+      						</many-to-many>
+    					</bag>
+					
 					
 		
 		  </class>

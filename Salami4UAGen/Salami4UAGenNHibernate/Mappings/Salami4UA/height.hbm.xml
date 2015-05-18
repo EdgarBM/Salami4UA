@@ -5,6 +5,16 @@
 			<class name="HeightEN" table="[Height]">
 						<id name="Height" column="[value]"/>
 			
+			
+		  			
+						<bag name="User" >
+							<key>
+								<column name="[FK_value_idHeight_0]"/>
+					      	</key>
+							<one-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.UserEN"/>
+					    </bag>
+					
+					
 					
 		
 		  </class>

@@ -11,7 +11,7 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Salami4UAGenNHibernate.CEN.Salami4UA.CaracteristicasCEN genre = new Salami4UAGenNHibernate.CEN.Salami4UA.CaracteristicasCEN();
+            //Salami4UAGenNHibernate.CEN.Salami4UA.CharacteristicFeaturesCEN genre = new Salami4UAGenNHibernate.CEN.Salami4UA.CharacteristicFeaturesCEN();
 
         }
     }

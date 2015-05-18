@@ -12,7 +12,6 @@ namespace WebApplication1.Account
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            ForgotPasswordLink.NavigateUrl = "~/ForgotPassword.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
             Session.Clear();
         }
 
@@ -20,7 +19,7 @@ namespace WebApplication1.Account
         {
             try
             {
-                Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
+                Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN();
                 
 
                 if (usuario.ValidationUser(LoginUser.UserName, LoginUser.Password))
@@ -33,7 +32,7 @@ namespace WebApplication1.Account
 
                 else
                 {
-                    ErrorValidacion.Text = "The nickname or the password are wrong.";
+                    ErrorValidacion.Text = "The nickname and the password don't match";
                 }
 
 
@@ -41,7 +40,6 @@ namespace WebApplication1.Account
             }
             catch (Exception ex)
             {
-                ErrorValidacion.Text = "The nickname or the password are wrong.";
             }
         }
 
