@@ -32,9 +32,13 @@ namespace WebApplication1
 
                     BlockedUsersGridView.DataSource = usuarios;
                     BlockedUsersGridView.DataBind();
+
+                    if (usuarios.Count == 0)
+                    {
+                        sin_usuarios.Text = "There aren't blocked users :)";
+                    }
                 }
-                catch (Exception ex)
-                { }
+                catch (Exception){ }
             }
 
             else

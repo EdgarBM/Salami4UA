@@ -11,6 +11,8 @@ namespace WebApplication1
 {
     public partial class VerMensajesDesdePerfil : System.Web.UI.Page
     {
+        string admin = "admin";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Login"] != null)
@@ -31,7 +33,8 @@ namespace WebApplication1
 
                         if (mensajes.Count != 0)
                         {
-                            usuarios.Add(us);
+                            if(us.Nickname != admin)
+                                usuarios.Add(us);
                         }
                     }
 

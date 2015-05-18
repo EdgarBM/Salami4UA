@@ -31,7 +31,7 @@ namespace WebApplication1.Account
                         Username.Text = nick;
                     }
                 }
-                catch (Exception ex) { }
+                catch (Exception) { }
             }
 
             LoginOk.Text = "";
@@ -44,7 +44,7 @@ namespace WebApplication1.Account
             try
             {
 
-                if (usuario.CambiarPassword(Username.Text, Login.GetMd5Hash(CurrentPassword.Text), Login.GetMd5Hash(NewPassword.Text)))
+                if (usuario.CambiarPassword(Username.Text.ToLower(), Login.GetMd5Hash(CurrentPassword.Text), Login.GetMd5Hash(NewPassword.Text)))
                 {
 
                     LoginOk.Text = "The password has been changed!";
@@ -55,7 +55,7 @@ namespace WebApplication1.Account
                     try
                     {
                         IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> user = new List<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN>();
-                        user = usuario.DameUsuarioPorNickname(Username.Text);
+                        user = usuario.DameUsuarioPorNickname(Username.Text.ToLower());
                         Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN usuario1 = user.ElementAt(0);
 
                         // Message to admin
@@ -65,6 +65,17 @@ namespace WebApplication1.Account
 
                             MensajesCEN mensajeCen = new MensajesCEN();
                             mensajeCen.New_(msg, usuario1.Nickname, admin);
+
+
+                            UsuarioCEN usuarioCen = new UsuarioCEN();
+                            UsuarioCEN usuarioCen2 = new UsuarioCEN();
+
+                            IList<string> mensajes = usuarioCen2.DameMensajesRecibidosPorUsuario(admin);
+                            if (!mensajes.Contains(usuario1.Nickname))
+                            {
+                                mensajes.Add(usuario1.Nickname);
+                                usuarioCen.ModificarMensajesRecibidos(admin, mensajes);
+                            }
 
                         }
                         catch (Exception)
@@ -88,7 +99,7 @@ namespace WebApplication1.Account
                         Username.Text = "";
 
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         
                     }
@@ -100,7 +111,7 @@ namespace WebApplication1.Account
                 }
             }
 
-            catch (Exception e1)
+            catch (Exception)
             {
                 LoginFail.Text = "Error in username or password, try again.";
                 LoginOk.Text = "";

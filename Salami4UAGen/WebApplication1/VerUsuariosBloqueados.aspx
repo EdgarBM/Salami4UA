@@ -10,6 +10,8 @@
     <br />
     <br />
 
+    <asp:Label ID="sin_usuarios" runat="server"></asp:Label>
+
     <div class="resoultInfo" style="margin-left: 10px">
            
 
@@ -45,10 +47,10 @@
                             <asp:Label ID="BirthLabel" runat="server" Text='<%# ChopString(Eval("Birthday").ToString()) %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Delete User">
+                    <asp:TemplateField HeaderText="Unlock User">
                         <ItemTemplate>
                            <asp:ImageButton ID="HyperLinkDelete" runat="server" PostBackUrl='<%#"DesbloquearUsuario.aspx/" + Eval("Nickname") %>' 
-                                            Text='X' ImageUrl="~/Imagenes/delete.png" Height="25px" Width="25px" ></asp:ImageButton>
+                                            Text='X' ImageUrl="~/Imagenes/unlock.png" Height="25px" Width="25px" ></asp:ImageButton>
                          </ItemTemplate>
                     </asp:TemplateField>
                     

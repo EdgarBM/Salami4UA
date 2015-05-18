@@ -16,7 +16,10 @@
 
         <br />
         <asp:Label ID="Label" runat="server" AssociatedControlID="Label"></asp:Label>
+        <br />
         <asp:Label ID="ErrorNickname" runat="server" ForeColor="Red"></asp:Label>
+        <br />
+        <asp:Label ID="ErrorEmail" runat="server" ForeColor="Red"></asp:Label>
 
         <% if (Label.Text == "") { %>
         <p>

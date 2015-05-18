@@ -20,7 +20,7 @@
     
         <div class="resoultInfo" style="margin-left: 10px">
             <h3>
-                Pending messages from:
+                <asp:Label ID="sin_mensajes" runat="server" Text="Pending messages from:"></asp:Label>
             </h3>
             <br />
 
@@ -73,7 +73,7 @@
         
         <div class="resoultInfo" style="margin-left: 10px">
             <h3>
-                Pending pinchitos from:
+                <asp:Label ID="sin_pinchitos" runat="server" Text="Pending pinchitos from:"></asp:Label>
             </h3>
             <br />
 

@@ -83,6 +83,16 @@ namespace WebApplication1
                             usuario.ModificarMensajesRecibidos(user, mensajesRecibidos);
                         }
 
+                        String session = Session["login"].ToString();
+                        UsuarioCEN usuarioCEN = new UsuarioCEN();
+                        IList<string> usuariosString = usuarioCEN.DamePersonasALasQUeHasBloqueado(session);
+                        IList<UsuarioEN> blockedUsers = new List<UsuarioEN>();
+
+                        if(usuariosString.Contains(nick)){
+                            BotonBloquearUsuario.Text = "Unlock user";
+                            BotonBloquearUsuario.PostBackUrl = "DesbloquearUsuario.aspx/" + nick;
+                        }
+
                         foreach (UsuarioEN us in usuarios)
                         {
 

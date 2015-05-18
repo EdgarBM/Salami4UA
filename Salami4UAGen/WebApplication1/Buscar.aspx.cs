@@ -650,6 +650,27 @@ namespace WebApplication1
                 }
             }
 
+            if (Curso.SelectedIndex != -1 && !Curso.SelectedValue.ToString().Equals("Unspecified"))
+            {
+                string curso = Curso.SelectedValue;
+                List<UsuarioEN> listaPorCurso = new List<UsuarioEN>();
+
+                listaPorCurso.AddRange(UsuarioCEN.DameUsuarioPorCurso(
+                    (CourseEnum)Enum.Parse(typeof(CourseEnum), curso)));
+
+                {
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorCurso)
+                    {
+                        if (listaUsuarios.Contains(u))
+                            listaAux.Add(u);
+                    }
+
+                    listaUsuarios = listaAux;
+                }
+            }
+
+
             if (NacionalidadList.SelectedIndex != -1 && !NacionalidadList.SelectedValue.ToString().Equals("Unspecified"))
             {
                 string valor = NacionalidadList.SelectedValue;

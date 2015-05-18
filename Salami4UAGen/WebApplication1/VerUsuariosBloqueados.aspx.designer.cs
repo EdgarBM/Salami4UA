@@ -13,6 +13,15 @@ namespace WebApplication1 {
     public partial class VerUsuariosBloqueados {
         
         /// <summary>
+        /// Control sin_usuarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label sin_usuarios;
+        
+        /// <summary>
         /// Control BlockedUsersGridView.
         /// </summary>
         /// <remarks>

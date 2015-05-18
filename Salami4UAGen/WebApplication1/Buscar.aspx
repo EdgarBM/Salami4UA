@@ -106,6 +106,7 @@
                     <asp:DropDownList ID="Curso" runat="server"> </asp:DropDownList>
                     </p>
                 
+                    <br />
                 
                     <p class="submitButton">
                         <asp:Button Style="float:left" ID="ButtonRecomend" runat="server" class="button"  Text="See perfect match" OnClick="Recomend_Click"/>

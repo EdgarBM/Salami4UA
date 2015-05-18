@@ -196,22 +196,40 @@
                  <% }
                else if (Session["login"].ToString() == "admin")
                {
+                   if (comprobarNotificaciones(Session["login"].ToString()))
+                   {
                  %>
                 
-                <asp:Menu ID="Menu2" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
+                    <asp:Menu ID="Menu2" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                        <Items>
 
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem NavigateUrl="~/Admin.aspx" Text="Admin Users"/>
-                        <asp:MenuItem NavigateUrl="~/VerMensajesDesdePerfil.aspx" Text="Messages"/>
-                    </Items>
-                </asp:Menu>
+                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                            <asp:MenuItem NavigateUrl="~/Admin.aspx" Text="Admin Users"/>
+                            <asp:MenuItem NavigateUrl="~/VerMensajesDesdePerfil.aspx" Text="Messages"/>
+                            <asp:MenuItem NavigateUrl="~/Notification.aspx" Text="<span style=&quot;color:red&quot;>Pending Notifications</span>"/>
+                        </Items>
+                    </asp:Menu>
+                    <%
+                   }
+                   else
+                   {
+                 %>
+
+                 <asp:Menu ID="Menu4" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                        <Items>
+
+                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                            <asp:MenuItem NavigateUrl="~/Admin.aspx" Text="Admin Users"/>
+                            <asp:MenuItem NavigateUrl="~/VerMensajesDesdePerfil.aspx" Text="Messages"/>
+                        </Items>
+                    </asp:Menu>
                 
                  <% }
+               }
                else
-               { 
-                   
-                   if( comprobarNotificaciones(Session["login"].ToString() ) )
+               {
+
+                   if (comprobarNotificaciones(Session["login"].ToString()))
                    {
                  %>
 
@@ -228,9 +246,9 @@
                         </asp:Menu>
                 
                  <%
-                    }
-                    else
-                    {
+                   }
+                   else
+                   {
                  %>
                         <asp:Menu ID="Menu3" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                             <Items>
@@ -244,9 +262,9 @@
                         </asp:Menu>
                  <%
                            
-                    } 
-                
-                } %>
+                   }
+
+               } %>
             </div>
         </div>
         <div class="main" >

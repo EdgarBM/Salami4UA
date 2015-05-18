@@ -31,6 +31,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.ValidationSummary RegisterUserValidationSummary;
         
         /// <summary>
+        /// Control sin_mensajes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label sin_mensajes;
+        
+        /// <summary>
         /// Control GridViewMensajes.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace WebApplication1 {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
+        
+        /// <summary>
+        /// Control sin_pinchitos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label sin_pinchitos;
         
         /// <summary>
         /// Control GridViewPinchitos.

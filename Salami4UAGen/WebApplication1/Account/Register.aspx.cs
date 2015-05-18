@@ -521,7 +521,7 @@ namespace WebApplication1.Account
 
 
                 IList<UsuarioEN> listaUsuarios = new List<UsuarioEN>();
-                listaUsuarios = usuario.DameUsuarioPorNickname(UserName.Text);
+                listaUsuarios = usuario.DameUsuarioPorNickname(UserName.Text.ToLower());
 
                 if (listaUsuarios.Count != 0)
                 {
@@ -537,8 +537,8 @@ namespace WebApplication1.Account
                 if (listaEmails.Count != 0)
                 {
                     ok = false;
-                    ErrorNickname.Text = "ERROR: This email already exists. Please register with another one.";
-                    UserName.Text = "";
+                    ErrorEmail.Text = "ERROR: This email already exists. Please register with another one.";
+                    Email.Text = "";
 
                 }
 
@@ -556,10 +556,10 @@ namespace WebApplication1.Account
                 {
                     // Gustos
                     GustosCEN gustoCEN = new GustosCEN();
-                    gustoCEN.New_(UserName.Text, colPelBuscado, colOjosBuscado, longPelBuscado, styPelBuscado, bodTypeBuscado, etniBuscado, fumBuscado);
+                    gustoCEN.New_(UserName.Text.ToLower(), colPelBuscado, colOjosBuscado, longPelBuscado, styPelBuscado, bodTypeBuscado, etniBuscado, fumBuscado);
 
 
-                    usuario.New_(UserName.Text, Login.GetMd5Hash(password.ToString()), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, Email.Text,
+                    usuario.New_(UserName.Text.ToLower(), Login.GetMd5Hash(password.ToString()), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, Email.Text,
                         tiempo, genero, orientacion, Name.Text, Surname.Text, Comment.Text, "NotValidated", CareerList.SelectedValue, curso,
                         NacionalidadList.SelectedValue, Int32.Parse(Height.SelectedValue), animales, cines, musicas, caracteristicas, deportes, hobbies, "http://10hotmail.com/wp-content/uploads/2012/05/Agregar-contactos-Yahoo-MSN-Messenger.png", UserName.Text);
                         
@@ -572,10 +572,22 @@ namespace WebApplication1.Account
                         "\n\n Regards, Salami4UA Team.";
                     try
                     {
-                        string msg = UserName.Text + " has created his new account without validation.";
+                        string user_min = UserName.Text.ToLower();
+                        string msg = user_min + " has created his new account without validation.";
 
                         MensajesCEN mensajeCen = new MensajesCEN();
-                        mensajeCen.New_(msg, UserName.Text, admin);
+                        mensajeCen.New_(msg, user_min, admin);
+
+                        UsuarioCEN usuarioCen = new UsuarioCEN();
+                        UsuarioCEN usuarioCen2 = new UsuarioCEN();
+
+                        IList<string> mensajes = usuarioCen2.DameMensajesRecibidosPorUsuario(admin);
+                        if (!mensajes.Contains(user_min))
+                        {
+                            mensajes.Add(user_min);
+                            usuarioCen.ModificarMensajesRecibidos(admin, mensajes);
+                        }
+
 
                     }
                     catch (Exception)
@@ -605,6 +617,7 @@ namespace WebApplication1.Account
             ErrorNickname.Text = "";
             ErrorTerms.Text = "";
             ErrorUnderAge.Text = "";
+            ErrorEmail.Text = "";
         }
 
         protected void clickarCarrera(object sender, EventArgs e)

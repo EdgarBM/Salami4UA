@@ -119,6 +119,7 @@ namespace WebApplication1
             l.Style.Add("-moz-border-radius", "15px 15px 15px 15px");
             l.Style.Add("border-radius", "15px 15px 15px 15px");
             l.Style.Add("padding", "0px 5px 0px 5px");
+            l.Style.Add("margin-bottom", "3px");
 
             if (send)
             {

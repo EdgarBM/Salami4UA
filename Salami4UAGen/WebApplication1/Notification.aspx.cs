@@ -47,8 +47,25 @@ namespace WebApplication1
 
                 GridViewMensajes.DataBind();
                 GridViewPinchitos.DataBind();
-            }
 
+                if (listaUsuariosMensajes.Count == 0)
+                {
+                    sin_mensajes.Text = "";
+                }
+                else
+                {
+                    sin_mensajes.Text = "Pending messages from:";
+                }
+
+                if (listaUsuariosPinchitos.Count == 0)
+                {
+                    sin_pinchitos.Text = "";
+                }
+                else
+                {
+                    sin_pinchitos.Text = "Pending pinchitos from:";
+                }
+            }
             else
             {
                 Response.Redirect("~/Account/Login.aspx");

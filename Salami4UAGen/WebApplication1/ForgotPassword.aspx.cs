@@ -32,7 +32,7 @@ namespace WebApplication1
             {
                 UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
 
-                IList<UsuarioEN> usu1 = usuario.DameUsuarioPorNickname(Nickname.Text);
+                IList<UsuarioEN> usu1 = usuario.DameUsuarioPorNickname(Nickname.Text.ToLower());
                 IList<UsuarioEN> usu2 = usuario.DameUsuarioPorEmail(Email.Text);
 
                 // Si el nombre de usuario y email son correctos
@@ -75,14 +75,25 @@ namespace WebApplication1
 
                             smtpClient.Send(message);
 
-                            usuario.AddValidation(Nickname.Text, password.ToString());
+                            usuario.AddValidation(Nickname.Text.ToLower(), password.ToString());
 
                             try
                             {
-                                string msg = Nickname.Text + " has requested to recover his password.";
+                                string msg = Nickname.Text.ToLower() + " has requested to recover his password.";
 
                                 MensajesCEN mensajeCen = new MensajesCEN();
-                                mensajeCen.New_(msg, Nickname.Text, admin);
+                                mensajeCen.New_(msg, Nickname.Text.ToLower(), admin);
+
+
+                                UsuarioCEN usuarioCen = new UsuarioCEN();
+                                UsuarioCEN usuarioCen2 = new UsuarioCEN();
+
+                                IList<string> mensajes = usuarioCen2.DameMensajesRecibidosPorUsuario(admin);
+                                if (!mensajes.Contains(Nickname.Text.ToLower()))
+                                {
+                                    mensajes.Add(Nickname.Text.ToLower());
+                                    usuarioCen.ModificarMensajesRecibidos(admin, mensajes);
+                                }
 
                             }
                             catch (Exception)
@@ -143,13 +154,13 @@ namespace WebApplication1
             try
             {
                 UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
-                IList<UsuarioEN> usu1 = usuario.DameUsuarioPorNickname(Nickname2.Text);
+                IList<UsuarioEN> usu1 = usuario.DameUsuarioPorNickname(Nickname2.Text.ToLower());
                 UsuarioEN u1 = usu1[0];
 
                 if (Validation.Text == u1.ValidationCode)
                 {
 
-                    if (usuario.CambiarPassword(Nickname2.Text, u1.Password, Account.Login.GetMd5Hash(NewPasswordRecover.Text)))
+                    if (usuario.CambiarPassword(Nickname2.Text.ToLower(), u1.Password, Account.Login.GetMd5Hash(NewPasswordRecover.Text)))
                     {
 
                         Description.Text = "";
@@ -163,7 +174,7 @@ namespace WebApplication1
                         try
                         {
                             IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> user = new List<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN>();
-                            user = usuario.DameUsuarioPorNickname(Nickname2.Text);
+                            user = usuario.DameUsuarioPorNickname(Nickname2.Text.ToLower());
                             Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN usuario1 = user.ElementAt(0);
 
                             // Message to the admin
@@ -174,10 +185,17 @@ namespace WebApplication1
                                 MensajesCEN mensajeCen = new MensajesCEN();
                                 mensajeCen.New_(msg, usuario1.Nickname, admin);
 
+                                UsuarioCEN usuarioCen = new UsuarioCEN();
+                                UsuarioCEN usuarioCen2 = new UsuarioCEN();
+
+                                IList<string> mensajes = usuarioCen2.DameMensajesRecibidosPorUsuario(admin);
+                                if (!mensajes.Contains(usuario1.Nickname))
+                                {
+                                    mensajes.Add(usuario1.Nickname);
+                                    usuarioCen.ModificarMensajesRecibidos(admin, mensajes);
+                                }
                             }
-                            catch (Exception)
-                            {
-                            }
+                            catch (Exception){}
 
                             MailAddress fromAddress = new MailAddress("salami4ua@gmail.com", "Salami4UA");
                             MailAddress toAddress = new MailAddress(u1.Email, Nickname2.Text);
@@ -192,8 +210,8 @@ namespace WebApplication1
 
                             smtpClient.Send(message);
 
-                            usuario.AddValidation(Nickname2.Text, "");
-                            Session["login"] = Nickname2.Text;
+                            usuario.AddValidation(Nickname2.Text.ToLower(), "");
+                            Session["login"] = Nickname2.Text.ToLower();
 
                         }
                         catch (Exception ex)

@@ -50,17 +50,18 @@ namespace WebApplication1.Account
             try
             {
                 UsuarioCEN usuario = new UsuarioCEN();
-                
-                if (usuario.ValidationUser(LoginUser.UserName, GetMd5Hash(LoginUser.Password)))
+                String user_min = LoginUser.UserName.ToLower();
+
+                if (usuario.ValidationUser(user_min, GetMd5Hash(LoginUser.Password)))
                 {
                     //Check if it is the admin user
                     try{
-                        IList<UsuarioEN> usu = usuario.DameUsuarioPorNickname(LoginUser.UserName);
+                        IList<UsuarioEN> usu = usuario.DameUsuarioPorNickname(user_min);
                     
                         UsuarioEN u = usu.ElementAt(0);
                         if(String.Compare(u.Nickname, admin) == 0){
                             ErrorValidacion.Text = "";
-                            Session["login"] = LoginUser.UserName;
+                            Session["login"] = LoginUser.UserName.ToLower();
                             Response.Redirect("~/Admin.aspx");
                         }
 
@@ -70,7 +71,7 @@ namespace WebApplication1.Account
                     //Check if it is a new user
                     try
                     {
-                        IList<UsuarioEN> usu = usuario.DameUsuarioPorNickname(LoginUser.UserName);
+                        IList<UsuarioEN> usu = usuario.DameUsuarioPorNickname(user_min);
 
                         UsuarioEN u = usu.ElementAt(0);
                         if (String.Compare(u.ValidationCode, "NotValidated") == 0)
@@ -80,6 +81,17 @@ namespace WebApplication1.Account
 
                             MensajesCEN mensajeCen = new MensajesCEN();
                             mensajeCen.New_(msg, u.Nickname, admin);
+
+
+                            UsuarioCEN usuarioCen = new UsuarioCEN();
+                            UsuarioCEN usuarioCen2 = new UsuarioCEN();
+
+                            IList<string> mensajes = usuarioCen2.DameMensajesRecibidosPorUsuario(admin);
+                            if (!mensajes.Contains(u.Nickname))
+                            {
+                                mensajes.Add(u.Nickname);
+                                usuarioCen.ModificarMensajesRecibidos(admin, mensajes);
+                            }
                         }
 
 
@@ -87,7 +99,7 @@ namespace WebApplication1.Account
                     catch (Exception) { }
                     
                     ErrorValidacion.Text = "";
-                    Session["login"] = LoginUser.UserName;
+                    Session["login"] = LoginUser.UserName.ToLower();
                     Response.Redirect("~/Default.aspx");
                 }
 
@@ -99,7 +111,7 @@ namespace WebApplication1.Account
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 ErrorValidacion.Text = "The nickname or the password are wrong.";
             }
