@@ -55,7 +55,7 @@
         </LayoutTemplate>
     </asp:Login>
 
-    <p style="text-align: left; margin-left: 2%;">
+    <p style="text-align: left; margin-left: 5%;">
         <asp:HyperLink ID="ForgotPasswordLink" runat="server" EnableViewState="false">Forgotten password?</asp:HyperLink>
     </p>
 </asp:Content>

@@ -13,9 +13,6 @@ using Salami4UAGenNHibernate.Properties;
 using Salami4UAGenNHibernate.Utils;
 using System.Collections;
 using System.Text;
-using Salami4UAGenNHibernate.CEN.Salami4UA;
-
-
 
 
 namespace WebApplication1
@@ -32,7 +29,6 @@ namespace WebApplication1
                 {
                     UserCEN usuario = new UserCEN();
                     IList<UserEN> usuarios = usuario.DameUsuarioPorNickname(nick);
-
 
 
                     foreach (UserEN us in usuarios)
