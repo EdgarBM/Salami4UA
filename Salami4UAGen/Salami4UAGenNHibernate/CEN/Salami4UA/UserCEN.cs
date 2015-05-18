@@ -247,10 +247,6 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.User
 {
         return _IUserCAD.DameUsuarioPorGender (genero);
 }
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> Pruebas (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad)
-{
-        return _IUserCAD.Pruebas (nacionalidad);
-}
 public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad)
 {
         return _IUserCAD.DameUsuarioPorNacionalidad (nacionalidad);

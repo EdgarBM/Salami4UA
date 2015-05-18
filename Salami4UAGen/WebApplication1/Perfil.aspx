@@ -7,82 +7,87 @@
     <h2>
         Profile
     </h2>
-    
-    <div style= 'height: 800px; width: 200px; border: 3px; float: left'>
+    <br /><br />
+    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 226px; float: left'>
         <img alt="" src="Imagenes/user.png" align="middle" height="200px" width:"200px" />
     </div>
 
-    <div style= 'height: 800px; width: 700px; border: 3px; float: left' >
-        <asp:Label ID="Label1" runat="server" Text="Nickname" Width="100px"></asp:Label>
+    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 1064px; width: 659px; float: left; line-height: 2em;' >
+        <asp:Label ID="Label1" runat="server" Text="Nickname" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="Nickname" runat="server" Text="" Width="100px"></asp:Label>
 
         <br />
     
-        <asp:Label ID="Label2" runat="server" Text="Email" Width="100px"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="Email" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="Email" runat="server" Text="" Width="100px"></asp:Label>
 
         <br />
 
-        <asp:Label ID="Label11" runat="server" Text="Genre" Width="100px"></asp:Label>
+        <asp:Label ID="Label11" runat="server" Text="Genre" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="Genero" runat="server" Text="" Width="100px"></asp:Label>
 
         <br />
 
-        <asp:Label ID="Label19" runat="server" Text="Look for" Width="100px"></asp:Label>
+        <asp:Label ID="Label19" runat="server" Text="Look for" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="Orientacion" runat="server" Text="" Width="100px"></asp:Label>
 
 
 
         <br />
     
-        <asp:Label ID="Label3" runat="server" Text="Nationality" Width="100px"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Nationality" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="NationalityLabel" runat="server" Text="" Width="100px"></asp:Label>
 
 
         <br />
     
-        <asp:Label ID="Label4" runat="server" Text="Height" Width="100px"></asp:Label>
+        <asp:Label ID="Label4" runat="server" Text="Height" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="HeightLabel" runat="server" Text="" Width="100px"></asp:Label>
 
         <br />
         
-        <asp:Label ID="Label6" runat="server" Text="Body Type" Width="100px"></asp:Label>
+        <asp:Label ID="Label6" runat="server" Text="Body Type" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="BodyTypeLabel" runat="server" Text="" Width="100px"></asp:Label>
         
         <br />
     
-        <asp:Label ID="Label8" runat="server" Text="Ethnicity" Width="100px"></asp:Label>
+        <asp:Label ID="Label8" runat="server" Text="Ethnicity" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="EthnicityLabel" runat="server" Text="" Width="100px"></asp:Label>
 
         <br />
 
-        <asp:Label ID="Label10" runat="server" Text="Eye Color" Width="100px"></asp:Label>
+        <asp:Label ID="Label10" runat="server" Text="Eye Color" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="EyeColorLabel" runat="server" Text="" Width="100px"></asp:Label>
 
         <br />
 
-        <asp:Label ID="Label12" runat="server" Text="Hair Color" Width="100px"></asp:Label>
+        <asp:Label ID="Label12" runat="server" Text="Hair Color" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="HairColorLabel" runat="server" Text="" Width="100px"></asp:Label>
 
         <br />
 
-        <asp:Label ID="Label14" runat="server" Text="Hair Length" Width="100px"></asp:Label>
+        <asp:Label ID="Label14" runat="server" Text="Hair Length" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="HairLengthLabel" runat="server" Text="" Width="100px"></asp:Label>
 
         <br />
     
-        <asp:Label ID="Label16" runat="server" Text="Hair Style" Width="100px"></asp:Label>
+        <asp:Label ID="Label16" runat="server" Text="Hair Style" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="HairStyleLabel" runat="server" Text="" Width="100px"></asp:Label>
 
         <br />
 
-        <asp:Label ID="Label18" runat="server" Text="Smoke" Width="100px"></asp:Label>
+        <asp:Label ID="Label18" runat="server" Text="Smoke" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="SmokeLabel" runat="server" Text="" Width="100px"></asp:Label>
 
         <br />
 
-        <asp:Label ID="Label5" runat="server" Text="Religion" Width="100px"></asp:Label>
+        <asp:Label ID="Label5" runat="server" Text="Religion" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="ReligionLabel" runat="server" Text="" Width="100px"></asp:Label>
+
+        <br />
+
+        <asp:Label ID="Label20" runat="server" Text="Birthdate" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:Label ID="BirthLabel" runat="server" Text="" Width="100px"></asp:Label>
 
         <br /><br /><br />
 
@@ -129,8 +134,8 @@
         <asp:Button ID="BotonEditarPerfil" runat="server" Text="Edit Profile" OnClick="BotonEditarPerfil_Click" Width="130px" class="button"/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="BotonCambiarPassword" runat="server" Text="Change Password" OnClick="BotonCambiarPassword_Click" class="button"/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="BotonEliminarUsuario" runat="server" Text="Delete User" OnClick="BotonEliminarUsuario_Click" Width="130px" class="button"/>
+        
+        
         
     </div>
 

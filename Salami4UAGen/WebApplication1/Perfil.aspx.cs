@@ -51,7 +51,8 @@ namespace WebApplication1
                         HairStyleLabel.Text = us.HairStyle.ToString();
                         SmokeLabel.Text = us.Smoke.ToString();
                         ReligionLabel.Text = us.Religion.ToString();
-
+                        DateTime tiempo = Convert.ToDateTime(us.Birthday.ToString());
+                        BirthLabel.Text = Convert.ToString(tiempo.Day) + "/" + Convert.ToString(tiempo.Month) + "/" + Convert.ToString(tiempo.Year);
 
                         // Las multiples opciones
 

@@ -31,6 +31,9 @@ namespace WebApplication1.Account
                 }
                 catch (Exception ex) { }
             }
+
+            LoginOk.Text = "";
+            LoginFail.Text = "";
         }
 
         protected void Continuar_Click(object sender, EventArgs e)
@@ -43,10 +46,8 @@ namespace WebApplication1.Account
                 {
 
                     LoginOk.Text = "The password has been changed!";
-                    LoginFail.Text = "";
-                    Username.Text = "";
 
-                   SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                     MailMessage message = new MailMessage();
                     try
                     {
@@ -66,7 +67,9 @@ namespace WebApplication1.Account
                         smtpClient.Credentials = new System.Net.NetworkCredential("salami4ua@gmail.com", "salamiforua");
 
                         smtpClient.Send(message);
-                        
+
+                        LoginFail.Text = "";
+                        Username.Text = "";
 
                     }
                     catch (Exception ex)
@@ -76,16 +79,22 @@ namespace WebApplication1.Account
                 }
                 else
                 {
-                    LoginFail.Text = "Error changing the password, try again.";
+                    LoginFail.Text = "Error in username or password, try again.";
                     LoginOk.Text = "";
                 }
             }
 
             catch (Exception e1)
             {
-                LoginFail.Text = e1.Message;
+                LoginFail.Text = "Error in username or password, try again.";
                 LoginOk.Text = "";
             }
+        }
+
+
+        protected void Cancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Perfil.aspx");
         }
     }
 }

@@ -36,3 +36,25 @@ C:\Users\Alberto\Desktop\Proyecto DSS\Salami4UAGen\InitializeDB\obj\x86\Debug\In
 C:\Users\Alberto\Desktop\Proyecto DSS\Salami4UAGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
 C:\Users\Alberto\Desktop\Proyecto DSS\Salami4UAGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
 C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\InitializeDB\obj\x86\Debug\InitializeDB.csprojResolveAssemblyReference.cache
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\hibernate.cfg.xml
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\InitializeDB.exe
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\InitializeDB.pdb
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\Antlr3.Runtime.dll
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\Iesi.Collections.dll
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\log4net.dll
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\NHibernate.dll
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\nunit.core.dll
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\nunit.framework.dll
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\Salami4UAGenNHibernate.dll
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\bin\Debug\Salami4UAGenNHibernate.pdb
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\obj\x86\Debug\InitializeDB.csprojResolveAssemblyReference.cache
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+C:\Users\LUIS\Desktop\Salami4UAGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+C:\Users\LUIS\Desktop\Salami4UAGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+C:\Users\LUIS\Desktop\Salami4UAGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb

@@ -22,22 +22,31 @@ public void CambiaNacionalidadUsuario (string nickname, string nacionalidadAntig
 
         BasicCP basic = new BasicCP ();
 
+
         try
         {
                 basic.SessionInitializeTransaction ();
                 NationalityCAD nacionalidadCAD = new NationalityCAD (basic.session);
                 UserCAD usuarioCAD = new UserCAD (basic.session);
                 UserEN usuarioEN = usuarioCAD.ReadOIDDefault (nickname);
-                NationalityEN nacionalidadNuevaEN = nacionalidadCAD.ReadOIDDefault(nacionalidadNueva);
-                NationalityEN nacionalidadAntiguaEN = nacionalidadCAD.ReadOIDDefault(nacionalidadAntigua);
-                
-                nacionalidadNuevaEN.User.Add (usuarioEN);
-                nacionalidadAntiguaEN.User.Remove(usuarioEN);
-                nacionalidadCAD.Modify(nacionalidadAntiguaEN);    
-                nacionalidadCAD.Modify(nacionalidadNuevaEN);
-                
+
+                NationalityEN nacionalidadNuevaEN = nacionalidadCAD.ReadOIDDefault (nacionalidadNueva);
+                NationalityEN nacionalidadAntiguaEN = nacionalidadCAD.ReadOIDDefault (nacionalidadAntigua);
+
+                NationalityCEN nacionalidadCEN = new NationalityCEN ();
+
+
                 usuarioEN.Nacionalidad = nacionalidadNuevaEN;
                 _IUserCAD.Modify (usuarioEN);
+                nacionalidadNuevaEN.User.Add (usuarioEN);
+                nacionalidadAntiguaEN.User.Remove (usuarioEN);
+
+
+                nacionalidadCEN.Modify (nacionalidadAntigua);
+                nacionalidadCEN.Modify (nacionalidadNueva);
+
+                //nacionalidadCAD.Modify(nacionalidadAntiguaEN);
+                //nacionalidadCAD.Modify(nacionalidadNuevaEN);
         }
         catch (Exception ex)
         {

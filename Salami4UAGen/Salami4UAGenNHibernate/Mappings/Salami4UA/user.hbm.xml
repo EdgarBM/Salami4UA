@@ -167,7 +167,6 @@
 		  <query name="UserENdameUsuarioPorReligionHQL"><![CDATA[FROM UserEN c WHERE c.Religion = :religion]]></query>
 		  <query name="UserENdameUsuarioPorFumarHQL"><![CDATA[FROM UserEN c WHERE c.Smoke = :fumar]]></query>
 		  <query name="UserENdameUsuarioPorGenderHQL"><![CDATA[FROM UserEN c WHERE c.Gender = :genero]]></query>
-		  <query name="UserENpruebasHQL"><![CDATA[FROM UserEN c WHERE c.Nacionalidad = :nacionalidad]]></query>
 		  <query name="UserENdameUsuarioPorNacionalidadHQL"><![CDATA[FROM UserEN c WHERE c.Nacionalidad = :nacionalidad]]></query>
 		  <query name="UserENdameUsuarioPorAlturaHQL"><![CDATA[FROM UserEN c WHERE c.Height_0 = :altura]]></query>
 		</hibernate-mapping>
