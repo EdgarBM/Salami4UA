@@ -12,18 +12,20 @@ namespace WebApplication1.Account
 {
     public partial class Register : System.Web.UI.Page
     {
-        protected void InicializarValores()
-        {
-            Label.Text = "";
 
-            Salami4UAGenNHibernate.CEN.Salami4UA.NationalityCEN nacion = new Salami4UAGenNHibernate.CEN.Salami4UA.NationalityCEN();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
+
+
+            Salami4UAGenNHibernate.CEN.Salami4UA.NationalityCEN nacion = new Salami4UAGenNHibernate.CEN.Salami4UA.NationalityCEN();          
             IList<Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN> nacionalidades = nacion.DameTodaslasNacionalidades();
 
             NacionalidadList.SelectedValue = "Spanish";
 
             Salami4UAGenNHibernate.CEN.Salami4UA.HeightCEN altura = new Salami4UAGenNHibernate.CEN.Salami4UA.HeightCEN();
             IList<Salami4UAGenNHibernate.EN.Salami4UA.HeightEN> alturas = altura.DameTodaslasAlturas();
-
+            
             String corpulento = Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent.ToString();
             String normal = Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Normal.ToString();
             String secret = Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Secret.ToString();
@@ -137,28 +139,13 @@ namespace WebApplication1.Account
             Fumador.Items.Insert(1, new ListItem(ocassionally, ocassionally));
             Fumador.Items.Insert(2, new ListItem(often, often));
 
-            String generohombre = Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man.ToString();
-            String generomujer = Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Woman.ToString();
-
-            Genero.Items.Insert(0, new ListItem(generohombre, generohombre));
-            Genero.Items.Insert(1, new ListItem(generomujer, generomujer));
-
-            String buscaHombre = Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Man.ToString();
-            String buscaMujer = Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman.ToString();
-            String buscaAmbos = Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Both.ToString();
-
-            Orientacion.Items.Insert(0, new ListItem(buscaHombre, buscaHombre));
-            Orientacion.Items.Insert(1, new ListItem(buscaMujer, buscaMujer));
-            Orientacion.Items.Insert(2, new ListItem(buscaAmbos, buscaAmbos));
-
             for (int i = 0; i < nacionalidades.Count; i++)
             {
-
+                
                 Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad = nacionalidades.ElementAt(i);
                 String s = nacionalidad.Name;
-                if (i == 0)
-                    for (int j = 0; j < nacionalidades.Count; j++)
-                    {
+                if(i == 0)
+                    for(int j = 0; j < nacionalidades.Count; j++){
                         Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacional = nacionalidades.ElementAt(j);
                         if (nacional.Name == "Spanish")
                             s = nacional.Name;
@@ -184,7 +171,7 @@ namespace WebApplication1.Account
 
                 Salami4UAGenNHibernate.EN.Salami4UA.HeightEN altura1 = alturas.ElementAt(i);
                 String s = (altura1.Height).ToString();
-
+                
                 // Insertar s en el listview
                 Height.Items.Insert(i, new ListItem(s, s));
             }
@@ -244,14 +231,6 @@ namespace WebApplication1.Account
             }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!Page.IsPostBack)
-            {
-                InicializarValores();
-            }
-        }
-
 
         protected void Continuar_Click(object sender, EventArgs e)
         {
@@ -293,7 +272,7 @@ namespace WebApplication1.Account
                 {
                     if (elemento.Selected)
                     {
-                        animales.Add(elemento.Value.ToString());
+                        animales.Add(elemento.Value.ToString());                    
                     }
                 }
 
@@ -303,29 +282,29 @@ namespace WebApplication1.Account
                     ErrorAnimales.Text = "Please select at least one animal";
                     ok = false;
                 }
-
+            
                 IList<string> caracteristicas = new List<string>();
                 foreach (ListItem elemento in ListaCaracteristicas.Items)
                 {
                     if (elemento.Selected)
                     {
-                        caracteristicas.Add(elemento.Value.ToString());
+                        caracteristicas.Add(elemento.Value.ToString());                    
                     }
                 }
-
+            
                 if (caracteristicas.Count == 0)
                 {
                     //Mostrar error en un label
                     ErrorCaracteristicas.Text = "Please select at least one characteristic feature";
                     ok = false;
                 }
-
+            
                 IList<string> cines = new List<string>();
                 foreach (ListItem elemento in ListaCine.Items)
                 {
                     if (elemento.Selected)
                     {
-                        cines.Add(elemento.Value.ToString());
+                        cines.Add(elemento.Value.ToString());                    
                     }
                 }
 
@@ -337,8 +316,8 @@ namespace WebApplication1.Account
                     ok = false;
                 }
 
-
-
+            
+            
                 IList<string> musicas = new List<string>();
                 foreach (ListItem elemento in ListaMusica.Items)
                 {
@@ -362,7 +341,7 @@ namespace WebApplication1.Account
                 {
                     if (elemento.Selected)
                     {
-                        deportes.Add(elemento.Value.ToString());
+                        deportes.Add(elemento.Value.ToString());      
                     }
                 }
 
@@ -374,7 +353,7 @@ namespace WebApplication1.Account
                     ok = false;
                 }
 
-
+                        
                 IList<string> hobbies = new List<string>();
                 foreach (ListItem elemento in ListaHobbies.Items)
                 {
@@ -401,44 +380,18 @@ namespace WebApplication1.Account
                 Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum ethnicity = (Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum), Etnia.SelectedValue);
                 Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion = (Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum), Religion.SelectedValue);
                 Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke = (Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum), Fumador.SelectedValue);
-                Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum genero = (Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum), Genero.SelectedValue);
-                Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum orientacion = (Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum), Orientacion.SelectedValue);
-
-                DateTime tiempo = new DateTime();
-
-                try
-                {
-                    tiempo = Convert.ToDateTime(FechaNacimiento.Text);
-                }
-                catch (Exception ex)
-                {
-                    ok = false;
-                }
-
-                IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> listaUsuarios = new List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
-                listaUsuarios = usuario.DameUsuarioPorNickname(UserName.Text);
-
-                if (listaUsuarios.Count != 0)
-                {
-                    ok = false;
-                    ErrorNickname.Text = "ERROR: This nickname already exists. Please select another one.";
-                    UserName.Text = "";
-
-                }
                 
+                DateTime tiempo = new DateTime();
+                tiempo = DateTime.Today;
+
                 if (ok)
                 {
-
-                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, 
-                        bodyType, ethnicity, religion, smoke, animales, caracteristicas, hobbies, deportes, musicas, 
-                        cines, NacionalidadList.SelectedValue, Email.Text, tiempo, Int32.Parse(Height.SelectedValue), 
-                        genero, orientacion, Name.Text, Surname.Text, Comment.Text);
+                    
+                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, animales, caracteristicas, hobbies, deportes, musicas, cines, NacionalidadList.SelectedValue, Email.Text, tiempo, Int32.Parse(Height.SelectedValue), Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man);
 
                     smtpClient.Send(message);
-                    Label.Text = "Your account has been created! Check your email to log in Salami4UA! \n" +
-                        "<a href=\"https://www1.webmail.ua.es/login0.php3?idi=es\" target=\"_blank\"> WebMail  </a>" +
-                        "\nPlease log in <a href=\"/Account/Login.aspx\">here</a>.";
-
+                    Label.Text = "Check your email to log in Salami4UA! \n" +
+                        "<a href=\"https://www1.webmail.ua.es/login0.php3?idi=es\" target=\"_blank\"> WebMail  </a>";
                 }
             }
             catch (Exception ex)
@@ -456,7 +409,6 @@ namespace WebApplication1.Account
             ErrorCine.Text = "";
             ErrorMusica.Text = "";
             ErrorCaracteristicas.Text = "";
-            ErrorNickname.Text = "";
         }
 
         protected void ListaCaracteristicas_SelectedIndexChanged(object sender, EventArgs e)

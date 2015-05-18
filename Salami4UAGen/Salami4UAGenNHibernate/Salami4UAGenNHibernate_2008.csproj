@@ -95,37 +95,32 @@
 	<Compile Include="CAD\Salami4UA\UserCAD.cs" />
 			<Compile Include="CEN\Salami4UA\UserCEN_ValidationUser.cs" />
 			<Compile Include="CEN\Salami4UA\UserCEN_CambiarPassword.cs" />
-			<Compile Include="CEN\Salami4UA\UserCEN_CambiaNacionalidadUsuario.cs" />
+			<Compile Include="CEN\Salami4UA\UserCEN_DameUsuarioPorNacionalidad.cs" />
+			<Compile Include="CEN\Salami4UA\UserCEN_DameUsuarioPorAltura.cs" />
 	<Compile Include="EN\Salami4UA\PetsEN.cs" />
 	<Compile Include="CEN\Salami4UA\PetsCEN.cs" />
 	<Compile Include="CAD\Salami4UA\IPetsCAD.cs" />
 	<Compile Include="CAD\Salami4UA\PetsCAD.cs" />
-			<Compile Include="CEN\Salami4UA\PetsCEN_DameAnimalesPorUsuario.cs" />
 	<Compile Include="EN\Salami4UA\HobbiesEN.cs" />
 	<Compile Include="CEN\Salami4UA\HobbiesCEN.cs" />
 	<Compile Include="CAD\Salami4UA\IHobbiesCAD.cs" />
 	<Compile Include="CAD\Salami4UA\HobbiesCAD.cs" />
-			<Compile Include="CEN\Salami4UA\HobbiesCEN_DameHobbiesPorUsuario.cs" />
 	<Compile Include="EN\Salami4UA\SportsEN.cs" />
 	<Compile Include="CEN\Salami4UA\SportsCEN.cs" />
 	<Compile Include="CAD\Salami4UA\ISportsCAD.cs" />
 	<Compile Include="CAD\Salami4UA\SportsCAD.cs" />
-			<Compile Include="CEN\Salami4UA\SportsCEN_DameDeportesPorUsuario.cs" />
 	<Compile Include="EN\Salami4UA\MusicalTastesEN.cs" />
 	<Compile Include="CEN\Salami4UA\MusicalTastesCEN.cs" />
 	<Compile Include="CAD\Salami4UA\IMusicalTastesCAD.cs" />
 	<Compile Include="CAD\Salami4UA\MusicalTastesCAD.cs" />
-			<Compile Include="CEN\Salami4UA\MusicalTastesCEN_DameGustosMusicalesPorUsuario.cs" />
 	<Compile Include="EN\Salami4UA\GenreFilmsEN.cs" />
 	<Compile Include="CEN\Salami4UA\GenreFilmsCEN.cs" />
 	<Compile Include="CAD\Salami4UA\IGenreFilmsCAD.cs" />
 	<Compile Include="CAD\Salami4UA\GenreFilmsCAD.cs" />
-			<Compile Include="CEN\Salami4UA\GenreFilmsCEN_DameGenerosDeCinePorUsuario.cs" />
 	<Compile Include="EN\Salami4UA\CharacteristicFeaturesEN.cs" />
 	<Compile Include="CEN\Salami4UA\CharacteristicFeaturesCEN.cs" />
 	<Compile Include="CAD\Salami4UA\ICharacteristicFeaturesCAD.cs" />
 	<Compile Include="CAD\Salami4UA\CharacteristicFeaturesCAD.cs" />
-			<Compile Include="CEN\Salami4UA\CharacteristicFeaturesCEN_DameCaracteristicasPorUsuario.cs" />
 	<Compile Include="EN\Salami4UA\NationalityEN.cs" />
 	<Compile Include="CEN\Salami4UA\NationalityCEN.cs" />
 	<Compile Include="CAD\Salami4UA\INationalityCAD.cs" />
@@ -143,7 +138,6 @@
 	<Compile Include="Enumerated\Salami4UA\ReligionEnum.cs" />
 	<Compile Include="Enumerated\Salami4UA\SmokeEnum.cs" />
 	<Compile Include="Enumerated\Salami4UA\GenderEnum.cs" />
-	<Compile Include="Enumerated\Salami4UA\LikesEnum.cs" />
 	
 	
 

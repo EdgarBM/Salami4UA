@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Salami4UA" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Página principal" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="WebApplication1._Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
@@ -7,11 +7,13 @@
 
 
     <h2>
-        Meet people from the University of Alicante, easy and quick!
+        Meet people from the university easy and quick!
     </h2>
-    <p style="padding-left: 10%;">
-        <br />
-        <asp:Image ID="University" runat="server" ImageUrl="~/Imagenes/Gente.png" />
-        
+    <p>
+        Para obtener más información acerca de ASP.NET, visite <a href="http://www.asp.net" title="Sitio web de ASP.NET">www.asp.net</a>.
+    </p>
+    <p>
+        También puede encontrar <a href="http://go.microsoft.com/fwlink/?LinkID=152368"
+            title="Documentación de ASP.NET en MSDN">documentación sobre ASP.NET en MSDN</a>.
     </p>
 </asp:Content>

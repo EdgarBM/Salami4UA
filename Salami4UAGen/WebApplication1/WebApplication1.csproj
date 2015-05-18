@@ -62,22 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Buscar.aspx" />
     <Content Include="ChangePassword.aspx" />
+    <Content Include="ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Contact.aspx" />
-    <Content Include="EditarPerfil.aspx" />
-    <Content Include="EliminarPerfil.aspx" />
-    <Content Include="Imagenes\arajpg.jpg" />
-    <Content Include="Imagenes\cor.png" />
-    <Content Include="Imagenes\descarga.jpg" />
-    <Content Include="Imagenes\fondo_ua.png" />
-    <Content Include="Imagenes\Gente.png" />
     <Content Include="Imagenes\logoSalami4UA.png" />
-    <Content Include="Imagenes\ua.jpg" />
-    <Content Include="Imagenes\universidadalicante.jpg" />
-    <Content Include="Imagenes\user.png" />
     <Content Include="Perfil.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -101,19 +91,19 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Buscar.aspx.cs">
-      <DependentUpon>Buscar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Buscar.aspx.designer.cs">
-      <DependentUpon>Buscar.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -142,20 +132,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditarPerfil.aspx.cs">
-      <DependentUpon>EditarPerfil.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditarPerfil.aspx.designer.cs">
-      <DependentUpon>EditarPerfil.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EliminarPerfil.aspx.cs">
-      <DependentUpon>EliminarPerfil.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EliminarPerfil.aspx.designer.cs">
-      <DependentUpon>EliminarPerfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -206,7 +182,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50742</DevelopmentServerPort>
+          <DevelopmentServerPort>49837</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
