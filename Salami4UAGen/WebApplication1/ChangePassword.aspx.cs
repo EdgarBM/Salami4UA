@@ -42,7 +42,7 @@ namespace WebApplication1.Account
             try
             {
 
-                if (usuario.CambiarPassword(Username.Text, Login.GetMd5Hash(CurrentPassword.Text), Login.GetMd5Hash(NewPassword.Text)))
+                if (usuario.CambiarPassword(Username.Text, CurrentPassword.Text, NewPassword.Text))
                 {
 
                     LoginOk.Text = "The password has been changed!";

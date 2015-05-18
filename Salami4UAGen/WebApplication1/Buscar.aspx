@@ -11,10 +11,9 @@
             <% if (Session["login"] != null){ %>
     <p>
         Select your preferences to find your ideal salami.&nbsp;
-        
+        <asp:RadioButton id="CalmSearch" Text="Calm search" Checked="True" GroupName="SearchType" runat="server" /> &nbsp;&nbsp;&nbsp;
        
-        <asp:RadioButton id="StrictSearch" Text="Strict search" Checked="True" GroupName="SearchType" runat="server" />&nbsp;&nbsp;&nbsp;
-        <asp:RadioButton id="CalmSearch" Text="Calm search"  GroupName="SearchType" runat="server" /> 
+        <asp:RadioButton id="StrictSearch" Text="Strict search" GroupName="SearchType" runat="server" />
     </p>
         <span class="failureNotification">
             <asp:Literal ID="ErrorMessage" runat="server"></asp:Literal>
@@ -48,22 +47,22 @@
                     <asp:Label ID="NationalityLabel" runat="server">Nationality: </asp:Label>
                     <asp:DropDownList ID="NacionalidadList" runat="server"></asp:DropDownList>
 
-                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
 
                     <asp:Label ID="BodyTypeLabel" runat="server">Body type: </asp:Label>
                     <asp:DropDownList ID="TiposDeCuerpo" runat="server"> </asp:DropDownList>
 
-                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
 
                     <asp:Label ID="AlturaLabel" runat="server">Height: </asp:Label>
                     <asp:DropDownList ID="Height" runat="server"></asp:DropDownList>
                     
-                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
 
                     <asp:Label ID="EthnicityLabel" runat="server">Ethnicity: </asp:Label>
-                    <asp:DropDownList ID="Etnia" runat="server" style="margin-left: 0px"></asp:DropDownList>
+                    <asp:DropDownList ID="Etnia" runat="server" style="margin-left: 10px"></asp:DropDownList>
 
-                     &nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;
 
                     <asp:Label ID="EyeColorLabel" runat="server">Eye Color: </asp:Label>
                     <asp:DropDownList ID="ColorOjos" runat="server" Height="16px" style="margin-left: 0px"> </asp:DropDownList>
@@ -98,8 +97,7 @@
                 
                 
                 <p class="submitButton">
-                    <asp:Button Style="float:left" ID="ButtonRecomend" runat="server" class="button"  Text="See perfect match" OnClick="Recomend_Click"/>
-                    <asp:Button Style="float:right" ID="BuscarButton" runat="server" class="button" CommandName="MoveNext" Text="Search" OnClick="Search_Click"/>
+                    <asp:Button ID="BuscarButton" runat="server" class="button" CommandName="MoveNext" Text="Search" OnClick="Search_Click"/>
                 </p>
                             
             </fieldset>
@@ -129,12 +127,6 @@
                     BorderWidth="2px" BackColor="#EFF3FB" />
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:TemplateField HeaderText="Picture">
-                        <ItemTemplate>
-                           <asp:ImageButton ID="ImagenPerfilBuscador" runat="server" Height="70px" Width="70px" 
-                                    PostBackUrl='<%#"VerPerfil.aspx/" + Eval("Nickname") %>' ImageUrl='<%# Eval("UrlFoto") %>'/>
-                         </ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Nickname">
                         <ItemTemplate>
                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#"VerPerfil.aspx/" + Eval("Nickname") %>' 
@@ -144,12 +136,8 @@
                     <asp:BoundField DataField="Name" HeaderText="Name" />
                     <asp:BoundField DataField="Surname" HeaderText="Surname" />
                     <asp:BoundField DataField="Gender" HeaderText="Genre" />
-                    <asp:BoundField DataField="Likes" HeaderText="Interested in" />
-                    <asp:TemplateField HeaderText="Birthday">
-                        <ItemTemplate>
-                            <asp:Label ID="BirthLabel" runat="server" Text='<%# ChopString(Eval("Birthday").ToString()) %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    <asp:BoundField DataField="Likes" HeaderText="Likes" />
+                    <asp:BoundField DataField="birthday" HeaderText="Birthday" />
                 </Columns>
                 <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                 <SortedAscendingCellStyle BackColor="#F5F7FB" />

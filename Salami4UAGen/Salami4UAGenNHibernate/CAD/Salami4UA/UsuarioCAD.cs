@@ -56,11 +56,6 @@ public string New_ (UsuarioEN usuario)
         try
         {
                 SessionInitializeTransaction ();
-                if (usuario.Gustos != null) {
-                        usuario.Gustos = (Salami4UAGenNHibernate.EN.Salami4UA.GustosEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.GustosEN), usuario.Gustos.Nickname);
-
-                        usuario.Gustos.Usuario = usuario;
-                }
 
                 session.Save (usuario);
                 SessionCommit ();
@@ -168,9 +163,6 @@ public void Modify (UsuarioEN usuario)
 
 
                 usuarioEN.Hobbies = usuario.Hobbies;
-
-
-                usuarioEN.UrlFoto = usuario.UrlFoto;
 
                 session.Update (usuarioEN);
                 SessionCommit ();
@@ -572,7 +564,7 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Usua
 
         return result;
 }
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorNacionalidad (string nacionalidad)
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NacionalidadEN nacionalidad)
 {
         System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> result;
         try
@@ -602,7 +594,7 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Usua
 
         return result;
 }
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorAltura (int altura)
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorAltura (Salami4UAGenNHibernate.EN.Salami4UA.AlturaEN altura)
 {
         System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> result;
         try
@@ -663,18 +655,28 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Usua
 
         return result;
 }
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorCarrera (string carrera)
+public void AnyadirMensajeEnviado (string p_Usuario_OID, System.Collections.Generic.IList<int> p_messagesEnviados_OIDs)
 {
-        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> result;
+        Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN usuarioEN = null;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN c WHERE c.Career = :carrera";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENdameUsuarioPorCarreraHQL");
-                query.SetParameter ("carrera", carrera);
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
+                Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN messagesEnviadosENAux = null;
+                if (usuarioEN.MessagesEnviados == null) {
+                        usuarioEN.MessagesEnviados = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN>();
+                }
 
-                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN>();
+                foreach (int item in p_messagesEnviados_OIDs) {
+                        messagesEnviadosENAux = new Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN ();
+                        messagesEnviadosENAux = (Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN), item);
+                        messagesEnviadosENAux.UserOrigen = usuarioEN;
+
+                        usuarioEN.MessagesEnviados.Add (messagesEnviadosENAux);
+                }
+
+
+                session.Update (usuarioEN);
                 SessionCommit ();
         }
 
@@ -690,21 +692,30 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Usua
         {
                 SessionClose ();
         }
-
-        return result;
 }
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorCurso (string curso)
+
+public void AnyadirMensajeRecibido (string p_Usuario_OID, System.Collections.Generic.IList<int> p_messagesRecibidos_OIDs)
 {
-        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> result;
+        Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN usuarioEN = null;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN c WHERE c.Course = :curso";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENdameUsuarioPorCursoHQL");
-                query.SetParameter ("curso", curso);
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
+                Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN messagesRecibidosENAux = null;
+                if (usuarioEN.MessagesRecibidos == null) {
+                        usuarioEN.MessagesRecibidos = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN>();
+                }
 
-                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN>();
+                foreach (int item in p_messagesRecibidos_OIDs) {
+                        messagesRecibidosENAux = new Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN ();
+                        messagesRecibidosENAux = (Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN), item);
+                        messagesRecibidosENAux.UserDestino = usuarioEN;
+
+                        usuarioEN.MessagesRecibidos.Add (messagesRecibidosENAux);
+                }
+
+
+                session.Update (usuarioEN);
                 SessionCommit ();
         }
 
@@ -720,8 +731,6 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Usua
         {
                 SessionClose ();
         }
-
-        return result;
 }
 }
 }

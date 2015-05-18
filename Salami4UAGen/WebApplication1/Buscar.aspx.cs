@@ -28,117 +28,88 @@ namespace WebApplication1
 
             if (TiposDeCuerpo.Items.Count == 0)
             {
-                TiposDeCuerpo.Items.Insert(0, "Unspecified");
-
-                i = 1;
-
+                i = 0;
                 foreach (BodyTypeEnum type in Enum.GetValues(typeof(BodyTypeEnum)))
                 {
                     TiposDeCuerpo.Items.Insert(i++, type.ToString());
                 }
-
-                
             }
 
             if (Etnia.Items.Count == 0)
             {
-                Etnia.Items.Insert(0, "Unspecified");
-                i = 1;
+                i = 0;
                 foreach (EthnicityEnum etnia in Enum.GetValues(typeof(EthnicityEnum)))
                 {
                     Etnia.Items.Insert(i++, etnia.ToString());
                 }
-
-                
             }
 
             if (ColorOjos.Items.Count == 0)
             {
                 i = 0;
-                ColorOjos.Items.Insert(i++, "Unspecified");
                 foreach (EyeColorEnum color in Enum.GetValues(typeof(EyeColorEnum)))
                 {
                     ColorOjos.Items.Insert(i++, color.ToString());
                 }
-
-                
             }
 
             if (ColorPelo.Items.Count == 0)
             {
                 i = 0;
-                ColorPelo.Items.Insert(i++, "Unspecified");
                 foreach (HairColorEnum color in Enum.GetValues(typeof(HairColorEnum)))
                 {
                     ColorPelo.Items.Insert(i++, color.ToString());
                 }
-
-                
             }
 
 
             if (LongitudPelo.Items.Count == 0)
             {
                 i = 0;
-                LongitudPelo.Items.Insert(i++, "Unspecified");
                 foreach (HairLengthEnum hair in Enum.GetValues(typeof(HairLengthEnum)))
                 {
                     LongitudPelo.Items.Insert(i++, hair.ToString());
                 }
-
-                
             }
 
             if (EstiloPelo.Items.Count == 0)
             {
-                EstiloPelo.Items.Insert(0, "Unspecified");
-                i = 1;
+                i = 0;
                 foreach (HairStyleEnum hair in Enum.GetValues(typeof(HairStyleEnum)))
                 {
                     EstiloPelo.Items.Insert(i++, hair.ToString());
                 }
-
-                
             }
 
 
             if (Religion.Items.Count == 0)
             {
                 i = 0;
-                Religion.Items.Insert(i++, "Unspecified");
                 foreach (ReligionEnum religion in Enum.GetValues(typeof(ReligionEnum)))
                 {
                     Religion.Items.Insert(i++, religion.ToString());
                 }
-
-                
             }
 
 
             if (Fumador.Items.Count == 0)
             {
-                Fumador.Items.Insert(0, "Unspecified");
-                i = 1;
+                i = 0;
                 foreach (SmokeEnum smoke in Enum.GetValues(typeof(SmokeEnum)))
                 {
                     Fumador.Items.Insert(i++, smoke.ToString());
                 }
-
-                
             }
 
             if (NacionalidadList.Items.Count == 0)
             {
                 i = 0;
-                NacionalidadList.Items.Insert(i++, "Unspecified");
                 NacionalidadList.Items.Insert(i++, "Spanish");
                 foreach (NacionalidadEN nacional in nacionalidades)
                 {
                     if (nacional.Name != "Spanish")
                         NacionalidadList.Items.Insert(i++, nacional.Name);
                 }
-
-                
             }
 
 
@@ -146,13 +117,10 @@ namespace WebApplication1
             if (Height.Items.Count == 0)
             {
                 i = 0;
-                Height.Items.Insert(i++, "Unspecified");
                 foreach (AlturaEN height in Alturas)
                 {
                     Height.Items.Insert(i++, height.Height.ToString());
                 }
-
-                
             }
 
 
@@ -212,7 +180,7 @@ namespace WebApplication1
             }
 
 
-            if (TiposDeCuerpo.SelectedIndex != -1 && !TiposDeCuerpo.SelectedValue.ToString().Equals("Unspecified"))
+            if (TiposDeCuerpo.SelectedIndex != -1)
             {
                 List<UsuarioEN> listaPorCuerpo = new List<UsuarioEN>();
                 string tipoDeCuerpo = TiposDeCuerpo.SelectedValue;
@@ -223,7 +191,7 @@ namespace WebApplication1
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorCuerpo);
             }
 
-            if (Etnia.SelectedIndex != -1 && !Etnia.SelectedValue.ToString().Equals("Unspecified"))
+            if (Etnia.SelectedIndex != -1)
             {
                 string etnia = Etnia.SelectedValue;
                 List<UsuarioEN> listaPorEtnia = new List<UsuarioEN>();
@@ -235,7 +203,7 @@ namespace WebApplication1
 
             }
 
-            if (ColorOjos.SelectedIndex != -1 && !ColorOjos.SelectedValue.ToString().Equals("Unspecified"))
+            if (ColorOjos.SelectedIndex != -1)
             {
                 string ojos = ColorOjos.SelectedValue;
                 List<UsuarioEN> listaPorColorOjos = new List<UsuarioEN>();
@@ -248,7 +216,7 @@ namespace WebApplication1
             }
 
 
-            if (ColorPelo.SelectedIndex != -1 && !ColorPelo.SelectedValue.ToString().Equals("Unspecified"))
+            if (ColorPelo.SelectedIndex != -1)
             {
                 string pelo = ColorPelo.SelectedValue;
                 List<UsuarioEN> listaPorColorPelo = new List<UsuarioEN>();
@@ -261,7 +229,7 @@ namespace WebApplication1
             }
 
 
-            if (LongitudPelo.SelectedIndex != -1 && !LongitudPelo.SelectedValue.ToString().Equals("Unspecified"))
+            if (LongitudPelo.SelectedIndex != -1)
             {
                 string cabello = LongitudPelo.SelectedValue;
                 List<UsuarioEN> listaPorLongitudPelo = new List<UsuarioEN>();
@@ -272,7 +240,7 @@ namespace WebApplication1
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorLongitudPelo);
             }
 
-            if (EstiloPelo.SelectedIndex != -1 && !EstiloPelo.SelectedValue.ToString().Equals("Unspecified"))
+            if (EstiloPelo.SelectedIndex != -1)
             {
                 string peinado = EstiloPelo.SelectedValue;
                 List<UsuarioEN> listaPorEstiloPelo = new List<UsuarioEN>();
@@ -283,7 +251,7 @@ namespace WebApplication1
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorEstiloPelo);
             }
 
-            if (Religion.SelectedIndex != -1 && !Religion.SelectedValue.ToString().Equals("Unspecified"))
+            if (Religion.SelectedIndex != -1)
             {
                 string religion = Religion.SelectedValue;
                 List<UsuarioEN> listaPorReligion = new List<UsuarioEN>();
@@ -295,7 +263,7 @@ namespace WebApplication1
             }
 
 
-            if (Fumador.SelectedIndex != -1 && !Fumador.SelectedValue.ToString().Equals("Unspecified"))
+            if (Fumador.SelectedIndex != -1)
             {
                 string fumador = Fumador.SelectedValue;
                 List<UsuarioEN> listaPorFumador = new List<UsuarioEN>();
@@ -306,7 +274,7 @@ namespace WebApplication1
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorFumador);
             }
 
-            if (NacionalidadList.SelectedIndex != -1 && !NacionalidadList.SelectedValue.ToString().Equals("Unspecified"))
+            if (NacionalidadList.SelectedIndex != -1)
             {
                 string valor = NacionalidadList.SelectedValue;
                 List<UsuarioEN> listaPorNacionalidad = new List<UsuarioEN>();
@@ -314,12 +282,12 @@ namespace WebApplication1
                 nacion.Name = valor;
 
                 listaPorNacionalidad.AddRange(
-                    UsuarioCEN.DameUsuarioPorNacionalidad(nacion.Name));
+                    UsuarioCEN.DameUsuarioPorNacionalidad(nacion));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorNacionalidad);
             }
 
-            if (Height.SelectedIndex != -1 && !Height.SelectedValue.ToString().Equals("Unspecified"))
+            if (Height.SelectedIndex != -1)
             {
                 string altura = Height.SelectedValue;
                 List<UsuarioEN> listaPorAltura = new List<UsuarioEN>();
@@ -328,7 +296,7 @@ namespace WebApplication1
                 height.Height = Int32.Parse(altura);
 
                 listaPorAltura.AddRange(
-                    UsuarioCEN.DameUsuarioPorAltura(height.Height));
+                    UsuarioCEN.DameUsuarioPorAltura(height));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorAltura);
 
@@ -396,7 +364,7 @@ namespace WebApplication1
             }
 
 
-            if (TiposDeCuerpo.SelectedIndex != -1 && !TiposDeCuerpo.SelectedValue.ToString().Equals("Unspecified"))
+            if (TiposDeCuerpo.SelectedIndex != -1)
             {
                 List<UsuarioEN> listaPorCuerpo = new List<UsuarioEN>();
                 string tipoDeCuerpo = TiposDeCuerpo.SelectedValue;
@@ -416,7 +384,7 @@ namespace WebApplication1
                 }
             }
 
-            if (Etnia.SelectedIndex != -1 && !Etnia.SelectedValue.ToString().Equals("Unspecified"))
+            if (Etnia.SelectedIndex != -1)
             {
                 string etnia = Etnia.SelectedValue;
                 List<UsuarioEN> listaPorEtnia = new List<UsuarioEN>();
@@ -436,7 +404,7 @@ namespace WebApplication1
                 }
             }
 
-            if (ColorOjos.SelectedIndex != -1 && !ColorOjos.SelectedValue.ToString().Equals("Unspecified"))
+            if (ColorOjos.SelectedIndex != -1)
             {
                 string ojos = ColorOjos.SelectedValue;
                 List<UsuarioEN> listaPorColorOjos = new List<UsuarioEN>();
@@ -457,7 +425,7 @@ namespace WebApplication1
             }
 
 
-            if (ColorPelo.SelectedIndex != -1 && !ColorPelo.SelectedValue.ToString().Equals("Unspecified"))
+            if (ColorPelo.SelectedIndex != -1)
             {
                 string pelo = ColorPelo.SelectedValue;
                 List<UsuarioEN> listaPorColorPelo = new List<UsuarioEN>();
@@ -478,7 +446,7 @@ namespace WebApplication1
             }
 
 
-            if (LongitudPelo.SelectedIndex != -1 && !LongitudPelo.SelectedValue.ToString().Equals("Unspecified"))
+            if (LongitudPelo.SelectedIndex != -1)
             {
                 string cabello = LongitudPelo.SelectedValue;
                 List<UsuarioEN> listaPorLongitudPelo = new List<UsuarioEN>();
@@ -498,7 +466,7 @@ namespace WebApplication1
                 }
             }
 
-            if (EstiloPelo.SelectedIndex != -1 && !EstiloPelo.SelectedValue.ToString().Equals("Unspecified"))
+            if (EstiloPelo.SelectedIndex != -1)
             {
                 string peinado = EstiloPelo.SelectedValue;
                 List<UsuarioEN> listaPorEstiloPelo = new List<UsuarioEN>();
@@ -518,7 +486,7 @@ namespace WebApplication1
                 }
             }
 
-            if (Religion.SelectedIndex != -1 && !Religion.SelectedValue.ToString().Equals("Unspecified"))
+            if (Religion.SelectedIndex != -1)
             {
                 string religion = Religion.SelectedValue;
                 List<UsuarioEN> listaPorReligion = new List<UsuarioEN>();
@@ -539,7 +507,7 @@ namespace WebApplication1
             }
 
 
-            if (Fumador.SelectedIndex != -1 && !Fumador.SelectedValue.ToString().Equals("Unspecified"))
+            if (Fumador.SelectedIndex != -1)
             {
                 string fumador = Fumador.SelectedValue;
                 List<UsuarioEN> listaPorFumador = new List<UsuarioEN>();
@@ -559,7 +527,7 @@ namespace WebApplication1
                 }
             }
 
-            if (NacionalidadList.SelectedIndex != -1 && !NacionalidadList.SelectedValue.ToString().Equals("Unspecified"))
+            if (NacionalidadList.SelectedIndex != -1)
             {
                 string valor = NacionalidadList.SelectedValue;
                 List<UsuarioEN> listaPorNacionalidad = new List<UsuarioEN>();
@@ -567,7 +535,7 @@ namespace WebApplication1
                 nacion.Name = valor;
 
                 listaPorNacionalidad.AddRange(
-                    UsuarioCEN.DameUsuarioPorNacionalidad(nacion.Name));
+                    UsuarioCEN.DameUsuarioPorNacionalidad(nacion));
 
                 {
                     List<UsuarioEN> listaAux = new List<UsuarioEN>();
@@ -581,7 +549,7 @@ namespace WebApplication1
                 }
             }
 
-            if (Height.SelectedIndex != -1 && !Height.SelectedValue.ToString().Equals("Unspecified"))
+            if (Height.SelectedIndex != -1)
             {
                 string altura = Height.SelectedValue;
                 List<UsuarioEN> listaPorAltura = new List<UsuarioEN>();
@@ -590,7 +558,7 @@ namespace WebApplication1
                 height.Height = Int32.Parse(altura);
 
                 listaPorAltura.AddRange(
-                    UsuarioCEN.DameUsuarioPorAltura(height.Height));
+                    UsuarioCEN.DameUsuarioPorAltura(height));
 
                 {
                     List<UsuarioEN> listaAux = new List<UsuarioEN>();
@@ -657,23 +625,8 @@ namespace WebApplication1
 
         }
 
-        public string ChopString(string s)
-        {
-            try
-            {
-                s = s.Substring(0, 10);
-            }
-            catch (Exception) { }
 
-            return s;
-        }
-
-        protected void Recomend_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Recomendar.aspx");
-        }
 
 
     }
-
 }

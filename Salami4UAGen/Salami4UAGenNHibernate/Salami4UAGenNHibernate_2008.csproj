@@ -146,10 +146,6 @@
 	<Compile Include="CAD\Salami4UA\IAnimalesCAD.cs" />
 	<Compile Include="CAD\Salami4UA\AnimalesCAD.cs" />
 			<Compile Include="CEN\Salami4UA\AnimalesCEN_DameAnimalesPorUsuario.cs" />
-	<Compile Include="EN\Salami4UA\GustosEN.cs" />
-	<Compile Include="CEN\Salami4UA\GustosCEN.cs" />
-	<Compile Include="CAD\Salami4UA\IGustosCAD.cs" />
-	<Compile Include="CAD\Salami4UA\GustosCAD.cs" />
 	<Compile Include="Enumerated\Salami4UA\HairColorEnum.cs" />
 	<Compile Include="Enumerated\Salami4UA\EyeColorEnum.cs" />
 	<Compile Include="Enumerated\Salami4UA\HairStyleEnum.cs" />
@@ -188,7 +184,6 @@
 	<EmbeddedResource Include="Mappings\Salami4UA\mensajes.hbm.xml" />
 	<EmbeddedResource Include="Mappings\Salami4UA\master.hbm.xml" />
 	<EmbeddedResource Include="Mappings\Salami4UA\animales.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Salami4UA\gustos.hbm.xml" />
 	
 	
 

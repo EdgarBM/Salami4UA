@@ -21,10 +21,11 @@ public bool ValidationUser (string p_oid, string contrasenya)
         // Write here your custom code...
 
         Boolean ok = false;
-        UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (p_oid);
+        UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault(p_oid);
 
-        if (usuario.Password == contrasenya) {
-                ok = true;
+        if (usuario.Password == contrasenya)
+        {
+            ok = true;
         }
 
         return ok;

@@ -33,14 +33,12 @@ namespace WebApplication1
 
                     foreach (UsuarioEN us in usuarios)
                     {
-
-                        ImagenPerfil.ImageUrl = us.UrlFoto;
                         Nickname.Text = nick;
                         Email.Text = us.Email;
                         Name.Text = us.Name;
                         Surname.Text = us.Surname;
                         Genero.Text = us.Gender.ToString();
-                        //Orientacion.Text = us.Likes.ToString();
+                        Orientacion.Text = us.Likes.ToString();
                         NationalityLabel.Text = us.Nationality;
                         HeightLabel.Text = us.Height.ToString();
                         BodyTypeLabel.Text = us.BodyType.ToString();
@@ -52,20 +50,6 @@ namespace WebApplication1
                         SmokeLabel.Text = us.Smoke.ToString();
                         ReligionLabel.Text = us.Religion.ToString();
                         BirthLabel.Text = Convert.ToString(us.Birthday).Substring(0, 10);
-                        StudiesLabel.Text = us.Career;
-                        CourseLabel.Text = us.Course.ToString();
-
-                        // Gustos
-                        GustosEN gustoEN = new GustosCEN().DameGustoPorNickname(nick);
-
-                        GeneroBuscado.Text = us.Likes.ToString();
-                        BodyTypeBuscado.Text = gustoEN.BodyType.ToString();
-                        EthnicityBuscado.Text = gustoEN.Ethnicity.ToString();
-                        EyeColorBuscado.Text = gustoEN.EyeColor.ToString();
-                        HairColorBuscado.Text = gustoEN.HairColor.ToString();
-                        HairLengthBuscado.Text = gustoEN.HairLength.ToString();
-                        HairStyleBuscado.Text = gustoEN.HairStyle.ToString();
-                        SmokeBuscado.Text = gustoEN.Smoke.ToString();
 
                         if (us.Comment != "")
                         {

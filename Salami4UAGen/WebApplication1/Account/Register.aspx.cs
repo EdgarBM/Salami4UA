@@ -7,9 +7,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.Text;
-using Salami4UAGenNHibernate.Enumerated.Salami4UA;
-using Salami4UAGenNHibernate.CEN.Salami4UA;
-using Salami4UAGenNHibernate.EN.Salami4UA;
 
 namespace WebApplication1.Account
 {
@@ -17,206 +14,167 @@ namespace WebApplication1.Account
     {
         protected void InicializarValores()
         {
-            if (botoncarrera.Checked == true) // Estudia carrera
-            {
-                CareerList.Visible = true;
-                CareerLabel.Visible = true;
-                MasterList.Visible = false;
-                MasterLabel.Visible = false;
-                CourseList.Visible = true;
-                CourseLabel.Visible = true;
-                //botoncarrera.Checked = false;
-
-            }
-
             Label.Text = "";
 
-            NacionalidadCEN nacion = new NacionalidadCEN();
-            IList<NacionalidadEN> nacionalidades = nacion.DameTodaslasNacionalidades();
+            Salami4UAGenNHibernate.CEN.Salami4UA.NacionalidadCEN nacion = new Salami4UAGenNHibernate.CEN.Salami4UA.NacionalidadCEN();
+            IList<Salami4UAGenNHibernate.EN.Salami4UA.NacionalidadEN> nacionalidades = nacion.DameTodaslasNacionalidades();
 
-            AlturaCEN altura = new AlturaCEN();
-            IList<AlturaEN> alturas = altura.DameTodaslasAlturas();
+            NacionalidadList.SelectedValue = "Spanish";
 
-            int j;
+            Salami4UAGenNHibernate.CEN.Salami4UA.AlturaCEN altura = new Salami4UAGenNHibernate.CEN.Salami4UA.AlturaCEN();
+            IList<Salami4UAGenNHibernate.EN.Salami4UA.AlturaEN> alturas = altura.DameTodaslasAlturas();
 
-            if (TiposDeCuerpo.Items.Count == 0)
-            {
-                j = 0;
-                foreach (BodyTypeEnum type in Enum.GetValues(typeof(BodyTypeEnum)))
-                {
-                    TiposDeCuerpo.Items.Insert(j++, type.ToString());
-                }
-            }
+            String corpulento = Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent.ToString();
+            String normal = Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Normal.ToString();
+            String secret = Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Secret.ToString();
+            String slim = Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Slim.ToString();
+            String solidly = Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Solidly.ToString();
+            String sports = Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Sports.ToString();
 
-            if (TiposDeCuerpoBuscado.Items.Count == 0)
-            {
-                j = 0;
-                foreach (BodyTypeEnum type in Enum.GetValues(typeof(BodyTypeEnum)))
-                {
-                    TiposDeCuerpoBuscado.Items.Insert(j++, type.ToString());
-                }
-            }
-            
+            TiposDeCuerpo.Items.Insert(0, new ListItem(corpulento, corpulento));
+            TiposDeCuerpo.Items.Insert(1, new ListItem(normal, normal));
+            TiposDeCuerpo.Items.Insert(2, new ListItem(secret, secret));
+            TiposDeCuerpo.Items.Insert(3, new ListItem(slim, slim));
+            TiposDeCuerpo.Items.Insert(4, new ListItem(solidly, solidly));
+            TiposDeCuerpo.Items.Insert(5, new ListItem(sports, sports));
 
-            if (Genero.Items.Count == 0)
-            {
-                j = 0;
-                foreach (GenderEnum type in Enum.GetValues(typeof(GenderEnum)))
-                {
-                    Genero.Items.Insert(j++, type.ToString());
-                }
-            }
+            String african = Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African.ToString();
+            String arab = Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Arab.ToString();
+            String asian = Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Asian.ToString();
+            String european = Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.European.ToString();
+            String indian = Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Indian.ToString();
+            String latino = Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Latino.ToString();
+            String mediterranean = Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Mediterranean.ToString();
+            String mestizo = Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Mestizo.ToString();
+            String secret1 = Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Secret.ToString();
 
-            if(Orientacion.Items.Count == 0)
-            {
-                j=0;
-                foreach (LikesEnum type in Enum.GetValues(typeof(LikesEnum)))
-                {
-                    Orientacion.Items.Insert(j++, type.ToString());
-                }
-            }
+            Etnia.Items.Insert(0, new ListItem(african, african));
+            Etnia.Items.Insert(1, new ListItem(arab, arab));
+            Etnia.Items.Insert(2, new ListItem(asian, asian));
+            Etnia.Items.Insert(3, new ListItem(european, european));
+            Etnia.Items.Insert(4, new ListItem(indian, latino));
+            Etnia.Items.Insert(5, new ListItem(mediterranean, mediterranean));
+            Etnia.Items.Insert(6, new ListItem(mestizo, mestizo));
+            Etnia.Items.Insert(7, new ListItem(secret1, secret1));
 
-            if (Etnia.Items.Count == 0)
-            {
-                j = 0;
-                foreach (EthnicityEnum etnia in Enum.GetValues(typeof(EthnicityEnum)))
-                {
-                    Etnia.Items.Insert(j++, etnia.ToString());   
-                }
-            }
+            String black = Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black.ToString();
+            String blue = Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Blue.ToString();
+            String brown = Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Brown.ToString();
+            String green = Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Green.ToString();
+            String grey = Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Grey.ToString();
+            String hazel = Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Hazel.ToString();
+            String other = Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Other.ToString();
 
-            if (EtniaBuscada.Items.Count == 0)
-            {
-                j = 0;
-                foreach (EthnicityEnum etnia in Enum.GetValues(typeof(EthnicityEnum)))
-                {
-                    EtniaBuscada.Items.Insert(j++, etnia.ToString());
-                }
-            }
+            ColorOjos.Items.Insert(0, new ListItem(black, black));
+            ColorOjos.Items.Insert(1, new ListItem(blue, blue));
+            ColorOjos.Items.Insert(2, new ListItem(brown, brown));
+            ColorOjos.Items.Insert(3, new ListItem(green, green));
+            ColorOjos.Items.Insert(4, new ListItem(grey, grey));
+            ColorOjos.Items.Insert(5, new ListItem(hazel, hazel));
+            ColorOjos.Items.Insert(6, new ListItem(other, other));
 
-            if (ColorOjos.Items.Count == 0)
-            {
-                j = 0;
-                foreach (EyeColorEnum color in Enum.GetValues(typeof(EyeColorEnum)))
-                {
-                    ColorOjos.Items.Insert(j++, color.ToString());
-                }
-            }
+            String blonde = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde.ToString();
+            String brownhair = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Brown.ToString();
+            String darkbrown = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.DarkBrown.ToString();
+            String gray = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Gray.ToString();
+            String lightbrown = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.LightBrown.ToString();
+            String otherhair = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Other.ToString();
+            String redhead = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Redhead.ToString();
+            String white = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.White.ToString();
 
-            if (ColorOjosBuscado.Items.Count == 0)
-            {
-                j = 0;
-                foreach (EyeColorEnum color in Enum.GetValues(typeof(EyeColorEnum)))
-                {
-                    ColorOjosBuscado.Items.Insert(j++, color.ToString());
-                }
-            }
+            ColorPelo.Items.Insert(0, new ListItem(blonde, blonde));
+            ColorPelo.Items.Insert(1, new ListItem(brownhair, brownhair));
+            ColorPelo.Items.Insert(2, new ListItem(darkbrown, darkbrown));
+            ColorPelo.Items.Insert(3, new ListItem(gray, gray));
+            ColorPelo.Items.Insert(4, new ListItem(lightbrown, lightbrown));
+            ColorPelo.Items.Insert(5, new ListItem(otherhair, otherhair));
+            ColorPelo.Items.Insert(6, new ListItem(redhead, redhead));
+            ColorPelo.Items.Insert(7, new ListItem(white, white));
 
-            if (ColorPelo.Items.Count == 0)
-            {
-                j = 0;
-                foreach (HairColorEnum color in Enum.GetValues(typeof(HairColorEnum)))
-                {
-                    ColorPelo.Items.Insert(j++, color.ToString());   
-                }
-            }
+            String hairless = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Hairless.ToString();
+            String longhair = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Long.ToString();
+            String normalhair = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Normal.ToString();
+            String shaven = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Shaven.ToString();
+            String shorthair = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Short.ToString();
 
-            if (ColorPeloBuscado.Items.Count == 0)
-            {
-                j = 0;
-                foreach (HairColorEnum color in Enum.GetValues(typeof(HairColorEnum)))
-                {
-                    ColorPeloBuscado.Items.Insert(j++, color.ToString());
-                }
-            }
+            LongitudPelo.Items.Insert(0, new ListItem(hairless, hairless));
+            LongitudPelo.Items.Insert(1, new ListItem(longhair, longhair));
+            LongitudPelo.Items.Insert(2, new ListItem(normalhair, normalhair));
+            LongitudPelo.Items.Insert(3, new ListItem(shaven, shaven));
+            LongitudPelo.Items.Insert(4, new ListItem(shorthair, shorthair));
 
+            String curly = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly.ToString();
+            String straight = Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Straight.ToString();
 
-            if (LongitudPelo.Items.Count == 0)
-            {
-                j = 0;
-                foreach (HairLengthEnum hair in Enum.GetValues(typeof(HairLengthEnum)))
-                {
-                    LongitudPelo.Items.Insert(j++, hair.ToString());
-                }
-            }
+            EstiloPelo.Items.Insert(0, new ListItem(curly, curly));
+            EstiloPelo.Items.Insert(1, new ListItem(straight, straight));
 
-            if (LongitudPeloBuscado.Items.Count == 0)
-            {
-                j = 0;
-                foreach (HairLengthEnum hair in Enum.GetValues(typeof(HairLengthEnum)))
-                {
-                    LongitudPeloBuscado.Items.Insert(j++, hair.ToString());
-                }
-            }
+            String agnostic = Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Agnostic.ToString();
+            String atheist = Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Atheist.ToString();
+            String buddisht = Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Buddhist.ToString();
+            String catholic = Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Catholic.ToString();
+            String christian = Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Christian.ToString();
+            String otherreligion = Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Other.ToString();
+            String protestant = Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Protestant.ToString();
+            String secretreligion = Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Secret.ToString();
+            String spiritualistic = Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Spiritualistic.ToString();
 
-            if (EstiloPelo.Items.Count == 0)
-            {
-                j = 0;
-                foreach (HairStyleEnum hair in Enum.GetValues(typeof(HairStyleEnum)))
-                {    
-                    EstiloPelo.Items.Insert(j++, hair.ToString());
-                }
+            Religion.Items.Insert(0, new ListItem(agnostic, agnostic));
+            Religion.Items.Insert(1, new ListItem(atheist, atheist));
+            Religion.Items.Insert(2, new ListItem(buddisht, buddisht));
+            Religion.Items.Insert(3, new ListItem(catholic, catholic));
+            Religion.Items.Insert(4, new ListItem(christian, christian));
+            Religion.Items.Insert(5, new ListItem(otherreligion, otherreligion));
+            Religion.Items.Insert(6, new ListItem(protestant, protestant));
+            Religion.Items.Insert(7, new ListItem(secretreligion, secretreligion));
+            Religion.Items.Insert(8, new ListItem(spiritualistic, spiritualistic));
 
-            }
+            String nosmoke = Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No.ToString();
+            String ocassionally = Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Occasionally.ToString();
+            String often = Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Often.ToString();
 
-            if (EstiloPeloBuscado.Items.Count == 0)
-            {
-                j = 0;
-                foreach (HairStyleEnum hair in Enum.GetValues(typeof(HairStyleEnum)))
-                {
-                    EstiloPeloBuscado.Items.Insert(j++, hair.ToString());
-                }
+            Fumador.Items.Insert(0, new ListItem(nosmoke, nosmoke));
+            Fumador.Items.Insert(1, new ListItem(ocassionally, ocassionally));
+            Fumador.Items.Insert(2, new ListItem(often, often));
 
-            }
+            String generohombre = Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man.ToString();
+            String generomujer = Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Woman.ToString();
 
+            Genero.Items.Insert(0, new ListItem(generohombre, generohombre));
+            Genero.Items.Insert(1, new ListItem(generomujer, generomujer));
 
-            if (Religion.Items.Count == 0)
-            {
-                j = 0;
-                foreach (ReligionEnum religion in Enum.GetValues(typeof(ReligionEnum)))
-                {
-                    Religion.Items.Insert(j++, religion.ToString());
-                }
-            }
+            String buscaHombre = Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Man.ToString();
+            String buscaMujer = Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman.ToString();
+            String buscaAmbos = Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Both.ToString();
 
-
-            if (Fumador.Items.Count == 0)
-            {
-                j = 0;
-                foreach (SmokeEnum smoke in Enum.GetValues(typeof(SmokeEnum)))
-                {
-                    Fumador.Items.Insert(j++, smoke.ToString());
-                }
-            }
-
-            if (FumadorBuscado.Items.Count == 0)
-            {
-                j = 0;
-                foreach (SmokeEnum smoke in Enum.GetValues(typeof(SmokeEnum)))
-                {
-                    FumadorBuscado.Items.Insert(j++, smoke.ToString());
-                }
-            }
+            Orientacion.Items.Insert(0, new ListItem(buscaHombre, buscaHombre));
+            Orientacion.Items.Insert(1, new ListItem(buscaMujer, buscaMujer));
+            Orientacion.Items.Insert(2, new ListItem(buscaAmbos, buscaAmbos));
 
             for (int i = 0; i < nacionalidades.Count; i++)
             {
 
-                NacionalidadEN nacionalidad = nacionalidades.ElementAt(i);
+                Salami4UAGenNHibernate.EN.Salami4UA.NacionalidadEN nacionalidad = nacionalidades.ElementAt(i);
                 String s = nacionalidad.Name;
+                if (i == 0)
+                    for (int j = 0; j < nacionalidades.Count; j++)
+                    {
+                        Salami4UAGenNHibernate.EN.Salami4UA.NacionalidadEN nacional = nacionalidades.ElementAt(j);
+                        if (nacional.Name == "Spanish")
+                            s = nacional.Name;
+                    }
 
                 // Insertar s en el listview
                 NacionalidadList.Items.Insert(i, new ListItem(s, s));
             }
 
-            NacionalidadList.SelectedValue = "Spanish";
-
-            CaracteristicasCEN caracteristica = new CaracteristicasCEN();
-            IList<CaracteristicasEN> caracteristicas = caracteristica.DameTodasLasCaracteristicas();
+            Salami4UAGenNHibernate.CEN.Salami4UA.CaracteristicasCEN caracteristica = new Salami4UAGenNHibernate.CEN.Salami4UA.CaracteristicasCEN();
+            IList<Salami4UAGenNHibernate.EN.Salami4UA.CaracteristicasEN> caracteristicas = caracteristica.DameTodasLasCaracteristicas();
 
 
             for (int i = 0; i < caracteristicas.Count; i++)
             {
-                CaracteristicasEN car = caracteristicas.ElementAt(i);
+                Salami4UAGenNHibernate.EN.Salami4UA.CaracteristicasEN car = caracteristicas.ElementAt(i);
                 String s = car.Name;
                 ListaCaracteristicas.Items.Add(s);
             }
@@ -224,92 +182,62 @@ namespace WebApplication1.Account
             for (int i = 0; i < alturas.Count; i++)
             {
 
-                AlturaEN altura1 = alturas.ElementAt(i);
+                Salami4UAGenNHibernate.EN.Salami4UA.AlturaEN altura1 = alturas.ElementAt(i);
                 String s = (altura1.Height).ToString();
 
                 // Insertar s en el listview
                 Height.Items.Insert(i, new ListItem(s, s));
             }
 
-            AnimalesCEN animal = new AnimalesCEN();
-            IList<AnimalesEN> animales = animal.DameTodosLosAnimales();
-
-            String primero = CourseEnum.First.ToString();
-            String segundo = CourseEnum.Second.ToString();
-            String tercero = CourseEnum.Third.ToString();
-            String cuarto = CourseEnum.Fourth.ToString();
-
-            CourseList.Items.Insert(0, new ListItem(primero, primero));
-            CourseList.Items.Insert(1, new ListItem(segundo, segundo));
-            CourseList.Items.Insert(2, new ListItem(tercero, tercero));
-            CourseList.Items.Insert(3, new ListItem(cuarto, cuarto));
-
-            CarreraCEN carrera = new CarreraCEN();
-            IList<CarreraEN> carreras = carrera.DameTodasLasCarreras();
-
-            MasterCEN master = new MasterCEN();
-            IList<MasterEN> masters = master.DameTodosLosMasters();
-
-            for (int i = 0; i < carreras.Count; i++)
-            {
-                CarreraEN car = carreras.ElementAt(i);
-                String s = car.Name;
-                CareerList.Items.Add(s);
-            }
-
-            for (int i = 0; i < masters.Count; i++)
-            {
-                MasterEN car = masters.ElementAt(i);
-                String s = car.Name;
-                MasterList.Items.Add(s);
-            }
+            Salami4UAGenNHibernate.CEN.Salami4UA.AnimalesCEN animal = new Salami4UAGenNHibernate.CEN.Salami4UA.AnimalesCEN();
+            IList<Salami4UAGenNHibernate.EN.Salami4UA.AnimalesEN> animales = animal.DameTodosLosAnimales();
 
 
             for (int i = 0; i < animales.Count; i++)
             {
-                AnimalesEN an = animales.ElementAt(i);
+                Salami4UAGenNHibernate.EN.Salami4UA.AnimalesEN an = animales.ElementAt(i);
                 String s = an.Name;
                 ListaAnimales.Items.Add(s);
             }
 
 
-            CinesCEN cine = new CinesCEN();
-            IList<CinesEN> cines = cine.DameTodosLosGenerosCine();
+            Salami4UAGenNHibernate.CEN.Salami4UA.CinesCEN cine = new Salami4UAGenNHibernate.CEN.Salami4UA.CinesCEN();
+            IList<Salami4UAGenNHibernate.EN.Salami4UA.CinesEN> cines = cine.DameTodosLosGenerosCine();
 
 
             for (int i = 0; i < cines.Count; i++)
             {
-                CinesEN genre = cines.ElementAt(i);
+                Salami4UAGenNHibernate.EN.Salami4UA.CinesEN genre = cines.ElementAt(i);
                 String s = genre.Name;
                 ListaCine.Items.Add(s);
             }
 
-            MusicasCEN musica = new MusicasCEN();
-            IList<MusicasEN> musicas = musica.DameTodosLosGustosMusicales();
+            Salami4UAGenNHibernate.CEN.Salami4UA.MusicasCEN musica = new Salami4UAGenNHibernate.CEN.Salami4UA.MusicasCEN();
+            IList<Salami4UAGenNHibernate.EN.Salami4UA.MusicasEN> musicas = musica.DameTodosLosGustosMusicales();
 
             for (int i = 0; i < musicas.Count; i++)
             {
-                MusicasEN mus = musicas.ElementAt(i);
+                Salami4UAGenNHibernate.EN.Salami4UA.MusicasEN mus = musicas.ElementAt(i);
                 String s = mus.Name;
                 ListaMusica.Items.Add(s);
             }
 
-            DeportesCEN deporte = new DeportesCEN();
-            IList<DeportesEN> deportes = deporte.DameTodosLosDeportes();
+            Salami4UAGenNHibernate.CEN.Salami4UA.DeportesCEN deporte = new Salami4UAGenNHibernate.CEN.Salami4UA.DeportesCEN();
+            IList<Salami4UAGenNHibernate.EN.Salami4UA.DeportesEN> deportes = deporte.DameTodosLosDeportes();
 
             for (int i = 0; i < deportes.Count; i++)
             {
-                DeportesEN sport = deportes.ElementAt(i);
+                Salami4UAGenNHibernate.EN.Salami4UA.DeportesEN sport = deportes.ElementAt(i);
                 String s = sport.Name;
                 ListaDeportes.Items.Add(s);
             }
 
-            AficionesCEN hobbie = new AficionesCEN();
-            IList<AficionesEN> hobbies = hobbie.DameTodosLosHobbies();
+            Salami4UAGenNHibernate.CEN.Salami4UA.AficionesCEN hobbie = new Salami4UAGenNHibernate.CEN.Salami4UA.AficionesCEN();
+            IList<Salami4UAGenNHibernate.EN.Salami4UA.AficionesEN> hobbies = hobbie.DameTodosLosHobbies();
 
             for (int i = 0; i < hobbies.Count; i++)
             {
-                AficionesEN hob = hobbies.ElementAt(i);
+                Salami4UAGenNHibernate.EN.Salami4UA.AficionesEN hob = hobbies.ElementAt(i);
                 String s = hob.Name;
                 ListaHobbies.Items.Add(s);
 
@@ -360,7 +288,7 @@ namespace WebApplication1.Account
                 smtpClient.Credentials = new System.Net.NetworkCredential("salami4ua@gmail.com", "salamiforua");
 
 
-                UsuarioCEN usuario = new UsuarioCEN();
+                Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
 
 
                 IList<string> animales = new List<string>();
@@ -468,53 +396,29 @@ namespace WebApplication1.Account
                 }
 
 
-                HairColorEnum hairColor = (HairColorEnum)Enum.Parse(typeof(HairColorEnum), ColorPelo.SelectedValue);
-                EyeColorEnum eyeColor = (EyeColorEnum)Enum.Parse(typeof(EyeColorEnum), ColorOjos.SelectedValue);
-                HairLengthEnum hairLength = (HairLengthEnum)Enum.Parse(typeof(HairLengthEnum), LongitudPelo.SelectedValue);
-                HairStyleEnum hairStyle = (HairStyleEnum)Enum.Parse(typeof(HairStyleEnum), EstiloPelo.SelectedValue);
-                BodyTypeEnum bodyType = (BodyTypeEnum)Enum.Parse(typeof(BodyTypeEnum), TiposDeCuerpo.SelectedValue);
-                EthnicityEnum ethnicity = (EthnicityEnum)Enum.Parse(typeof(EthnicityEnum), Etnia.SelectedValue);
-                ReligionEnum religion = (ReligionEnum)Enum.Parse(typeof(ReligionEnum), Religion.SelectedValue);
-                SmokeEnum smoke = (SmokeEnum)Enum.Parse(typeof(SmokeEnum), Fumador.SelectedValue);
-                GenderEnum genero = (GenderEnum)Enum.Parse(typeof(GenderEnum), Genero.SelectedValue);
-                LikesEnum orientacion = (LikesEnum)Enum.Parse(typeof(LikesEnum), Orientacion.SelectedValue);
-
-                CourseEnum curso = (CourseEnum)Enum.Parse(typeof(CourseEnum), CourseList.SelectedValue);
-               
-                HairColorEnum colPelBuscado = (HairColorEnum)Enum.Parse(typeof(HairColorEnum), ColorPeloBuscado.SelectedValue);
-                HairStyleEnum styPelBuscado = (HairStyleEnum)Enum.Parse(typeof(HairStyleEnum), EstiloPeloBuscado.SelectedValue);
-                HairLengthEnum longPelBuscado = (HairLengthEnum)Enum.Parse(typeof(HairLengthEnum), LongitudPeloBuscado.SelectedValue);
-                EyeColorEnum colOjosBuscado = (EyeColorEnum)Enum.Parse(typeof(EyeColorEnum), ColorOjosBuscado.SelectedValue);
-                BodyTypeEnum bodTypeBuscado = (BodyTypeEnum)Enum.Parse(typeof(BodyTypeEnum), TiposDeCuerpoBuscado.SelectedValue);
-                EthnicityEnum etniBuscado = (EthnicityEnum)Enum.Parse(typeof(EthnicityEnum), EtniaBuscada.SelectedValue);
-                SmokeEnum fumBuscado = (SmokeEnum)Enum.Parse(typeof(SmokeEnum), FumadorBuscado.SelectedValue);
-                
+                Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum hairColor = (Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum), ColorPelo.SelectedValue);
+                Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum eyeColor = (Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum), ColorOjos.SelectedValue);
+                Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum hairLength = (Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum), LongitudPelo.SelectedValue);
+                Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum hairStyle = (Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum), EstiloPelo.SelectedValue);
+                Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum bodyType = (Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum), TiposDeCuerpo.SelectedValue);
+                Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum ethnicity = (Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum), Etnia.SelectedValue);
+                Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion = (Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum), Religion.SelectedValue);
+                Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke = (Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum), Fumador.SelectedValue);
+                Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum genero = (Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum), Genero.SelectedValue);
+                Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum orientacion = (Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum), Orientacion.SelectedValue);
 
                 DateTime tiempo = new DateTime();
 
                 try
                 {
                     tiempo = Convert.ToDateTime(FechaNacimiento.Text);
-                    var age = GetAge(tiempo);
-                    if (age < 18)
-                    {
-                        ErrorUnderAge.Text = "You must be 18 years old";
-                        ok = false;
-                    }
-                    else
-                    {
-                        ErrorUnderAge.Text = "";
-                    }
                 }
                 catch (Exception ex)
                 {
                     ok = false;
                 }
 
-                
-
-
-                IList<UsuarioEN> listaUsuarios = new List<UsuarioEN>();
+                IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> listaUsuarios = new List<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN>();
                 listaUsuarios = usuario.DameUsuarioPorNickname(UserName.Text);
 
                 if (listaUsuarios.Count != 0)
@@ -525,27 +429,12 @@ namespace WebApplication1.Account
 
                 }
 
-                if (!TermsOfUse.Checked)
-                {
-                    ok = false;
-                    ErrorTerms.Text = "You have to accept the terms of use.";
-                }
-                else
-                {
-                    ErrorTerms.Text = "";
-                }
-
-                if (ok)
+                if (ok && TermsOfUse.Checked)
                 {
 
-                    // Gustos
-                    GustosCEN gustoCEN = new GustosCEN();
-                    gustoCEN.New_(UserName.Text, colPelBuscado, colOjosBuscado, longPelBuscado, styPelBuscado, bodTypeBuscado, etniBuscado, fumBuscado);
-
-
-                    usuario.New_(UserName.Text, Login.GetMd5Hash(password.ToString()), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, Email.Text,
-                        tiempo, genero, orientacion, Name.Text, Surname.Text, Comment.Text, "", CareerList.SelectedValue, curso,
-                        NacionalidadList.SelectedValue, Int32.Parse(Height.SelectedValue), animales, cines, musicas, caracteristicas, deportes, hobbies, "http://10hotmail.com/wp-content/uploads/2012/05/Agregar-contactos-Yahoo-MSN-Messenger.png", UserName.Text);
+                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, Email.Text,
+                        tiempo, genero, orientacion, Name.Text, Surname.Text, Comment.Text, "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.First,
+                        NacionalidadList.SelectedValue, Int32.Parse(Height.SelectedValue), animales, cines, musicas, caracteristicas, deportes, hobbies);
                         
 
 
@@ -558,7 +447,7 @@ namespace WebApplication1.Account
                 }
                 else
                 {
-                    
+                    ErrorTerms.Text = "You have to accept the terms of use.";
                 }
             }
             catch (Exception ex)
@@ -577,51 +466,11 @@ namespace WebApplication1.Account
             ErrorMusica.Text = "";
             ErrorCaracteristicas.Text = "";
             ErrorNickname.Text = "";
-            ErrorTerms.Text = "";
-            ErrorUnderAge.Text = "";
-        }
-
-        protected void clickarCarrera(object sender, EventArgs e)
-        {
-            if (botoncarrera.Checked == true) // Estudia carrera
-            {
-                CareerList.Visible = true;
-                CareerLabel.Visible = true;
-                MasterList.Visible = false;
-                MasterLabel.Visible = false;
-                CourseList.Visible = true;
-                CourseLabel.Visible = true;
-                //botoncarrera.Checked = false;
-
-            }
-
-            else if (botonmaster.Checked == true) // Estudia master
-            {
-                MasterList.Visible = true;
-                MasterLabel.Visible = true;
-                CareerList.Visible = false;
-                CareerLabel.Visible = false;
-                CourseList.Visible = true;
-                CourseLabel.Visible = true;
-                //botonmaster.Checked = false;
-
-            }
-
         }
 
         protected void ListaCaracteristicas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        int GetAge(DateTime bornDate)
-        {
-            DateTime today = DateTime.Today;
-            int age = today.Year - bornDate.Year;
-            if (bornDate > today.AddYears(-age))
-                age--;
-
-            return age;
         }
 
     }

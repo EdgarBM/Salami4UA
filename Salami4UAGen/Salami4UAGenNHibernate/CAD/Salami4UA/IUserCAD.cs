@@ -54,13 +54,18 @@ System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> Dam
 System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorGender (Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum genero);
 
 
-System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad);
+System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NacionalidadEN nacionalidad);
 
 
-System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorAltura (Salami4UAGenNHibernate.EN.Salami4UA.HeightEN altura);
-
+System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorAltura (Salami4UAGenNHibernate.EN.Salami4UA.AlturaEN altura);
 
 
 System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorRangoEdad (int min, int max);
+
+
+
+void AnyadirMensajeEnviado (string p_User_OID, System.Collections.Generic.IList<int> p_messagesEnviados_OIDs);
+
+void AnyadirMensajeRecibido (string p_User_OID, System.Collections.Generic.IList<int> p_messagesRecibidos_OIDs);
 }
 }

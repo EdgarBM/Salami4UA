@@ -45,7 +45,7 @@
                     <br />
 
                     <asp:RegularExpressionValidator ID="UserRequiredSize" runat="server" ControlToValidate="UserName" 
-                        ForeColor="Red" ErrorMessage="Incorrect username. It must have almost 6 alphanumeric characters."
+                        ForeColor=Red ErrorMessage="Incorrect username. It must have almost 6 alphanumeric characters."
                         ValidationExpression="^[a-zA-Z0-9]{6,}$" ValidationGroup="RegisterUserValidationGroup"></asp:RegularExpressionValidator>
                 
                     <br />
@@ -170,95 +170,14 @@
                         CssClass="failureNotification" ErrorMessage="The birthdate is mandatory." ToolTip="The birthdate is mandatory." 
                         ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionFechaNacimiento" runat="server"
-                        ControlToValidate="FechaNacimiento" ForeColor="Red" ValidationGroup="RegisterUserValidationGroup"
+                        ControlToValidate="FechaNacimiento" ForeColor=Red ValidationGroup="RegisterUserValidationGroup"
                         ErrorMessage="Incorrect birthdate."
                         ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"></asp:RegularExpressionValidator>
-                    <asp:Label ID="ErrorUnderAge" runat="server" ForeColor="Red"></asp:Label>
                    
                     
                 </p>
-                <br /><br /><br />
-                <p>
-                <asp:Label ID="StudiesLabel" runat="server" Text="Studies" 
-                        BorderColor="#33CCFF" BorderStyle="None" Font-Bold="True" Font-Names="Tahoma" 
-                        Font-Size="Large" Font-Strikeout="False" ForeColor="Silver"></asp:Label>
-                &nbsp;&nbsp;&nbsp;
-                    <asp:Label ID="ErrorStudies" runat="server" Text="" ForeColor="Red" ></asp:Label>
-                </p>
-            
-
-            <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 45px; width: 48px; float: left; margin-left:1%'>
-        
-	<asp:RadioButton ID="botoncarrera" runat="server" GroupName="grupo" Checked="true" TextAlign="Right" Text="Career" AutoPostBack="true" OnCheckedChanged="clickarCarrera" />
-
-</div>
-
-<div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 44px; width: 60px; float: left; margin-left:1%'>
-        
-	<asp:RadioButton ID="botonmaster" runat="server" GroupName="grupo" Text="Master"  AutoPostBack="true" OnCheckedChanged="clickarCarrera" />  
                 
-
- </div>
-          <br /><br />      
-                
-                 
-        
                 <br /><br />
-
-                 <asp:Label ID="CareerLabel" runat="server" Visible="false">Career: </asp:Label>
-                    <asp:DropDownList ID="CareerList" runat="server" Visible="false"></asp:DropDownList>
-                
-                <asp:Label ID="MasterLabel" runat="server" Visible="false">Master: </asp:Label>
-                    <asp:DropDownList ID="MasterList" runat="server" Visible="false"></asp:DropDownList>
-                    &nbsp;&nbsp;&nbsp;
-
-                <asp:Label ID="CourseLabel" runat="server" Visible="false">Grade: </asp:Label>
-                    <asp:DropDownList ID="CourseList" runat="server" Visible="false"></asp:DropDownList>
-
-                <br /><br /><br />
-                
-                <p>
-                    <asp:Label ID="Label1" runat="server" Text="What people are you looking for?" Font-Bold="True" 
-                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
-                    <br /><br />
-
-                    <asp:Label ID="Label3" runat="server">Body type: </asp:Label>
-                    <asp:DropDownList ID="TiposDeCuerpoBuscado" runat="server"> </asp:DropDownList>
-
-                    &nbsp;&nbsp;&nbsp;
-
-                    <asp:Label ID="Label5" runat="server">Ethnicity: </asp:Label>
-                    <asp:DropDownList ID="EtniaBuscada" runat="server" style="margin-left: 10px"></asp:DropDownList>
-
-                     &nbsp;&nbsp;&nbsp;
-
-                    <asp:Label ID="Label6" runat="server">Eye Color: </asp:Label>
-                    <asp:DropDownList ID="ColorOjosBuscado" runat="server" Height="16px" style="margin-left: 0px"> </asp:DropDownList>
-           
-                    <br /><br />
-
-                    <asp:Label ID="Label7" runat="server">Hair Color: </asp:Label>
-                    <asp:DropDownList ID="ColorPeloBuscado" runat="server"> </asp:DropDownList>
-
-                    &nbsp;&nbsp;&nbsp;
-
-                    <asp:Label ID="Label8" runat="server">Hair length: </asp:Label>
-                    <asp:DropDownList ID="LongitudPeloBuscado" runat="server"></asp:DropDownList>
-
-                    &nbsp;&nbsp;&nbsp;
-
-                    <asp:Label ID="Label9" runat="server">Hair style: </asp:Label>
-                    <asp:DropDownList ID="EstiloPeloBuscado" runat="server"> </asp:DropDownList>
-                    
-                    &nbsp;&nbsp;&nbsp;
-
-                    <asp:Label ID="Label11" runat="server">Smoke: </asp:Label>
-                    <asp:DropDownList ID="FumadorBuscado" runat="server"> </asp:DropDownList>
-
-
-                </p>
-                <br /><br /><br />
-        
                 <p>
                     <asp:Label ID="LabelAnimales" runat="server" Text="Animals" 
                         BorderColor="#33CCFF" BorderStyle="None" Font-Bold="True" Font-Names="Tahoma" 

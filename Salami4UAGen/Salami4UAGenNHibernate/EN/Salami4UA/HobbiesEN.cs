@@ -11,12 +11,6 @@ public partial class HobbiesEN
 
 private string name;
 
-/**
- *
- */
-
-private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user;
-
 
 
 
@@ -26,38 +20,29 @@ public virtual string Name {
 }
 
 
-public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> User {
-        get { return user; } set { user = value;  }
-}
-
-
 
 
 
 public HobbiesEN()
 {
-        user = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
 }
 
 
 
-public HobbiesEN(string name, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user)
+public HobbiesEN(string name)
 {
-        this.init (name, user);
+        this.init (name);
 }
 
 
 public HobbiesEN(HobbiesEN hobbies)
 {
-        this.init (hobbies.Name, hobbies.User);
+        this.init (hobbies.Name);
 }
 
-private void init (string name, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user)
+private void init (string name)
 {
         this.Name = Name;
-
-
-        this.User = user;
 }
 
 public override bool Equals (object obj)

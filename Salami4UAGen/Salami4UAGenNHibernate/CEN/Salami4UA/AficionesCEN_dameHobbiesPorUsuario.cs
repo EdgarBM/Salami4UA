@@ -20,32 +20,34 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Afic
 
         // Write here your custom code...
 
-        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.AficionesEN> todosHobbies = new AficionesCEN ().DameTodosLosHobbies ();
-        while (todosHobbies.Count != 0) {
-                todosHobbies.RemoveAt (0);
-        }
+    System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.AficionesEN> todosHobbies = new AficionesCEN().DameTodosLosHobbies();
+    while (todosHobbies.Count != 0)
+    {
+        todosHobbies.RemoveAt(0);
+    }
 
-        BasicCP basic = new BasicCP ();
+    BasicCP basic = new BasicCP();
 
-        try
+    try
+    {
+        basic.SessionInitializeTransaction();
+        AficionesCAD hobbieCAD = new AficionesCAD(basic.session);
+        UsuarioCAD usuarioCAD = new UsuarioCAD(basic.session);
+        UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault(nickname);
+
+        foreach (String hob in usuarioEN.Hobbies)
         {
-                basic.SessionInitializeTransaction ();
-                AficionesCAD hobbieCAD = new AficionesCAD (basic.session);
-                UsuarioCAD usuarioCAD = new UsuarioCAD (basic.session);
-                UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault (nickname);
-
-                foreach (String hob in usuarioEN.Hobbies) {
-                        AficionesEN a = new AficionesEN ();
-                        a.Name = hob;
-                        todosHobbies.Add (a);
-                }
+            AficionesEN a = new AficionesEN();
+            a.Name = hob;
+            todosHobbies.Add(a);
         }
-        catch (Exception ex)
-        {
-                return null;
-        }
+    }
+    catch (Exception ex)
+    {
+        return null;
+    }
 
-        return todosHobbies;
+    return todosHobbies;
 
         /*PROTECTED REGION END*/
 }
