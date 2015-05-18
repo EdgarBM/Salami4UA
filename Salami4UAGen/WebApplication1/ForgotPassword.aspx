@@ -40,8 +40,9 @@
     
     </p>
 
-    <p style="text-align: left; margin-left: 5%;">
+    <p>
         <asp:Button ID="ContinueButton" runat="server" class='button' Text="Continue" ValidationGroup="ForgotValidation" onclick="ContinueButton_Click" />
+        <asp:Button ID="ValidationCodeLink" runat="server" class='button' Text="I already have a validation code" onclick="ValidationCodeButton_Click" />
     </p>
 
     <% }
@@ -69,8 +70,7 @@
         <br />
     </p>
     <p>
-        <asp:Label ID="NewPasswordRecoverLabel" runat="server" AssociatedControlID="NewPasswordRecover">New password</asp:Label>
-                          
+        <asp:Label ID="NewPasswordRecoverLabel" runat="server" AssociatedControlID="NewPasswordRecover">New password</asp:Label>                  
         <br />
         <asp:TextBox ID="NewPasswordRecover" runat="server" CssClass="passwordEntry" TextMode="Password" ClientIDMode="Static"></asp:TextBox>
         <asp:RequiredFieldValidator ID="NewPasswordRecoverRequired" runat="server" ControlToValidate="NewPasswordRecover" 
@@ -82,7 +82,6 @@
             ValidationExpression="^[a-zA-Z0-9]{6,}$" ValidationGroup="ForgotValidation2"></asp:RegularExpressionValidator>
                           
     </p>
-    <br />
 
     <p id="passwordDescription"></p>
     <p id="passwordStrength"></p>
@@ -98,7 +97,8 @@
                     
     <br /><br />
     <p>
-        <asp:Label ID="ConfirmNewPasswordRecoverLabel" runat="server" AssociatedControlID="ConfirmNewPasswordRecover">Confirm the new password:</asp:Label>
+        <asp:Label ID="ConfirmNewPasswordRecoverLabel" runat="server" AssociatedControlID="ConfirmNewPasswordRecover">Confirm the new password</asp:Label>
+        <br />
         <asp:TextBox ID="ConfirmNewPasswordRecover" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
         <asp:RequiredFieldValidator ID="ConfirmNewPasswordRecoverRequired" runat="server" ControlToValidate="ConfirmNewPasswordRecover" 
                 CssClass="failureNotification" Display="Dynamic" ErrorMessage="The confirm password is mandatory."
@@ -110,7 +110,7 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
-        $("#NewPassword").on("focus keyup", function () {
+        $("#NewPasswordRecover").on("focus keyup", function () {
             var score = 0;
             var a = $(this).val();
             var desc = new Array();
@@ -168,7 +168,7 @@
             }
         });
 
-        $("#NewPassword").blur(function () {
+        $("#NewPasswordRecover").blur(function () {
             $("#pwd_strength_wrap").fadeOut(400);
         });
     </script>
@@ -177,6 +177,8 @@
     <p style="text-align: left; margin-left: 5%;">
         <asp:Button ID="SubmitButton" runat="server" class='button' Text="Submit" ValidationGroup="ForgotValidation2" onclick="SubmitButton_Click" />
     </p>
+
+    
 
     <% } %>
 

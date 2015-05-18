@@ -312,6 +312,31 @@ namespace WebApplication1
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorEdad);
             }
 
+            if (Interested.Checked)
+            {
+                String nick;
+                UserCEN usuario;
+                IList<UserEN> usuarios;
+                UserEN usu;
+
+                try
+                {
+                    nick = Session["Login"].ToString();
+                    usuario = new UserCEN();
+                    usuarios = usuario.DameUsuarioPorNickname(nick);
+                    usu = usuarios[0];
+
+
+                    foreach (UserEN u in listaUsuarios)
+                    {
+                        if (u.Likes.ToString() != usu.Gender.ToString() && u.Likes.ToString() != "Both")
+                            listaUsuarios.Remove(u);
+                    }
+
+                }
+                catch (Exception ex) { }
+            }
+
             LabelSalami.Text = "Found " + listaUsuarios.Count + " Salami's";
 
             GridView1.DataSource = listaUsuarios;
@@ -567,42 +592,37 @@ namespace WebApplication1
                 }
             }
 
+            if (Interested.Checked)
+            {
+                String nick;
+                UserCEN usuario;
+                IList<UserEN> usuarios;
+                UserEN usu;
+
+                try
+                {
+                    nick = Session["Login"].ToString();
+                    usuario = new UserCEN();
+                    usuarios = usuario.DameUsuarioPorNickname(nick);
+                    usu = usuarios[0];
+
+
+                    foreach (UserEN u in listaUsuarios)
+                    {
+                        if (u.Likes.ToString() != usu.Gender.ToString() && u.Likes.ToString() != "Both")
+                            listaUsuarios.Remove(u);
+                    }
+
+                }
+                catch (Exception ex) { }
+
+            }
 
             LabelSalami.Text = "Found " + listaUsuarios.Count + " Salami's";
 
-            /*
-            Tabla.Rows.Clear();
-            TableHeaderRow hRow = new TableHeaderRow();
-            TableHeaderCell hCell1 = new TableHeaderCell();
-            TableHeaderCell hCell2 = new TableHeaderCell();
-
-            hCell1.Text = "Username";
-            hCell2.Text = "Email";
-            hRow.Cells.Add(hCell1);
-            hRow.Cells.Add(hCell2);
-            Tabla.Rows.Add(hRow);
-
-            TableRow row = null;
-            foreach (UserEN user in listaUsuarios)
-            {
-                row = new TableRow();
-                TableCell cell1 = new TableCell();
-                TableCell cell2 = new TableCell();
-
-                row.BorderWidth = 1;
-
-                cell1.Text = user.Nickname;
-                cell2.Text = user.Email;
-
-                row.Cells.Add(cell1);
-                row.Cells.Add(cell2);
-                Tabla.Rows.Add(row);
-            }
-            */
-
-
             GridView1.DataSource = listaUsuarios;
             GridView1.DataBind();
+
         }
 
 

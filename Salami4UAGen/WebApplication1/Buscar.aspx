@@ -26,9 +26,9 @@
                 <legend>Filter</legend>
                 <p>
                     <asp:RadioButton id="RadioWoman" Text="Woman" Checked="True" GroupName="RadioGroup1" runat="server" />
-                    <asp:RadioButton id="RadioMan" Text="Man" GroupName="RadioGroup1" runat="server" />
-                    &nbsp;&nbsp;&nbsp; 
-                    
+                    <asp:RadioButton id="RadioMan" Text="Man" GroupName="RadioGroup1" runat="server" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     Interested in me?
+                    <asp:CheckBox ID="Interested" runat="server" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Age between:&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="MinAge" runat="server" Width="34px" ToolTip="Number Please"></asp:TextBox>
 
@@ -127,8 +127,17 @@
                     BorderWidth="2px" BackColor="#EFF3FB" />
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="Nickname" HeaderText="Nickname" />
-                    <asp:BoundField DataField="Email" HeaderText="Email" />
+                    <asp:TemplateField HeaderText="Nickname">
+                        <ItemTemplate>
+                           <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#"VerPerfil.aspx/" + Eval("Nickname") %>' 
+                                            Text='<%#Bind("Nickname") %>'></asp:HyperLink>
+                         </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="Name" HeaderText="Name" />
+                    <asp:BoundField DataField="Surname" HeaderText="Surname" />
+                    <asp:BoundField DataField="Gender" HeaderText="Genre" />
+                    <asp:BoundField DataField="Likes" HeaderText="Likes" />
+                    <asp:BoundField DataField="birthday" HeaderText="Birthday" />
                 </Columns>
                 <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                 <SortedAscendingCellStyle BackColor="#F5F7FB" />
