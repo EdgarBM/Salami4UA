@@ -25,7 +25,7 @@ static void Main (string[] args)
                         CreateDB.Create ("Salami4UAGenNHibernate", "nhibernateUser", "nhibernatePass");
                         var cfg = new Configuration ();
                         cfg.Configure ();
-                        cfg.AddAssembly (typeof(UserEN).Assembly);
+                        cfg.AddAssembly (typeof(UsuarioEN).Assembly);
                         new SchemaExport (cfg).Execute (true, true, false);
                         System.Console.WriteLine ("-----------------------------");
                         System.Console.WriteLine ("Database schema created successfully");

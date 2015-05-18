@@ -9,7 +9,7 @@
     </h2>
     <br /><br />
     <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 226px; float: left'>
-        <img alt="Profile Picture" src="Imagenes/user.png" align="middle" height="200px" width="200px" />
+        <asp:Image ID="ImagenPerfil" runat="server" Height="200px" Width="200px" />
     </div>
 
     <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 1208px; width: 659px; float: left; line-height: 2em;' >
@@ -150,6 +150,8 @@
         <asp:Button ID="BotonEditarPerfil" runat="server" Text="Edit Profile" OnClick="BotonEditarPerfil_Click" Width="130px" class="button"/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="BotonCambiarPassword" runat="server" Text="Change Password" OnClick="BotonCambiarPassword_Click" class="button"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="BotonEliminarPerfil" runat="server" Text="Delete Profile" OnClick="BotonEliminarPerfil_Click" class="button"/>
         
         
         

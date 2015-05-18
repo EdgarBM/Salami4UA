@@ -36,8 +36,9 @@
 
         <br />
     <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 226px; float: left'>
-        <img alt="Profile Picture" id="ProfilPicture" src="../Imagenes/user.png" 
-            align="middle" height="200px" width="200px" />
+        
+        <asp:Image ID="ImagenPerfil" runat="server" Height="200px" Width="200px" />
+    
     </div>
 
     <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 1208px; width: 659px; float: left; line-height: 2em;' >
@@ -173,10 +174,13 @@
             </asp:ScriptManager>
             <asp:Button ID="btnShow" runat="server" Text="Report User" class="button" OnClick="popUpOpen_Click"/>
             <asp:Button ID="btn" runat="server" style="display:none;" />
+            
             <!-- ModalPopupExtender -->
             <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panel1" TargetControlID="btn"
                 CancelControlID="btnClose" BackgroundCssClass="modalBackground">
             </cc1:ModalPopupExtender>
+
+
             <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" style = "display:none">
                 <p>
                     <strong>Report User</strong>
