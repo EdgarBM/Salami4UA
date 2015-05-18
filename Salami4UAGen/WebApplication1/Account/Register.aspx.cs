@@ -415,16 +415,30 @@ namespace WebApplication1.Account
                     ok = false;
                 }
 
-                
+                IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> listaUsuarios = new List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                listaUsuarios = usuario.DameUsuarioPorNickname(UserName.Text);
 
+                if (listaUsuarios.Count != 0)
+                {
+                    ok = false;
+                    ErrorNickname.Text = "ERROR: This nickname already exists. Please select another one.";
+                    UserName.Text = "";
+
+                }
+                
                 if (ok)
                 {
 
-                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, animales, caracteristicas, hobbies, deportes, musicas, cines, NacionalidadList.SelectedValue, Email.Text, tiempo, Int32.Parse(Height.SelectedValue), genero, orientacion);
+                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, 
+                        bodyType, ethnicity, religion, smoke, animales, caracteristicas, hobbies, deportes, musicas, 
+                        cines, NacionalidadList.SelectedValue, Email.Text, tiempo, Int32.Parse(Height.SelectedValue),
+                        genero, orientacion, Name.Text, Surname.Text, Comment.Text, "");
 
                     smtpClient.Send(message);
                     Label.Text = "Your account has been created! Check your email to log in Salami4UA! \n" +
-                        "<a href=\"https://www1.webmail.ua.es/login0.php3?idi=es\" target=\"_blank\"> WebMail  </a>";
+                        "<a href=\"https://www1.webmail.ua.es/login0.php3?idi=es\" target=\"_blank\"> WebMail  </a>" +
+                        "\nPlease log in <a href=\"/Account/Login.aspx\">here</a>."+
+                        "\n\n Regards, Salami4UA Team.";
 
                 }
             }
@@ -443,6 +457,7 @@ namespace WebApplication1.Account
             ErrorCine.Text = "";
             ErrorMusica.Text = "";
             ErrorCaracteristicas.Text = "";
+            ErrorNickname.Text = "";
         }
 
         protected void ListaCaracteristicas_SelectedIndexChanged(object sender, EventArgs e)

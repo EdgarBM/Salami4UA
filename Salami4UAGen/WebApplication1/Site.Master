@@ -122,14 +122,12 @@
         <div class="header" style="background-position: right; background-image: url('/Imagenes/fondo_ua.png'); background-repeat: no-repeat;"> 
             <div class="imagen">
                 <asp:ImageButton ID="LogoSalamiUA" runat="server" 
-                    ImageUrl="~/Imagenes/cor.png"   
-                    Height="200px" Width="200px" PostBackUrl="~/Default.aspx" />
+                    ImageUrl="~/Imagenes/logo2.png"   
+                    Height="228px" Width="223px" PostBackUrl="~/Default.aspx" />
           
             </div>
-
-            <h1> Salami4UA </h1>
-
-            <div class="loginDisplay" style="text-align: left; padding-left: 30px;">
+            <div class="loginDisplay" 
+                style="text-align: center; padding-left: 1px; width: 212px;">
             
             <% if (Session["login"] == null)
                    {
@@ -157,7 +155,7 @@
                    else
                    { 
                  %>
-                 <asp:Label ID="PasswordLabel" runat="server"> Welcome! </asp:Label> 
+                 <asp:Label ID="PasswordLabel" runat="server"></asp:Label> 
                  <asp:LoginView ID="LoginView1" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
                         [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log out</a> ]
@@ -180,13 +178,36 @@
                  <% } %>
             </div>
             <div class="clear hideSkiplink">
+                
+            <% if (Session["login"] == null)
+                   {
+                        %>
+                
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
+
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home Page"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About us"/>
                         <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact us"/>
                     </Items>
                 </asp:Menu>
+                
+                 <% }
+                   else
+                   { 
+                 %>
+
+                <asp:Menu ID="Menu1" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home Page"/>
+                        <asp:MenuItem NavigateUrl="~/Buscar.aspx" Text="Search People"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About us"/>
+                        <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact us"/>
+                    </Items>
+                </asp:Menu>
+                
+                 <% } %>
             </div>
         </div>
         <div class="main" >

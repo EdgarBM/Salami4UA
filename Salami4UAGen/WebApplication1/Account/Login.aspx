@@ -49,7 +49,13 @@
                     <asp:Button ID="ChangePasswordButton" runat="server" class='button' Text="ChangePassword" onclick="change_password" />
                 </p>
 
+                
+
             </div>
         </LayoutTemplate>
     </asp:Login>
+
+    <p style="text-align: left; margin-left: 2%;">
+        <asp:HyperLink ID="ForgotPasswordLink" runat="server" EnableViewState="false">Forgotten password?</asp:HyperLink>
+    </p>
 </asp:Content>

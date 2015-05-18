@@ -8,24 +8,40 @@
             Search
         </h2>
     
-            <% if (Session["login"] != null)
-                   {
-                        %>
+            <% if (Session["login"] != null){ %>
     <p>
-        Select your preferences to find your ideal salami.
-    </p>
+        Select your preferences to find your ideal salami.&nbsp;
+        <asp:RadioButton id="CalmSearch" Text="Calm search" Checked="True" GroupName="SearchType" runat="server" /> &nbsp;&nbsp;&nbsp;
        
+        <asp:RadioButton id="StrictSearch" Text="Strict search" GroupName="SearchType" runat="server" />
+    </p>
         <span class="failureNotification">
             <asp:Literal ID="ErrorMessage" runat="server"></asp:Literal>
         </span>
         <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification" 
                 ValidationGroup="RegisterUserValidationGroup"/>
+
         <div class="accountInfo">
             <fieldset class="filter">
                 <legend>Filter</legend>
                 <p>
                     <asp:RadioButton id="RadioWoman" Text="Woman" Checked="True" GroupName="RadioGroup1" runat="server" />
                     <asp:RadioButton id="RadioMan" Text="Man" GroupName="RadioGroup1" runat="server" />
+                    &nbsp;&nbsp;&nbsp; 
+                    
+                    Age between:&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="MinAge" runat="server" Width="34px" ToolTip="Number Please"></asp:TextBox>
+
+                    &nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <asp:TextBox ID="MaxAge" runat="server" Width="34px"></asp:TextBox>
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:CompareValidator runat="server" ID="CompareValidator1" ForeColor="Red" ControlToValidate="MinAge" Type="Integer" Operator="DataTypeCheck" ErrorMessage="You must enter a number." />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:CompareValidator runat="server" ID="valNumber"  ForeColor="Red" ControlToValidate="MaxAge" Type="Integer" Operator="DataTypeCheck" ErrorMessage="You must enter a number." />
+                    
+
                     <br /><br />
 
                     <asp:Label ID="NationalityLabel" runat="server">Nationality: </asp:Label>
@@ -46,12 +62,12 @@
                     <asp:Label ID="EthnicityLabel" runat="server">Ethnicity: </asp:Label>
                     <asp:DropDownList ID="Etnia" runat="server" style="margin-left: 10px"></asp:DropDownList>
 
-                     <br /><br />
+                     &nbsp;&nbsp;&nbsp;
 
                     <asp:Label ID="EyeColorLabel" runat="server">Eye Color: </asp:Label>
                     <asp:DropDownList ID="ColorOjos" runat="server" Height="16px" style="margin-left: 0px"> </asp:DropDownList>
            
-                    &nbsp;&nbsp;&nbsp;
+                    <br /><br />
 
                     <asp:Label ID="HairColorLabel" runat="server">Hair Color: </asp:Label>
                     <asp:DropDownList ID="ColorPelo" runat="server"> </asp:DropDownList>
@@ -66,7 +82,7 @@
                     <asp:Label ID="HairStyleLabel" runat="server">Hair style: </asp:Label>
                     <asp:DropDownList ID="EstiloPelo" runat="server"> </asp:DropDownList>
 
-                    <br /><br />
+                    &nbsp;&nbsp;&nbsp;
 
                     <asp:Label ID="ReligionLabel" runat="server">Religion: </asp:Label>
                     <asp:DropDownList ID="Religion" runat="server"> </asp:DropDownList>
@@ -76,11 +92,12 @@
                     <asp:Label ID="SmokeLabel" runat="server">Smoke: </asp:Label>
                     <asp:DropDownList ID="Fumador" runat="server"> </asp:DropDownList>
 
+                    <br /><br />
                 </p>
                 
                 
                 <p class="submitButton">
-                    <asp:Button ID="BuscarButton" runat="server" CommandName="MoveNext" Text="Search" OnClick="Search_Click"/>
+                    <asp:Button ID="BuscarButton" runat="server" class="button" CommandName="MoveNext" Text="Search" OnClick="Search_Click"/>
                 </p>
                             
             </fieldset>
@@ -88,8 +105,10 @@
         </div>
     
     
-        <div class="resoultInfo">
-            <h3><asp:Label ID="LabelSalami" runat="server"></asp:Label></h3>
+        <div class="resoultInfo" style="margin-left: 10px">
+            <h3>
+                <asp:Label ID="LabelSalami" runat="server"></asp:Label>
+            </h3>
             <br />
 
             <!--
@@ -98,16 +117,29 @@
             -->
 
             <asp:GridView ID="GridView1" runat="server"
-                 AutoGenerateColumns="False" >
-                <RowStyle HorizontalAlign="Center" />
+                 AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
+                GridLines="None" >
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle HorizontalAlign="Center" BorderColor="White" BorderStyle="Solid" 
+                    BorderWidth="2px" BackColor="#EFF3FB" />
+                <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="Nickname" HeaderText="Nickname" />
                     <asp:BoundField DataField="Email" HeaderText="Email" />
                 </Columns>
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-
             <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
-            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
+            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server">
+            </asp:ObjectDataSource>
+            <br /><br />
 
         </div>
         
@@ -117,8 +149,9 @@
                  %>
     
     <p>
-        Please <a href="/Account/Login.aspx">log in</a> to use this function.
+        Please <a href="/Account/Login.aspx">Log in</a> to use this function
     </p>
-    
-                 <% }   %>
+
+                  <% }   %>
+
 </asp:Content>

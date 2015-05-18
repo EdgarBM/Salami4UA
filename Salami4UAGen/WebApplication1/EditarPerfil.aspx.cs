@@ -56,8 +56,6 @@ namespace WebApplication1
                 Religion.SelectedValue = usuarioEN.Religion.ToString();
                 Genero.SelectedValue = usuarioEN.Gender.ToString();
                 Orientacion.SelectedValue = usuarioEN.Likes.ToString();
-                FechaNacimiento.Text = Convert.ToString(usuarioEN.Birthday.Value.Day) + "/" +
-                    Convert.ToString(usuarioEN.Birthday.Value.Month) + "/" + Convert.ToString(usuarioEN.Birthday.Value.Year);
 
                 //Nationality.SelectedValue = usuarioEN.Nacionalidad.Name;
 
@@ -78,6 +76,11 @@ namespace WebApplication1
                 UserEN us = new UserEN();
                 UserCAD usuarioCAD = new UserCAD();
                 us = usuarioCAD.ReadOIDDefault(nick);
+
+                Name.Text = us.Name;
+                Surname.Text = us.Surname;
+                Comment.Text = us.Comment;
+                FechaNacimiento.Text = Convert.ToString(us.Birthday).Substring(0, 10);
 
                 String corpulento = Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent.ToString();
                 String normal = Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Normal.ToString();
@@ -274,7 +277,7 @@ namespace WebApplication1
                     foreach (UserEN us in usuarios)
                     {
                         
-                        usuario.Modify(us.Nickname, us.Password, hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, us.Email, tiempo, genero, orientacion);
+                        usuario.Modify(us.Nickname, us.Password, hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, us.Email, tiempo, genero, orientacion, Name.Text, Surname.Text, Comment.Text, "");
                         //usuario.CambiaNacionalidadUsuario(us.Nickname, us.Nacionalidad.Name, Nationality.SelectedValue.ToString());
                         
                     }

@@ -12,7 +12,7 @@
         <img alt="" src="Imagenes/user.png" align="middle" height="200px" width:"200px" />
     </div>
 
-    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 1064px; width: 659px; float: left; line-height: 2em;' >
+    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 1208px; width: 659px; float: left; line-height: 2em;' >
         <asp:Label ID="Label1" runat="server" Text="Nickname" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="Nickname" runat="server" Text="" Width="100px"></asp:Label>
 
@@ -20,6 +20,16 @@
     
         <asp:Label ID="Label2" runat="server" Text="Email" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="Email" runat="server" Text="" Width="100px"></asp:Label>
+
+        <br />
+
+        <asp:Label ID="Label22" runat="server" Text="Name" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:Label ID="Name" runat="server" Text="" Width="100px"></asp:Label>
+
+        <br />
+
+        <asp:Label ID="Label24" runat="server" Text="Surname" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:Label ID="Surname" runat="server" Text="" Width="100px"></asp:Label>
 
         <br />
 
@@ -89,43 +99,49 @@
         <asp:Label ID="Label20" runat="server" Text="Birthdate" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="BirthLabel" runat="server" Text="" Width="100px"></asp:Label>
 
-        <br /><br /><br />
+        <br /><br />
 
         <asp:Label ID="Label9" runat="server" Text="Pets" Width="100px" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" ></asp:Label>
         <asp:Label ID="PetsLabel" runat="server" Text="" Width="600px"></asp:Label>
 
-        <br /><br /><br />
+        <br /><br />
 
         <asp:Label ID="Label13" runat="server" Text="Features" Width="100px" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
         <asp:Label ID="FeaturesLabel" runat="server" Text="" Width="600px"></asp:Label>
 
-        <br /><br /><br />
+        <br /><br />
     
         <asp:Label ID="Label17" runat="server" Text="Film Tastes" Width="100px" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
         <asp:Label ID="FilmLabel" runat="server" Text="" Width="600px"></asp:Label>
 
-        <br /><br /><br />
+        <br /><br />
 
         <asp:Label ID="Label21" runat="server" Text="Music Tastes" Width="200px" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
         <asp:Label ID="MusicLabel" runat="server" Text="" Width="600px"></asp:Label>
 
-        <br /><br /><br />
+        <br /><br />
 
         <asp:Label ID="Label7" runat="server" Text="Sports" Width="100px" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
         <asp:Label ID="SportsLabel" runat="server" Text="" Width="600px"></asp:Label>
 
-        <br /><br /><br />
+        <br /><br />
     
         <asp:Label ID="Label15" runat="server" Text="Hobbies" Width="100px" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
         <asp:Label ID="HobbiesLabel" runat="server" Text="" Width="600px"></asp:Label>
 
-        <br /><br /><br />
+        <br /><br />
+
+        <asp:Label ID="CommentLabel" runat="server" Text="" Width="100px" Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
+        <asp:Label ID="Comment" runat="server" Text="" Width="600px"></asp:Label>
+
+        <br /><br />
 
     </div>
 

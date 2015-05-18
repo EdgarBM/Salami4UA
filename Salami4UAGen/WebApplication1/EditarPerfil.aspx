@@ -13,15 +13,31 @@
     
     <br />
     <br />
-    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 528px; width: 213px; float: left'>
+    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 599px; width: 213px; float: left'>
         <img alt="" src="Imagenes/user.png" align="middle" height="200px" width:"200px" />
     </div>
-    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 277px; width: 289px; float: left' >
+    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 596px; width: 310px; float: left' >
     
         <!--<asp:Label ID="Label2" runat="server" Text="Nationality" Width="100px"></asp:Label>
         <asp:DropDownList ID="Nationality" runat="server" Width="100px"></asp:DropDownList>
 
         <br /> -->
+
+        <asp:Label ID="NameLabel" runat="server" Text="Name" Width="100px"></asp:Label>
+        <asp:TextBox ID="Name" runat="server" CssClass="textEntry" Width="176px" ></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredName" runat="server" ControlToValidate="Name" 
+            CssClass="failureNotification" ErrorMessage="The name is mandatory." ToolTip="The name is mandatory." 
+            ValidationGroup="EditUserValidationGroup">*</asp:RequiredFieldValidator>
+        <br />
+        <br />
+
+        <asp:Label ID="SurnameLabel" runat="server" Text="Surname" Width="100px"></asp:Label>
+        <asp:TextBox ID="Surname" runat="server" CssClass="textEntry" Width="176px" ></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredSurname" runat="server" ControlToValidate="Surname" 
+            CssClass="failureNotification" ErrorMessage="The surname is mandatory." ToolTip="The surname is mandatory." 
+            ValidationGroup="EditUserValidationGroup">*</asp:RequiredFieldValidator>
+        <br />
+        <br />
 
         <asp:Label ID="Label20" runat="server" Text="Body Type" Width="100px"></asp:Label>
         <asp:DropDownList ID="TiposDeCuerpo" runat="server" Width="100px"></asp:DropDownList>
@@ -83,15 +99,32 @@
             CssClass="failureNotification" ErrorMessage="The birthdate is mandatory." ToolTip="The birthdate is mandatory." 
             ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
         <asp:RegularExpressionValidator ID="RegularExpressionFechaNacimiento" runat="server"
-            ControlToValidate="FechaNacimiento" ForeColor=Red ValidationGroup="RegisterUserValidationGroup"
+            ControlToValidate="FechaNacimiento" ForeColor=Red ValidationGroup="EditUserValidationGroup"
             ErrorMessage="Incorrect birthdate."
             ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"></asp:RegularExpressionValidator>
     
     </div>
+    <br /><br /><br /><br /><br /><br />
+    
+    <p>
+        <asp:Label ID="LabelComment" runat="server" Text="Something about you"></asp:Label>
+
+        <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <asp:TextBox ID="Comment" runat="server" CssClass="textEntry" 
+            TextMode="MultiLine" Height="191px" Width="390px"></asp:TextBox>
+        <asp:RegularExpressionValidator ID="CommentValidator" runat="server"             
+            ErrorMessage="The maximum characters allowed are 200"            
+            ValidationExpression="^([\S\s]{0,200})$" ValidationGroup="EditUserValidationGroup"           
+            ControlToValidate="Comment" ForeColor=Red          
+            Display="Dynamic"></asp:RegularExpressionValidator>
+                    
+        <br />
+    </p>
 
     <div style= 'height: 50px; width: 800px; border: 3px; float: Right' >  
         
-        <asp:Button ID="ButtonActualizar" runat="server" Text="Update Profile" OnClick="ButtonActualizar_Click" class="button" />
+        <asp:Button ID="ButtonActualizar" runat="server" Text="Update Profile" OnClick="ButtonActualizar_Click" class="button" ValidationGroup="EditUserValidationGroup" />
         &nbsp;&nbsp;&nbsp;
         <asp:Button ID="CancelPushButton" runat="server" class='button' CausesValidation="False" CommandName="Cancel" Text="Cancel"
                         OnClick="Cancel_Click"/>

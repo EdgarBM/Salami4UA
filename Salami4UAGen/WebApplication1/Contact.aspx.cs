@@ -27,7 +27,7 @@ namespace WebApplication1
 
                     foreach (UserEN us in usuarios)
                     {
-                        TextBox1.Text = nick;
+                        TextBox1.Text = us.Name;
                         TextBox2.Text = us.Email;
                     }
                 }

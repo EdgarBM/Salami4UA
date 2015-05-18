@@ -2,6 +2,12 @@
     CodeBehind="Register.aspx.cs" Inherits="WebApplication1.Account.Register" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <style type="text/css">
+        .textEntry
+        {
+            margin-left: 0px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
         <h2>
@@ -10,6 +16,7 @@
 
         <br />
         <asp:Label ID="Label" runat="server" AssociatedControlID="Label"></asp:Label>
+        <asp:Label ID="ErrorNickname" runat="server" ForeColor="Red"></asp:Label>
 
         <% if (Label.Text == "") { %>
         <p>
@@ -46,8 +53,9 @@
                 
                     <br />
                 
-                    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" Text="Genre" Font-Bold="True" 
-                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" Width="125px">Email:</asp:Label>
+                    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" 
+                        Text="Email" Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" Width="125px"></asp:Label>
                     <br />
                     <asp:TextBox ID="Email" runat="server" CssClass="textEntry"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" 
@@ -70,6 +78,15 @@
                     <br /><br />
                     <asp:DropDownList ID="Genero" runat="server"> </asp:DropDownList>
 
+                    <br /><br /><br />
+                
+                    <asp:Label ID="NameLabel" runat="server" AssociatedControlID="Name" Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" Width="125px">Name</asp:Label>
+                    <asp:TextBox ID="Name" runat="server" CssClass="textEntry"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredName" runat="server" ControlToValidate="Name" 
+                            CssClass="failureNotification" ErrorMessage="The name is mandatory." ToolTip="The name is mandatory." 
+                            ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+
                 
                 </div>
                 
@@ -80,6 +97,14 @@
                     <br /><br />
                     <asp:DropDownList ID="Orientacion" runat="server"> </asp:DropDownList>
 
+                    <br /><br /><br />
+
+                    <asp:Label ID="SurnameLabel" runat="server" AssociatedControlID="Surname" Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" Width="125px">Surname</asp:Label>
+                    <asp:TextBox ID="Surname" runat="server" CssClass="textEntry"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredSurname" runat="server" ControlToValidate="Surname" 
+                            CssClass="failureNotification" ErrorMessage="The surname is mandatory." ToolTip="The surname is mandatory." 
+                            ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                 </div>
 
                 <p>
@@ -139,7 +164,7 @@
                 
                 <br /><br />
                 <p>
-                    <asp:Label ID="BirthdayLabel" runat="server" Width="100px">Birthdate: </asp:Label>
+                    <asp:Label ID="BirthdayLabel" runat="server"  Width="100px">Birthdate: </asp:Label>
                     <asp:TextBox ID="FechaNacimiento" runat="server" CssClass="textEntry" ToolTip="Example: 02/09/1992" placeholder="Example: 02/09/1992" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFechaNacimiento" runat="server" ControlToValidate="FechaNacimiento" 
                         CssClass="failureNotification" ErrorMessage="The birthdate is mandatory." ToolTip="The birthdate is mandatory." 
@@ -217,7 +242,20 @@
                    <asp:CheckBoxList ID="ListaHobbies" CellPadding="5" CellSpacing="5" Width="100%"
                                   RepeatColumns="10" RepeatDirection="Horizontal" runat="server"></asp:CheckBoxList>
                 </p>
-               
+
+                <br /><br />
+
+                <p>
+                   <asp:Label ID="LabelComment" runat="server" Text="Something about you" Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" ></asp:Label>
+
+                    <br /><br />
+
+                   <asp:TextBox ID="Comment" runat="server" CssClass="textEntry" 
+                       TextMode="MultiLine" Height="191px" Width="390px"  ></asp:TextBox>
+                    
+                    <br />
+                </p>
 
                             
             </fieldset>

@@ -43,6 +43,18 @@
 					<property name="Likes" > 
 						<column name="[Likes]"  not-null="true"/>
 					</property>
+					<property name="Name" type="string"> 
+						<column name="[Name]"  not-null="true"/>
+					</property>
+					<property name="Surname" type="string"> 
+						<column name="[Surname]"  not-null="true"/>
+					</property>
+					<property name="Comment" type="string"> 
+						<column name="[Comment]" length="1000" not-null="true"/>
+					</property>
+					<property name="ValidationCode" type="string"> 
+						<column name="[ValidationCode]"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -129,6 +141,14 @@
 											 					
 			
 			
+			
+			
+			
+			
+					
+					
+					
+					
 					
 					
 					
@@ -169,5 +189,6 @@
 		  <query name="UserENdameUsuarioPorGenderHQL"><![CDATA[FROM UserEN c WHERE c.Gender = :genero]]></query>
 		  <query name="UserENdameUsuarioPorNacionalidadHQL"><![CDATA[FROM UserEN c WHERE c.Nacionalidad = :nacionalidad]]></query>
 		  <query name="UserENdameUsuarioPorAlturaHQL"><![CDATA[FROM UserEN c WHERE c.Height_0 = :altura]]></query>
+		  <query name="UserENdameUsuarioPorRangoEdadHQL"><![CDATA[FROM UserEN c WHERE year(c.Birthday) < :min AND year(c.Birthday) > :max]]></query>
 		</hibernate-mapping>
 	
