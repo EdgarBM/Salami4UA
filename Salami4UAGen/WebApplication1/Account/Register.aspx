@@ -2,6 +2,10 @@
     CodeBehind="Register.aspx.cs" Inherits="WebApplication1.Account.Register" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <style type="text/css">
+        .textEntry
+        {}
+    </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
         <h2>
@@ -24,46 +28,81 @@
         <div class="accountInfo" style="height: 100%;">
             <fieldset class="register" style="background-color: #FBFDFF">
                 <legend>Sign in</legend>
-                <p>
-                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Nickname</asp:Label>
+                <br />
+                <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 213px; width: 436px; float: left; margin-left: 10px;'>
+        
+                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName" Text="Genre" Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" Width="125px">Nickname</asp:Label>
+                    <br />
                     <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
                             CssClass="failureNotification" ErrorMessage="The nickname is mandatory." ToolTip="The nickname is mandatory." 
                             ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
 
+                    <br />
+
                     <asp:RegularExpressionValidator ID="UserRequiredSize" runat="server" ControlToValidate="UserName" 
                         ForeColor=Red ErrorMessage="Incorrect username. It must have almost 6 alphanumeric characters."
                         ValidationExpression="^[a-zA-Z0-9]{6,}$" ValidationGroup="RegisterUserValidationGroup"></asp:RegularExpressionValidator>
-                </p>
-                <p>
-                    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">Email:</asp:Label>
+                
+                    <br />
+                    <br />
+                
+                    <br />
+                
+                    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" Text="Genre" Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" Width="125px">Email:</asp:Label>
+                    <br />
                     <asp:TextBox ID="Email" runat="server" CssClass="textEntry"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" 
                             CssClass="failureNotification" ErrorMessage="The email is mandatory." ToolTip="The email is mandatory." 
                             ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
 
+                    <br />
+
                     <asp:RegularExpressionValidator ID="EmailCheck" runat="server"
                         ControlToValidate="Email" ForeColor=Red ValidationGroup="RegisterUserValidationGroup"
                         ErrorMessage="Incorrect email. It must be from UA (@alu.ua.es)"
                         ValidationExpression="^\S+@alu\.ua\.es$" ></asp:RegularExpressionValidator>
-                </p>
-                <br /><br />
-                <p>
+                </div>
+                <br />
+               
+               <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 211px; width: 184px; float: left; line-height: 2em; margin-top: 0px;' >
+     
                     <asp:Label ID="LabelGenre" runat="server" Text="Genre" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
                     <br /><br />
                     <asp:DropDownList ID="Genero" runat="server"> </asp:DropDownList>
 
-                </p>
-                <br /><br />
-                <p>
+                    <br /><br /><br />
+                
+                    <asp:Label ID="NameLabel" runat="server" AssociatedControlID="Name" Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" Width="125px">Name:</asp:Label>
+                    <asp:TextBox ID="Name" runat="server" CssClass="textEntry"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredName" runat="server" ControlToValidate="Name" 
+                            CssClass="failureNotification" ErrorMessage="The name is mandatory." ToolTip="The name is mandatory." 
+                            ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+
+                
+                </div>
+                
+                <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 211px; width: 208px; float: left; line-height: 2em; margin-top: 0px;' >
+     
                     <asp:Label ID="LabelInterested" runat="server" Text="Interested in" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
                     <br /><br />
                     <asp:DropDownList ID="Orientacion" runat="server"> </asp:DropDownList>
 
-                </p>
-                <br /><br />
+                    <br /><br /><br />
+
+                    <asp:Label ID="SurnameLabel" runat="server" AssociatedControlID="Surname" Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" Width="125px">Surname:</asp:Label>
+                    <asp:TextBox ID="Surname" runat="server" CssClass="textEntry"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredSurname" runat="server" ControlToValidate="Surname" 
+                            CssClass="failureNotification" ErrorMessage="The surname is mandatory." ToolTip="The surname is mandatory." 
+                            ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+                </div>
+
                 <p>
                     <asp:Label ID="LabelInfo" runat="server" Text="Basic Information" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
@@ -199,7 +238,20 @@
                    <asp:CheckBoxList ID="ListaHobbies" CellPadding="5" CellSpacing="5" Width="100%"
                                   RepeatColumns="10" RepeatDirection="Horizontal" runat="server"></asp:CheckBoxList>
                 </p>
-               
+
+                <br /><br />
+
+                <p>
+                   <asp:Label ID="LabelComment" runat="server" Text="Something about you" Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" ></asp:Label>
+
+                    <br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                   <asp:TextBox ID="Comment" runat="server" CssClass="textEntry" 
+                       TextMode="MultiLine" Height="191px" Width="390px"  ></asp:TextBox>
+                    
+                    <br />
+                </p>
 
                             
             </fieldset>

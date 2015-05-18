@@ -43,3 +43,18 @@ C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\Salami4UAGenNH
 C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\Salami4UAGenNHibernate\obj\Debug\Salami4UAGenNHibernate.csprojResolveAssemblyReference.cache
 C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\Salami4UAGenNHibernate\obj\Debug\Salami4UAGenNHibernate.dll
 C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\Salami4UAGenNHibernate\obj\Debug\Salami4UAGenNHibernate.pdb
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\obj\Debug\Salami4UAGenNHibernate.csprojResolveAssemblyReference.cache
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\obj\Debug\Salami4UAGenNHibernate.dll
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\hibernate.cfg.xml
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\Salami4UAGenNHibernate.dll.config
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\Salami4UAGenNHibernate.dll
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\Salami4UAGenNHibernate.pdb
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\NHibernate.dll
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\Iesi.Collections.dll
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\bin\Debug\log4net.dll
+D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\Salami4UAGenNHibernate\obj\Debug\Salami4UAGenNHibernate.pdb

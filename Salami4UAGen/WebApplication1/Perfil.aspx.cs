@@ -39,6 +39,8 @@ namespace WebApplication1
                     {
                         Nickname.Text = nick;
                         Email.Text = us.Email;
+                        Name.Text = us.Name;
+                        Surname.Text = us.Surname;
                         Genero.Text = us.Gender.ToString();
                         Orientacion.Text = us.Likes.ToString();
                         NationalityLabel.Text = us.Nacionalidad.Name.ToString();
@@ -51,9 +53,13 @@ namespace WebApplication1
                         HairStyleLabel.Text = us.HairStyle.ToString();
                         SmokeLabel.Text = us.Smoke.ToString();
                         ReligionLabel.Text = us.Religion.ToString();
-                        DateTime tiempo = Convert.ToDateTime(us.Birthday.ToString());
-                        BirthLabel.Text = Convert.ToString(tiempo.Day) + "/" + Convert.ToString(tiempo.Month) + "/" + Convert.ToString(tiempo.Year);
+                        BirthLabel.Text = Convert.ToString(us.Birthday).Substring(0, 10);
 
+                        if (us.Comment != "")
+                        {
+                            CommentLabel.Text = "About me";
+                            Comment.Text = us.Comment;
+                        }
                         // Las multiples opciones
 
                         // Animales

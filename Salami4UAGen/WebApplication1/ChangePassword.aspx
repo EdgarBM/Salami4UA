@@ -8,6 +8,13 @@
         Change password
     </h2>
     <p>
+        <asp:Label ID="LoginOk" runat="server" ForeColor="Green"></asp:Label>
+        <asp:Label ID="LoginFail" runat="server" ForeColor="Red"></asp:Label>
+    </p>
+    
+    <% if (LoginOk.Text == "") { %>
+    
+    <p>
         Use the following form to change your password.
     </p>
     <p>
@@ -20,15 +27,14 @@
             <asp:ValidationSummary ID="ChangeUserPasswordValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="ChangeUserPasswordValidationGroup"/>
             
-            <asp:Label ID="LoginOk" runat="server" ForeColor="Green"></asp:Label>
-            <asp:Label ID="LoginFail" runat="server" ForeColor="Red"></asp:Label>
+            
 
             <div class="accountInfo">
                 <fieldset class="changePassword" style="background-color:#FBFDFF">
                     <legend>Account info</legend>
                     <p>
                         <asp:Label ID="UsernameLabel" runat="server" AssociatedControlID="Username">Username:</asp:Label>
-                        <asp:TextBox ID="Username" runat="server" CssClass="textEntry" ></asp:TextBox>
+                        <asp:TextBox ID="Username" runat="server" CssClass="textEntry" Width="320px" ></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Username" 
                              CssClass="failureNotification" ErrorMessage="The username is mandatory." ToolTip="The username is mandatory." 
                              ValidationGroup="ChangeUserPasswordValidationGroup">*</asp:RequiredFieldValidator>
@@ -83,7 +89,8 @@
                     
                     <asp:Button ID="ChangePasswordPushButton" runat="server" class='button' CommandName="ChangePassword" Text="Change Password" 
                             ValidationGroup="ChangeUserPasswordValidationGroup" OnClick="Continuar_Click"/>
-                    <asp:Button ID="CancelPushButton" runat="server" class='button' CausesValidation="False" CommandName="Cancel" Text="Cancel"/>
+                    <asp:Button ID="CancelPushButton" runat="server" class='button' CausesValidation="False" CommandName="Cancel" Text="Cancel"
+                        OnClick="Cancel_Click"/>
                     <br />
                 </p>
                 
@@ -158,4 +165,6 @@
         });
     </script>
     <br />
+
+    <% }  %>
 </asp:Content>
