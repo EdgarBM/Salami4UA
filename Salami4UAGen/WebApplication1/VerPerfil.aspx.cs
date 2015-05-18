@@ -13,16 +13,25 @@ namespace WebApplication1
 {
     public partial class VerPerfil : System.Web.UI.Page
     {
+        private String admin = "admin";
+        String nick;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Login"] != null)
             {
                 //String nick = Session["Login"].ToString();
-                String nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx","");
+                nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx","");
+                String user = Session["Login"].ToString();
+
+                if(user == admin){
+                    BotonEliminarAdmin.Visible = true;
+                    btnShow.Visible = false;
+                }
 
                 try
                 {
-                        nick = nick.TrimStart('/');
+                    nick = nick.TrimStart('/');
                 }
                 catch (Exception ex) { }
 
@@ -38,6 +47,8 @@ namespace WebApplication1
 
                     foreach (UsuarioEN us in usuarios)
                     {
+
+                        ImagenPerfil.ImageUrl = us.UrlFoto;
                         Nickname.Text = nick;
                         Name.Text = us.Name;
                         Surname.Text = us.Surname;
@@ -246,7 +257,7 @@ namespace WebApplication1
                 message2.From = fromAddress2;
                 message2.To.Add(toAddress2);
                 message2.Subject = "Salami 4UA - Reported user";
-                message2.Body = "Hello " + nick + ". We are sending this email from Salami4UA because you have been reported by " +
+                message2.Body = "Hello " + NicknameReport.Text + ". We are sending this email from Salami4UA because you have been reported by " +
                     CauseDropDownList.SelectedItem.Text.ToLower() + ".\n If you don't change your behaviour, we will delete your account.\n" +
                     "\nSorry for the inconvenience and enjoy your experience in Salami4UA.\n";
                 smtpClient2.EnableSsl = true;
@@ -266,6 +277,16 @@ namespace WebApplication1
         protected void close_Click(object sender, EventArgs e)
         {
             mp1.Hide();
+        }
+
+        protected void BotonEliminarPerfil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String url = "~/EliminarPerfil.aspx/" + nick;
+                Response.Redirect(url);
+            }
+            catch (Exception) { }
         }
     }
 

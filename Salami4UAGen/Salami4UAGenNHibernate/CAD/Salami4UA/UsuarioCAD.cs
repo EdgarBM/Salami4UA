@@ -164,6 +164,9 @@ public void Modify (UsuarioEN usuario)
 
                 usuarioEN.Hobbies = usuario.Hobbies;
 
+
+                usuarioEN.UrlFoto = usuario.UrlFoto;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -564,7 +567,7 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Usua
 
         return result;
 }
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NacionalidadEN nacionalidad)
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorNacionalidad (string nacionalidad)
 {
         System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> result;
         try
@@ -594,7 +597,7 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Usua
 
         return result;
 }
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorAltura (Salami4UAGenNHibernate.EN.Salami4UA.AlturaEN altura)
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorAltura (int altura)
 {
         System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> result;
         try

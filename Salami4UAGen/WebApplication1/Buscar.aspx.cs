@@ -276,13 +276,10 @@ namespace WebApplication1
 
             if (NacionalidadList.SelectedIndex != -1)
             {
-                string valor = NacionalidadList.SelectedValue;
+                string nacion = NacionalidadList.SelectedValue;
                 List<UsuarioEN> listaPorNacionalidad = new List<UsuarioEN>();
-                NacionalidadEN nacion = new NacionalidadEN();
-                nacion.Name = valor;
 
-                listaPorNacionalidad.AddRange(
-                    UsuarioCEN.DameUsuarioPorNacionalidad(nacion));
+                listaPorNacionalidad.AddRange(UsuarioCEN.DameUsuarioPorNacionalidad(nacion));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorNacionalidad);
             }
@@ -291,12 +288,9 @@ namespace WebApplication1
             {
                 string altura = Height.SelectedValue;
                 List<UsuarioEN> listaPorAltura = new List<UsuarioEN>();
-                AlturaEN height = new AlturaEN();
-
-                height.Height = Int32.Parse(altura);
 
                 listaPorAltura.AddRange(
-                    UsuarioCEN.DameUsuarioPorAltura(height));
+                    UsuarioCEN.DameUsuarioPorAltura(Int32.Parse(altura)));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorAltura);
 
@@ -529,10 +523,8 @@ namespace WebApplication1
 
             if (NacionalidadList.SelectedIndex != -1)
             {
-                string valor = NacionalidadList.SelectedValue;
+                string nacion = NacionalidadList.SelectedValue;
                 List<UsuarioEN> listaPorNacionalidad = new List<UsuarioEN>();
-                NacionalidadEN nacion = new NacionalidadEN();
-                nacion.Name = valor;
 
                 listaPorNacionalidad.AddRange(
                     UsuarioCEN.DameUsuarioPorNacionalidad(nacion));
@@ -553,12 +545,9 @@ namespace WebApplication1
             {
                 string altura = Height.SelectedValue;
                 List<UsuarioEN> listaPorAltura = new List<UsuarioEN>();
-                AlturaEN height = new AlturaEN();
-
-                height.Height = Int32.Parse(altura);
 
                 listaPorAltura.AddRange(
-                    UsuarioCEN.DameUsuarioPorAltura(height));
+                    UsuarioCEN.DameUsuarioPorAltura(Int32.Parse(altura)));
 
                 {
                     List<UsuarioEN> listaAux = new List<UsuarioEN>();
@@ -625,8 +614,18 @@ namespace WebApplication1
 
         }
 
+        public string ChopString(string s)
+        {
+            try
+            {
+                s = s.Substring(0, 10);
+            }
+            catch (Exception) { }
 
+            return s;
+        }
 
 
     }
+
 }

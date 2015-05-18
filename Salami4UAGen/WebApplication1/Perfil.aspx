@@ -9,7 +9,7 @@
     </h2>
     <br /><br />
     <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 226px; float: left'>
-        <img alt="Profile Picture" src="Imagenes/user.png" align="middle" height="200px" width="200px" />
+        <asp:Image ID="ImagenPerfil" runat="server" Height="200px" Width="200px" />
     </div>
 
     <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 1208px; width: 659px; float: left; line-height: 2em;' >

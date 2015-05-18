@@ -20,34 +20,32 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Anim
 
         // Write here your custom code...
 
-    System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.AnimalesEN> todosanimales = new AnimalesCEN().DameTodosLosAnimales();
-    while (todosanimales.Count != 0)
-    {
-        todosanimales.RemoveAt(0);
-    }
-
-    BasicCP basic = new BasicCP();
-
-    try
-    {
-        basic.SessionInitializeTransaction();
-        AnimalesCAD petcad = new AnimalesCAD(basic.session);
-        UsuarioCAD usuariocad = new UsuarioCAD(basic.session);
-        UsuarioEN usuarioEN = usuariocad.ReadOIDDefault(usuario);
-
-        foreach (String animal in usuarioEN.Pets)
-        {
-            AnimalesEN a = new AnimalesEN();
-            a.Name = animal;
-            todosanimales.Add(a);
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.AnimalesEN> todosanimales = new AnimalesCEN ().DameTodosLosAnimales ();
+        while (todosanimales.Count != 0) {
+                todosanimales.RemoveAt (0);
         }
-    }
-    catch (Exception ex)
-    {
-        return null;
-    }
 
-    return todosanimales;
+        BasicCP basic = new BasicCP ();
+
+        try
+        {
+                basic.SessionInitializeTransaction ();
+                AnimalesCAD petcad = new AnimalesCAD (basic.session);
+                UsuarioCAD usuariocad = new UsuarioCAD (basic.session);
+                UsuarioEN usuarioEN = usuariocad.ReadOIDDefault (usuario);
+
+                foreach (String animal in usuarioEN.Pets) {
+                        AnimalesEN a = new AnimalesEN ();
+                        a.Name = animal;
+                        todosanimales.Add (a);
+                }
+        }
+        catch (Exception ex)
+        {
+                return null;
+        }
+
+        return todosanimales;
 
 
         /*PROTECTED REGION END*/

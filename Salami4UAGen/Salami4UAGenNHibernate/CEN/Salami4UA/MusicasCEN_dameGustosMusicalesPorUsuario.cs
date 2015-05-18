@@ -20,31 +20,29 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Musi
 
         // Write here your custom code...
 
-    System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MusicasEN> todoMusica = new MusicasCEN().DameTodosLosGustosMusicales();
-        while (todoMusica.Count != 0)
-        {
-            todoMusica.RemoveAt(0);
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MusicasEN> todoMusica = new MusicasCEN ().DameTodosLosGustosMusicales ();
+        while (todoMusica.Count != 0) {
+                todoMusica.RemoveAt (0);
         }
 
-        BasicCP basic = new BasicCP();
+        BasicCP basic = new BasicCP ();
 
         try
         {
-            basic.SessionInitializeTransaction();
-            MusicasCAD musicaCAD = new MusicasCAD(basic.session);
-            UsuarioCAD usuarioCAD = new UsuarioCAD(basic.session);
-            UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault(nickname);
+                basic.SessionInitializeTransaction ();
+                MusicasCAD musicaCAD = new MusicasCAD (basic.session);
+                UsuarioCAD usuarioCAD = new UsuarioCAD (basic.session);
+                UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault (nickname);
 
-            foreach (String musica in usuarioEN.Musics)
-            {
-                MusicasEN m = new MusicasEN();
-                m.Name = musica;
-                todoMusica.Add(m);
-            }
+                foreach (String musica in usuarioEN.Musics) {
+                        MusicasEN m = new MusicasEN ();
+                        m.Name = musica;
+                        todoMusica.Add (m);
+                }
         }
         catch (Exception ex)
         {
-            return null;
+                return null;
         }
 
         return todoMusica;

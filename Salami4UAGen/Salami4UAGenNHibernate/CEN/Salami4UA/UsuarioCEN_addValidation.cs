@@ -20,11 +20,11 @@ public void AddValidation (string nombre, string validationCode)
 
         // Write here your custom code...
 
-        UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault(nombre);
+        UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (nombre);
 
         usuario.ValidationCode = validationCode;
 
-        _IUsuarioCAD.Modify(usuario);
+        _IUsuarioCAD.Modify (usuario);
 
         /*PROTECTED REGION END*/
 }

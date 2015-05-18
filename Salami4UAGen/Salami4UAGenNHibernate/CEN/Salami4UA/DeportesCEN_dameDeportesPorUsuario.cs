@@ -20,31 +20,29 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Depo
 
         // Write here your custom code...
 
-    System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.DeportesEN> todoDeportes = new DeportesCEN().DameTodosLosDeportes();
-        while (todoDeportes.Count != 0)
-        {
-            todoDeportes.RemoveAt(0);
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.DeportesEN> todoDeportes = new DeportesCEN ().DameTodosLosDeportes ();
+        while (todoDeportes.Count != 0) {
+                todoDeportes.RemoveAt (0);
         }
 
-        BasicCP basic = new BasicCP();
+        BasicCP basic = new BasicCP ();
 
         try
         {
-            basic.SessionInitializeTransaction();
-            DeportesCAD musicaCAD = new DeportesCAD(basic.session);
-            UsuarioCAD usuarioCAD = new UsuarioCAD(basic.session);
-            UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault(nickname);
+                basic.SessionInitializeTransaction ();
+                DeportesCAD musicaCAD = new DeportesCAD (basic.session);
+                UsuarioCAD usuarioCAD = new UsuarioCAD (basic.session);
+                UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault (nickname);
 
-            foreach (String deporte in usuarioEN.Sports)
-            {
-                DeportesEN d = new DeportesEN();
-                d.Name = deporte;
-                todoDeportes.Add(d);
-            }
+                foreach (String deporte in usuarioEN.Sports) {
+                        DeportesEN d = new DeportesEN ();
+                        d.Name = deporte;
+                        todoDeportes.Add (d);
+                }
         }
         catch (Exception ex)
         {
-            return null;
+                return null;
         }
 
         return todoDeportes;

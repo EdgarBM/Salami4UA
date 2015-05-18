@@ -20,34 +20,32 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Cara
 
         // Write here your custom code...
 
-    System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.CaracteristicasEN> todascaracteristicas = new CaracteristicasCEN().DameTodasLasCaracteristicas();
-    while (todascaracteristicas.Count != 0)
-    {
-        todascaracteristicas.RemoveAt(0);
-    }
-
-    BasicCP basic = new BasicCP();
-
-    try
-    {
-        basic.SessionInitializeTransaction();
-        CaracteristicasCAD caracteristicaCAD = new CaracteristicasCAD(basic.session);
-        UsuarioCAD usuarioCAD = new UsuarioCAD(basic.session);
-        UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault(nickname);
-
-        foreach (String caracteristica in usuarioEN.Characteristics)
-        {
-            CaracteristicasEN c = new CaracteristicasEN();
-            c.Name = caracteristica;
-            todascaracteristicas.Add(c);
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.CaracteristicasEN> todascaracteristicas = new CaracteristicasCEN ().DameTodasLasCaracteristicas ();
+        while (todascaracteristicas.Count != 0) {
+                todascaracteristicas.RemoveAt (0);
         }
-    }
-    catch (Exception ex)
-    {
-        return null;
-    }
 
-    return todascaracteristicas;
+        BasicCP basic = new BasicCP ();
+
+        try
+        {
+                basic.SessionInitializeTransaction ();
+                CaracteristicasCAD caracteristicaCAD = new CaracteristicasCAD (basic.session);
+                UsuarioCAD usuarioCAD = new UsuarioCAD (basic.session);
+                UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault (nickname);
+
+                foreach (String caracteristica in usuarioEN.Characteristics) {
+                        CaracteristicasEN c = new CaracteristicasEN ();
+                        c.Name = caracteristica;
+                        todascaracteristicas.Add (c);
+                }
+        }
+        catch (Exception ex)
+        {
+                return null;
+        }
+
+        return todascaracteristicas;
 
         /*PROTECTED REGION END*/
 }

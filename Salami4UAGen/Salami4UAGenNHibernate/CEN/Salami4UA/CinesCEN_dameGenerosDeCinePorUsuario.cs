@@ -20,34 +20,32 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Cine
 
         // Write here your custom code...
 
-    System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.CinesEN> todosCines = new CinesCEN().DameTodosLosGenerosCine();
-    while (todosCines.Count != 0)
-    {
-        todosCines.RemoveAt(0);
-    }
-
-    BasicCP basic = new BasicCP();
-
-    try
-    {
-        basic.SessionInitializeTransaction();
-        CinesCAD cineCAD = new CinesCAD(basic.session);
-        UsuarioCAD usuarioCAD = new UsuarioCAD(basic.session);
-        UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault(nickname);
-
-        foreach (String cine in usuarioEN.Films)
-        {
-            CinesEN c = new CinesEN();
-            c.Name = cine;
-            todosCines.Add(c);
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.CinesEN> todosCines = new CinesCEN ().DameTodosLosGenerosCine ();
+        while (todosCines.Count != 0) {
+                todosCines.RemoveAt (0);
         }
-    }
-    catch (Exception ex)
-    {
-        return null;
-    }
 
-    return todosCines;
+        BasicCP basic = new BasicCP ();
+
+        try
+        {
+                basic.SessionInitializeTransaction ();
+                CinesCAD cineCAD = new CinesCAD (basic.session);
+                UsuarioCAD usuarioCAD = new UsuarioCAD (basic.session);
+                UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault (nickname);
+
+                foreach (String cine in usuarioEN.Films) {
+                        CinesEN c = new CinesEN ();
+                        c.Name = cine;
+                        todosCines.Add (c);
+                }
+        }
+        catch (Exception ex)
+        {
+                return null;
+        }
+
+        return todosCines;
 
         /*PROTECTED REGION END*/
 }

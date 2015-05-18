@@ -54,10 +54,10 @@ System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> 
 System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorGender (Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum genero);
 
 
-System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NacionalidadEN nacionalidad);
+System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorNacionalidad (string nacionalidad);
 
 
-System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorAltura (Salami4UAGenNHibernate.EN.Salami4UA.AlturaEN altura);
+System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorAltura (int altura);
 
 
 System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorRangoEdad (int min, int max);

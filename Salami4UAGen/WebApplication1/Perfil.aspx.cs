@@ -33,6 +33,8 @@ namespace WebApplication1
 
                     foreach (UsuarioEN us in usuarios)
                     {
+
+                        ImagenPerfil.ImageUrl = us.UrlFoto;
                         Nickname.Text = nick;
                         Email.Text = us.Email;
                         Name.Text = us.Name;

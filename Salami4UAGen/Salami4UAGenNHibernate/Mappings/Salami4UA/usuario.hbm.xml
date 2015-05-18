@@ -103,6 +103,9 @@
 						</key>
 						<element column="[Hobbies]" type="string"/>
     				</bag>
+					<property name="UrlFoto" type="string"> 
+						<column name="[UrlFoto]"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -149,6 +152,8 @@
 			
 			
 			
+			
+					
 					
 					
 					

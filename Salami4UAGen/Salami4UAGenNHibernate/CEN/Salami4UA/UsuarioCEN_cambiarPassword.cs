@@ -21,13 +21,12 @@ public bool CambiarPassword (string nick, string contrasenyaAntigua, string cont
         // Write here your custom code...
 
         Boolean ok = false;
-        UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault(nick);
+        UsuarioEN usuario = _IUsuarioCAD.ReadOIDDefault (nick);
 
-        if (usuario.Password == contrasenyaAntigua)
-        {
-            usuario.Password = contrasenyaNueva;
-            _IUsuarioCAD.Modify(usuario);
-            ok = true;
+        if (usuario.Password == contrasenyaAntigua) {
+                usuario.Password = contrasenyaNueva;
+                _IUsuarioCAD.Modify (usuario);
+                ok = true;
         }
 
         return ok;

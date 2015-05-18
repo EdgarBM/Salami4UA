@@ -127,6 +127,12 @@
                     BorderWidth="2px" BackColor="#EFF3FB" />
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                    <asp:TemplateField HeaderText="Picture">
+                        <ItemTemplate>
+                           <asp:ImageButton ID="ImagenPerfilBuscador" runat="server" Height="70px" Width="70px" 
+                                    PostBackUrl='<%#"VerPerfil.aspx/" + Eval("Nickname") %>' ImageUrl='<%# Eval("UrlFoto") %>'/>
+                         </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Nickname">
                         <ItemTemplate>
                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%#"VerPerfil.aspx/" + Eval("Nickname") %>' 
@@ -136,8 +142,12 @@
                     <asp:BoundField DataField="Name" HeaderText="Name" />
                     <asp:BoundField DataField="Surname" HeaderText="Surname" />
                     <asp:BoundField DataField="Gender" HeaderText="Genre" />
-                    <asp:BoundField DataField="Likes" HeaderText="Likes" />
-                    <asp:BoundField DataField="birthday" HeaderText="Birthday" />
+                    <asp:BoundField DataField="Likes" HeaderText="Interested in" />
+                    <asp:TemplateField HeaderText="Birthday">
+                        <ItemTemplate>
+                            <asp:Label ID="BirthLabel" runat="server" Text='<%# ChopString(Eval("Birthday").ToString()) %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
                 <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                 <SortedAscendingCellStyle BackColor="#F5F7FB" />

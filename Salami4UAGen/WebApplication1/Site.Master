@@ -181,7 +181,7 @@
             <div class="clear hideSkiplink">
                 
             <% if (Session["login"] == null)
-                   {
+               {
                         %>
                 
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
@@ -194,8 +194,21 @@
                 </asp:Menu>
                 
                  <% }
-                   else
-                   { 
+               else if (Session["login"].ToString() == "admin")
+               {
+                        %>
+                
+                <asp:Menu ID="Menu2" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/Admin.aspx" Text="Admin Users"/>
+                    </Items>
+                </asp:Menu>
+                
+                 <% }
+               else
+               { 
                  %>
 
                 <asp:Menu ID="Menu1" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">

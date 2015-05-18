@@ -1,9 +1,29 @@
 ﻿<%@ Page Title="EditarPerfil" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="EditarPerfil.aspx.cs" Inherits="WebApplication1.EditarPerfil" %>
+    <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<style type="text/css">
+    .modalBackground
+    {
+        background-color: Black;
+        filter: alpha(opacity=90);
+        opacity: 0.8;
+    }
+    .modalPopup
+    {
+        background-color: #FFFFFF;
+        border-width: 3px;
+        border-style: solid;
+        border-color: black;
+        padding-top: 10px;
+        padding-left: 10px;
+        width: 650px;
+        height: 250px;
+    }
+</style>
     <h2>
         Edit Profile
     </h2>
@@ -14,7 +34,86 @@
     <br />
     <br />
     <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 220px; float: left'>
-        <img alt="" src="Imagenes/user.png" align="middle" height="200px" width:"200px" />
+        <asp:Image ID="ImagenPerfil" runat="server" Height="200px" Width="200px" />
+        <br /><br />
+        
+        <form id="form2">
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnShow" runat="server" Text="Change photo" class="button" OnClick="PopUpChangePhoto_Click"/>
+            <asp:Button ID="btn" runat="server" style="display:none;" />
+            <!-- ModalPopupExtender -->
+            
+            <cc1:modalpopupextender ID="mp2" runat="server" PopupControlID="Panel1" TargetControlID="btn"
+                CancelControlID="btnClose" BackgroundCssClass="modalBackground">
+            </cc1:modalpopupextender>
+
+            <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" align="center" style = "display:none">
+               
+                <asp:ValidationSummary ID="ChangePhotoSummary" runat="server" CssClass="failureNotification" 
+                ValidationGroup="ChangePhotoGroup"/>
+               
+                <p>
+                    <strong>Change Photo</strong>
+                </p>
+                <p style="text-align:left; margin-left:2%; color:Black">
+                    Here you can change your photo profile, please introduce a valid URL of your favourite photo (JPG, PNG)
+                    
+                </p>
+
+                <p style="text-align:left; margin-left:2%; color:GrayText">
+                    Example: http://www.fotofoto.com/perfil.jpg
+                </p>
+
+                
+                
+                <p style="text-align:left; margin-left:5%">  
+                    
+                    <asp:Label ID="URLLabel" runat="server">URL: *</asp:Label>
+                    <br />
+                    
+                     <asp:TextBox ID="URL" runat="server" Width="400px"></asp:TextBox>
+                    <br />
+                    
+                    <asp:RequiredFieldValidator ID="nameReportReq" runat="server"
+                                                ControlToValidate="URL" ForeColor="Red"
+                                                ErrorMessage="Please introduce a valid URL" ValidationGroup="ChangePhotoGroup">
+                    </asp:RequiredFieldValidator>
+                   
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="The photo must be on JPG or PNG"
+                    ControlToValidate="URL" ForeColor="Red" ValidationExpression="(^\S+\.)+(png|jpg)$"
+                    ValidationGroup="ChangePhotoGroup">
+                    </asp:RegularExpressionValidator>
+
+                    <br />
+
+                    
+                    
+
+                </p>
+
+
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                    
+                        <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="send_Click" class="button" ValidationGroup="reportGroup"/>      
+                    
+                        <asp:Button ID="btnClose" runat="server" Text="Close" class="button" OnClick="close_Click"/>
+                        <br /><br />
+
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
+                <br />
+
+            </asp:Panel>
+            <!-- ModalPopupExtender -->
+            </form>
+         
+        
+        
+        
+        
     </div>
 
     <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 310px; float: left' >
