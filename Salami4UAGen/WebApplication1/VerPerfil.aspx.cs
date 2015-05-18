@@ -45,20 +45,6 @@ namespace WebApplication1
                         VerPerfilError.Text = "0 Salami's found with this nickname " + nick;
                     }
 
-                    IList<string> pinchitosRecibidos = usuario.DamePinchitosRecibidosPorUsuario(user);
-                    IList<string> mensajesRecibidos = usuario.DameMensajesRecibidosPorUsuario(user);
-
-                    if (pinchitosRecibidos.Contains(nick))
-                    {
-                        pinchitosRecibidos.Remove(nick);
-                        usuario.ModificarPinchitosRecibidos(user, pinchitosRecibidos);
-                    }
-                    if (mensajesRecibidos.Contains(nick))
-                    {
-                        mensajesRecibidos.Remove(nick);
-                        usuario.ModificarMensajesRecibidos(user, mensajesRecibidos);
-                    }
-
                     foreach (UsuarioEN us in usuarios)
                     {
 
@@ -327,27 +313,6 @@ namespace WebApplication1
 
         protected void ButtonEnviarPinchito_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string user = Session["Login"].ToString();
-                UsuarioCEN cen = new UsuarioCEN();
-
-
-                IList<string> pinchitos = cen.DamePinchitosRecibidosPorUsuario(nick);
-
-                if (!pinchitos.Contains(user))
-                {
-                    pinchitos.Add(user);
-                    cen.ModificarPinchitosRecibidos(nick, pinchitos);
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your pinchito to " + nick + " has been sent');", true);
-                }
-
-            }
-            catch (Exception)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your pinchito have not reached " + nick + "');", true);
-
-            }
         }
     }
 

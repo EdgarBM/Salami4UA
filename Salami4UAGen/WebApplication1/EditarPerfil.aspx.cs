@@ -643,7 +643,7 @@ namespace WebApplication1
                 {
                     UsuarioCEN usuarioCEN = new UsuarioCEN();
                     UsuarioEN us = new UsuarioCAD().ReadOIDDefault(nick);
-
+                    
 
                     usuarioCEN.Modify(us.Nickname, us.Password, us.HairColor, us.EyeColor, us.HairLength, us.HairStyle, us.BodyType, us.Ethnicity, us.Religion,
                                us.Smoke, us.Email, us.Birthday, us.Gender, us.Likes, us.Name, us.Surname, us.Comment, "", us.Career,

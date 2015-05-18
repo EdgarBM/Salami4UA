@@ -196,7 +196,7 @@
                  <% }
                else if (Session["login"].ToString() == "admin")
                {
-                 %>
+                        %>
                 
                 <asp:Menu ID="Menu2" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
@@ -210,43 +210,20 @@
                  <% }
                else
                { 
-                   
-                   if( comprobarNotificaciones(Session["login"].ToString() ) )
-                   {
                  %>
 
-                        <asp:Menu ID="Menu1" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                            <Items>
+                <asp:Menu ID="Menu1" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
 
-                                <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home Page"/>
-                                <asp:MenuItem NavigateUrl="~/Buscar.aspx" Text="Search People"/>
-                                <asp:MenuItem NavigateUrl="~/VerMensajesDesdePerfil.aspx" Text="Messages"/>
-                                <asp:MenuItem NavigateUrl="~/Notification.aspx" Text="<span style=&quot;color:red&quot;>Pending Notifications</span>"/>
-                                <asp:MenuItem NavigateUrl="~/About.aspx" Text="About us"/>
-                                <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact us"/>
-                            </Items>
-                        </asp:Menu>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home Page"/>
+                        <asp:MenuItem NavigateUrl="~/Buscar.aspx" Text="Search People"/>
+                        <asp:MenuItem NavigateUrl="~/VerMensajesDesdePerfil.aspx" Text="Messages"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About us"/>
+                        <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact us"/>
+                    </Items>
+                </asp:Menu>
                 
-                 <%
-                    }
-                    else
-                    {
-                 %>
-                        <asp:Menu ID="Menu3" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                            <Items>
-
-                                <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home Page"/>
-                                <asp:MenuItem NavigateUrl="~/Buscar.aspx" Text="Search People"/>
-                                <asp:MenuItem NavigateUrl="~/VerMensajesDesdePerfil.aspx" Text="Messages"/>
-                                <asp:MenuItem NavigateUrl="~/About.aspx" Text="About us"/>
-                                <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact us"/>
-                            </Items>
-                        </asp:Menu>
-                 <%
-                           
-                    } 
-                
-                } %>
+                 <% } %>
             </div>
         </div>
         <div class="main" >

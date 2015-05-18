@@ -520,7 +520,7 @@ public static void InitializeData ()
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Agnostic,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No, "salami4ua@gmail.com",
-                        DateTime.Today, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Both, "Admin", "Admin", "I'm the boss", "", "Computer Engineering", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.First,
+                        DateTime.Today, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Both, "Admin", "Admin", "I'm the boss", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.First,
                         "Spanish", 180, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "http://www.consejosgratis.es/wp-content/uploads/2011/02/estudiar-administracion.jpg", "admin");
 
 
@@ -536,7 +536,7 @@ public static void InitializeData ()
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Slim, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.European,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Agnostic, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Often, "cuqui85@alu.ua.es",
                         tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Woman, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Man, "Lucy", "Milles",
-                        "I want to find men COME ON!", "", "Multimedia Engineering", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Second,
+                        "I want to find men COME ON!", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Second,
                         "Polish", 165, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "http://farm6.static.flickr.com/5072/5905429328_e253c5a5a7.jpg", "cuqui85");
 
 
@@ -546,7 +546,7 @@ public static void InitializeData ()
                 usuario.New_ ("CapitanSalami", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.LightBrown, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Brown, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Shaven, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Straight, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Solidly, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Mediterranean,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Catholic, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Occasionally,
                         "capitanSalami@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman,
-                        "Amador", "Rivas", "Do you want Salami? PINCHITO FOR YOU?", "", "Multimedia Engineering", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.First,
+                        "Amador", "Rivas", "Do you want Salami? PINCHITO FOR YOU?", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.First,
                         "Spanish", 185, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://lh3.ggpht.com/-B-3nCRO6UKUuXRzsOQNsgr1OPX8TWYxQucpE7xSE_t-GdhJCq_Xt1iJ6toDIhKVTA", "CapitanSalami");
 
                 tiempo = Convert.ToDateTime ("25/08/1970");
@@ -555,7 +555,7 @@ public static void InitializeData ()
                 usuario.New_ ("PepitoBoss", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.DarkBrown, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Blue, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Short, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Slim, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Mediterranean,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Atheist, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No,
                         "pepitoboss@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman,
-                        "Roberto", "Miralles", "I'm The BOSS of the people!!", "", "Computer Engineering", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Fourth,
+                        "Roberto", "Miralles", "I'm The BOSS of the people!!", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Fourth,
                         "Belgian", 170, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://pbs.twimg.com/profile_images/475403851839721472/TjwOIzOq.jpeg", "PepitoBoss");
 
 
@@ -565,7 +565,7 @@ public static void InitializeData ()
                 usuario.New_ ("EdgarMICO", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Gray, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Grey, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Normal, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Straight, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Asian,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Christian, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Often,
                         "edgar@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Both,
-                        "Edgar", "Bellot", "I'm from MONOVAR, terreta del caloret!!", "", "Computer Engineering", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Second,
+                        "Edgar", "Bellot", "I'm from MONOVAR, terreta del caloret!!", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Second,
                         "North Korean", 185, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://pbs.twimg.com/profile_images/3521949696/ee2215236fcab381753b9d5f4176f422.jpeg", "EdgarMICO");
 
 
@@ -575,7 +575,7 @@ public static void InitializeData ()
                 usuario.New_ ("4Never", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Redhead, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Hazel, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Shaven, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Sports, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Arab,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Hindu, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Occasionally,
                         "david@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman,
-                        "David", "Martinez", "Salami, salami, salami... if you know what I mean", "", "Computer Engineering", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Third,
+                        "David", "Martinez", "Salami, salami, salami... if you know what I mean", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Third,
                         "Pakistani", 180, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://pbs.twimg.com/profile_images/2796970460/00c0bf364afcc569a960342e3bebac3f.jpeg", "4Never");
 
                 tiempo = Convert.ToDateTime ("20/04/1984");
@@ -584,7 +584,7 @@ public static void InitializeData ()
                 usuario.New_ ("CesicarCEO", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.White, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Hairless, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Straight, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Normal, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Mestizo,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Orthodox, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No,
                         "cesar@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman,
-                        "Cesar", "Gonzalez", "I'm already AVALAIBLE...", "", "Computer Engineering", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Second,
+                        "Cesar", "Gonzalez", "I'm already AVALAIBLE...", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Second,
                         "Israeli", 175, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://pbs.twimg.com/profile_images/586659555129630722/Oou0chNo.jpg", "CesicarCEO");
 
 
@@ -594,7 +594,7 @@ public static void InitializeData ()
                 usuario.New_ ("Albertico", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Other, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Long, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Latino,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Buddhist, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Often,
                         "alberto@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman,
-                        "Alberto", "Esteban", "If you want to have a great moment...", "", "Chemical Engineering", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Third,
+                        "Alberto", "Esteban", "If you want to have a great moment...", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Third,
                         "New Zealand", 175, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://pbs.twimg.com/profile_images/3569994446/139702a8893b224512a13854b6fb61f8.jpeg", "Albertico");
 
 

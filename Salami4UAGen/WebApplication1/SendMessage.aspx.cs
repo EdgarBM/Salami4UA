@@ -36,7 +36,6 @@ namespace WebApplication1
                     }
                     else
                     {
-
                         SubtitleLabel.Text = "Messages with " + nick;
 
                         UsuarioEN userDst = usuarios[0];
@@ -50,16 +49,6 @@ namespace WebApplication1
                             mensajes = cen.DameTodosLosMensajesEntreUsuarios(logedUser, nick);
                             enviados = cen.DameTodosLosMensajesEnviadosPorUsuario(logedUser);
 
-                            IList<string> mensajesRecibidos = usuario.DameMensajesRecibidosPorUsuario(logedUser);
-
-                           
-                            if (mensajesRecibidos.Contains(nick))
-                            {
-                                mensajesRecibidos.Remove(nick);
-                                usuario.ModificarMensajesRecibidos(logedUser, mensajesRecibidos);
-                            }
-
-
                             if (mensajes.Count == 0)
                             {
                                 Label l = new Label();
@@ -71,7 +60,6 @@ namespace WebApplication1
                             {
                                 foreach (MensajesEN m in mensajes)
                                 {
-
                                     String text = m.Message, aux;
                                     int tam = 80;
 
@@ -108,7 +96,6 @@ namespace WebApplication1
             }
 
         }
-
 
         private void addMessage(bool send, string text)
         {
@@ -148,26 +135,17 @@ namespace WebApplication1
                 msg = textSend.Text;
                 string user = (string)Session["login"];
                 MensajesCEN mensajeCen = new MensajesCEN();
-                UsuarioCEN usuarioCen = new UsuarioCEN();
 
                 mensajeCen.New_(msg, user, nick);
 
-                UsuarioCEN usuarioCen2 = new UsuarioCEN();
-
-
-                IList<string> mensajes = usuarioCen2.DameMensajesRecibidosPorUsuario(nick);
-                if (!mensajes.Contains(user))
-                {
-                    mensajes.Add(user);
-                    usuarioCen.ModificarMensajesRecibidos(nick, mensajes);
-                }
+                //addMessage(true, msg);
 
                 textSend.Text = "";
                 LabelReport.Text = "";
 
                 Response.Redirect("~/SendMessage.aspx?msgTo=" + nick);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 LabelReport.Text = "Error sending the message, the message is too long.";
                 textSend.Text = msg;

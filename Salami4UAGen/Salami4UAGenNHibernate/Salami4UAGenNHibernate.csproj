@@ -107,12 +107,6 @@
     <Compile Include="CEN\Salami4UA\UsuarioCEN_ValidationUser.cs" />
     <Compile Include="CEN\Salami4UA\UsuarioCEN_CambiarPassword.cs" />
     <Compile Include="CEN\Salami4UA\UsuarioCEN_AddValidation.cs" />
-    <Compile Include="CEN\Salami4UA\UsuarioCEN_DameMensajesRecibidosPorUsuario.cs" />
-    <Compile Include="CEN\Salami4UA\UsuarioCEN_ModificarMensajesRecibidos.cs" />
-    <Compile Include="CEN\Salami4UA\UsuarioCEN_ModificarPinchitosRecibidos.cs" />
-    <Compile Include="CEN\Salami4UA\UsuarioCEN_ModificarPersonasQueTeHanBloqueado.cs" />
-    <Compile Include="CEN\Salami4UA\UsuarioCEN_DamePinchitosRecibidosPorUsuario.cs" />
-    <Compile Include="CEN\Salami4UA\UsuarioCEN_DamePersonasQueTeHanBloqueado.cs" />
     <Compile Include="EN\Salami4UA\AficionesEN.cs" />
     <Compile Include="CEN\Salami4UA\AficionesCEN.cs" />
     <Compile Include="CAD\Salami4UA\IAficionesCAD.cs" />

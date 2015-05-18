@@ -629,16 +629,7 @@ namespace WebApplication1
                 listaPorCurso.AddRange(UsuarioCEN.DameUsuarioPorCurso(
                     (CourseEnum)Enum.Parse(typeof(CourseEnum), curso)));
 
-                {
-                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
-                    foreach (UsuarioEN u in listaPorCurso)
-                    {
-                        if (listaUsuarios.Contains(u))
-                            listaAux.Add(u);
-                    }
-
-                    listaUsuarios = listaAux;
-                }
+                listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorCurso);
             }
 
 
@@ -652,16 +643,7 @@ namespace WebApplication1
                 listaPorEstudios.AddRange(
                     UsuarioCEN.DameUsuarioPorCarrera(carrera.Name));
 
-                {
-                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
-                    foreach (UsuarioEN u in listaPorEstudios)
-                    {
-                        if (listaUsuarios.Contains(u))
-                            listaAux.Add(u);
-                    }
-
-                    listaUsuarios = listaAux;
-                }
+                listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorEstudios);
             }
 
             if (NacionalidadList.SelectedIndex != -1 && !NacionalidadList.SelectedValue.ToString().Equals("Unspecified"))

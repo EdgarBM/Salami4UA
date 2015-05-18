@@ -107,9 +107,6 @@
                     </p>
                 
                 
-                    <br />
-                
-                
                     <p class="submitButton">
                         <asp:Button Style="float:left" ID="ButtonRecomend" runat="server" class="button"  Text="See perfect match" OnClick="Recomend_Click"/>
                         <asp:Button Style="float:right" ID="BuscarButton" runat="server" class="button" CommandName="MoveNext" Text="Search" OnClick="Search_Click"/>

@@ -222,12 +222,5 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Usua
 {
         return _IUsuarioCAD.DameUsuarioPorCurso (curso);
 }
-public UsuarioEN ReadOID (string Nickname)
-{
-        UsuarioEN usuarioEN = null;
-
-        usuarioEN = _IUsuarioCAD.ReadOID (Nickname);
-        return usuarioEN;
-}
 }
 }
