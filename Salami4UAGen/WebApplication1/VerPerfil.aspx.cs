@@ -13,25 +13,16 @@ namespace WebApplication1
 {
     public partial class VerPerfil : System.Web.UI.Page
     {
-        private String admin = "admin";
-        String nick;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Login"] != null)
             {
                 //String nick = Session["Login"].ToString();
-                nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx","");
-                String user = Session["Login"].ToString();
-
-                if(user == admin){
-                    BotonEliminarAdmin.Visible = true;
-                    btnShow.Visible = false;
-                }
+                String nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx","");
 
                 try
                 {
-                    nick = nick.TrimStart('/');
+                        nick = nick.TrimStart('/');
                 }
                 catch (Exception ex) { }
 
@@ -47,8 +38,6 @@ namespace WebApplication1
 
                     foreach (UsuarioEN us in usuarios)
                     {
-
-                        ImagenPerfil.ImageUrl = us.UrlFoto;
                         Nickname.Text = nick;
                         Name.Text = us.Name;
                         Surname.Text = us.Surname;
@@ -65,8 +54,6 @@ namespace WebApplication1
                         Smoke.Text = us.Smoke.ToString();
                         Religion.Text = us.Religion.ToString();
                         Birth.Text = Convert.ToString(us.Birthday).Substring(0, 10);
-                        StudiesLabel.Text = us.Career;
-                        CourseLabel.Text = us.Course.ToString();
 
                         if (us.Comment != "")
                         {
@@ -227,23 +214,8 @@ namespace WebApplication1
 
             String nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx/", "");
 
-            // Message and email to admin
-            try
-            {
-                string user = (string)Session["login"];
-                string msg = NicknameReport.Text + " has been reported by " + user + " because of " +
-                    CauseDropDownList.SelectedItem.Text.ToLower();
-
-                MensajesCEN mensajeCen = new MensajesCEN();
-                mensajeCen.New_(msg, nick, admin);
-
-            }
-            catch (Exception)
-            {
-                LabelReport.Text = "Error sending the message!";
-            }
-
-            // Message to admin
+            // Message to salami4ua@gmail.com
+            
             try
             {
                 Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
@@ -294,25 +266,6 @@ namespace WebApplication1
         protected void close_Click(object sender, EventArgs e)
         {
             mp1.Hide();
-        }
-
-        protected void BotonEliminarPerfil_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                String url = "~/EliminarPerfil.aspx/" + nick;
-                Response.Redirect(url);
-            }
-            catch (Exception) { }
-        }
-
-        protected void ButtonEnviarMensaje_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/SendMessage.aspx?msgTo=" + nick);
-        }
-
-        protected void ButtonEnviarPinchito_Click(object sender, EventArgs e)
-        {
         }
     }
 

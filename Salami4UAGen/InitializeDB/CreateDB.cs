@@ -353,109 +353,6 @@ public static void InitializeData ()
                 feature.New_ ("Shy");
                 feature.New_ ("Quiet");
 
-                MasterCEN master = new MasterCEN ();
-
-
-                master.New_ ("Professional Archaeology and Integral Management of the Heritage");
-                master.New_ ("Catalan Language Consulting and Literary Culture ");
-                master.New_ ("Local Development and Territorial Innovation ");
-                master.New_ ("Teaching of Spanish and English as Second Languages (L2) or Foreign Languages (FL)");
-                master.New_ ("Literary Studies ");
-                master.New_ ("History Identities in the Western Mediterranean (15th-19th C.) ");
-                master.New_ ("History of Contemporary Europe");
-                master.New_ ("History of Science and Scientific Communication");
-                master.New_ ("English and Spanish for Specific Purposes");
-                master.New_ ("Humanities Research in the Digital Age");
-                master.New_ ("Planning and Management of Natural Disasters");
-                master.New_ ("Institutional Translation");
-                master.New_ ("Analysis and Management of Mediterranean Ecosystems");
-                master.New_ ("Biomedicine");
-                master.New_ ("Biotechnology for Health and Sustainability");
-                master.New_ ("Electrochemistry. Science & Technology");
-                master.New_ ("Materials Science ");
-                master.New_ ("Sustainable Fisheries Management ");
-                master.New_ ("Sustainable Management and Water Technologies ");
-                master.New_ ("Management and Restoration of Natural Environment ");
-                master.New_ ("Nanoscience and Molecular Nanotechnology ");
-                master.New_ ("Applied Palaeontology");
-                master.New_ ("Sustainable and Environmental Chemistry");
-                master.New_ ("Medical Chemistry");
-                master.New_ ("Nursing Sciences Research");
-                master.New_ ("Clinical and Community Nutrition");
-                master.New_ ("Optometry Advanced Visual and Visual Health");
-                master.New_ ("Public Health");
-                master.New_ ("Legal Practice");
-                master.New_ ("Business Administration (MBA)");
-                master.New_ ("Communication and Creative Industries");
-                master.New_ ("Cooperation to Development");
-                master.New_ ("Law on Environmental Sustainability");
-                master.New_ ("Tourism Management and Planning");
-                master.New_ ("Applied Economics");
-                master.New_ ("Quantitative Economics");
-                master.New_ ("Educational Research");
-                master.New_ ("Criminal Investigation and Forensic Science");
-                master.New_ ("Procurement");
-                master.New_ ("Teacher Training in Compulsory and Upper Secondary Compulsory Education, Vocational Studies and Languages");
-                master.New_ ("Penal Law System");
-                master.New_ ("Automation and Robotics");
-                master.New_ ("Applications Development and Web Services");
-                master.New_ ("Architectura");
-                master.New_ ("Software Development for Mobile Devices");
-                master.New_ ("Building Management");
-                master.New_ ("Geological Engineering");
-                master.New_ ("Materials, Water and Soil Engineering");
-                master.New_ ("Telecommunication Engineering");
-                master.New_ ("Computer Engineering");
-                master.New_ ("Computer Technology");
-                master.New_ ("Occupational Hazard Prevention");
-                master.New_ ("Civil Engineering");
-                master.New_ ("Chemical Engineering");
-
-                CarreraCEN career = new CarreraCEN ();
-
-                career.New_ ("Spanish: Language and Literature");
-                career.New_ ("Arabic & Islamic Studies");
-                career.New_ ("French Studies");
-                career.New_ ("English Studies");
-                career.New_ ("Catalan Studies");
-                career.New_ ("History");
-                career.New_ ("Humanities");
-                career.New_ ("Translation and Interpreting");
-                career.New_ ("Biology");
-                career.New_ ("Marine Studies");
-                career.New_ ("Geology");
-                career.New_ ("Mathematics");
-                career.New_ ("Chemistry");
-                career.New_ ("Nursing");
-                career.New_ ("Human Nutrition & Dietetics");
-                career.New_ ("Optics and Optometry");
-                career.New_ ("Business Administration");
-                career.New_ ("Physical Activity and Sports Sciences");
-                career.New_ ("Criminology");
-                career.New_ ("Law");
-                career.New_ ("Law and Bssiness Administration");
-                career.New_ ("Law and Criminology");
-                career.New_ ("Economics");
-                career.New_ ("Geography and Land Use Planning");
-                career.New_ ("Public Management & Administration");
-                career.New_ ("Pre-school Education Speciality");
-                career.New_ ("Primary Education Speciality");
-                career.New_ ("Publicity and Public Relations");
-                career.New_ ("Labour Relations and Human Resources");
-                career.New_ ("Sociology");
-                career.New_ ("Social Work");
-                career.New_ ("Tourism");
-                career.New_ ("Tourism and Bussiness Administration");
-                career.New_ ("Architecture");
-                career.New_ ("Architectural Technology (formerly Building Engineering)");
-                career.New_ ("Fundamentals of Architecture");
-                career.New_ ("Sound and Image in Telecommunication Engineering");
-                career.New_ ("Civil Engineering");
-                career.New_ ("Computer Engineering");
-                career.New_ ("Multimedia Engineering");
-                career.New_ ("Chemical Engineering");
-
-
                 // Usuario admin
 
                 UsuarioCEN usuario = new UsuarioCEN ();
@@ -512,16 +409,13 @@ public static void InitializeData ()
                         deportes.Add (p.Name);
                 }
 
-                GustosCEN gustoCen = new GustosCEN ();
-                gustoCen.New_ ("admin", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No);
-
-                usuario.New_ ("admin", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde,
+                usuario.New_ ("admin", "1234", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Hairless,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Agnostic,
-                        Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No, "salami4ua@gmail.com",
+                        Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No, "admin@alu.ua.es",
                         DateTime.Today, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Both, "Admin", "Admin", "I'm the boss", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.First,
-                        "Spanish", 180, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "http://www.consejosgratis.es/wp-content/uploads/2011/02/estudiar-administracion.jpg", "admin");
+                        "Spanish", 180, animales, cines, musicas, caracteristicas, deportes, hobbiesString);
 
 
 
@@ -529,73 +423,65 @@ public static void InitializeData ()
                 DateTime tiempo = new DateTime ();
                 tiempo = Convert.ToDateTime ("05/02/1989");
 
-                gustoCen.New_ ("cuqui85", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No);
-
-                usuario.New_ ("cuqui85", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Brown, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Green,
+                usuario.New_ ("cuqui85", "1234", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Brown, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Green,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Normal, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Straight,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Slim, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.European,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Agnostic, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Often, "cuqui85@alu.ua.es",
                         tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Woman, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Man, "Lucy", "Milles",
                         "I want to find men COME ON!", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Second,
-                        "Polish", 165, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "http://farm6.static.flickr.com/5072/5905429328_e253c5a5a7.jpg", "cuqui85");
+                        "Polish", 165, animales, cines, musicas, caracteristicas, deportes, hobbiesString);
 
 
                 tiempo = Convert.ToDateTime ("15/12/1965");
-                gustoCen.New_ ("CapitanSalami", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No);
 
-                usuario.New_ ("CapitanSalami", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.LightBrown, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Brown, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Shaven, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Straight, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Solidly, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Mediterranean,
+                usuario.New_ ("CapitanSalami", "1234", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.LightBrown, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Brown, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Shaven, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Straight, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Solidly, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Mediterranean,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Catholic, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Occasionally,
                         "capitanSalami@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman,
                         "Amador", "Rivas", "Do you want Salami? PINCHITO FOR YOU?", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.First,
-                        "Spanish", 185, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://lh3.ggpht.com/-B-3nCRO6UKUuXRzsOQNsgr1OPX8TWYxQucpE7xSE_t-GdhJCq_Xt1iJ6toDIhKVTA", "CapitanSalami");
+                        "Spanish", 185, animales, cines, musicas, caracteristicas, deportes, hobbiesString);
 
                 tiempo = Convert.ToDateTime ("25/08/1970");
-                gustoCen.New_ ("PepitoBoss", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No);
 
-                usuario.New_ ("PepitoBoss", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.DarkBrown, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Blue, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Short, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Slim, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Mediterranean,
+                usuario.New_ ("PepitoBoss", "1234", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.DarkBrown, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Blue, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Short, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Slim, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Mediterranean,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Atheist, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No,
                         "pepitoboss@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman,
                         "Roberto", "Miralles", "I'm The BOSS of the people!!", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Fourth,
-                        "Belgian", 170, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://pbs.twimg.com/profile_images/475403851839721472/TjwOIzOq.jpeg", "PepitoBoss");
+                        "Belgian", 170, animales, cines, musicas, caracteristicas, deportes, hobbiesString);
 
 
                 tiempo = Convert.ToDateTime ("10/06/1977");
-                gustoCen.New_ ("EdgarMICO", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No);
 
-                usuario.New_ ("EdgarMICO", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Gray, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Grey, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Normal, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Straight, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Asian,
+                usuario.New_ ("EdgarMICO", "1234", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Gray, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Grey, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Normal, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Straight, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Asian,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Christian, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Often,
                         "edgar@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Both,
                         "Edgar", "Bellot", "I'm from MONOVAR, terreta del caloret!!", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Second,
-                        "North Korean", 185, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://pbs.twimg.com/profile_images/3521949696/ee2215236fcab381753b9d5f4176f422.jpeg", "EdgarMICO");
+                        "North Korean", 185, animales, cines, musicas, caracteristicas, deportes, hobbiesString);
 
 
                 tiempo = Convert.ToDateTime ("10/06/1945");
-                gustoCen.New_ ("4Never", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No);
 
-                usuario.New_ ("4Never", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Redhead, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Hazel, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Shaven, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Sports, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Arab,
+                usuario.New_ ("4Never", "1234", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Redhead, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Hazel, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Shaven, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Sports, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Arab,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Hindu, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Occasionally,
                         "david@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman,
                         "David", "Martinez", "Salami, salami, salami... if you know what I mean", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Third,
-                        "Pakistani", 180, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://pbs.twimg.com/profile_images/2796970460/00c0bf364afcc569a960342e3bebac3f.jpeg", "4Never");
+                        "Pakistani", 180, animales, cines, musicas, caracteristicas, deportes, hobbiesString);
 
                 tiempo = Convert.ToDateTime ("20/04/1984");
-                gustoCen.New_ ("CesicarCEO", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No);
 
-                usuario.New_ ("CesicarCEO", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.White, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Hairless, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Straight, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Normal, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Mestizo,
+                usuario.New_ ("CesicarCEO", "1234", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.White, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Hairless, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Straight, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Normal, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Mestizo,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Orthodox, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No,
                         "cesar@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman,
                         "Cesar", "Gonzalez", "I'm already AVALAIBLE...", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Second,
-                        "Israeli", 175, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://pbs.twimg.com/profile_images/586659555129630722/Oou0chNo.jpg", "CesicarCEO");
+                        "Israeli", 175, animales, cines, musicas, caracteristicas, deportes, hobbiesString);
 
 
                 tiempo = Convert.ToDateTime ("17/11/1996");
-                gustoCen.New_ ("Albertico", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Bald, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No);
 
-                usuario.New_ ("Albertico", "81dc9bdb52d04dc20036dbd8313ed055", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Other, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Long, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Latino,
+                usuario.New_ ("Albertico", "1234", Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum.Blonde, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Other, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Long, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.Latino,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Buddhist, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.Often,
                         "alberto@alu.ua.es", tiempo, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Woman,
                         "Alberto", "Esteban", "If you want to have a great moment...", "", "Carrera", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.Third,
-                        "New Zealand", 175, animales, cines, musicas, caracteristicas, deportes, hobbiesString, "https://pbs.twimg.com/profile_images/3569994446/139702a8893b224512a13854b6fb61f8.jpeg", "Albertico");
+                        "New Zealand", 175, animales, cines, musicas, caracteristicas, deportes, hobbiesString);
 
 
 

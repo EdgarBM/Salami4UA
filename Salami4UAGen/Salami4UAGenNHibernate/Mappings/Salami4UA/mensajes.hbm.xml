@@ -10,16 +10,20 @@
 					<property name="Message" type="string"> 
 						<column name="[Message]"  not-null="true"/>
 					</property>
-					<property name="NicknameOrigen" type="string"> 
-						<column name="[NicknameOrigen]"  not-null="true"/>
-					</property>
-					<property name="NicknameDestino" type="string"> 
-						<column name="[NicknameDestino]"  not-null="true"/>
-					</property>
 			
 			
 			
+		  			
+						<many-to-one name="UserOrigen" class="Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN" >	
+								<column name="[FK_Nickname_idUser]"/>
+						</many-to-one>
+											 					
 			
+		  			
+						<many-to-one name="UserDestino" class="Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN" >	
+								<column name="[FK_Nickname_idUser]"/>
+						</many-to-one>
+											 					
 					
 					
 					
@@ -28,8 +32,8 @@
 		  </class>
 		  
 		  <query name="MensajesENReadAllHQL">from MensajesEN</query>
-		  <query name="MensajesENdameTodosLosMensajesEnviadosPorUsuarioHQL"><![CDATA[FROM MensajesEN m WHERE m.NicknameOrigen = :nick]]></query>
-		  <query name="MensajesENdameTodosLosMensajesRecibidosPorUsuarioHQL"><![CDATA[FROM MensajesEN m WHERE m.NicknameDestino = :nick]]></query>
-		  <query name="MensajesENdameTodosLosMensajesEntreUsuariosHQL"><![CDATA[FROM MensajesEN m WHERE (m.NicknameOrigen = :nickOrigen AND m.NicknameDestino = :nickDestino) OR (m.NicknameOrigen = :nickDestino AND m.NicknameDestino = :nickOrigen)]]></query>
+		  <query name="MensajesENdameTodosLosMensajesEnviadosPorUsuarioHQL"><![CDATA[FROM MensajesEN m WHERE m.UserOrigen.Nickname = :nick]]></query>
+		  <query name="MensajesENdameTodosLosMensajesRecibidosPorUsuarioHQL"><![CDATA[FROM MensajesEN m WHERE m.UserDestino.Nickname = :nick]]></query>
+		  <query name="MensajesENdameTodosLosMensajesEntreUsuariosHQL"><![CDATA[FROM MensajesEN m WHERE m.UserOrigen.Nickname = :nickOrigen AND m.UserDestino.Nickname = :nickDestino]]></query>
 		</hibernate-mapping>
 	

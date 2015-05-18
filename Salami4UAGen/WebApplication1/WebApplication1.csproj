@@ -65,19 +65,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Admin.aspx" />
     <Content Include="Buscar.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Contact.aspx" />
-    <Content Include="Recomendar.aspx" />
     <Content Include="EditarPerfil.aspx" />
     <Content Include="EliminarPerfil.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Imagenes\arajpg.jpg" />
     <Content Include="Imagenes\cor.png" />
-    <Content Include="Imagenes\delete.png" />
     <Content Include="Imagenes\descarga.jpg" />
     <Content Include="Imagenes\fondo_ua.png" />
     <Content Include="Imagenes\Gente.png" />
@@ -86,7 +83,6 @@
     <Content Include="Imagenes\universidadalicante.jpg" />
     <Content Include="Imagenes\user.png" />
     <Content Include="Perfil.aspx" />
-    <Content Include="SendMessage.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -94,7 +90,6 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Terms.aspx" />
-    <Content Include="VerMensajesDesdePerfil.aspx" />
     <Content Include="VerPerfil.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -111,13 +106,6 @@
     </Compile>
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin.aspx.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin.aspx.designer.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Buscar.aspx.cs">
       <DependentUpon>Buscar.aspx</DependentUpon>
@@ -153,13 +141,6 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recomendar.aspx.cs">
-      <DependentUpon>Recomendar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recomendar.aspx.designer.cs">
-      <DependentUpon>Recomendar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -200,13 +181,6 @@
       <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SendMessage.aspx.cs">
-      <DependentUpon>SendMessage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SendMessage.aspx.designer.cs">
-      <DependentUpon>SendMessage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,13 +194,6 @@
     </Compile>
     <Compile Include="Terms.aspx.designer.cs">
       <DependentUpon>Terms.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="VerMensajesDesdePerfil.aspx.cs">
-      <DependentUpon>VerMensajesDesdePerfil.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="VerMensajesDesdePerfil.aspx.designer.cs">
-      <DependentUpon>VerMensajesDesdePerfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="VerPerfil.aspx.cs">
       <DependentUpon>VerPerfil.aspx</DependentUpon>
@@ -266,7 +233,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49246</DevelopmentServerPort>
+          <DevelopmentServerPort>50742</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

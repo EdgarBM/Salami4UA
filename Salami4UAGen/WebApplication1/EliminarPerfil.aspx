@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        Delete User
+        Delete Profile
     </h2>
     
     
@@ -18,42 +18,40 @@
             </span>
             <asp:ValidationSummary ID="DeleteUserValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="DeleteUserValidationGroup"/>
-
-            <asp:Panel ID="Panel1" runat="server" DefaultButton="ButtonEliminar">
-                <div class="accountInfo">
-                    <fieldset class="changePassword" style="background-color: #FBFDFF">
-                        <legend>Account Information</legend>
-                        <p>
-                            <asp:Label ID="UsernameLabel" Text="Nickname:  " runat="server"></asp:Label>
-                            <asp:Label ID="Username" runat="server" ></asp:Label>
+            <div class="accountInfo">
+                <fieldset class="changePassword">
+                    <legend>Account Information de cuenta</legend>
+                    <p>
+                        <asp:Label ID="UsernameLabel" Text="Nickname:  " runat="server"></asp:Label>
+                        <asp:Label ID="Username" runat="server" ></asp:Label>
                         
-                        </p>
-
-                        <p>
-                            <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Introduce the password:</asp:Label>
-                            <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
-                                 CssClass="failureNotification" ErrorMessage="The password is mandatory." ToolTip="The password is mandatory." 
-                                 ValidationGroup="DeleteUserValidationGroup">*</asp:RequiredFieldValidator>
-                        </p>
-                        <p>
-                            <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword">Confirm the password:</asp:Label>
-                            <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="ConfirmNewPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" 
-                                 CssClass="failureNotification" Display="Dynamic" ErrorMessage="The confirmation of the password is mandatory."
-                                 ToolTip="The confirmation of the password is mandatory." ValidationGroup="DeleteUserValidationGroup">*</asp:RequiredFieldValidator>
-                        
-                            <asp:CompareValidator ID="NewPasswordCompare" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword" 
-                                 CssClass="failureNotification" Display="Dynamic" ErrorMessage="The password and the confirmation password does not match."
-                                 ValidationGroup="DeleteUserValidationGroup">*</asp:CompareValidator>
-                        </p>
-                    </fieldset>
-                    <p class="submitButton">
-                        <asp:Button ID="ButtonCancelar" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="button"/>
-                        <asp:Button ID="ButtonEliminar" runat="server" CommandName="ChangePassword" Text="Delete Profile" 
-                             ValidationGroup="DeleteUserValidationGroup" OnClick="ButtonEliminar_Click" class="button"/>
                     </p>
-                </div>
-            </asp:Panel>
+
+                    <p>
+                        <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Introduce the password:</asp:Label>
+                        <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
+                             CssClass="failureNotification" ErrorMessage="The password is mandatory." ToolTip="The password is mandatory." 
+                             ValidationGroup="DeleteUserValidationGroup">*</asp:RequiredFieldValidator>
+                    </p>
+                    <p>
+                        <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword">Confirm the password</asp:Label>
+                        <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="ConfirmNewPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" 
+                             CssClass="failureNotification" Display="Dynamic" ErrorMessage="The confirmation of the password is mandatory."
+                             ToolTip="The confirmation of the password is mandatory." ValidationGroup="DeleteUserValidationGroup">*</asp:RequiredFieldValidator>
+                        
+                        <asp:CompareValidator ID="NewPasswordCompare" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword" 
+                             CssClass="failureNotification" Display="Dynamic" ErrorMessage="The password and the confirmation password does not match."
+                             ValidationGroup="DeleteUserValidationGroup">*</asp:CompareValidator>
+                    </p>
+                </fieldset>
+                <p class="submitButton">
+                    <asp:Button ID="ButtonCancelar" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" class="button"/>
+                    <asp:Button ID="ButtonEliminar" runat="server" CommandName="ChangePassword" Text="Delete Profile" 
+                         ValidationGroup="DeleteUserValidationGroup" OnClick="ButtonEliminar_Click" class="button"/>
+                </p>
+            </div>
+
 
  </asp:Content>
