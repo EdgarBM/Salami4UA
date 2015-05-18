@@ -412,8 +412,7 @@ public static void InitializeData ()
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum.Black, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum.Hairless,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum.Curly, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum.Corpulent,
                         Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum.African, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum.Agnostic,
-                        Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No, animales, caracteristicas, hobbiesString, deportes, musicas, cines, "Spanish", "admin@alu.ua.es", DateTime.Today, 180, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Both,
-                        "", "", "");
+                        Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum.No, animales, caracteristicas, hobbiesString, deportes, musicas, cines, "Spanish", "admin@alu.ua.es", DateTime.Today, 180, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum.Both);
 
 
 

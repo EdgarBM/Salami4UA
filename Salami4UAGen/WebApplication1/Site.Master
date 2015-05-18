@@ -180,14 +180,36 @@
                  <% } %>
             </div>
             <div class="clear hideSkiplink">
+                
+            <% if (Session["login"] == null)
+                   {
+                        %>
+                
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
+
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home Page"/>
-                        <asp:MenuItem NavigateUrl="~/Buscar.aspx" Text="Search people"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About us"/>
                         <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact us"/>
                     </Items>
                 </asp:Menu>
+                
+                 <% }
+                   else
+                   { 
+                 %>
+
+                <asp:Menu ID="Menu1" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home Page"/>
+                        <asp:MenuItem NavigateUrl="~/Buscar.aspx" Text="Search"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About us"/>
+                        <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact us"/>
+                    </Items>
+                </asp:Menu>
+                
+                 <% } %>
             </div>
         </div>
         <div class="main" >

@@ -43,15 +43,6 @@
 					<property name="Likes" > 
 						<column name="[Likes]"  not-null="true"/>
 					</property>
-					<property name="Name" type="string"> 
-						<column name="[Name]"  not-null="true"/>
-					</property>
-					<property name="Surname" type="string"> 
-						<column name="[Surname]"  not-null="true"/>
-					</property>
-					<property name="Comment" type="string"> 
-						<column name="[Comment]" length="1000" not-null="true"/>
-					</property>
 			
 			
 			
@@ -138,12 +129,6 @@
 											 					
 			
 			
-			
-			
-			
-					
-					
-					
 					
 					
 					

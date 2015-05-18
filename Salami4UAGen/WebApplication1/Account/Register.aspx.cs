@@ -420,10 +420,7 @@ namespace WebApplication1.Account
                 if (ok)
                 {
 
-                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, 
-                        bodyType, ethnicity, religion, smoke, animales, caracteristicas, hobbies, deportes, musicas, 
-                        cines, NacionalidadList.SelectedValue, Email.Text, tiempo, Int32.Parse(Height.SelectedValue), 
-                        genero, orientacion, Name.Text, Surname.Text, Comment.Text);
+                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, animales, caracteristicas, hobbies, deportes, musicas, cines, NacionalidadList.SelectedValue, Email.Text, tiempo, Int32.Parse(Height.SelectedValue), genero, orientacion);
 
                     smtpClient.Send(message);
                     Label.Text = "Your account has been created! Check your email to log in Salami4UA! \n" +

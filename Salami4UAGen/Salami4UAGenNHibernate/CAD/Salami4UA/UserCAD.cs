@@ -168,15 +168,6 @@ public void Modify (UserEN user)
 
                 userEN.Likes = user.Likes;
 
-
-                userEN.Name = user.Name;
-
-
-                userEN.Surname = user.Surname;
-
-
-                userEN.Comment = user.Comment;
-
                 session.Update (userEN);
                 SessionCommit ();
         }

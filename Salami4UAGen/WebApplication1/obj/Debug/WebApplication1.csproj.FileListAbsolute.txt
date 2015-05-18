@@ -124,17 +124,17 @@ C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\WebApplication
 C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\LUIS\Desktop\Salami4UAGen [JUNTADO] (19-09)\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.pdb
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\bin\hibernate.cfg.xml
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\bin\WebApplication1.dll
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\bin\WebApplication1.pdb
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\bin\InitializeDB.exe
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\bin\Salami4UAGenNHibernate.dll
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\bin\NHibernate.dll
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\bin\Iesi.Collections.dll
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\bin\Antlr3.Runtime.dll
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\bin\log4net.dll
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\bin\InitializeDB.pdb
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\bin\Salami4UAGenNHibernate.pdb
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.dll
-D:\Datos\UA\3\2do cuatrimestre\DSS\Practicas\workspace\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\hibernate.cfg.xml
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\WebApplication1.dll
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\WebApplication1.pdb
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\InitializeDB.exe
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\Salami4UAGenNHibernate.dll
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\NHibernate.dll
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\Iesi.Collections.dll
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\Antlr3.Runtime.dll
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\log4net.dll
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\InitializeDB.pdb
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\Salami4UAGenNHibernate.pdb
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\david\Desktop\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.pdb
