@@ -12,8 +12,6 @@ namespace WebApplication1.Account
 {
     public partial class ChangePassword : System.Web.UI.Page
     {
-        private string admin = "admin";
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Login"] != null)
@@ -23,10 +21,10 @@ namespace WebApplication1.Account
 
                 try
                 {
-                    UsuarioCEN usuario = new UsuarioCEN();
-                    IList<UsuarioEN> usuarios = usuario.DameUsuarioPorNickname(nick);
+                    UserCEN usuario = new UserCEN();
+                    IList<UserEN> usuarios = usuario.DameUsuarioPorNickname(nick);
 
-                    foreach (UsuarioEN us in usuarios)
+                    foreach (UserEN us in usuarios)
                     {
                         Username.Text = nick;
                     }
@@ -40,45 +38,31 @@ namespace WebApplication1.Account
 
         protected void Continuar_Click(object sender, EventArgs e)
         {
-            Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
+            Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN();
             try
             {
 
-                if (usuario.CambiarPassword(Username.Text, Login.GetMd5Hash(CurrentPassword.Text), Login.GetMd5Hash(NewPassword.Text)))
+                if (usuario.CambiarPassword(Username.Text, CurrentPassword.Text, NewPassword.Text))
                 {
 
                     LoginOk.Text = "The password has been changed!";
 
-                    // Email to admin
                     SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                     MailMessage message = new MailMessage();
                     try
                     {
-                        IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> user = new List<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN>();
+                        IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user = new List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
                         user = usuario.DameUsuarioPorNickname(Username.Text);
-                        Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN usuario1 = user.ElementAt(0);
-
-                        // Message to admin
-                        try
-                        {
-                            string msg = usuario1.Nickname + " has changed his password.";
-
-                            MensajesCEN mensajeCen = new MensajesCEN();
-                            mensajeCen.New_(msg, usuario1.Nickname, admin);
-
-                        }
-                        catch (Exception)
-                        {
-                        }
+                        Salami4UAGenNHibernate.EN.Salami4UA.UserEN usuario1 = user.ElementAt(0);
+                        
 
                         MailAddress fromAddress = new MailAddress("salami4ua@gmail.com", "Salami4UA");
                         MailAddress toAddress = new MailAddress(usuario1.Email, Username.Text);
                         message.From = fromAddress;
                         message.To.Add(toAddress);
-                        message.Subject = "Salami4UA - Change password";
+                        message.Subject = "Salami4ua";
                         message.Body = "Your password has been changed. Thank you for using Salami4UA as " + Username.Text + ". \n\n " +
-                            "Please click the following link: \n http://localhost:49837/Account/Login.aspx"+
-                            "\n\n Regards, Salami4UA Team.";
+                            "Please click the following link: \n http://localhost:49837/Account/Login.aspx";
                         smtpClient.EnableSsl = true;
                         smtpClient.Credentials = new System.Net.NetworkCredential("salami4ua@gmail.com", "salamiforua");
 

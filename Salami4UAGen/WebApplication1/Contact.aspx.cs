@@ -22,10 +22,10 @@ namespace WebApplication1
 
                 try
                 {
-                    UsuarioCEN usuario = new UsuarioCEN();
-                    IList<UsuarioEN> usuarios = usuario.DameUsuarioPorNickname(nick);
+                    UserCEN usuario = new UserCEN();
+                    IList<UserEN> usuarios = usuario.DameUsuarioPorNickname(nick);
 
-                    foreach (UsuarioEN us in usuarios)
+                    foreach (UserEN us in usuarios)
                     {
                         TextBox1.Text = us.Name;
                         TextBox2.Text = us.Email;

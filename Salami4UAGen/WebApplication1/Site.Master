@@ -5,8 +5,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title> Salami4UA </title>
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" runat="server"/>  
-    <link rel="shortcut icon" href="~/Imagenes/icono.ico">
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" runat="server"/>
     <!-- Compatibility with navigators -->
     <style type="text/css">
         
@@ -181,7 +180,7 @@
             <div class="clear hideSkiplink">
                 
             <% if (Session["login"] == null)
-               {
+                   {
                         %>
                 
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
@@ -194,22 +193,8 @@
                 </asp:Menu>
                 
                  <% }
-               else if (Session["login"].ToString() == "admin")
-               {
-                        %>
-                
-                <asp:Menu ID="Menu2" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem NavigateUrl="~/Admin.aspx" Text="Admin Users"/>
-                        <asp:MenuItem NavigateUrl="~/VerMensajesDesdePerfil.aspx" Text="Messages"/>
-                    </Items>
-                </asp:Menu>
-                
-                 <% }
-               else
-               { 
+                   else
+                   { 
                  %>
 
                 <asp:Menu ID="Menu1" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
@@ -217,7 +202,6 @@
 
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home Page"/>
                         <asp:MenuItem NavigateUrl="~/Buscar.aspx" Text="Search People"/>
-                        <asp:MenuItem NavigateUrl="~/VerMensajesDesdePerfil.aspx" Text="Messages"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About us"/>
                         <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact us"/>
                     </Items>
