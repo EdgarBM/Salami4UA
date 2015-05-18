@@ -616,6 +616,33 @@ namespace WebApplication1.Account {
         protected global::System.Web.UI.WebControls.TextBox Comment;
         
         /// <summary>
+        /// Control TermsOfUse.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox TermsOfUse;
+        
+        /// <summary>
+        /// Control TermsOfUseLink.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink TermsOfUseLink;
+        
+        /// <summary>
+        /// Control ErrorTerms.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorTerms;
+        
+        /// <summary>
         /// Control Continuar.
         /// </summary>
         /// <remarks>
