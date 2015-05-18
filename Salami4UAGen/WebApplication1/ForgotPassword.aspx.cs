@@ -136,7 +136,7 @@ namespace WebApplication1
                 if (Validation.Text == u1.ValidationCode)
                 {
 
-                    if (usuario.CambiarPassword(Nickname2.Text, u1.Password, NewPasswordRecover.Text))
+                    if (usuario.CambiarPassword(Nickname2.Text, u1.Password, Account.Login.GetMd5Hash(NewPasswordRecover.Text)))
                     {
 
                         Description.Text = "";

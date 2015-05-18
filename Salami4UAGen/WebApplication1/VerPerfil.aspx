@@ -25,7 +25,7 @@
     }
 </style>
         <h2>
-            Perfil
+            Profile
         </h2>
 
         <br />
@@ -38,10 +38,17 @@
     <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 226px; float: left'>
         
         <asp:Image ID="ImagenPerfil" runat="server" Height="200px" Width="200px" />
+        <br /><br />
+        <asp:Button ID="ButtonEnviarMensaje" runat="server" Text="Send Message" OnClick="ButtonEnviarMensaje_Click" class="button" Width="200px"/>
+        <br /><br />
+        <asp:Button ID="ButtonEnviarPinchito" runat="server" Text="Send Pinchito" OnClick="ButtonEnviarPinchito_Click" class="button" Width="200px"/>
     
     </div>
 
+
+  
     <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 1208px; width: 659px; float: left; line-height: 2em;' >
+        
         <asp:Label ID="NicknameLabel" runat="server" Text="Nickname" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="Nickname" runat="server" Text="" Width="100px"></asp:Label>
 
@@ -121,6 +128,16 @@
         <asp:Label ID="BirthLabel" runat="server" Text="Birthdate" Width="100px" Font-Bold="True"></asp:Label>
         <asp:Label ID="Birth" runat="server" Text="" Width="100px"></asp:Label>
 
+        <br />
+
+        <asp:Label ID="Label23" runat="server" Text="Studies" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:Label ID="StudiesLabel" runat="server" Width="524px"></asp:Label>
+
+        <br />
+
+        <asp:Label ID="Label26" runat="server" Text="Course" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:Label ID="CourseLabel" runat="server" Text="" Width="100px"></asp:Label>
+
         <br /><br />
 
         <asp:Label ID="PetsLabel" runat="server" Text="Pets" Width="100px" Font-Bold="True" 
@@ -164,6 +181,7 @@
         <asp:Label ID="Comment" runat="server" Text="" Width="600px"></asp:Label>
 
         <br /><br />
+
 
     </div>
 
@@ -237,6 +255,8 @@
             </asp:Panel>
             <!-- ModalPopupExtender -->
         </form>
+        
+        <asp:Button ID="BotonEliminarAdmin" Visible="false" runat="server" Text="Delete Profile" OnClick="BotonEliminarPerfil_Click" class="button"/>
         
     </div>
 

@@ -668,6 +668,11 @@ namespace WebApplication1
             return s;
         }
 
+        protected void Recomend_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Recomendar.aspx");
+        }
+
 
     }
 

@@ -13,16 +13,25 @@ namespace WebApplication1
 {
     public partial class VerPerfil : System.Web.UI.Page
     {
+        private String admin = "admin";
+        String nick;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Login"] != null)
             {
                 //String nick = Session["Login"].ToString();
-                String nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx","");
+                nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx","");
+                String user = Session["Login"].ToString();
+
+                if(user == admin){
+                    BotonEliminarAdmin.Visible = true;
+                    btnShow.Visible = false;
+                }
 
                 try
                 {
-                        nick = nick.TrimStart('/');
+                    nick = nick.TrimStart('/');
                 }
                 catch (Exception ex) { }
 
@@ -56,6 +65,8 @@ namespace WebApplication1
                         Smoke.Text = us.Smoke.ToString();
                         Religion.Text = us.Religion.ToString();
                         Birth.Text = Convert.ToString(us.Birthday).Substring(0, 10);
+                        StudiesLabel.Text = us.Career;
+                        CourseLabel.Text = us.Course.ToString();
 
                         if (us.Comment != "")
                         {
@@ -268,6 +279,25 @@ namespace WebApplication1
         protected void close_Click(object sender, EventArgs e)
         {
             mp1.Hide();
+        }
+
+        protected void BotonEliminarPerfil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String url = "~/EliminarPerfil.aspx/" + nick;
+                Response.Redirect(url);
+            }
+            catch (Exception) { }
+        }
+
+        protected void ButtonEnviarMensaje_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SendMessage.aspx?msgTo=" + nick);
+        }
+
+        protected void ButtonEnviarPinchito_Click(object sender, EventArgs e)
+        {
         }
     }
 

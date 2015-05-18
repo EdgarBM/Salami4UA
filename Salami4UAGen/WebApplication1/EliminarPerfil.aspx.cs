@@ -73,7 +73,7 @@ namespace WebApplication1
                 UsuarioCAD UsuarioCAD = new UsuarioCAD();
                 UsuarioEN usuarioEN = UsuarioCAD.ReadOIDDefault(nick);
 
-                if (usuarioCEN.ValidationUser(nick, Password.Text))
+                if (usuarioCEN.ValidationUser(nick, Account.Login.GetMd5Hash(Password.Text)))
                 {
                     passwordCorrecto = true;
 

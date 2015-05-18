@@ -543,7 +543,7 @@ namespace WebApplication1.Account
                     gustoCEN.New_(UserName.Text, colPelBuscado, colOjosBuscado, longPelBuscado, styPelBuscado, bodTypeBuscado, etniBuscado, fumBuscado);
 
 
-                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, Email.Text,
+                    usuario.New_(UserName.Text, Login.GetMd5Hash(password.ToString()), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, Email.Text,
                         tiempo, genero, orientacion, Name.Text, Surname.Text, Comment.Text, "", CareerList.SelectedValue, curso,
                         NacionalidadList.SelectedValue, Int32.Parse(Height.SelectedValue), animales, cines, musicas, caracteristicas, deportes, hobbies, "http://10hotmail.com/wp-content/uploads/2012/05/Agregar-contactos-Yahoo-MSN-Messenger.png", UserName.Text);
                         
