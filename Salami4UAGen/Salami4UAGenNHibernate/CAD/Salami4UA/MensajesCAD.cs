@@ -199,7 +199,7 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Mens
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MensajesEN self where FROM MensajesEN m WHERE m.NicknameOrigen = :nickOrigen AND m.NicknameDestino = :nickDestino";
+                //String sql = @"FROM MensajesEN self where FROM MensajesEN m WHERE (m.NicknameOrigen = :nickOrigen AND m.NicknameDestino = :nickDestino) OR (m.NicknameOrigen = :nickDestino AND m.NicknameDestino = :nickOrigen)";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MensajesENdameTodosLosMensajesEntreUsuariosHQL");
                 query.SetParameter ("nickOrigen", nickOrigen);
