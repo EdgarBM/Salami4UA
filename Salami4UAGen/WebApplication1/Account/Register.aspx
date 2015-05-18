@@ -45,7 +45,7 @@
                     <br />
 
                     <asp:RegularExpressionValidator ID="UserRequiredSize" runat="server" ControlToValidate="UserName" 
-                        ForeColor=Red ErrorMessage="Incorrect username. It must have almost 6 alphanumeric characters."
+                        ForeColor="Red" ErrorMessage="Incorrect username. It must have almost 6 alphanumeric characters."
                         ValidationExpression="^[a-zA-Z0-9]{6,}$" ValidationGroup="RegisterUserValidationGroup"></asp:RegularExpressionValidator>
                 
                     <br />
@@ -170,9 +170,10 @@
                         CssClass="failureNotification" ErrorMessage="The birthdate is mandatory." ToolTip="The birthdate is mandatory." 
                         ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionFechaNacimiento" runat="server"
-                        ControlToValidate="FechaNacimiento" ForeColor=Red ValidationGroup="RegisterUserValidationGroup"
+                        ControlToValidate="FechaNacimiento" ForeColor="Red" ValidationGroup="RegisterUserValidationGroup"
                         ErrorMessage="Incorrect birthdate."
                         ValidationExpression="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"></asp:RegularExpressionValidator>
+                    <asp:Label ID="ErrorUnderAge" runat="server" ForeColor="Red"></asp:Label>
                    
                     
                 </p>

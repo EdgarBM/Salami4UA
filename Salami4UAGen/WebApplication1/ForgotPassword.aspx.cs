@@ -29,15 +29,15 @@ namespace WebApplication1
             
             try
             {
-                UserCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN();
+                UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
 
-                IList<UserEN> usu1 = usuario.DameUsuarioPorNickname(Nickname.Text);
-                IList<UserEN> usu2 = usuario.DameUsuarioPorEmail(Email.Text);
+                IList<UsuarioEN> usu1 = usuario.DameUsuarioPorNickname(Nickname.Text);
+                IList<UsuarioEN> usu2 = usuario.DameUsuarioPorEmail(Email.Text);
 
                 // Si el nombre de usuario y email son correctos
                 if (usu1.Count == 1 && usu2.Count == 1 && usu1[0].Equals(usu2[0]))
                 {
-                    UserEN u1 = usu1[0];
+                    UsuarioEN u1 = usu1[0];
 
                     // Si todavia no tiene un codigo de validacion
                     if (u1.ValidationCode == "")
@@ -129,9 +129,9 @@ namespace WebApplication1
         {
             try
             {
-                UserCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN();
-                IList<UserEN> usu1 = usuario.DameUsuarioPorNickname(Nickname2.Text);
-                UserEN u1 = usu1[0];
+                UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
+                IList<UsuarioEN> usu1 = usuario.DameUsuarioPorNickname(Nickname2.Text);
+                UsuarioEN u1 = usu1[0];
 
                 if (Validation.Text == u1.ValidationCode)
                 {
@@ -147,9 +147,9 @@ namespace WebApplication1
                         MailMessage message = new MailMessage();
                         try
                         {
-                            IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user = new List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                            IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> user = new List<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN>();
                             user = usuario.DameUsuarioPorNickname(Nickname2.Text);
-                            Salami4UAGenNHibernate.EN.Salami4UA.UserEN usuario1 = user.ElementAt(0);
+                            Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN usuario1 = user.ElementAt(0);
 
                             MailAddress fromAddress = new MailAddress("salami4ua@gmail.com", "Salami4UA");
                             MailAddress toAddress = new MailAddress(u1.Email, Nickname2.Text);

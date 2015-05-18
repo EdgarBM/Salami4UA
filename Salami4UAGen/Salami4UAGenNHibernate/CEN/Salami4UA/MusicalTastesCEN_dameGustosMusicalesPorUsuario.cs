@@ -34,8 +34,10 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Musi
                 UserCAD usuarioCAD = new UserCAD (basic.session);
                 UserEN usuarioEN = usuarioCAD.ReadOIDDefault (nickname);
 
-                foreach (MusicalTastesEN musica in usuarioEN.MusicalTastes) {
-                        todoMusica.Add (musica);
+                foreach (String musica in usuarioEN.Musics) {
+                        MusicalTastesEN m = new MusicalTastesEN ();
+                        m.Name = musica;
+                        todoMusica.Add (m);
                 }
         }
         catch (Exception ex)

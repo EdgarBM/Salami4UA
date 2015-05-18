@@ -34,8 +34,10 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Hobb
                 UserCAD usuarioCAD = new UserCAD (basic.session);
                 UserEN usuarioEN = usuarioCAD.ReadOIDDefault (nickname);
 
-                foreach (HobbiesEN hob in usuarioEN.Hobbies) {
-                        todosHobbies.Add (hob);
+                foreach (String hob in usuarioEN.Hobbies) {
+                        HobbiesEN h = new HobbiesEN ();
+                        h.Name = hob;
+                        todosHobbies.Add (h);
                 }
         }
         catch (Exception ex)

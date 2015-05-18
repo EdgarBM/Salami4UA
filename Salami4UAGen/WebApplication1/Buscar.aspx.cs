@@ -12,18 +12,18 @@ namespace WebApplication1
 {
     public partial class Buscar : System.Web.UI.Page
     {
-        List<UserEN> listaUsuarios;
+        List<UsuarioEN> listaUsuarios;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            listaUsuarios = new List<UserEN>();
+            listaUsuarios = new List<UsuarioEN>();
 
 
-            NationalityCEN nacion = new NationalityCEN();
-            IList<NationalityEN> nacionalidades = nacion.DameTodaslasNacionalidades();
+            NacionalidadCEN nacion = new NacionalidadCEN();
+            IList<NacionalidadEN> nacionalidades = nacion.DameTodaslasNacionalidades();
 
-            HeightCEN altura = new HeightCEN();
-            IList<HeightEN> Alturas = altura.DameTodaslasAlturas();
+            AlturaCEN altura = new AlturaCEN();
+            IList<AlturaEN> Alturas = altura.DameTodaslasAlturas();
             int i;
 
             if (TiposDeCuerpo.Items.Count == 0)
@@ -105,7 +105,7 @@ namespace WebApplication1
             {
                 i = 0;
                 NacionalidadList.Items.Insert(i++, "Spanish");
-                foreach (NationalityEN nacional in nacionalidades)
+                foreach (NacionalidadEN nacional in nacionalidades)
                 {
                     if (nacional.Name != "Spanish")
                         NacionalidadList.Items.Insert(i++, nacional.Name);
@@ -117,7 +117,7 @@ namespace WebApplication1
             if (Height.Items.Count == 0)
             {
                 i = 0;
-                foreach (HeightEN height in Alturas)
+                foreach (AlturaEN height in Alturas)
                 {
                     Height.Items.Insert(i++, height.Height.ToString());
                 }
@@ -143,12 +143,12 @@ namespace WebApplication1
         }
 
 
-        protected List<UserEN> filtraUsuariosNuevos(List<UserEN> usuariosPorAhora, List<UserEN> usuariosNuevos)
+        protected List<UsuarioEN> filtraUsuariosNuevos(List<UsuarioEN> usuariosPorAhora, List<UsuarioEN> usuariosNuevos)
         {
-            List<UserEN> usuarios = new List<UserEN>();
+            List<UsuarioEN> usuarios = new List<UsuarioEN>();
             usuarios.AddRange(usuariosPorAhora);
 
-            foreach (UserEN usuarioEN in usuariosNuevos)
+            foreach (UsuarioEN usuarioEN in usuariosNuevos)
             {
                 if (!usuariosPorAhora.Contains(usuarioEN))
                 {
@@ -163,17 +163,17 @@ namespace WebApplication1
         {
             listaUsuarios.Clear();
 
-            UserCEN userCen = new UserCEN();
+            UsuarioCEN UsuarioCEN = new UsuarioCEN();
 
             {
-                List<UserEN> listaPorGenero = new List<UserEN>();
+                List<UsuarioEN> listaPorGenero = new List<UsuarioEN>();
                 if (RadioWoman.Checked)
                 {
-                    listaPorGenero.AddRange(userCen.DameUsuarioPorGender(GenderEnum.Woman));
+                    listaPorGenero.AddRange(UsuarioCEN.DameUsuarioPorGender(GenderEnum.Woman));
                 }
                 else if (RadioMan.Checked)
                 {
-                    listaPorGenero.AddRange(userCen.DameUsuarioPorGender(GenderEnum.Man));
+                    listaPorGenero.AddRange(UsuarioCEN.DameUsuarioPorGender(GenderEnum.Man));
                 }
 
                 listaUsuarios.AddRange(listaPorGenero);
@@ -182,10 +182,10 @@ namespace WebApplication1
 
             if (TiposDeCuerpo.SelectedIndex != -1)
             {
-                List<UserEN> listaPorCuerpo = new List<UserEN>();
+                List<UsuarioEN> listaPorCuerpo = new List<UsuarioEN>();
                 string tipoDeCuerpo = TiposDeCuerpo.SelectedValue;
 
-                listaPorCuerpo.AddRange(userCen.DameUsuarioPorBodyType(
+                listaPorCuerpo.AddRange(UsuarioCEN.DameUsuarioPorBodyType(
                    (BodyTypeEnum)Enum.Parse(typeof(BodyTypeEnum), tipoDeCuerpo)));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorCuerpo);
@@ -194,9 +194,9 @@ namespace WebApplication1
             if (Etnia.SelectedIndex != -1)
             {
                 string etnia = Etnia.SelectedValue;
-                List<UserEN> listaPorEtnia = new List<UserEN>();
+                List<UsuarioEN> listaPorEtnia = new List<UsuarioEN>();
 
-                listaPorEtnia.AddRange(userCen.DameUsuarioPorEthnicity(
+                listaPorEtnia.AddRange(UsuarioCEN.DameUsuarioPorEthnicity(
                     (EthnicityEnum)Enum.Parse(typeof(EthnicityEnum), etnia)));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorEtnia);
@@ -206,9 +206,9 @@ namespace WebApplication1
             if (ColorOjos.SelectedIndex != -1)
             {
                 string ojos = ColorOjos.SelectedValue;
-                List<UserEN> listaPorColorOjos = new List<UserEN>();
+                List<UsuarioEN> listaPorColorOjos = new List<UsuarioEN>();
 
-                listaPorColorOjos.AddRange(userCen.DameUsuarioPorEyeColor(
+                listaPorColorOjos.AddRange(UsuarioCEN.DameUsuarioPorEyeColor(
                     (EyeColorEnum)Enum.Parse(typeof(EyeColorEnum), ojos)));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorColorOjos);
@@ -219,9 +219,9 @@ namespace WebApplication1
             if (ColorPelo.SelectedIndex != -1)
             {
                 string pelo = ColorPelo.SelectedValue;
-                List<UserEN> listaPorColorPelo = new List<UserEN>();
+                List<UsuarioEN> listaPorColorPelo = new List<UsuarioEN>();
 
-                listaPorColorPelo.AddRange(userCen.DameUsuarioPorHairColor(
+                listaPorColorPelo.AddRange(UsuarioCEN.DameUsuarioPorHairColor(
                     (HairColorEnum)Enum.Parse(typeof(HairColorEnum), pelo)));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorColorPelo);
@@ -232,9 +232,9 @@ namespace WebApplication1
             if (LongitudPelo.SelectedIndex != -1)
             {
                 string cabello = LongitudPelo.SelectedValue;
-                List<UserEN> listaPorLongitudPelo = new List<UserEN>();
+                List<UsuarioEN> listaPorLongitudPelo = new List<UsuarioEN>();
 
-                listaPorLongitudPelo.AddRange(userCen.DameUsuarioPorHairLength(
+                listaPorLongitudPelo.AddRange(UsuarioCEN.DameUsuarioPorHairLength(
                     (HairLengthEnum)Enum.Parse(typeof(HairLengthEnum), cabello)));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorLongitudPelo);
@@ -243,9 +243,9 @@ namespace WebApplication1
             if (EstiloPelo.SelectedIndex != -1)
             {
                 string peinado = EstiloPelo.SelectedValue;
-                List<UserEN> listaPorEstiloPelo = new List<UserEN>();
+                List<UsuarioEN> listaPorEstiloPelo = new List<UsuarioEN>();
 
-                listaPorEstiloPelo.AddRange(userCen.DameUsuarioPorHairStyle(
+                listaPorEstiloPelo.AddRange(UsuarioCEN.DameUsuarioPorHairStyle(
                     (HairStyleEnum)Enum.Parse(typeof(HairStyleEnum), peinado)));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorEstiloPelo);
@@ -254,9 +254,9 @@ namespace WebApplication1
             if (Religion.SelectedIndex != -1)
             {
                 string religion = Religion.SelectedValue;
-                List<UserEN> listaPorReligion = new List<UserEN>();
+                List<UsuarioEN> listaPorReligion = new List<UsuarioEN>();
 
-                listaPorReligion.AddRange(userCen.DameUsuarioPorReligion(
+                listaPorReligion.AddRange(UsuarioCEN.DameUsuarioPorReligion(
                     (ReligionEnum)Enum.Parse(typeof(ReligionEnum), religion)));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorReligion);
@@ -266,9 +266,9 @@ namespace WebApplication1
             if (Fumador.SelectedIndex != -1)
             {
                 string fumador = Fumador.SelectedValue;
-                List<UserEN> listaPorFumador = new List<UserEN>();
+                List<UsuarioEN> listaPorFumador = new List<UsuarioEN>();
 
-                listaPorFumador.AddRange(userCen.DameUsuarioPorFumar(
+                listaPorFumador.AddRange(UsuarioCEN.DameUsuarioPorFumar(
                     (SmokeEnum)Enum.Parse(typeof(SmokeEnum), fumador)));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorFumador);
@@ -277,12 +277,12 @@ namespace WebApplication1
             if (NacionalidadList.SelectedIndex != -1)
             {
                 string valor = NacionalidadList.SelectedValue;
-                List<UserEN> listaPorNacionalidad = new List<UserEN>();
-                NationalityEN nacion = new NationalityEN();
+                List<UsuarioEN> listaPorNacionalidad = new List<UsuarioEN>();
+                NacionalidadEN nacion = new NacionalidadEN();
                 nacion.Name = valor;
 
                 listaPorNacionalidad.AddRange(
-                    userCen.DameUsuarioPorNacionalidad(nacion));
+                    UsuarioCEN.DameUsuarioPorNacionalidad(nacion));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorNacionalidad);
             }
@@ -290,13 +290,13 @@ namespace WebApplication1
             if (Height.SelectedIndex != -1)
             {
                 string altura = Height.SelectedValue;
-                List<UserEN> listaPorAltura = new List<UserEN>();
-                HeightEN height = new HeightEN();
+                List<UsuarioEN> listaPorAltura = new List<UsuarioEN>();
+                AlturaEN height = new AlturaEN();
 
                 height.Height = Int32.Parse(altura);
 
                 listaPorAltura.AddRange(
-                    userCen.DameUsuarioPorAltura(height));
+                    UsuarioCEN.DameUsuarioPorAltura(height));
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorAltura);
 
@@ -304,30 +304,30 @@ namespace WebApplication1
 
             if (MinAge.Text.Trim() != "" && MaxAge.Text.Trim() != "")
             {
-                List<UserEN> listaPorEdad = new List<UserEN>();
+                List<UsuarioEN> listaPorEdad = new List<UsuarioEN>();
                 int actualYear = DateTime.Today.Year;
                 int minAge = actualYear - Convert.ToInt32(MaxAge.Text);
                 int maxAge = actualYear - Convert.ToInt32(MinAge.Text);
-                listaPorEdad.AddRange(userCen.DameUsuarioPorRangoEdad(maxAge, minAge));
+                listaPorEdad.AddRange(UsuarioCEN.DameUsuarioPorRangoEdad(maxAge, minAge));
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorEdad);
             }
 
             if (Interested.Checked)
             {
                 String nick;
-                UserCEN usuario;
-                IList<UserEN> usuarios;
-                UserEN usu;
+                UsuarioCEN usuario;
+                IList<UsuarioEN> usuarios;
+                UsuarioEN usu;
 
                 try
                 {
                     nick = Session["Login"].ToString();
-                    usuario = new UserCEN();
+                    usuario = new UsuarioCEN();
                     usuarios = usuario.DameUsuarioPorNickname(nick);
                     usu = usuarios[0];
 
 
-                    foreach (UserEN u in listaUsuarios)
+                    foreach (UsuarioEN u in listaUsuarios)
                     {
                         if (u.Likes.ToString() != usu.Gender.ToString() && u.Likes.ToString() != "Both")
                             listaUsuarios.Remove(u);
@@ -347,17 +347,17 @@ namespace WebApplication1
         {
             listaUsuarios.Clear();
 
-            UserCEN userCen = new UserCEN();
+            UsuarioCEN UsuarioCEN = new UsuarioCEN();
 
             {
-                List<UserEN> listaPorGenero = new List<UserEN>();
+                List<UsuarioEN> listaPorGenero = new List<UsuarioEN>();
                 if (RadioWoman.Checked)
                 {
-                    listaPorGenero.AddRange(userCen.DameUsuarioPorGender(GenderEnum.Woman));
+                    listaPorGenero.AddRange(UsuarioCEN.DameUsuarioPorGender(GenderEnum.Woman));
                 }
                 else if (RadioMan.Checked)
                 {
-                    listaPorGenero.AddRange(userCen.DameUsuarioPorGender(GenderEnum.Man));
+                    listaPorGenero.AddRange(UsuarioCEN.DameUsuarioPorGender(GenderEnum.Man));
                 }
 
                 listaUsuarios.AddRange(listaPorGenero);
@@ -366,15 +366,15 @@ namespace WebApplication1
 
             if (TiposDeCuerpo.SelectedIndex != -1)
             {
-                List<UserEN> listaPorCuerpo = new List<UserEN>();
+                List<UsuarioEN> listaPorCuerpo = new List<UsuarioEN>();
                 string tipoDeCuerpo = TiposDeCuerpo.SelectedValue;
 
-                listaPorCuerpo.AddRange(userCen.DameUsuarioPorBodyType(
+                listaPorCuerpo.AddRange(UsuarioCEN.DameUsuarioPorBodyType(
                    (BodyTypeEnum)Enum.Parse(typeof(BodyTypeEnum), tipoDeCuerpo)));
 
                 {
-                    List<UserEN> listaAux = new List<UserEN>();
-                    foreach (UserEN u in listaPorCuerpo)
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorCuerpo)
                     {
                         if (listaUsuarios.Contains(u))
                             listaAux.Add(u);
@@ -387,14 +387,14 @@ namespace WebApplication1
             if (Etnia.SelectedIndex != -1)
             {
                 string etnia = Etnia.SelectedValue;
-                List<UserEN> listaPorEtnia = new List<UserEN>();
+                List<UsuarioEN> listaPorEtnia = new List<UsuarioEN>();
 
-                listaPorEtnia.AddRange(userCen.DameUsuarioPorEthnicity(
+                listaPorEtnia.AddRange(UsuarioCEN.DameUsuarioPorEthnicity(
                     (EthnicityEnum)Enum.Parse(typeof(EthnicityEnum), etnia)));
 
                 {
-                    List<UserEN> listaAux = new List<UserEN>();
-                    foreach (UserEN u in listaPorEtnia)
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorEtnia)
                     {
                         if (listaUsuarios.Contains(u))
                             listaAux.Add(u);
@@ -407,14 +407,14 @@ namespace WebApplication1
             if (ColorOjos.SelectedIndex != -1)
             {
                 string ojos = ColorOjos.SelectedValue;
-                List<UserEN> listaPorColorOjos = new List<UserEN>();
+                List<UsuarioEN> listaPorColorOjos = new List<UsuarioEN>();
 
-                listaPorColorOjos.AddRange(userCen.DameUsuarioPorEyeColor(
+                listaPorColorOjos.AddRange(UsuarioCEN.DameUsuarioPorEyeColor(
                     (EyeColorEnum)Enum.Parse(typeof(EyeColorEnum), ojos)));
 
                 {
-                    List<UserEN> listaAux = new List<UserEN>();
-                    foreach (UserEN u in listaPorColorOjos)
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorColorOjos)
                     {
                         if (listaUsuarios.Contains(u))
                             listaAux.Add(u);
@@ -428,14 +428,14 @@ namespace WebApplication1
             if (ColorPelo.SelectedIndex != -1)
             {
                 string pelo = ColorPelo.SelectedValue;
-                List<UserEN> listaPorColorPelo = new List<UserEN>();
+                List<UsuarioEN> listaPorColorPelo = new List<UsuarioEN>();
 
-                listaPorColorPelo.AddRange(userCen.DameUsuarioPorHairColor(
+                listaPorColorPelo.AddRange(UsuarioCEN.DameUsuarioPorHairColor(
                     (HairColorEnum)Enum.Parse(typeof(HairColorEnum), pelo)));
 
                 {
-                    List<UserEN> listaAux = new List<UserEN>();
-                    foreach (UserEN u in listaPorColorPelo)
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorColorPelo)
                     {
                         if (listaUsuarios.Contains(u))
                             listaAux.Add(u);
@@ -449,14 +449,14 @@ namespace WebApplication1
             if (LongitudPelo.SelectedIndex != -1)
             {
                 string cabello = LongitudPelo.SelectedValue;
-                List<UserEN> listaPorLongitudPelo = new List<UserEN>();
+                List<UsuarioEN> listaPorLongitudPelo = new List<UsuarioEN>();
 
-                listaPorLongitudPelo.AddRange(userCen.DameUsuarioPorHairLength(
+                listaPorLongitudPelo.AddRange(UsuarioCEN.DameUsuarioPorHairLength(
                     (HairLengthEnum)Enum.Parse(typeof(HairLengthEnum), cabello)));
 
                 {
-                    List<UserEN> listaAux = new List<UserEN>();
-                    foreach (UserEN u in listaPorLongitudPelo)
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorLongitudPelo)
                     {
                         if (listaUsuarios.Contains(u))
                             listaAux.Add(u);
@@ -469,14 +469,14 @@ namespace WebApplication1
             if (EstiloPelo.SelectedIndex != -1)
             {
                 string peinado = EstiloPelo.SelectedValue;
-                List<UserEN> listaPorEstiloPelo = new List<UserEN>();
+                List<UsuarioEN> listaPorEstiloPelo = new List<UsuarioEN>();
 
-                listaPorEstiloPelo.AddRange(userCen.DameUsuarioPorHairStyle(
+                listaPorEstiloPelo.AddRange(UsuarioCEN.DameUsuarioPorHairStyle(
                     (HairStyleEnum)Enum.Parse(typeof(HairStyleEnum), peinado)));
 
                 {
-                    List<UserEN> listaAux = new List<UserEN>();
-                    foreach (UserEN u in listaPorEstiloPelo)
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorEstiloPelo)
                     {
                         if (listaUsuarios.Contains(u))
                             listaAux.Add(u);
@@ -489,14 +489,14 @@ namespace WebApplication1
             if (Religion.SelectedIndex != -1)
             {
                 string religion = Religion.SelectedValue;
-                List<UserEN> listaPorReligion = new List<UserEN>();
+                List<UsuarioEN> listaPorReligion = new List<UsuarioEN>();
 
-                listaPorReligion.AddRange(userCen.DameUsuarioPorReligion(
+                listaPorReligion.AddRange(UsuarioCEN.DameUsuarioPorReligion(
                     (ReligionEnum)Enum.Parse(typeof(ReligionEnum), religion)));
 
                 {
-                    List<UserEN> listaAux = new List<UserEN>();
-                    foreach (UserEN u in listaPorReligion)
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorReligion)
                     {
                         if (listaUsuarios.Contains(u))
                             listaAux.Add(u);
@@ -510,14 +510,14 @@ namespace WebApplication1
             if (Fumador.SelectedIndex != -1)
             {
                 string fumador = Fumador.SelectedValue;
-                List<UserEN> listaPorFumador = new List<UserEN>();
+                List<UsuarioEN> listaPorFumador = new List<UsuarioEN>();
 
-                listaPorFumador.AddRange(userCen.DameUsuarioPorFumar(
+                listaPorFumador.AddRange(UsuarioCEN.DameUsuarioPorFumar(
                     (SmokeEnum)Enum.Parse(typeof(SmokeEnum), fumador)));
 
                 {
-                    List<UserEN> listaAux = new List<UserEN>();
-                    foreach (UserEN u in listaPorFumador)
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorFumador)
                     {
                         if (listaUsuarios.Contains(u))
                             listaAux.Add(u);
@@ -530,16 +530,16 @@ namespace WebApplication1
             if (NacionalidadList.SelectedIndex != -1)
             {
                 string valor = NacionalidadList.SelectedValue;
-                List<UserEN> listaPorNacionalidad = new List<UserEN>();
-                NationalityEN nacion = new NationalityEN();
+                List<UsuarioEN> listaPorNacionalidad = new List<UsuarioEN>();
+                NacionalidadEN nacion = new NacionalidadEN();
                 nacion.Name = valor;
 
                 listaPorNacionalidad.AddRange(
-                    userCen.DameUsuarioPorNacionalidad(nacion));
+                    UsuarioCEN.DameUsuarioPorNacionalidad(nacion));
 
                 {
-                    List<UserEN> listaAux = new List<UserEN>();
-                    foreach (UserEN u in listaPorNacionalidad)
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorNacionalidad)
                     {
                         if (listaUsuarios.Contains(u))
                             listaAux.Add(u);
@@ -552,17 +552,17 @@ namespace WebApplication1
             if (Height.SelectedIndex != -1)
             {
                 string altura = Height.SelectedValue;
-                List<UserEN> listaPorAltura = new List<UserEN>();
-                HeightEN height = new HeightEN();
+                List<UsuarioEN> listaPorAltura = new List<UsuarioEN>();
+                AlturaEN height = new AlturaEN();
 
                 height.Height = Int32.Parse(altura);
 
                 listaPorAltura.AddRange(
-                    userCen.DameUsuarioPorAltura(height));
+                    UsuarioCEN.DameUsuarioPorAltura(height));
 
                 {
-                    List<UserEN> listaAux = new List<UserEN>();
-                    foreach (UserEN u in listaPorAltura)
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorAltura)
                     {
                         if (listaUsuarios.Contains(u))
                             listaAux.Add(u);
@@ -574,15 +574,15 @@ namespace WebApplication1
 
             if (MinAge.Text.Trim() != "" && MaxAge.Text.Trim() != "")
             {
-                List<UserEN> listaPorEdad = new List<UserEN>();
+                List<UsuarioEN> listaPorEdad = new List<UsuarioEN>();
                 int actualYear = DateTime.Today.Year;
                 int minAge = actualYear - Convert.ToInt32(MaxAge.Text);
                 int maxAge = actualYear - Convert.ToInt32(MinAge.Text);
-                listaPorEdad.AddRange(userCen.DameUsuarioPorRangoEdad(maxAge, minAge));
+                listaPorEdad.AddRange(UsuarioCEN.DameUsuarioPorRangoEdad(maxAge, minAge));
 
                 {
-                    List<UserEN> listaAux = new List<UserEN>();
-                    foreach (UserEN u in listaPorEdad)
+                    List<UsuarioEN> listaAux = new List<UsuarioEN>();
+                    foreach (UsuarioEN u in listaPorEdad)
                     {
                         if (listaUsuarios.Contains(u))
                             listaAux.Add(u);
@@ -595,19 +595,19 @@ namespace WebApplication1
             if (Interested.Checked)
             {
                 String nick;
-                UserCEN usuario;
-                IList<UserEN> usuarios;
-                UserEN usu;
+                UsuarioCEN usuario;
+                IList<UsuarioEN> usuarios;
+                UsuarioEN usu;
 
                 try
                 {
                     nick = Session["Login"].ToString();
-                    usuario = new UserCEN();
+                    usuario = new UsuarioCEN();
                     usuarios = usuario.DameUsuarioPorNickname(nick);
                     usu = usuarios[0];
 
 
-                    foreach (UserEN u in listaUsuarios)
+                    foreach (UsuarioEN u in listaUsuarios)
                     {
                         if (u.Likes.ToString() != usu.Gender.ToString() && u.Likes.ToString() != "Both")
                             listaUsuarios.Remove(u);

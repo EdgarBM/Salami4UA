@@ -27,11 +27,11 @@ namespace WebApplication1
 
                 try
                 {
-                    UserCEN usuario = new UserCEN();
-                    IList<UserEN> usuarios = usuario.DameUsuarioPorNickname(nick);
+                    UsuarioCEN usuario = new UsuarioCEN();
+                    IList<UsuarioEN> usuarios = usuario.DameUsuarioPorNickname(nick);
 
 
-                    foreach (UserEN us in usuarios)
+                    foreach (UsuarioEN us in usuarios)
                     {
                         Nickname.Text = nick;
                         Email.Text = us.Email;
@@ -39,8 +39,8 @@ namespace WebApplication1
                         Surname.Text = us.Surname;
                         Genero.Text = us.Gender.ToString();
                         Orientacion.Text = us.Likes.ToString();
-                        NationalityLabel.Text = us.Nacionalidad.Name.ToString();
-                        HeightLabel.Text = us.Height_0.Height.ToString();
+                        NationalityLabel.Text = us.Nationality;
+                        HeightLabel.Text = us.Height.ToString();
                         BodyTypeLabel.Text = us.BodyType.ToString();
                         EthnicityLabel.Text = us.Ethnicity.ToString();
                         EyeColorLabel.Text = us.EyeColor.ToString();
@@ -60,12 +60,14 @@ namespace WebApplication1
 
                         // Animales
 
-                        PetsCEN petcen = new PetsCEN();
-                        IList<PetsEN> animales = petcen.DameAnimalesPorUsuario(us.Nickname);
+                        AnimalesCEN petcen = new AnimalesCEN();
+                        IList<AnimalesEN> animales = petcen.DameAnimalesPorUsuario(us.Nickname);
+
+                        //IList<String> animales = us.Pets;
 
                         string s = "";
                         bool primero = true;
-                        foreach (PetsEN animal in animales)
+                        foreach (AnimalesEN animal in animales)
                         {
                             if (primero)
                             {
@@ -83,9 +85,9 @@ namespace WebApplication1
 
 
                         // Caracteristicas                         
-                        IList<CharacteristicFeaturesEN> caracteristicasEN = new CharacteristicFeaturesCEN().DameCaracteristicasPorUsuario(us.Nickname);
+                        IList<CaracteristicasEN> caracteristicasEN = new CaracteristicasCEN().DameCaracteristicasPorUsuario(us.Nickname);
                         s = ""; primero = true;
-                        foreach (CharacteristicFeaturesEN caracteristica in caracteristicasEN)
+                        foreach (CaracteristicasEN caracteristica in caracteristicasEN)
                         {
                             if (primero)
                             {
@@ -101,9 +103,9 @@ namespace WebApplication1
                         FeaturesLabel.Text = s;
 
                         // Generos Cine                         
-                        IList<GenreFilmsEN> generosCineEN = new GenreFilmsCEN().DameGenerosDeCinePorUsuario(us.Nickname);
+                        IList<CinesEN> generosCinesEN = new CinesCEN().DameGenerosDeCinePorUsuario(us.Nickname);
                         s = ""; primero = true;
-                        foreach (GenreFilmsEN cine in generosCineEN)
+                        foreach (CinesEN cine in generosCinesEN)
                         {
                             if (primero)
                             {
@@ -119,9 +121,9 @@ namespace WebApplication1
                         FilmLabel.Text = s;
 
                         // Musica
-                        IList<MusicalTastesEN> musicaEN = new MusicalTastesCEN().DameGustosMusicalesPorUsuario(us.Nickname);
+                        IList<MusicasEN> MusicasEN = new MusicasCEN().DameGustosMusicalesPorUsuario(us.Nickname);
                         s = ""; primero = true;
-                        foreach (MusicalTastesEN musica in musicaEN)
+                        foreach (MusicasEN musica in MusicasEN)
                         {
                             if (primero)
                             {
@@ -137,9 +139,9 @@ namespace WebApplication1
                         MusicLabel.Text = s;
 
                         // Deportes
-                        IList<SportsEN> deportesEN = new SportsCEN().DameDeportesPorUsuario(us.Nickname);
+                        IList<DeportesEN> deportesEN = new DeportesCEN().DameDeportesPorUsuario(us.Nickname);
                         s = ""; primero = true;
-                        foreach (SportsEN deporte in deportesEN)
+                        foreach (DeportesEN deporte in deportesEN)
                         {
                             if (primero)
                             {
@@ -155,9 +157,9 @@ namespace WebApplication1
                         SportsLabel.Text = s;
 
                         // Hobbies
-                        IList<HobbiesEN> hobbiesEN = new HobbiesCEN().DameHobbiesPorUsuario(us.Nickname);
+                        IList<AficionesEN> AficionesEN = new AficionesCEN().DameHobbiesPorUsuario(us.Nickname);
                         s = ""; primero = true;
-                        foreach (HobbiesEN hobbie in hobbiesEN)
+                        foreach (AficionesEN hobbie in AficionesEN)
                         {
                             if (primero)
                             {
@@ -199,7 +201,7 @@ namespace WebApplication1
             Response.Redirect("~/EditarPerfil.aspx");
         }
 
-        protected void BotonEliminarUsuario_Click(object sender, EventArgs e)
+        protected void BotonEliminarPerfil_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/EliminarPerfil.aspx");
         }

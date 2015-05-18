@@ -54,24 +54,15 @@ System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> Dam
 System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorGender (Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum genero);
 
 
-System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad);
+System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NacionalidadEN nacionalidad);
 
 
-System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorAltura (Salami4UAGenNHibernate.EN.Salami4UA.HeightEN altura);
-
+System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorAltura (Salami4UAGenNHibernate.EN.Salami4UA.AlturaEN altura);
 
 
 System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorRangoEdad (int min, int max);
 
 
-
-void AnyadirNacionalidad (string p_User_OID, string p_nacionalidad_OID);
-
-void QuitarNacionalidad (string p_User_OID, string p_nacionalidad_OID);
-
-void AnyadirEstatura (string p_User_OID, int p_height_0_OID);
-
-void QuitarEstatura (string p_User_OID, int p_height_0_OID);
 
 void AnyadirMensajeEnviado (string p_User_OID, System.Collections.Generic.IList<int> p_messagesEnviados_OIDs);
 

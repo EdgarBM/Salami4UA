@@ -35,8 +35,10 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Pets
                 UserCAD usuariocad = new UserCAD (basic.session);
                 UserEN usuarioEN = usuariocad.ReadOIDDefault (usuario);
 
-                foreach (PetsEN animal in usuarioEN.Pets) {
-                        todosanimales.Add (animal);
+                foreach (String animal in usuarioEN.Pets) {
+                        PetsEN p = new PetsEN ();
+                        p.Name = animal;
+                        todosanimales.Add (p);
                 }
         }
         catch (Exception ex)

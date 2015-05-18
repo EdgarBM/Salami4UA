@@ -35,15 +35,19 @@ namespace WebApplication1
         {
 
             String nick = Session["Login"].ToString();
+            Exception exp = null;
 
             try
             {
-                UserCEN usuario = new UserCEN();
-                if (usuario.ValidationUser(nick, Password.Text))
+                UsuarioCEN usuarioCEN = new UsuarioCEN();
+
+                UsuarioCAD UsuarioCAD = new UsuarioCAD();
+                UsuarioEN usuarioEN = UsuarioCAD.ReadOIDDefault(nick);
+
+                if (usuarioCEN.ValidationUser(nick, Password.Text))
                 {
-                    usuario.Destroy(nick);
+                    usuarioCEN.Destroy(nick);
                     Session.Clear();
-                    Response.Redirect("~/Account/Login.aspx");
                 }
 
                 else
@@ -51,15 +55,26 @@ namespace WebApplication1
                     ErrorEliminar.Text = "ERROR: The user and the password don't match";
                 }
 
+               
                 
             }
             catch (Exception ex)
             {
                 ErrorEliminar.Text = "ERROR: The user could not be deleted";
+                exp = ex;
             }
 
-            
+            try
+            {
 
-          }
+                if (exp == null)
+                {
+                    Response.Redirect("~/Account/Login.aspx");
+                }
+            }
+            catch (Exception ex)
+            { }
+          
+        }
      }
  }
