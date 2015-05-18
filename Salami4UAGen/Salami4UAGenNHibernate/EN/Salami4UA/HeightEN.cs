@@ -11,6 +11,12 @@ public partial class HeightEN
 
 private int height;
 
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user;
+
 
 
 
@@ -20,29 +26,38 @@ public virtual int Height {
 }
 
 
+public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> User {
+        get { return user; } set { user = value;  }
+}
+
+
 
 
 
 public HeightEN()
 {
+        user = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
 }
 
 
 
-public HeightEN(int height)
+public HeightEN(int height, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user)
 {
-        this.init (height);
+        this.init (height, user);
 }
 
 
 public HeightEN(HeightEN height)
 {
-        this.init (height.Height);
+        this.init (height.Height, height.User);
 }
 
-private void init (int height)
+private void init (int height, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user)
 {
         this.Height = height;
+
+
+        this.User = user;
 }
 
 public override bool Equals (object obj)

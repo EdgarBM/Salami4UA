@@ -13,11 +13,11 @@
     
     <br />
     <br />
-    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 220px; float: left'>
+    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 600px; width: 220px; float: left'>
         <img alt="" src="Imagenes/user.png" align="middle" height="200px" width:"200px" />
     </div>
 
-    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 310px; float: left' >
+    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 600px; width: 310px; float: left' >
 
         <!--<asp:Label ID="Label2" runat="server" Text="Nationality" Width="100px"></asp:Label>
         <asp:DropDownList ID="Nationality" runat="server" Width="100px"></asp:DropDownList>
@@ -37,27 +37,14 @@
         <asp:RequiredFieldValidator ID="RequiredSurname" runat="server" ControlToValidate="Surname" 
             CssClass="failureNotification" ErrorMessage="The surname is mandatory." ToolTip="The surname is mandatory." 
             ValidationGroup="EditUserValidationGroup">*</asp:RequiredFieldValidator>
-        <br /><br />
+        <br />
+        <br />
 
         <asp:Label ID="NationalityLabel" runat="server" Text="Nationality" Width="100px"></asp:Label>
         <asp:DropDownList ID="Nacionalidades" runat="server" Width="100px"></asp:DropDownList>
 
-        <br /><br />
-
-        <asp:Label ID="AlturaLabel" runat="server" Text="Heigth" Width="100px"></asp:Label>
-        <asp:DropDownList ID="Alturas" runat="server" Width="100px"></asp:DropDownList>
-
-        <br /><br />
-
-        <asp:Label ID="CareerLabel" runat="server" Text="Career" Width="100px"></asp:Label>
-        <asp:DropDownList ID="Carreras" runat="server" Width="100px"></asp:DropDownList>
-
-        <br /><br />
-
-        <asp:Label ID="CourseLabel" runat="server" Text="Course" Width="100px"></asp:Label>
-        <asp:DropDownList ID="Courses" runat="server" Width="100px"></asp:DropDownList>
-
-        <br /><br />
+        <br />
+        <br />
 
         <asp:Label ID="Label20" runat="server" Text="Body Type" Width="100px"></asp:Label>
         <asp:DropDownList ID="TiposDeCuerpo" runat="server" Width="100px"></asp:DropDownList>
@@ -125,7 +112,7 @@
     
     </div>
 
-    <div style= 'height: 800px; width: 380px; border: 3px; float: left' >  
+    <div style= 'height: 600px; width: 380px; border: 3px; float: left' >  
             
             <p>
             <asp:Label ID="LabelComment" runat="server" Text="Something about you"></asp:Label>

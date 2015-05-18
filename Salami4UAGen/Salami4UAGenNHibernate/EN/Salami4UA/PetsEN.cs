@@ -11,6 +11,12 @@ public partial class PetsEN
 
 private string name;
 
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user;
+
 
 
 
@@ -20,29 +26,38 @@ public virtual string Name {
 }
 
 
+public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> User {
+        get { return user; } set { user = value;  }
+}
+
+
 
 
 
 public PetsEN()
 {
+        user = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
 }
 
 
 
-public PetsEN(string name)
+public PetsEN(string name, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user)
 {
-        this.init (name);
+        this.init (name, user);
 }
 
 
 public PetsEN(PetsEN pets)
 {
-        this.init (pets.Name);
+        this.init (pets.Name, pets.User);
 }
 
-private void init (string name)
+private void init (string name, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user)
 {
         this.Name = Name;
+
+
+        this.User = user;
 }
 
 public override bool Equals (object obj)

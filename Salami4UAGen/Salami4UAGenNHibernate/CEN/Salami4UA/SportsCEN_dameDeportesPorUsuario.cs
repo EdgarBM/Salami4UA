@@ -34,10 +34,8 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Spor
                 UserCAD usuarioCAD = new UserCAD (basic.session);
                 UserEN usuarioEN = usuarioCAD.ReadOIDDefault (nickname);
 
-                foreach (String deporte in usuarioEN.Sports) {
-                        SportsEN s = new SportsEN ();
-                        s.Name = deporte;
-                        todoDeportes.Add (s);
+                foreach (SportsEN deporte in usuarioEN.Sports) {
+                        todoDeportes.Add (deporte);
                 }
         }
         catch (Exception ex)

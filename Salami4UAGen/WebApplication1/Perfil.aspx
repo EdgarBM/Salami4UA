@@ -150,8 +150,6 @@
         <asp:Button ID="BotonEditarPerfil" runat="server" Text="Edit Profile" OnClick="BotonEditarPerfil_Click" Width="130px" class="button"/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="BotonCambiarPassword" runat="server" Text="Change Password" OnClick="BotonCambiarPassword_Click" class="button"/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="BotonEliminarPerfil" runat="server" Text="Delete Profile" OnClick="BotonEliminarPerfil_Click" class="button"/>
         
         
         

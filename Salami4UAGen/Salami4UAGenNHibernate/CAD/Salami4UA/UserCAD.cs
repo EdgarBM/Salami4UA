@@ -56,6 +56,52 @@ public string New_ (UserEN user)
         try
         {
                 SessionInitializeTransaction ();
+                if (user.Pets != null) {
+                        for (int i = 0; i < user.Pets.Count; i++) {
+                                user.Pets [i] = (Salami4UAGenNHibernate.EN.Salami4UA.PetsEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.PetsEN), user.Pets [i].Name);
+                                user.Pets [i].User.Add (user);
+                        }
+                }
+                if (user.CharacteristicFeatures != null) {
+                        for (int i = 0; i < user.CharacteristicFeatures.Count; i++) {
+                                user.CharacteristicFeatures [i] = (Salami4UAGenNHibernate.EN.Salami4UA.CharacteristicFeaturesEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.CharacteristicFeaturesEN), user.CharacteristicFeatures [i].Name);
+                                user.CharacteristicFeatures [i].User.Add (user);
+                        }
+                }
+                if (user.Hobbies != null) {
+                        for (int i = 0; i < user.Hobbies.Count; i++) {
+                                user.Hobbies [i] = (Salami4UAGenNHibernate.EN.Salami4UA.HobbiesEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.HobbiesEN), user.Hobbies [i].Name);
+                                user.Hobbies [i].User.Add (user);
+                        }
+                }
+                if (user.Sports != null) {
+                        for (int i = 0; i < user.Sports.Count; i++) {
+                                user.Sports [i] = (Salami4UAGenNHibernate.EN.Salami4UA.SportsEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.SportsEN), user.Sports [i].Name);
+                                user.Sports [i].User.Add (user);
+                        }
+                }
+                if (user.MusicalTastes != null) {
+                        for (int i = 0; i < user.MusicalTastes.Count; i++) {
+                                user.MusicalTastes [i] = (Salami4UAGenNHibernate.EN.Salami4UA.MusicalTastesEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.MusicalTastesEN), user.MusicalTastes [i].Name);
+                                user.MusicalTastes [i].User.Add (user);
+                        }
+                }
+                if (user.GenreFilms != null) {
+                        for (int i = 0; i < user.GenreFilms.Count; i++) {
+                                user.GenreFilms [i] = (Salami4UAGenNHibernate.EN.Salami4UA.GenreFilmsEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.GenreFilmsEN), user.GenreFilms [i].Name);
+                                user.GenreFilms [i].User.Add (user);
+                        }
+                }
+                if (user.Nacionalidad != null) {
+                        user.Nacionalidad = (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN), user.Nacionalidad.Name);
+
+                        user.Nacionalidad.User.Add (user);
+                }
+                if (user.Height_0 != null) {
+                        user.Height_0 = (Salami4UAGenNHibernate.EN.Salami4UA.HeightEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.HeightEN), user.Height_0.Height);
+
+                        user.Height_0.User.Add (user);
+                }
 
                 session.Save (user);
                 SessionCommit ();
@@ -139,30 +185,6 @@ public void Modify (UserEN user)
 
 
                 userEN.Course = user.Course;
-
-
-                userEN.Nationality = user.Nationality;
-
-
-                userEN.Height = user.Height;
-
-
-                userEN.Pets = user.Pets;
-
-
-                userEN.Films = user.Films;
-
-
-                userEN.Musics = user.Musics;
-
-
-                userEN.Characteristics = user.Characteristics;
-
-
-                userEN.Sports = user.Sports;
-
-
-                userEN.Hobbies = user.Hobbies;
 
                 session.Update (userEN);
                 SessionCommit ();
@@ -564,13 +586,13 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.User
 
         return result;
 }
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NacionalidadEN nacionalidad)
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad)
 {
         System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.Nationality = :nacionalidad";
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.Nacionalidad = :nacionalidad";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorNacionalidadHQL");
                 query.SetParameter ("nacionalidad", nacionalidad);
@@ -594,13 +616,13 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.User
 
         return result;
 }
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorAltura (Salami4UAGenNHibernate.EN.Salami4UA.AlturaEN altura)
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorAltura (Salami4UAGenNHibernate.EN.Salami4UA.HeightEN altura)
 {
         System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.Height = :altura";
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.Height_0 = :altura";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UserENdameUsuarioPorAlturaHQL");
                 query.SetParameter ("altura", altura);
@@ -654,6 +676,130 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.User
         }
 
         return result;
+}
+public void AnyadirNacionalidad (string p_User_OID, string p_nacionalidad_OID)
+{
+        Salami4UAGenNHibernate.EN.Salami4UA.UserEN userEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                userEN = (UserEN)session.Load (typeof(UserEN), p_User_OID);
+                userEN.Nacionalidad = (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN), p_nacionalidad_OID);
+
+                userEN.Nacionalidad.User.Add (userEN);
+
+
+
+                session.Update (userEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void QuitarNacionalidad (string p_User_OID, string p_nacionalidad_OID)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                Salami4UAGenNHibernate.EN.Salami4UA.UserEN userEN = null;
+                userEN = (UserEN)session.Load (typeof(UserEN), p_User_OID);
+
+                if (userEN.Nacionalidad.Name == p_nacionalidad_OID) {
+                        userEN.Nacionalidad = null;
+                }
+                else
+                        throw new ModelException ("The identifier " + p_nacionalidad_OID + " in p_nacionalidad_OID you are trying to unrelationer, doesn't exist in UserEN");
+
+                session.Update (userEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void AnyadirEstatura (string p_User_OID, int p_height_0_OID)
+{
+        Salami4UAGenNHibernate.EN.Salami4UA.UserEN userEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                userEN = (UserEN)session.Load (typeof(UserEN), p_User_OID);
+                userEN.Height_0 = (Salami4UAGenNHibernate.EN.Salami4UA.HeightEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.HeightEN), p_height_0_OID);
+
+                userEN.Height_0.User.Add (userEN);
+
+
+
+                session.Update (userEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void QuitarEstatura (string p_User_OID, int p_height_0_OID)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                Salami4UAGenNHibernate.EN.Salami4UA.UserEN userEN = null;
+                userEN = (UserEN)session.Load (typeof(UserEN), p_User_OID);
+
+                if (userEN.Height_0.Height == p_height_0_OID) {
+                        userEN.Height_0 = null;
+                }
+                else
+                        throw new ModelException ("The identifier " + p_height_0_OID + " in p_height_0_OID you are trying to unrelationer, doesn't exist in UserEN");
+
+                session.Update (userEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 public void AnyadirMensajeEnviado (string p_User_OID, System.Collections.Generic.IList<int> p_messagesEnviados_OIDs)
 {

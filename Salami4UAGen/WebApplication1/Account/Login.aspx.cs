@@ -20,7 +20,7 @@ namespace WebApplication1.Account
         {
             try
             {
-                Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
+                Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN();
                 
 
                 if (usuario.ValidationUser(LoginUser.UserName, LoginUser.Password))

@@ -11,6 +11,12 @@ public partial class CharacteristicFeaturesEN
 
 private string name;
 
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user;
+
 
 
 
@@ -20,29 +26,38 @@ public virtual string Name {
 }
 
 
+public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> User {
+        get { return user; } set { user = value;  }
+}
+
+
 
 
 
 public CharacteristicFeaturesEN()
 {
+        user = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
 }
 
 
 
-public CharacteristicFeaturesEN(string name)
+public CharacteristicFeaturesEN(string name, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user)
 {
-        this.init (name);
+        this.init (name, user);
 }
 
 
 public CharacteristicFeaturesEN(CharacteristicFeaturesEN characteristicFeatures)
 {
-        this.init (characteristicFeatures.Name);
+        this.init (characteristicFeatures.Name, characteristicFeatures.User);
 }
 
-private void init (string name)
+private void init (string name, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user)
 {
         this.Name = Name;
+
+
+        this.User = user;
 }
 
 public override bool Equals (object obj)

@@ -41,8 +41,8 @@ namespace WebApplication1
 
             try
             {
-                UsuarioCAD usuarioCAD = new UsuarioCAD();
-                UsuarioEN usuarioEN = new UsuarioEN();
+                UserCAD usuarioCAD = new UserCAD();
+                UserEN usuarioEN = new UserEN();
 
                 usuarioEN = usuarioCAD.ReadOIDDefault(nick);
 
@@ -57,15 +57,13 @@ namespace WebApplication1
                 Genero.SelectedValue = usuarioEN.Gender.ToString();
                 Orientacion.SelectedValue = usuarioEN.Likes.ToString();
 
-                Nacionalidades.SelectedValue = usuarioEN.Nationality;
-                Alturas.SelectedValue = usuarioEN.Height.ToString();
-                Comment.Text = usuarioEN.Comment;
+                Nacionalidades.SelectedValue = usuarioEN.Nacionalidad.Name;
 
-                AnimalesCEN petcen = new AnimalesCEN();
-                IList<AnimalesEN> animales = petcen.DameAnimalesPorUsuario(nick);
+                PetsCEN petcen = new PetsCEN();
+                IList<PetsEN> animales = petcen.DameAnimalesPorUsuario(nick);
                 ListItem listItem;
 
-                foreach (AnimalesEN animal in animales)
+                foreach (PetsEN animal in animales)
                 {
                     listItem = Animales.Items.FindByText(animal.Name);
                     if (listItem != null)
@@ -74,8 +72,8 @@ namespace WebApplication1
                     }
                 }
 
-                IList<CaracteristicasEN> caracteristicasEN = new CaracteristicasCEN().DameCaracteristicasPorUsuario(nick);
-                foreach (CaracteristicasEN caracteristica in caracteristicasEN)
+                IList<CharacteristicFeaturesEN> caracteristicasEN = new CharacteristicFeaturesCEN().DameCaracteristicasPorUsuario(nick);
+                foreach (CharacteristicFeaturesEN caracteristica in caracteristicasEN)
                 {
                     listItem = Caracteristicas.Items.FindByText(caracteristica.Name);
                     if (listItem != null)
@@ -84,8 +82,8 @@ namespace WebApplication1
                     }
                 }
 
-                IList<CinesEN> cinesEN = new CinesCEN().DameGenerosDeCinePorUsuario(nick);
-                foreach (CinesEN cine in cinesEN)
+                IList<GenreFilmsEN> cinesEN = new GenreFilmsCEN().DameGenerosDeCinePorUsuario(nick);
+                foreach (GenreFilmsEN cine in cinesEN)
                 {
                     listItem = Cine.Items.FindByText(cine.Name);
                     if (listItem != null)
@@ -94,8 +92,8 @@ namespace WebApplication1
                     }
                 }
 
-                IList<MusicasEN> MusicasEN = new MusicasCEN().DameGustosMusicalesPorUsuario(nick);
-                foreach (MusicasEN musica in MusicasEN)
+                IList<MusicalTastesEN> musicaEN = new MusicalTastesCEN().DameGustosMusicalesPorUsuario(nick);
+                foreach (MusicalTastesEN musica in musicaEN)
                 {
                     listItem = Musica.Items.FindByText(musica.Name);
                     if (listItem != null)
@@ -104,8 +102,8 @@ namespace WebApplication1
                     }
                 }
 
-                IList<DeportesEN> deporteEN = new DeportesCEN().DameDeportesPorUsuario(nick);
-                foreach (DeportesEN deporte in deporteEN)
+                IList<SportsEN> deporteEN = new SportsCEN().DameDeportesPorUsuario(nick);
+                foreach (SportsEN deporte in deporteEN)
                 {
                     listItem = Deportes.Items.FindByText(deporte.Name);
                     if (listItem != null)
@@ -114,8 +112,8 @@ namespace WebApplication1
                     }
                 }
 
-                IList<AficionesEN> hobbieEN = new AficionesCEN().DameHobbiesPorUsuario(nick);
-                foreach (AficionesEN hobbie in hobbieEN)
+                IList<HobbiesEN> hobbieEN = new HobbiesCEN().DameHobbiesPorUsuario(nick);
+                foreach (HobbiesEN hobbie in hobbieEN)
                 {
                     listItem = Hobbies.Items.FindByText(hobbie.Name);
                     if (listItem != null)
@@ -138,8 +136,8 @@ namespace WebApplication1
 
             try
             {
-                UsuarioEN us = new UsuarioEN();
-                UsuarioCAD usuarioCAD = new UsuarioCAD();
+                UserEN us = new UserEN();
+                UserCAD usuarioCAD = new UserCAD();
                 us = usuarioCAD.ReadOIDDefault(nick);
 
                 Name.Text = us.Name;
@@ -274,49 +272,43 @@ namespace WebApplication1
                 Orientacion.Items.Insert(1, new ListItem(buscaMujer, buscaMujer));
                 Orientacion.Items.Insert(2, new ListItem(buscaAmbos, buscaAmbos));
 
-                IList<NacionalidadEN> nacionalidades = new NacionalidadCEN().DameTodaslasNacionalidades();
+                IList<NationalityEN> nacionalidades = new NationalityCEN().DameTodaslasNacionalidades();
                 for (int i = 0; i < nacionalidades.Count; i++)
                 {
                     Nacionalidades.Items.Add(nacionalidades.ElementAt(i).Name);
                 }
 
-                IList<AlturaEN> alturasEN = new AlturaCEN().DameTodaslasAlturas();
-                for (int i = 0; i < alturasEN.Count; i++)
-                {
-                    Alturas.Items.Add(alturasEN.ElementAt(i).Height.ToString());
-                }
-
-                IList<AnimalesEN> animales = new AnimalesCEN().DameTodosLosAnimales();
+                IList<PetsEN> animales = new PetsCEN().DameTodosLosAnimales();
                 for (int i = 0; i < animales.Count; i++)
                 {
                     Animales.Items.Add(animales.ElementAt(i).Name);
                 }
 
-                IList<CaracteristicasEN> caracteristicas = new CaracteristicasCEN().DameTodasLasCaracteristicas();
+                IList<CharacteristicFeaturesEN> caracteristicas = new CharacteristicFeaturesCEN().DameTodasLasCaracteristicas();
                 for (int i = 0; i < caracteristicas.Count; i++)
                 {
                     Caracteristicas.Items.Add(caracteristicas.ElementAt(i).Name);
                 }
 
-                IList<CinesEN> cines = new CinesCEN().DameTodosLosGenerosCine();
+                IList<GenreFilmsEN> cines = new GenreFilmsCEN().DameTodosLosGenerosCine();
                 for (int i = 0; i < cines.Count; i++)
                 {
                     Cine.Items.Add(cines.ElementAt(i).Name);
                 }
 
-                IList<MusicasEN> musicas = new MusicasCEN().DameTodosLosGustosMusicales();
+                IList<MusicalTastesEN> musicas = new MusicalTastesCEN().DameTodosLosGustosMusicales();
                 for (int i = 0; i < musicas.Count; i++)
                 {
                     Musica.Items.Add(musicas.ElementAt(i).Name);
                 }
 
-                IList<DeportesEN> deportes = new DeportesCEN().DameTodosLosDeportes();
+                IList<SportsEN> deportes = new SportsCEN().DameTodosLosDeportes();
                 for (int i = 0; i < deportes.Count; i++)
                 {
                     Deportes.Items.Add(deportes.ElementAt(i).Name);
                 }
 
-                IList<AficionesEN> hobbies = new AficionesCEN().DameTodosLosHobbies();
+                IList<HobbiesEN> hobbies = new HobbiesCEN().DameTodosLosHobbies();
                 for (int i = 0; i < hobbies.Count; i++)
                 {
                     Hobbies.Items.Add(hobbies.ElementAt(i).Name);
@@ -332,7 +324,7 @@ namespace WebApplication1
             bool ok = true;
             EliminarErroresAnteriores(); // Pone en blanco los errores de los textbox
 
-            Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
+            Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN();
 
 
             Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum hairColor = (Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum), ColorPelo.SelectedValue);
@@ -358,133 +350,34 @@ namespace WebApplication1
                 ErrorInsertar.Text = "ERROR: The date of birth  is not correct";
             }
 
-            // CHECKBOX
-
-            IList<string> animales = new List<string>();
-            foreach (ListItem elemento in Animales.Items)
-            {
-                if (elemento.Selected)
-                {
-                    animales.Add(elemento.Value.ToString());
-                }
-            }
-
-            if (animales.Count == 0)
-            {
-                //Mostrar error en un label
-                ErrorAnimales.Text = "Please select at least one animal";
-                ok = false;
-            }
-
-            IList<string> caracteristicas = new List<string>();
-            foreach (ListItem elemento in Caracteristicas.Items)
-            {
-                if (elemento.Selected)
-                {
-                    caracteristicas.Add(elemento.Value.ToString());
-                }
-            }
-
-            if (caracteristicas.Count == 0)
-            {
-                //Mostrar error en un label
-                ErrorCaracteristicas.Text = "Please select at least one characteristic feature";
-                ok = false;
-            }
-
-            IList<string> cines = new List<string>();
-            foreach (ListItem elemento in Cine.Items)
-            {
-                if (elemento.Selected)
-                {
-                    cines.Add(elemento.Value.ToString());
-                }
-            }
-
-
-            if (cines.Count == 0)
-            {
-                //Mostrar error en un label
-                ErrorCine.Text = "Please select at least one genre film";
-                ok = false;
-            }
-
-
-
-            IList<string> musicas = new List<string>();
-            foreach (ListItem elemento in Musica.Items)
-            {
-                if (elemento.Selected)
-                {
-                    musicas.Add(elemento.Value.ToString());
-                }
-            }
-
-
-            if (musicas.Count == 0)
-            {
-                //Mostrar error en un label
-                ErrorMusica.Text = "Please select at least one musical taste";
-                ok = false;
-            }
-
-
-            IList<string> deportes = new List<string>();
-            foreach (ListItem elemento in Deportes.Items)
-            {
-                if (elemento.Selected)
-                {
-                    deportes.Add(elemento.Value.ToString());
-                }
-            }
-
-
-            if (deportes.Count == 0)
-            {
-                //Mostrar error en un label
-                ErrorDeportes.Text = "Please select at least one sport";
-                ok = false;
-            }
-
-
-            IList<string> hobbies = new List<string>();
-            foreach (ListItem elemento in Hobbies.Items)
-            {
-                if (elemento.Selected)
-                {
-                    hobbies.Add(elemento.Value.ToString());
-                }
-            }
-
-
-            if (hobbies.Count == 0)
-            {
-                //Mostrar error en un label
-                ErrorHobbies.Text = "Please select at least one hobby";
-                ok = false;
-            }
-
             if (ok)
             {
                 Exception excep = null;
 
                 try
                 {
-                    UsuarioCEN usuarioCEN = new UsuarioCEN();
+                    UserCEN usuarioCEN = new UserCEN();
                     String nick = Session["Login"].ToString();
-                    IList<UsuarioEN> usuarios = new UsuarioCEN().DameUsuarioPorNickname(nick);
+                    IList<UserEN> usuarios = new UserCEN().DameUsuarioPorNickname(nick);
 
-                    foreach (UsuarioEN us in usuarios)
+                    foreach (UserEN us in usuarios)
                     {
 
-                        usuario.Modify(us.Nickname, us.Password, hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion,
-                            smoke, us.Email, tiempo, genero, orientacion, Name.Text, Surname.Text, Comment.Text, "", "Carrera",
-                            Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.First, Nacionalidades.SelectedValue, Int32.Parse(Alturas.SelectedValue),
-                            animales, cines, musicas, caracteristicas, deportes, hobbies);                         
+                        // FALTAN LAS DEMÁS COSAS
+
+
+
+                        usuarioCEN.QuitarNacionalidad(us.Nickname, us.Nacionalidad.Name);
+                        usuarioCEN.AnyadirNacionalidad(us.Nickname, Nacionalidades.SelectedValue);
+
+                        usuario.Modify(us.Nickname, us.Password, hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, us.Email, tiempo, genero, orientacion, Name.Text, Surname.Text, Comment.Text, "", "", Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum.First);
+                        //usuario.CambiaNacionalidadUsuario(us.Nickname, us.Nacionalidad.Name, Nationality.SelectedValue.ToString());
+
                     }
 
 
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     excep = ex;
                     EliminarErroresAnteriores();

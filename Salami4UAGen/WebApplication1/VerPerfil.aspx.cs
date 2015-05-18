@@ -28,23 +28,23 @@ namespace WebApplication1
 
                 try
                 {
-                    UsuarioCEN usuario = new UsuarioCEN();
-                    IList<UsuarioEN> usuarios = usuario.DameUsuarioPorNickname(nick);
+                    UserCEN usuario = new UserCEN();
+                    IList<UserEN> usuarios = usuario.DameUsuarioPorNickname(nick);
 
                     if (usuarios.Count == 0)
                     {
                         VerPerfilError.Text = "0 Salami's found with this nickname " + nick;
                     }
 
-                    foreach (UsuarioEN us in usuarios)
+                    foreach (UserEN us in usuarios)
                     {
                         Nickname.Text = nick;
                         Name.Text = us.Name;
                         Surname.Text = us.Surname;
                         Genero.Text = us.Gender.ToString();
                         Orientacion.Text = us.Likes.ToString();
-                        Nationality.Text = us.Nationality;
-                        Height.Text = us.Height.ToString();
+                        Nationality.Text = us.Nacionalidad.Name.ToString();
+                        Height.Text = us.Height_0.Height.ToString();
                         BodyType.Text = us.BodyType.ToString();
                         Ethnicity.Text = us.Ethnicity.ToString();
                         EyeColor.Text = us.EyeColor.ToString();
@@ -64,12 +64,12 @@ namespace WebApplication1
 
                         // Animales
 
-                        AnimalesCEN petcen = new AnimalesCEN();
-                        IList<AnimalesEN> animales = petcen.DameAnimalesPorUsuario(us.Nickname);
+                        PetsCEN petcen = new PetsCEN();
+                        IList<PetsEN> animales = petcen.DameAnimalesPorUsuario(us.Nickname);
 
                         string s = "";
                         bool primero = true;
-                        foreach (AnimalesEN animal in animales)
+                        foreach (PetsEN animal in animales)
                         {
                             if (primero)
                             {
@@ -87,9 +87,9 @@ namespace WebApplication1
 
 
                         // Caracteristicas                         
-                        IList<CaracteristicasEN> caracteristicasEN = new CaracteristicasCEN().DameCaracteristicasPorUsuario(us.Nickname);
+                        IList<CharacteristicFeaturesEN> caracteristicasEN = new CharacteristicFeaturesCEN().DameCaracteristicasPorUsuario(us.Nickname);
                         s = ""; primero = true;
-                        foreach (CaracteristicasEN caracteristica in caracteristicasEN)
+                        foreach (CharacteristicFeaturesEN caracteristica in caracteristicasEN)
                         {
                             if (primero)
                             {
@@ -105,9 +105,9 @@ namespace WebApplication1
                         Features.Text = s;
 
                         // Generos Cine                         
-                        IList<CinesEN> generosCinesEN = new CinesCEN().DameGenerosDeCinePorUsuario(us.Nickname);
+                        IList<GenreFilmsEN> generosCineEN = new GenreFilmsCEN().DameGenerosDeCinePorUsuario(us.Nickname);
                         s = ""; primero = true;
-                        foreach (CinesEN cine in generosCinesEN)
+                        foreach (GenreFilmsEN cine in generosCineEN)
                         {
                             if (primero)
                             {
@@ -123,9 +123,9 @@ namespace WebApplication1
                         Film.Text = s;
 
                         // Musica
-                        IList<MusicasEN> MusicasEN = new MusicasCEN().DameGustosMusicalesPorUsuario(us.Nickname);
+                        IList<MusicalTastesEN> musicaEN = new MusicalTastesCEN().DameGustosMusicalesPorUsuario(us.Nickname);
                         s = ""; primero = true;
-                        foreach (MusicasEN musica in MusicasEN)
+                        foreach (MusicalTastesEN musica in musicaEN)
                         {
                             if (primero)
                             {
@@ -141,9 +141,9 @@ namespace WebApplication1
                         Music.Text = s;
 
                         // Deportes
-                        IList<DeportesEN> deportesEN = new DeportesCEN().DameDeportesPorUsuario(us.Nickname);
+                        IList<SportsEN> deportesEN = new SportsCEN().DameDeportesPorUsuario(us.Nickname);
                         s = ""; primero = true;
-                        foreach (DeportesEN deporte in deportesEN)
+                        foreach (SportsEN deporte in deportesEN)
                         {
                             if (primero)
                             {
@@ -159,9 +159,9 @@ namespace WebApplication1
                         Sports.Text = s;
 
                         // Hobbies
-                        IList<AficionesEN> AficionesEN = new AficionesCEN().DameHobbiesPorUsuario(us.Nickname);
+                        IList<HobbiesEN> hobbiesEN = new HobbiesCEN().DameHobbiesPorUsuario(us.Nickname);
                         s = ""; primero = true;
-                        foreach (AficionesEN hobbie in AficionesEN)
+                        foreach (HobbiesEN hobbie in hobbiesEN)
                         {
                             if (primero)
                             {
@@ -218,10 +218,10 @@ namespace WebApplication1
             
             try
             {
-                Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
-                IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> user = new List<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN>();
+                Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UserCEN();
+                IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> user = new List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
                 user = usuario.DameUsuarioPorNickname(NicknameReport.Text);
-                Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN usuario1 = user.ElementAt(0);
+                Salami4UAGenNHibernate.EN.Salami4UA.UserEN usuario1 = user.ElementAt(0);
 
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 MailMessage message = new MailMessage();
