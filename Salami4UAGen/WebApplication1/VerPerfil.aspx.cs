@@ -230,7 +230,7 @@ namespace WebApplication1
                 message.From = fromAddress;
                 message.To.Add(toAddress);
                 message.Subject = "Salami 4UA - Report user";
-                message.Body = "The user " + nick + " has reported " + NicknameReport.Text + " because of " +
+                message.Body = "The user " + Session["login"] + " has reported " + NicknameReport.Text + " because of " +
                     CauseDropDownList.SelectedItem.Text.ToLower() + ".\nAdditional comment: " + ArgumentReport.Text + ".\n";
                 smtpClient.EnableSsl = true;
                 smtpClient.Credentials = new System.Net.NetworkCredential("salami4ua@gmail.com", "salamiforua");

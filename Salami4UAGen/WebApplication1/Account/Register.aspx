@@ -254,6 +254,11 @@
                    <asp:TextBox ID="Comment" runat="server" CssClass="textEntry" 
                        TextMode="MultiLine" Height="191px" Width="390px"  ></asp:TextBox>
                     
+                </p>
+                <p>
+                    <asp:CheckBox ID="TermsOfUse" runat="server" ValidationGroup="RegisterUserValidationGroup"/>
+                    <asp:HyperLink ID="TermsOfUseLink" runat="server"></asp:HyperLink>
+                    <asp:Label ID="ErrorTerms" runat="server" ForeColor="Red"></asp:Label>
                     <br />
                 </p>
 

@@ -242,6 +242,9 @@ namespace WebApplication1.Account
                 ListaHobbies.Items.Add(s);
 
             }
+
+            TermsOfUseLink.Text = "Terms and conditions of use.";
+            TermsOfUseLink.NavigateUrl = "../Terms.aspx";
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -425,21 +428,25 @@ namespace WebApplication1.Account
                     UserName.Text = "";
 
                 }
-                
-                if (ok)
+
+                if (ok && TermsOfUse.Checked)
                 {
 
-                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, 
-                        bodyType, ethnicity, religion, smoke, animales, caracteristicas, hobbies, deportes, musicas, 
+                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle,
+                        bodyType, ethnicity, religion, smoke, animales, caracteristicas, hobbies, deportes, musicas,
                         cines, NacionalidadList.SelectedValue, Email.Text, tiempo, Int32.Parse(Height.SelectedValue),
                         genero, orientacion, Name.Text, Surname.Text, Comment.Text, "");
 
                     smtpClient.Send(message);
                     Label.Text = "Your account has been created! Check your email to log in Salami4UA! \n" +
                         "<a href=\"https://www1.webmail.ua.es/login0.php3?idi=es\" target=\"_blank\"> WebMail  </a>" +
-                        "\nPlease log in <a href=\"/Account/Login.aspx\">here</a>."+
+                        "\nPlease log in <a href=\"/Account/Login.aspx\">here</a>." +
                         "\n\n Regards, Salami4UA Team.";
 
+                }
+                else
+                {
+                    ErrorTerms.Text = "You have to accept the terms of use.";
                 }
             }
             catch (Exception ex)
