@@ -62,7 +62,8 @@ namespace WebApplication1.Account
                         message.To.Add(toAddress);
                         message.Subject = "Salami4ua";
                         message.Body = "Your password has been changed. Thank you for using Salami4UA as " + Username.Text + ". \n\n " +
-                            "Please click the following link: \n http://localhost:49837/Account/Login.aspx";
+                            "Please click the following link: \n http://localhost:49837/Account/Login.aspx"+
+                            "\n\n Regards, Salami4UA Team.";
                         smtpClient.EnableSsl = true;
                         smtpClient.Credentials = new System.Net.NetworkCredential("salami4ua@gmail.com", "salamiforua");
 

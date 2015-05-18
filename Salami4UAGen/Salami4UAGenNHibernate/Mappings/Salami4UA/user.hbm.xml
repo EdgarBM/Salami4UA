@@ -52,6 +52,9 @@
 					<property name="Comment" type="string"> 
 						<column name="[Comment]" length="1000" not-null="true"/>
 					</property>
+					<property name="ValidationCode" type="string"> 
+						<column name="[ValidationCode]"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -141,6 +144,8 @@
 			
 			
 			
+			
+					
 					
 					
 					

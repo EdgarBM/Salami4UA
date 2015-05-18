@@ -277,7 +277,7 @@ namespace WebApplication1
                     foreach (UserEN us in usuarios)
                     {
                         
-                        usuario.Modify(us.Nickname, us.Password, hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, us.Email, tiempo, genero, orientacion, Name.Text, Surname.Text, Comment.Text);
+                        usuario.Modify(us.Nickname, us.Password, hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, us.Email, tiempo, genero, orientacion, Name.Text, Surname.Text, Comment.Text, "");
                         //usuario.CambiaNacionalidadUsuario(us.Nickname, us.Nacionalidad.Name, Nationality.SelectedValue.ToString());
                         
                     }

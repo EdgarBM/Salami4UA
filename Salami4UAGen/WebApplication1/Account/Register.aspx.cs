@@ -431,13 +431,14 @@ namespace WebApplication1.Account
 
                     usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, 
                         bodyType, ethnicity, religion, smoke, animales, caracteristicas, hobbies, deportes, musicas, 
-                        cines, NacionalidadList.SelectedValue, Email.Text, tiempo, Int32.Parse(Height.SelectedValue), 
-                        genero, orientacion, Name.Text, Surname.Text, Comment.Text);
+                        cines, NacionalidadList.SelectedValue, Email.Text, tiempo, Int32.Parse(Height.SelectedValue),
+                        genero, orientacion, Name.Text, Surname.Text, Comment.Text, "");
 
                     smtpClient.Send(message);
                     Label.Text = "Your account has been created! Check your email to log in Salami4UA! \n" +
                         "<a href=\"https://www1.webmail.ua.es/login0.php3?idi=es\" target=\"_blank\"> WebMail  </a>" +
-                        "\nPlease log in <a href=\"/Account/Login.aspx\">here</a>.";
+                        "\nPlease log in <a href=\"/Account/Login.aspx\">here</a>."+
+                        "\n\n Regards, Salami4UA Team.";
 
                 }
             }

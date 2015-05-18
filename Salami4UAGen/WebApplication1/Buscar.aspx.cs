@@ -302,7 +302,7 @@ namespace WebApplication1
 
             }
 
-            if (MinAge.Text != "" && MaxAge.Text != "")
+            if (MinAge.Text.Trim() != "" && MaxAge.Text.Trim() != "")
             {
                 List<UserEN> listaPorEdad = new List<UserEN>();
                 int actualYear = DateTime.Today.Year;
@@ -547,7 +547,7 @@ namespace WebApplication1
                 }
             }
 
-            if (MinAge.Text != "" && MaxAge.Text != "")
+            if (MinAge.Text.Trim() != "" && MaxAge.Text.Trim() != "")
             {
                 List<UserEN> listaPorEdad = new List<UserEN>();
                 int actualYear = DateTime.Today.Year;

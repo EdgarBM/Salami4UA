@@ -177,6 +177,9 @@ public void Modify (UserEN user)
 
                 userEN.Comment = user.Comment;
 
+
+                userEN.ValidationCode = user.ValidationCode;
+
                 session.Update (userEN);
                 SessionCommit ();
         }
