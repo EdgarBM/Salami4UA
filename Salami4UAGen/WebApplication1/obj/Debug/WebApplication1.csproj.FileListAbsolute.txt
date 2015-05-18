@@ -174,6 +174,38 @@ C:\Users\Propietario\Desktop\Salami4UAGen3\WebApplication1\bin\zh-CHT\AjaxContro
 C:\Users\Propietario\Desktop\Salami4UAGen3\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 C:\Users\Propietario\Desktop\Salami4UAGen3\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\Propietario\Desktop\Salami4UAGen3\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\hibernate.cfg.xml
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\WebApplication1.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\WebApplication1.pdb
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\AjaxControlToolkit.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\InitializeDB.exe
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\Salami4UAGenNHibernate.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\NHibernate.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\Iesi.Collections.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\Antlr3.Runtime.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\log4net.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\InitializeDB.pdb
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\Salami4UAGenNHibernate.pdb
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\AjaxControlToolkit.pdb
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\ar\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\cs\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\de\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\es\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\fr\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\he\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\hi\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\it\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\ja\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\ko\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\nl\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\pt\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\ru\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\tr-TR\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\zh-CHS\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\zh-CHT\AjaxControlToolkit.resources.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.pdb
 C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\hibernate.cfg.xml
 C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\WebApplication1.dll
 C:\Users\david\Desktop\Salami4UAGen\WebApplication1\bin\WebApplication1.pdb
@@ -224,85 +256,3 @@ C:\Users\LUIS\Desktop\Salami4UAGen\WebApplication1\bin\ru\AjaxControlToolkit.res
 C:\Users\LUIS\Desktop\Salami4UAGen\WebApplication1\bin\tr-TR\AjaxControlToolkit.resources.dll
 C:\Users\LUIS\Desktop\Salami4UAGen\WebApplication1\bin\zh-CHS\AjaxControlToolkit.resources.dll
 C:\Users\LUIS\Desktop\Salami4UAGen\WebApplication1\bin\zh-CHT\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\hibernate.cfg.xml
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\WebApplication1.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\WebApplication1.pdb
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\AjaxControlToolkit.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\InitializeDB.exe
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\Salami4UAGenNHibernate.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\NHibernate.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\Iesi.Collections.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\Antlr3.Runtime.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\log4net.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\InitializeDB.pdb
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\Salami4UAGenNHibernate.pdb
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\AjaxControlToolkit.pdb
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\ar\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\cs\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\de\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\es\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\fr\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\he\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\hi\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\it\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\ja\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\ko\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\nl\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\pt\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\ru\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\tr-TR\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\zh-CHS\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\bin\zh-CHT\AjaxControlToolkit.resources.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.dll
-C:\Users\Alberto\Documents\Workspace OOH4RIA\Salami4UAGen\WebApplication1\obj\Debug\WebApplication1.pdb
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\AjaxControlToolkit.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\AjaxControlToolkit.pdb
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\ar\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\cs\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\de\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\es\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\fr\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\he\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\hi\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\it\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\ja\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\ko\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\nl\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\pt\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\ru\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\tr-TR\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\zh-CHS\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen\WebApplication1\bin\zh-CHT\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\hibernate.cfg.xml
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\WebApplication1.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\WebApplication1.pdb
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\AjaxControlToolkit.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\InitializeDB.exe
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\Salami4UAGenNHibernate.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\NHibernate.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\Iesi.Collections.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\Antlr3.Runtime.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\log4net.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\InitializeDB.pdb
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\Salami4UAGenNHibernate.pdb
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\AjaxControlToolkit.pdb
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\ar\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\cs\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\de\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\es\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\fr\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\he\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\hi\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\it\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\ja\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\ko\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\nl\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\pt\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\ru\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\tr-TR\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\zh-CHS\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\bin\zh-CHT\AjaxControlToolkit.resources.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\obj\Debug\WebApplication1.dll
-C:\Users\Propietario\Desktop\Salami4UAGen2\WebApplication1\obj\Debug\WebApplication1.pdb

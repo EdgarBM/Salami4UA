@@ -94,15 +94,6 @@
                     <asp:DropDownList ID="Fumador" runat="server"> </asp:DropDownList>
 
                     <br /><br />
-                    <asp:Label ID="StudiesLabel" runat="server">Studies: </asp:Label>
-                    <asp:DropDownList ID="Estudios" runat="server" Width="200px"> </asp:DropDownList>
-
-                    &nbsp;&nbsp;&nbsp;
-
-                    <asp:Label ID="CourseLabel" runat="server">Course: </asp:Label>
-                    <asp:DropDownList ID="Curso" runat="server"> </asp:DropDownList>
-
-                    
                 </p>
                 
                 

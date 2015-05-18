@@ -22,12 +22,6 @@ namespace WebApplication1
             NacionalidadCEN nacion = new NacionalidadCEN();
             IList<NacionalidadEN> nacionalidades = nacion.DameTodaslasNacionalidades();
 
-            CarreraCEN carrera = new CarreraCEN();
-            IList<CarreraEN> carreras = carrera.DameTodasLasCarreras();
-
-            MasterCEN master = new MasterCEN();
-            IList<MasterEN> masters = master.DameTodosLosMasters();
-
             AlturaCEN altura = new AlturaCEN();
             IList<AlturaEN> Alturas = altura.DameTodaslasAlturas();
             int i;
@@ -148,32 +142,6 @@ namespace WebApplication1
             }
 
 
-            if (Estudios.Items.Count == 0)
-            {
-                i = 0;
-
-                Estudios.Items.Insert(i++, "Unspecified");
-
-                foreach (CarreraEN c in carreras)
-                {
-                    Estudios.Items.Insert(i++, c.Name);
-                }
-
-                foreach (MasterEN m in masters)
-                {
-                    Estudios.Items.Insert(i++, m.Name);
-                }
-            }
-
-            if (Curso.Items.Count == 0)
-            {
-                i = 0;
-                Curso.Items.Insert(i++, "Unspecified");
-                foreach (CourseEnum course in Enum.GetValues(typeof(CourseEnum)))
-                {
-                    Curso.Items.Insert(i++, course.ToString());
-                }
-            }
 
             if (Height.Items.Count == 0)
             {
@@ -337,30 +305,6 @@ namespace WebApplication1
 
                 listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorFumador);
             }
-
-            if (Estudios.SelectedIndex != -1 && !Estudios.SelectedValue.ToString().Equals("Unspecified"))
-            {
-                string valor = Estudios.SelectedValue;
-                List<UsuarioEN> listaPorEstudios = new List<UsuarioEN>();
-                CarreraEN carrera = new CarreraEN();
-                carrera.Name = valor;
-
-                listaPorEstudios.AddRange(
-                    UsuarioCEN.DameUsuarioPorCarrera(carrera.Name));
-
-                listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorEstudios);
-            }
-
-            /*if (Curso.SelectedIndex != -1 && !Curso.SelectedValue.ToString().Equals("Unspecified"))
-            {
-                string curso = Curso.SelectedValue;
-                List<UsuarioEN> listaPorCurso = new List<UsuarioEN>();
-                
-                listaPorCurso.AddRange(UsuarioCEN.DameUsuarioPorCurso(
-                    (CourseEnum)Enum.Parse(typeof(CourseEnum), curso)));
-
-                listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorCurso);
-            }*/
 
             if (NacionalidadList.SelectedIndex != -1 && !NacionalidadList.SelectedValue.ToString().Equals("Unspecified"))
             {
@@ -618,30 +562,6 @@ namespace WebApplication1
                     listaUsuarios = listaAux;
                 }
             }
-
-            if (Estudios.SelectedIndex != -1 && !Estudios.SelectedValue.ToString().Equals("Unspecified"))
-            {
-                string valor = Estudios.SelectedValue;
-                List<UsuarioEN> listaPorEstudios = new List<UsuarioEN>();
-                CarreraEN carrera = new CarreraEN();
-                carrera.Name = valor;
-
-                listaPorEstudios.AddRange(
-                    UsuarioCEN.DameUsuarioPorCarrera(carrera.Name));
-
-                listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorEstudios);
-            }
-
-            /*if (Curso.SelectedIndex != -1 && !Curso.SelectedValue.ToString().Equals("Unspecified"))
-            {
-                string curso = Curso.SelectedValue;
-                List<UsuarioEN> listaPorCurso = new List<UsuarioEN>();
-                
-                listaPorCurso.AddRange(UsuarioCEN.DameUsuarioPorCurso(
-                    (CourseEnum)Enum.Parse(typeof(CourseEnum), curso)));
-
-                listaUsuarios = filtraUsuariosNuevos(listaUsuarios, listaPorCurso);
-            }*/
 
             if (NacionalidadList.SelectedIndex != -1 && !NacionalidadList.SelectedValue.ToString().Equals("Unspecified"))
             {

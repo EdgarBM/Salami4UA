@@ -17,8 +17,6 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-
             if (Session["Login"] != null)
             {
                 //String nick = Session["Login"].ToString();
@@ -95,7 +93,7 @@ namespace WebApplication1
             }
             else
             {
-                l.Style.Add("background-color", "LightGreen");
+                l.Style.Add("background-color", "FloralWhite");
                 l.Style.Add("float", "left");
             }
 
@@ -131,16 +129,6 @@ namespace WebApplication1
             }
         }
 
-        /*protected void scrollToDiv()
-        {
-           document.getElementById().scrollIntoView();
-        }*/
-
-        /*protected void ScrollToBottom(object sender, EventArgs e)
-        {
-            divMessages.scrollTo(0, document.body.scrollHeight);
-            
-        }*/
 
     }
 

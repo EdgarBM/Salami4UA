@@ -30,6 +30,6 @@
 		  <query name="MensajesENReadAllHQL">from MensajesEN</query>
 		  <query name="MensajesENdameTodosLosMensajesEnviadosPorUsuarioHQL"><![CDATA[FROM MensajesEN m WHERE m.NicknameOrigen = :nick]]></query>
 		  <query name="MensajesENdameTodosLosMensajesRecibidosPorUsuarioHQL"><![CDATA[FROM MensajesEN m WHERE m.NicknameDestino = :nick]]></query>
-		  <query name="MensajesENdameTodosLosMensajesEntreUsuariosHQL"><![CDATA[FROM MensajesEN m WHERE (m.NicknameOrigen = :nickOrigen AND m.NicknameDestino = :nickDestino) OR (m.NicknameOrigen = :nickDestino AND m.NicknameDestino = :nickOrigen)]]></query>
+		  <query name="MensajesENdameTodosLosMensajesEntreUsuariosHQL"><![CDATA[FROM MensajesEN m WHERE m.NicknameOrigen = :nickOrigen AND m.NicknameDestino = :nickDestino]]></query>
 		</hibernate-mapping>
 	
