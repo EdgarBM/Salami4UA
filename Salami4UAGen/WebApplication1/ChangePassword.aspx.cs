@@ -27,6 +27,7 @@ namespace WebApplication1.Account
 
                     LoginOk.Text = "The password has been changed!";
                     LoginFail.Text = "";
+                    Username.Text = "";
 
                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                     MailMessage message = new MailMessage();

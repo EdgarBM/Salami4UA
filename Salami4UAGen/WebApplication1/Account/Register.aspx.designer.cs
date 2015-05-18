@@ -13,6 +13,15 @@ namespace WebApplication1.Account {
     public partial class Register {
         
         /// <summary>
+        /// Control Label.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label;
+        
+        /// <summary>
         /// Control ErrorMessage.
         /// </summary>
         /// <remarks>
@@ -443,14 +452,5 @@ namespace WebApplication1.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Continuar;
-        
-        /// <summary>
-        /// Control Label.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label;
     }
 }

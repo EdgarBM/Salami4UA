@@ -17,6 +17,7 @@ namespace WebApplication1.Account
         {
             //ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
 
+            Label.Text = "";
 
             Salami4UAGenNHibernate.CEN.Salami4UA.NationalityCEN nacion = new Salami4UAGenNHibernate.CEN.Salami4UA.NationalityCEN();          
             IList<Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN> nacionalidades = nacion.DameTodaslasNacionalidades();
@@ -390,8 +391,9 @@ namespace WebApplication1.Account
                     usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, animales, caracteristicas, hobbies, deportes, musicas, cines, NacionalidadList.SelectedValue, Email.Text, tiempo, Int32.Parse(Height.SelectedValue), Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man);
 
                     smtpClient.Send(message);
-                    Label.Text = "Check your email to log in Salami4UA! \n" +
+                    Label.Text = "Your account has been created! Check your email to log in Salami4UA! \n" +
                         "<a href=\"https://www1.webmail.ua.es/login0.php3?idi=es\" target=\"_blank\"> WebMail  </a>";
+                    
                 }
             }
             catch (Exception ex)

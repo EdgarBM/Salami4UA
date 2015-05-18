@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Registrarse" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Sign in" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Register.aspx.cs" Inherits="WebApplication1.Account.Register" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
@@ -7,8 +7,13 @@
         <h2>
             Create a new account
         </h2>
+
+        <br />
+        <asp:Label ID="Label" runat="server" AssociatedControlID="Label"></asp:Label>
+
+        <% if (Label.Text == "") { %>
         <p>
-            Please answer the following questions in order to complete the register method
+            Please answer the following questions in order to complete the register.
         </p>
        
         <span class="failureNotification">
@@ -16,9 +21,9 @@
         </span>
         <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification" 
                 ValidationGroup="RegisterUserValidationGroup"/>
-        <div class="accountInfo">
+        <div class="accountInfo" style="height: 100%;">
             <fieldset class="register">
-                <legend>Information</legend>
+                <legend>Sign in</legend>
                 <p>
                     <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Nickname</asp:Label>
                     <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
@@ -95,6 +100,7 @@
                     <asp:Label ID="LabelAnimales" runat="server" Text="Animals" 
                         BorderColor="#33CCFF" BorderStyle="None" Font-Bold="True" Font-Names="Tahoma" 
                         Font-Size="Large" Font-Strikeout="False" ForeColor="Silver"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
                     <asp:Label ID="ErrorAnimales" runat="server" Text="" ForeColor="Red" ></asp:Label>
                     <asp:CheckBoxList ID="ListaAnimales" CellPadding="5" CellSpacing="5"
                                   RepeatColumns="10" RepeatDirection="Horizontal" runat="server"></asp:CheckBoxList>
@@ -105,6 +111,7 @@
                 <p>
                     <asp:Label ID="LabelCaracteristicas" runat="server" Text="Features" 
                         Font-Bold="True" Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
                     <asp:Label ID="ErrorCaracteristicas" runat="server" Text="" ForeColor="Red" ></asp:Label>
                     <asp:CheckBoxList ID="ListaCaracteristicas" CellPadding="5" CellSpacing="5"
                                   RepeatColumns="10" RepeatDirection="Horizontal" runat="server" 
@@ -115,6 +122,7 @@
                 <p>
                    <asp:Label ID="LabelCine" runat="server" Text="Film tastes" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
+                   &nbsp;&nbsp;&nbsp;
                    <asp:Label ID="ErrorCine" runat="server" Text="" ForeColor="Red"></asp:Label>
                    <asp:CheckBoxList ID="ListaCine" CellPadding="5" CellSpacing="5"
                                   RepeatColumns="10" RepeatDirection="Horizontal" runat="server"></asp:CheckBoxList>
@@ -125,6 +133,7 @@
 
                     <asp:Label ID="LabelMusica" runat="server" Text="Music" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
                     <asp:Label ID="ErrorMusica" runat="server" Text="" ForeColor="Red"></asp:Label>
                     <asp:CheckBoxList ID="ListaMusica" CellPadding="5" CellSpacing="5"
                                   RepeatColumns="10" RepeatDirection="Horizontal" runat="server"></asp:CheckBoxList>
@@ -135,6 +144,7 @@
 
                    <asp:Label ID="LabelDeportes" runat="server" Text="Sports" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
+                   &nbsp;&nbsp;&nbsp;
                    <asp:Label ID="ErrorDeportes" runat="server" Text="" ForeColor="Red"></asp:Label>
                    <asp:CheckBoxList ID="ListaDeportes" CellPadding="5" CellSpacing="5"
                                   RepeatColumns="10" RepeatDirection="Horizontal" runat="server"></asp:CheckBoxList>
@@ -144,6 +154,7 @@
                 <p>
                    <asp:Label ID="LabelHobbies" runat="server" Text="Hobbies" Font-Bold="True" 
                         Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver" ></asp:Label>
+                   &nbsp;&nbsp;&nbsp;
                    <asp:Label ID="ErrorHobbies" runat="server" Text="" ForeColor="Red"></asp:Label>
                    <asp:CheckBoxList ID="ListaHobbies" CellPadding="5" CellSpacing="5"
                                   RepeatColumns="10" RepeatDirection="Horizontal" runat="server"></asp:CheckBoxList>
@@ -159,7 +170,7 @@
             </p>
         </div>
     
-        <asp:Label ID="Label" runat="server" AssociatedControlID="Label"></asp:Label>
+         <% }  %>
 
         
 </asp:Content>

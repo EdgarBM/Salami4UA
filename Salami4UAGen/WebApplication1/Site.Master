@@ -12,17 +12,17 @@
 <body>
     <form runat="server">
     <div class="page">
-        <div class="header"> 
+        <div class="header" style="background-position: right; background-image: url('/Imagenes/fondo_ua.png'); background-repeat: no-repeat;"> 
             <div class="imagen">
                 <asp:ImageButton ID="LogoSalamiUA" runat="server" 
                     ImageUrl="~/Imagenes/logoSalami4UA.png"   
-                    Height="200px" Width="200px" />
+                    Height="200px" Width="200px" PostBackUrl="~/Default.aspx" />
           
             </div>
 
             <h1> Salami4UA </h1>
 
-            <div class="loginDisplay">
+            <div class="loginDisplay" style="text-align: left; padding-left: 30px;">
             
             <% if (Session["login"] == null)
                    {
@@ -39,7 +39,7 @@
                 </asp:LoginView>
                 <asp:LoginView ID="HeadLoginView0" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
-                        [ <a href="~/Account/Register.aspx" ID="HeadLoginStatus0" runat="server">Register</a> ]
+                        [ <a href="~/Account/Register.aspx" ID="HeadLoginStatus0" runat="server">Sign in</a> ]
                     </AnonymousTemplate>
                     <LoggedInTemplate>
                         Pantalla de bienvenida <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
