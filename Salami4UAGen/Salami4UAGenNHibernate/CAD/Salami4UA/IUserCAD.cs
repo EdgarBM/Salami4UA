@@ -54,6 +54,9 @@ System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> Dam
 System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorGender (Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum genero);
 
 
+System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> Pruebas (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad);
+
+
 System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad);
 
 

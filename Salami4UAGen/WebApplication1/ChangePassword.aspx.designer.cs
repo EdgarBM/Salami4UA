@@ -13,24 +13,6 @@ namespace WebApplication1.Account {
     public partial class ChangePassword {
         
         /// <summary>
-        /// Control LoginOk.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LoginOk;
-        
-        /// <summary>
-        /// Control LoginFail.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LoginFail;
-        
-        /// <summary>
         /// Control FailureText.
         /// </summary>
         /// <remarks>
@@ -47,6 +29,24 @@ namespace WebApplication1.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ChangeUserPasswordValidationSummary;
+        
+        /// <summary>
+        /// Control LoginOk.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LoginOk;
+        
+        /// <summary>
+        /// Control LoginFail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LoginFail;
         
         /// <summary>
         /// Control UsernameLabel.

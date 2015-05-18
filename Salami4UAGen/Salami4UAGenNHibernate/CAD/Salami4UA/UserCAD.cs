@@ -568,6 +568,36 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.User
 
         return result;
 }
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> Pruebas (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UserEN self where FROM UserEN c WHERE c.Nacionalidad = :nacionalidad";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UserENpruebasHQL");
+                query.SetParameter ("nacionalidad", nacionalidad);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UserEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UserCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> DameUsuarioPorNacionalidad (Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad)
 {
         System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UserEN> result;

@@ -346,31 +346,22 @@ namespace WebApplication1.Account {
         protected global::System.Web.UI.WebControls.Label BirthdayLabel;
         
         /// <summary>
-        /// Control FechaNacimiento.
+        /// Control ErrorFechaNacimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FechaNacimiento;
+        protected global::System.Web.UI.WebControls.Label ErrorFechaNacimiento;
         
         /// <summary>
-        /// Control RequiredFechaNacimiento.
+        /// Control Birthday.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFechaNacimiento;
-        
-        /// <summary>
-        /// Control RegularExpressionFechaNacimiento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionFechaNacimiento;
+        protected global::System.Web.UI.WebControls.Calendar Birthday;
         
         /// <summary>
         /// Control LabelAnimales.

@@ -405,17 +405,14 @@ namespace WebApplication1.Account
                 Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum orientacion = (Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum), Orientacion.SelectedValue);
 
                 DateTime tiempo = new DateTime();
+                tiempo = Birthday.SelectedDate.Date;
 
-                try
+                if (tiempo.Year == 0001)
                 {
-                    tiempo = Convert.ToDateTime(FechaNacimiento.Text);
-                }
-                catch (Exception ex)
-                {
+                    ErrorFechaNacimiento.Text = "You must select your date of birth";
                     ok = false;
                 }
 
-                
 
                 if (ok)
                 {
