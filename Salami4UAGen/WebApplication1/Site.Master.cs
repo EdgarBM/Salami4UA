@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Salami4UAGenNHibernate.CEN.Salami4UA;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,20 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected bool comprobarNotificaciones(string user)
+        {
+            
+            UsuarioCEN cen = new UsuarioCEN();
+
+            IList<string> mensajes = cen.DameMensajesRecibidosPorUsuario(user);
+            if (mensajes.Count > 0)
+                return true;
+
+            IList<string> pinchitos = cen.DamePinchitosRecibidosPorUsuario(user);
+            return (pinchitos.Count > 0);
+            
         }
     }
 }

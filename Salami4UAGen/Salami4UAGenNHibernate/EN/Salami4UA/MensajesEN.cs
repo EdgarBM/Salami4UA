@@ -21,13 +21,13 @@ private string message;
  *
  */
 
-private Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN userOrigen;
+private string nicknameOrigen;
 
 /**
  *
  */
 
-private Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN userDestino;
+private string nicknameDestino;
 
 
 
@@ -43,13 +43,13 @@ public virtual string Message {
 }
 
 
-public virtual Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN UserOrigen {
-        get { return userOrigen; } set { userOrigen = value;  }
+public virtual string NicknameOrigen {
+        get { return nicknameOrigen; } set { nicknameOrigen = value;  }
 }
 
 
-public virtual Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN UserDestino {
-        get { return userDestino; } set { userDestino = value;  }
+public virtual string NicknameDestino {
+        get { return nicknameDestino; } set { nicknameDestino = value;  }
 }
 
 
@@ -62,27 +62,27 @@ public MensajesEN()
 
 
 
-public MensajesEN(int id, string message, Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN userOrigen, Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN userDestino)
+public MensajesEN(int id, string message, string nicknameOrigen, string nicknameDestino)
 {
-        this.init (id, message, userOrigen, userDestino);
+        this.init (id, message, nicknameOrigen, nicknameDestino);
 }
 
 
 public MensajesEN(MensajesEN mensajes)
 {
-        this.init (mensajes.Id, mensajes.Message, mensajes.UserOrigen, mensajes.UserDestino);
+        this.init (mensajes.Id, mensajes.Message, mensajes.NicknameOrigen, mensajes.NicknameDestino);
 }
 
-private void init (int id, string message, Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN userOrigen, Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN userDestino)
+private void init (int id, string message, string nicknameOrigen, string nicknameDestino)
 {
         this.Id = Id;
 
 
         this.Message = message;
 
-        this.UserOrigen = userOrigen;
+        this.NicknameOrigen = nicknameOrigen;
 
-        this.UserDestino = userDestino;
+        this.NicknameDestino = nicknameDestino;
 }
 
 public override bool Equals (object obj)

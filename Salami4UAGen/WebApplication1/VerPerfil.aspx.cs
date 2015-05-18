@@ -13,16 +13,25 @@ namespace WebApplication1
 {
     public partial class VerPerfil : System.Web.UI.Page
     {
+        private String admin = "admin";
+        String nick;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Login"] != null)
             {
                 //String nick = Session["Login"].ToString();
-                String nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx","");
+                nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx","");
+                String user = Session["Login"].ToString();
+
+                if(user == admin){
+                    BotonEliminarAdmin.Visible = true;
+                    btnShow.Visible = false;
+                }
 
                 try
                 {
-                        nick = nick.TrimStart('/');
+                    nick = nick.TrimStart('/');
                 }
                 catch (Exception ex) { }
 
@@ -36,8 +45,24 @@ namespace WebApplication1
                         VerPerfilError.Text = "0 Salami's found with this nickname " + nick;
                     }
 
+                    IList<string> pinchitosRecibidos = usuario.DamePinchitosRecibidosPorUsuario(user);
+                    IList<string> mensajesRecibidos = usuario.DameMensajesRecibidosPorUsuario(user);
+
+                    if (pinchitosRecibidos.Contains(nick))
+                    {
+                        pinchitosRecibidos.Remove(nick);
+                        usuario.ModificarPinchitosRecibidos(user, pinchitosRecibidos);
+                    }
+                    if (mensajesRecibidos.Contains(nick))
+                    {
+                        mensajesRecibidos.Remove(nick);
+                        usuario.ModificarMensajesRecibidos(user, mensajesRecibidos);
+                    }
+
                     foreach (UsuarioEN us in usuarios)
                     {
+
+                        ImagenPerfil.ImageUrl = us.UrlFoto;
                         Nickname.Text = nick;
                         Name.Text = us.Name;
                         Surname.Text = us.Surname;
@@ -54,6 +79,8 @@ namespace WebApplication1
                         Smoke.Text = us.Smoke.ToString();
                         Religion.Text = us.Religion.ToString();
                         Birth.Text = Convert.ToString(us.Birthday).Substring(0, 10);
+                        StudiesLabel.Text = us.Career;
+                        CourseLabel.Text = us.Course.ToString();
 
                         if (us.Comment != "")
                         {
@@ -214,8 +241,23 @@ namespace WebApplication1
 
             String nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx/", "");
 
-            // Message to salami4ua@gmail.com
-            
+            // Message and email to admin
+            try
+            {
+                string user = (string)Session["login"];
+                string msg = NicknameReport.Text + " has been reported by " + user + " because of " +
+                    CauseDropDownList.SelectedItem.Text.ToLower();
+
+                MensajesCEN mensajeCen = new MensajesCEN();
+                mensajeCen.New_(msg, nick, admin);
+
+            }
+            catch (Exception)
+            {
+                LabelReport.Text = "Error sending the message!";
+            }
+
+            // Message to admin
             try
             {
                 Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN usuario = new Salami4UAGenNHibernate.CEN.Salami4UA.UsuarioCEN();
@@ -266,6 +308,46 @@ namespace WebApplication1
         protected void close_Click(object sender, EventArgs e)
         {
             mp1.Hide();
+        }
+
+        protected void BotonEliminarPerfil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String url = "~/EliminarPerfil.aspx/" + nick;
+                Response.Redirect(url);
+            }
+            catch (Exception) { }
+        }
+
+        protected void ButtonEnviarMensaje_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SendMessage.aspx?msgTo=" + nick);
+        }
+
+        protected void ButtonEnviarPinchito_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string user = Session["Login"].ToString();
+                UsuarioCEN cen = new UsuarioCEN();
+
+
+                IList<string> pinchitos = cen.DamePinchitosRecibidosPorUsuario(nick);
+
+                if (!pinchitos.Contains(user))
+                {
+                    pinchitos.Add(user);
+                    cen.ModificarPinchitosRecibidos(nick, pinchitos);
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your pinchito to " + nick + " has been sent');", true);
+                }
+
+            }
+            catch (Exception)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your pinchito have not reached " + nick + "');", true);
+
+            }
         }
     }
 

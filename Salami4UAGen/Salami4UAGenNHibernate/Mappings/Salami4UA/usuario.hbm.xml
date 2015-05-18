@@ -103,6 +103,38 @@
 						</key>
 						<element column="[Hobbies]" type="string"/>
     				</bag>
+					<property name="UrlFoto" type="string"> 
+						<column name="[UrlFoto]"  not-null="true"/>
+					</property>
+					<bag name="PinchitosRecibidos" table="[PinchitosRecibidos]">
+						<key>
+							<column name="[Nickname]"/>
+						</key>
+						<element column="[PinchitosRecibidos]" type="string"/>
+    				</bag>
+					<bag name="MensajesRecibidos" table="[MensajesRecibidos]">
+						<key>
+							<column name="[Nickname]"/>
+						</key>
+						<element column="[MensajesRecibidos]" type="string"/>
+    				</bag>
+					<bag name="PersonasQueTeHanBloqueado" table="[PersonasQueTeHanBloqueado]">
+						<key>
+							<column name="[Nickname]"/>
+						</key>
+						<element column="[PersonasQueTeHanBloqueado]" type="string"/>
+    				</bag>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			
 			
@@ -125,30 +157,16 @@
 			
 			
 		  			
-						<bag name="MessagesEnviados" >
-							<key>
-								<column name="[FK_Nickname_idUser]"/>
-					      	</key>
-							<one-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN"/>
-					    </bag>
 					
+							<many-to-one name="Gustos" class="Salami4UAGenNHibernate.EN.Salami4UA.GustosEN" >
+								<column name="[FK_ID_idGustos]"/>
+        					</many-to-one>
+					 
+						
 			
-		  			
-						<bag name="MessagesRecibidos" >
-							<key>
-								<column name="[FK_Nickname_idUser]"/>
-					      	</key>
-							<one-to-many class="Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN"/>
-					    </bag>
 					
-			
-			
-			
-			
-			
-			
-			
-			
+					
+					
 					
 					
 					
@@ -198,5 +216,7 @@
 		  <query name="UsuarioENdameUsuarioPorNacionalidadHQL"><![CDATA[FROM UsuarioEN c WHERE c.Nationality = :nacionalidad]]></query>
 		  <query name="UsuarioENdameUsuarioPorAlturaHQL"><![CDATA[FROM UsuarioEN c WHERE c.Height = :altura]]></query>
 		  <query name="UsuarioENdameUsuarioPorRangoEdadHQL"><![CDATA[FROM UsuarioEN c WHERE year(c.Birthday) < :min AND year(c.Birthday) > :max]]></query>
+		  <query name="UsuarioENdameUsuarioPorCarreraHQL"><![CDATA[FROM UsuarioEN c WHERE c.Career = :carrera]]></query>
+		  <query name="UsuarioENdameUsuarioPorCursoHQL"><![CDATA[FROM UsuarioEN c WHERE c.Course = :curso]]></query>
 		</hibernate-mapping>
 	

@@ -199,8 +199,8 @@ fieldset
 
 fieldset p 
 {
-    margin: 2px 12px 10px 10px;
-    width: 860px;
+    margin: 2px 12px 10px 0px;
+    width: 875px;
 }
 
 fieldset.login label, fieldset.register label, fieldset.changePassword label

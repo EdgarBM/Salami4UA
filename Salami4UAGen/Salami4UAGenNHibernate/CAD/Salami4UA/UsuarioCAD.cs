@@ -56,6 +56,11 @@ public string New_ (UsuarioEN usuario)
         try
         {
                 SessionInitializeTransaction ();
+                if (usuario.Gustos != null) {
+                        usuario.Gustos = (Salami4UAGenNHibernate.EN.Salami4UA.GustosEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.GustosEN), usuario.Gustos.Nickname);
+
+                        usuario.Gustos.Usuario = usuario;
+                }
 
                 session.Save (usuario);
                 SessionCommit ();
@@ -163,6 +168,9 @@ public void Modify (UsuarioEN usuario)
 
 
                 usuarioEN.Hobbies = usuario.Hobbies;
+
+
+                usuarioEN.UrlFoto = usuario.UrlFoto;
 
                 session.Update (usuarioEN);
                 SessionCommit ();
@@ -655,26 +663,101 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Usua
 
         return result;
 }
-public void AnyadirMensajeEnviado (string p_Usuario_OID, System.Collections.Generic.IList<int> p_messagesEnviados_OIDs)
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorCarrera (string carrera)
 {
-        Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN usuarioEN = null;
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
-                Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN messagesEnviadosENAux = null;
-                if (usuarioEN.MessagesEnviados == null) {
-                        usuarioEN.MessagesEnviados = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN>();
-                }
+                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN c WHERE c.Career = :carrera";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENdameUsuarioPorCarreraHQL");
+                query.SetParameter ("carrera", carrera);
 
-                foreach (int item in p_messagesEnviados_OIDs) {
-                        messagesEnviadosENAux = new Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN ();
-                        messagesEnviadosENAux = (Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN), item);
-                        messagesEnviadosENAux.UserOrigen = usuarioEN;
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN>();
+                SessionCommit ();
+        }
 
-                        usuarioEN.MessagesEnviados.Add (messagesEnviadosENAux);
-                }
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
 
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorCurso (Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum curso)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN c WHERE c.Course = :curso";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENdameUsuarioPorCursoHQL");
+                query.SetParameter ("curso", curso);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public UsuarioEN ReadOID (string Nickname)
+{
+        UsuarioEN usuarioEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                usuarioEN = (UsuarioEN)session.Get (typeof(UsuarioEN), Nickname);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return usuarioEN;
+}
+
+public void ModificarMensajesRecibidos (UsuarioEN usuario)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Nickname);
+
+                usuarioEN.MensajesRecibidos = usuario.MensajesRecibidos;
 
                 session.Update (usuarioEN);
                 SessionCommit ();
@@ -693,27 +776,40 @@ public void AnyadirMensajeEnviado (string p_Usuario_OID, System.Collections.Gene
                 SessionClose ();
         }
 }
-
-public void AnyadirMensajeRecibido (string p_Usuario_OID, System.Collections.Generic.IList<int> p_messagesRecibidos_OIDs)
+public void ModificarPinchitosRecibidos (UsuarioEN usuario)
 {
-        Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN usuarioEN = null;
         try
         {
                 SessionInitializeTransaction ();
-                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
-                Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN messagesRecibidosENAux = null;
-                if (usuarioEN.MessagesRecibidos == null) {
-                        usuarioEN.MessagesRecibidos = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN>();
-                }
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Nickname);
 
-                foreach (int item in p_messagesRecibidos_OIDs) {
-                        messagesRecibidosENAux = new Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN ();
-                        messagesRecibidosENAux = (Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN), item);
-                        messagesRecibidosENAux.UserDestino = usuarioEN;
+                usuarioEN.PinchitosRecibidos = usuario.PinchitosRecibidos;
 
-                        usuarioEN.MessagesRecibidos.Add (messagesRecibidosENAux);
-                }
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
 
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void ModificarPersonasQueTeHanBloqueado (UsuarioEN usuario)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Nickname);
+
+                usuarioEN.PersonasQueTeHanBloqueado = usuario.PersonasQueTeHanBloqueado;
 
                 session.Update (usuarioEN);
                 SessionCommit ();

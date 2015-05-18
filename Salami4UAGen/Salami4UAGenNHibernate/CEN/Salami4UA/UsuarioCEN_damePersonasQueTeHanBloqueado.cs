@@ -9,6 +9,7 @@ using NHibernate.Exceptions;
 
 using Salami4UAGenNHibernate.EN.Salami4UA;
 using Salami4UAGenNHibernate.CAD.Salami4UA;
+using System.Collections.Generic;
 
 namespace Salami4UAGenNHibernate.CEN.Salami4UA
 {
@@ -21,7 +22,7 @@ public System.Collections.Generic.IList<string> DamePersonasQueTeHanBloqueado (s
         // Write here your custom code...
 
         BasicCP basic = new BasicCP();
-
+        IList<string> personas = new List<string>();
         try
         {
             basic.SessionInitializeTransaction();
@@ -29,13 +30,21 @@ public System.Collections.Generic.IList<string> DamePersonasQueTeHanBloqueado (s
             UsuarioCAD usuarioCAD = new UsuarioCAD(basic.session);
             UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault(p_oid);
 
-            return usuarioEN.PersonasQueTeHanBloqueado;
+
+            foreach (string m in usuarioEN.PersonasQueTeHanBloqueado)
+            {
+                personas.Add(m);
+            }
+
+            basic.SessionClose();
+            
         }
         catch (Exception ex)
         {
             return null;
         }
 
+        return personas;
         /*PROTECTED REGION END*/
 }
 }

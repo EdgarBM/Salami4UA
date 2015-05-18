@@ -21,14 +21,14 @@
         The old password is required and the new passwords must match and have at least <%= Membership.MinRequiredPasswordLength %> characters.
     </p>
     
-            <span class="failureNotification">
-                <asp:Literal ID="FailureText" runat="server"></asp:Literal>
-            </span>
-            <asp:ValidationSummary ID="ChangeUserPasswordValidationSummary" runat="server" CssClass="failureNotification" 
-                 ValidationGroup="ChangeUserPasswordValidationGroup"/>
+        <span class="failureNotification">
+            <asp:Literal ID="FailureText" runat="server"></asp:Literal>
+        </span>
+        <asp:ValidationSummary ID="ChangeUserPasswordValidationSummary" runat="server" CssClass="failureNotification" 
+                ValidationGroup="ChangeUserPasswordValidationGroup"/>
             
             
-
+        <asp:Panel ID="Panel1" runat="server" DefaultButton="ChangePasswordPushButton">
             <div class="accountInfo">
                 <fieldset class="changePassword" style="background-color:#FBFDFF">
                     <legend>Account info</legend>
@@ -95,7 +95,7 @@
                 </p>
                 
             </div>
-
+        </asp:Panel>
     
 
    
