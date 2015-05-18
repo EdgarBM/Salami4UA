@@ -69,6 +69,54 @@ private Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke;
  *
  */
 
+private bool offspring;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN> pets;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.CharacteristicFeaturesEN> characteristicFeatures;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.HobbiesEN> hobbies;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.SportsEN> sports;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MusicalTastesEN> musicalTastes;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.GenreFilmsEN> genreFilms;
+
+/**
+ *
+ */
+
+private Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad;
+
+/**
+ *
+ */
+
 private string email;
 
 /**
@@ -81,109 +129,7 @@ private Nullable<DateTime> birthday;
  *
  */
 
-private Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum gender;
-
-/**
- *
- */
-
-private Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum likes;
-
-/**
- *
- */
-
-private string name;
-
-/**
- *
- */
-
-private string surname;
-
-/**
- *
- */
-
-private string comment;
-
-/**
- *
- */
-
-private string validationCode;
-
-/**
- *
- */
-
-private string career;
-
-/**
- *
- */
-
-private Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum course;
-
-/**
- *
- */
-
-private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN> messagesEnviados;
-
-/**
- *
- */
-
-private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN> messagesRecibidos;
-
-/**
- *
- */
-
-private string nationality;
-
-/**
- *
- */
-
-private int height;
-
-/**
- *
- */
-
-private System.Collections.Generic.IList<string> pets;
-
-/**
- *
- */
-
-private System.Collections.Generic.IList<string> films;
-
-/**
- *
- */
-
-private System.Collections.Generic.IList<string> musics;
-
-/**
- *
- */
-
-private System.Collections.Generic.IList<string> characteristics;
-
-/**
- *
- */
-
-private System.Collections.Generic.IList<string> sports;
-
-/**
- *
- */
-
-private System.Collections.Generic.IList<string> hobbies;
+private Salami4UAGenNHibernate.EN.Salami4UA.HeightEN height_0;
 
 
 
@@ -239,6 +185,46 @@ public virtual Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum Smoke {
 }
 
 
+public virtual bool Offspring {
+        get { return offspring; } set { offspring = value;  }
+}
+
+
+public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN> Pets {
+        get { return pets; } set { pets = value;  }
+}
+
+
+public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.CharacteristicFeaturesEN> CharacteristicFeatures {
+        get { return characteristicFeatures; } set { characteristicFeatures = value;  }
+}
+
+
+public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.HobbiesEN> Hobbies {
+        get { return hobbies; } set { hobbies = value;  }
+}
+
+
+public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.SportsEN> Sports {
+        get { return sports; } set { sports = value;  }
+}
+
+
+public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MusicalTastesEN> MusicalTastes {
+        get { return musicalTastes; } set { musicalTastes = value;  }
+}
+
+
+public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.GenreFilmsEN> GenreFilms {
+        get { return genreFilms; } set { genreFilms = value;  }
+}
+
+
+public virtual Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN Nacionalidad {
+        get { return nacionalidad; } set { nacionalidad = value;  }
+}
+
+
 public virtual string Email {
         get { return email; } set { email = value;  }
 }
@@ -249,93 +235,8 @@ public virtual Nullable<DateTime> Birthday {
 }
 
 
-public virtual Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum Gender {
-        get { return gender; } set { gender = value;  }
-}
-
-
-public virtual Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum Likes {
-        get { return likes; } set { likes = value;  }
-}
-
-
-public virtual string Name {
-        get { return name; } set { name = value;  }
-}
-
-
-public virtual string Surname {
-        get { return surname; } set { surname = value;  }
-}
-
-
-public virtual string Comment {
-        get { return comment; } set { comment = value;  }
-}
-
-
-public virtual string ValidationCode {
-        get { return validationCode; } set { validationCode = value;  }
-}
-
-
-public virtual string Career {
-        get { return career; } set { career = value;  }
-}
-
-
-public virtual Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum Course {
-        get { return course; } set { course = value;  }
-}
-
-
-public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN> MessagesEnviados {
-        get { return messagesEnviados; } set { messagesEnviados = value;  }
-}
-
-
-public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN> MessagesRecibidos {
-        get { return messagesRecibidos; } set { messagesRecibidos = value;  }
-}
-
-
-public virtual string Nationality {
-        get { return nationality; } set { nationality = value;  }
-}
-
-
-public virtual int Height {
-        get { return height; } set { height = value;  }
-}
-
-
-public virtual System.Collections.Generic.IList<string> Pets {
-        get { return pets; } set { pets = value;  }
-}
-
-
-public virtual System.Collections.Generic.IList<string> Films {
-        get { return films; } set { films = value;  }
-}
-
-
-public virtual System.Collections.Generic.IList<string> Musics {
-        get { return musics; } set { musics = value;  }
-}
-
-
-public virtual System.Collections.Generic.IList<string> Characteristics {
-        get { return characteristics; } set { characteristics = value;  }
-}
-
-
-public virtual System.Collections.Generic.IList<string> Sports {
-        get { return sports; } set { sports = value;  }
-}
-
-
-public virtual System.Collections.Generic.IList<string> Hobbies {
-        get { return hobbies; } set { hobbies = value;  }
+public virtual Salami4UAGenNHibernate.EN.Salami4UA.HeightEN Height_0 {
+        get { return height_0; } set { height_0 = value;  }
 }
 
 
@@ -344,24 +245,28 @@ public virtual System.Collections.Generic.IList<string> Hobbies {
 
 public UserEN()
 {
-        messagesEnviados = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN>();
-        messagesRecibidos = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN>();
+        pets = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN>();
+        characteristicFeatures = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.CharacteristicFeaturesEN>();
+        hobbies = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.HobbiesEN>();
+        sports = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.SportsEN>();
+        musicalTastes = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.MusicalTastesEN>();
+        genreFilms = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.GenreFilmsEN>();
 }
 
 
 
-public UserEN(string nickname, string password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum hairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum eyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum hairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum hairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum bodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke, string email, Nullable<DateTime> birthday, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum gender, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum likes, string name, string surname, string comment, string validationCode, string career, Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum course, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN> messagesEnviados, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN> messagesRecibidos, string nationality, int height, System.Collections.Generic.IList<string> pets, System.Collections.Generic.IList<string> films, System.Collections.Generic.IList<string> musics, System.Collections.Generic.IList<string> characteristics, System.Collections.Generic.IList<string> sports, System.Collections.Generic.IList<string> hobbies)
+public UserEN(string nickname, string password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum hairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum eyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum hairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum hairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum bodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke, bool offspring, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN> pets, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.CharacteristicFeaturesEN> characteristicFeatures, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.HobbiesEN> hobbies, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.SportsEN> sports, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MusicalTastesEN> musicalTastes, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.GenreFilmsEN> genreFilms, Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad, string email, Nullable<DateTime> birthday, Salami4UAGenNHibernate.EN.Salami4UA.HeightEN height_0)
 {
-        this.init (nickname, password, hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, email, birthday, gender, likes, name, surname, comment, validationCode, career, course, messagesEnviados, messagesRecibidos, nationality, height, pets, films, musics, characteristics, sports, hobbies);
+        this.init (nickname, password, hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, offspring, pets, characteristicFeatures, hobbies, sports, musicalTastes, genreFilms, nacionalidad, email, birthday, height_0);
 }
 
 
 public UserEN(UserEN user)
 {
-        this.init (user.Nickname, user.Password, user.HairColor, user.EyeColor, user.HairLength, user.HairStyle, user.BodyType, user.Ethnicity, user.Religion, user.Smoke, user.Email, user.Birthday, user.Gender, user.Likes, user.Name, user.Surname, user.Comment, user.ValidationCode, user.Career, user.Course, user.MessagesEnviados, user.MessagesRecibidos, user.Nationality, user.Height, user.Pets, user.Films, user.Musics, user.Characteristics, user.Sports, user.Hobbies);
+        this.init (user.Nickname, user.Password, user.HairColor, user.EyeColor, user.HairLength, user.HairStyle, user.BodyType, user.Ethnicity, user.Religion, user.Smoke, user.Offspring, user.Pets, user.CharacteristicFeatures, user.Hobbies, user.Sports, user.MusicalTastes, user.GenreFilms, user.Nacionalidad, user.Email, user.Birthday, user.Height_0);
 }
 
-private void init (string nickname, string password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum hairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum eyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum hairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum hairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum bodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke, string email, Nullable<DateTime> birthday, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum gender, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum likes, string name, string surname, string comment, string validationCode, string career, Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum course, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN> messagesEnviados, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MessagesEN> messagesRecibidos, string nationality, int height, System.Collections.Generic.IList<string> pets, System.Collections.Generic.IList<string> films, System.Collections.Generic.IList<string> musics, System.Collections.Generic.IList<string> characteristics, System.Collections.Generic.IList<string> sports, System.Collections.Generic.IList<string> hobbies)
+private void init (string nickname, string password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum hairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum eyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum hairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum hairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum bodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke, bool offspring, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN> pets, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.CharacteristicFeaturesEN> characteristicFeatures, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.HobbiesEN> hobbies, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.SportsEN> sports, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MusicalTastesEN> musicalTastes, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.GenreFilmsEN> genreFilms, Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN nacionalidad, string email, Nullable<DateTime> birthday, Salami4UAGenNHibernate.EN.Salami4UA.HeightEN height_0)
 {
         this.Nickname = Nickname;
 
@@ -384,45 +289,27 @@ private void init (string nickname, string password, Salami4UAGenNHibernate.Enum
 
         this.Smoke = smoke;
 
+        this.Offspring = offspring;
+
+        this.Pets = pets;
+
+        this.CharacteristicFeatures = characteristicFeatures;
+
+        this.Hobbies = hobbies;
+
+        this.Sports = sports;
+
+        this.MusicalTastes = musicalTastes;
+
+        this.GenreFilms = genreFilms;
+
+        this.Nacionalidad = nacionalidad;
+
         this.Email = email;
 
         this.Birthday = birthday;
 
-        this.Gender = gender;
-
-        this.Likes = likes;
-
-        this.Name = name;
-
-        this.Surname = surname;
-
-        this.Comment = comment;
-
-        this.ValidationCode = validationCode;
-
-        this.Career = career;
-
-        this.Course = course;
-
-        this.MessagesEnviados = messagesEnviados;
-
-        this.MessagesRecibidos = messagesRecibidos;
-
-        this.Nationality = nationality;
-
-        this.Height = height;
-
-        this.Pets = pets;
-
-        this.Films = films;
-
-        this.Musics = musics;
-
-        this.Characteristics = characteristics;
-
-        this.Sports = sports;
-
-        this.Hobbies = hobbies;
+        this.Height_0 = height_0;
 }
 
 public override bool Equals (object obj)

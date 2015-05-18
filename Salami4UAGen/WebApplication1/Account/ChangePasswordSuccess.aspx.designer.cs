@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1
+namespace WebApplication1.Account
 {
 
 
-    public partial class About
+    public partial class ChangePasswordSuccess
     {
     }
 }

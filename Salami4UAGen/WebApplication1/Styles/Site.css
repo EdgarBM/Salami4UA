@@ -200,7 +200,6 @@ fieldset
 fieldset p 
 {
     margin: 2px 12px 10px 10px;
-    width: 860px;
 }
 
 fieldset.login label, fieldset.register label, fieldset.changePassword label
@@ -222,6 +221,7 @@ legend
 
 input.textEntry 
 {
+    width: 320px;
     border: 1px solid #ccc;
 }
 
@@ -233,10 +233,8 @@ input.passwordEntry
 
 div.accountInfo
 {
-    width: 97%;
-    margin-right: 491px;
+    width: 42%;
 }
-
 
 /* MISC  
 ----------------------------------------------------------*/
@@ -294,4 +292,3 @@ div.accountInfo
     text-align: right;
     padding-right: 10px;
 }
-
