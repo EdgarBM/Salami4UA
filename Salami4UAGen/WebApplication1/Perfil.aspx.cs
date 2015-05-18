@@ -39,6 +39,8 @@ namespace WebApplication1
                     {
                         Nickname.Text = nick;
                         Email.Text = us.Email;
+                        Genero.Text = us.Gender.ToString();
+                        Orientacion.Text = us.Likes.ToString();
                         NationalityLabel.Text = us.Nacionalidad.Name.ToString();
                         HeightLabel.Text = us.Height_0.Height.ToString();
                         BodyTypeLabel.Text = us.BodyType.ToString();
@@ -49,28 +51,16 @@ namespace WebApplication1
                         HairStyleLabel.Text = us.HairStyle.ToString();
                         SmokeLabel.Text = us.Smoke.ToString();
                         ReligionLabel.Text = us.Religion.ToString();
+                        DateTime tiempo = Convert.ToDateTime(us.Birthday.ToString());
+                        BirthLabel.Text = Convert.ToString(tiempo.Day) + "/" + Convert.ToString(tiempo.Month) + "/" + Convert.ToString(tiempo.Year);
 
                         // Las multiples opciones
 
+                        // Animales
 
-                        /*NationalityEN nacionalidad = new NationalityEN();
-                        nacionalidad.Name = us.Nacionalidad.Name.ToString();
-                        IList<UserEN> usus = usuario.DameUsuarioPorNacionalidad(nacionalidad);*/
+                        PetsCEN petcen = new PetsCEN();
+                        IList<PetsEN> animales = petcen.DameAnimalesPorUsuario(us.Nickname);
 
-                        HeightEN altura = new HeightEN();
-                        altura.Height = 100;
-                        IList<UserEN> usus = usuario.DameUsuarioPorAltura(altura);
-
-
-                        //PetsCEN petcen = new PetsCEN();
-                        //IList<PetsEN> ans = petcen.DameAnimalesPorUsuario(us);
-
-                        //UserEN userEN = (UserEN)session.Load(typeof(UserEN), Nickname);
-
-
-
-                        IList<PetsEN> animales = us.Pets;
-                        //int i = animales.Count;
                         string s = "";
                         bool primero = true;
                         foreach (PetsEN animal in animales)
@@ -88,7 +78,101 @@ namespace WebApplication1
                         }
 
                         PetsLabel.Text = s;
+
+
+                        // Caracteristicas                         
+                        IList<CharacteristicFeaturesEN> caracteristicasEN = new CharacteristicFeaturesCEN().DameCaracteristicasPorUsuario(us.Nickname);
+                        s = ""; primero = true;
+                        foreach (CharacteristicFeaturesEN caracteristica in caracteristicasEN)
+                        {
+                            if (primero)
+                            {
+                                primero = false;
+                                s = caracteristica.Name;
+                            }
+
+                            else
+                            {
+                                s += ", " + caracteristica.Name;
+                            }
+                        }
+                        FeaturesLabel.Text = s;
+
+                        // Generos Cine                         
+                        IList<GenreFilmsEN> generosCineEN = new GenreFilmsCEN().DameGenerosDeCinePorUsuario(us.Nickname);
+                        s = ""; primero = true;
+                        foreach (GenreFilmsEN cine in generosCineEN)
+                        {
+                            if (primero)
+                            {
+                                primero = false;
+                                s = cine.Name;
+                            }
+
+                            else
+                            {
+                                s += ", " + cine.Name;
+                            }
+                        }
+                        FilmLabel.Text = s;
+
+                        // Musica
+                        IList<MusicalTastesEN> musicaEN = new MusicalTastesCEN().DameGustosMusicalesPorUsuario(us.Nickname);
+                        s = ""; primero = true;
+                        foreach (MusicalTastesEN musica in musicaEN)
+                        {
+                            if (primero)
+                            {
+                                primero = false;
+                                s = musica.Name;
+                            }
+
+                            else
+                            {
+                                s += ", " + musica.Name;
+                            }
+                        }
+                        MusicLabel.Text = s;
+
+                        // Deportes
+                        IList<SportsEN> deportesEN = new SportsCEN().DameDeportesPorUsuario(us.Nickname);
+                        s = ""; primero = true;
+                        foreach (SportsEN deporte in deportesEN)
+                        {
+                            if (primero)
+                            {
+                                primero = false;
+                                s = deporte.Name;
+                            }
+
+                            else
+                            {
+                                s += ", " + deporte.Name;
+                            }
+                        }
+                        SportsLabel.Text = s;
+
+                        // Hobbies
+                        IList<HobbiesEN> hobbiesEN = new HobbiesCEN().DameHobbiesPorUsuario(us.Nickname);
+                        s = ""; primero = true;
+                        foreach (HobbiesEN hobbie in hobbiesEN)
+                        {
+                            if (primero)
+                            {
+                                primero = false;
+                                s = hobbie.Name;
+                            }
+
+                            else
+                            {
+                                s += ", " + hobbie.Name;
+                            }
+                        }
+                        HobbiesLabel.Text = s;
+
                     }
+
+
 
                 }
                 catch (Exception ex)

@@ -32,7 +32,7 @@ namespace WebApplication1.Account
 
                 else
                 {
-                    ErrorValidacion.Text = "The nickname and the password don't match";
+                    ErrorValidacion.Text = "The nickname or the password are wrong.";
                 }
 
 
@@ -40,6 +40,7 @@ namespace WebApplication1.Account
             }
             catch (Exception ex)
             {
+                ErrorValidacion.Text = "The nickname or the password are wrong.";
             }
         }
 
