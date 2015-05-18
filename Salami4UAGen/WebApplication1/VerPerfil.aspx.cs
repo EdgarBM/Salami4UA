@@ -18,16 +18,15 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["Login"] != null)
             {
-                //String nick = Session["Login"].ToString();
-                nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx","");
-                String user = Session["Login"].ToString();
+                String nickUsuario = Session["Login"].ToString();
+                UsuarioCEN usuarioActual = new UsuarioCEN();
+                IList<UsuarioEN> listaUsers = usuarioActual.DameUsuarioPorNickname(nickUsuario);
+                UsuarioEN usuarioDefinitivo = listaUsers.ElementAt(0);
 
-                if(user == admin){
-                    BotonEliminarAdmin.Visible = true;
-                    btnShow.Visible = false;
-                }
+                nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx", "");
 
                 try
                 {
@@ -35,167 +34,208 @@ namespace WebApplication1
                 }
                 catch (Exception ex) { }
 
-                try
+                IList<string> usuariosBloqueados = usuarioActual.DamePersonasQueTeHanBloqueado(nickUsuario);
+
+                if(usuariosBloqueados.Contains(nick))
                 {
-                    UsuarioCEN usuario = new UsuarioCEN();
-                    IList<UsuarioEN> usuarios = usuario.DameUsuarioPorNickname(nick);
-
-                    if (usuarios.Count == 0)
-                    {
-                        VerPerfilError.Text = "0 Salami's found with this nickname " + nick;
-                    }
-
-                    foreach (UsuarioEN us in usuarios)
-                    {
-
-                        ImagenPerfil.ImageUrl = us.UrlFoto;
-                        Nickname.Text = nick;
-                        Name.Text = us.Name;
-                        Surname.Text = us.Surname;
-                        Genero.Text = us.Gender.ToString();
-                        Orientacion.Text = us.Likes.ToString();
-                        Nationality.Text = us.Nationality;
-                        Height.Text = us.Height.ToString();
-                        BodyType.Text = us.BodyType.ToString();
-                        Ethnicity.Text = us.Ethnicity.ToString();
-                        EyeColor.Text = us.EyeColor.ToString();
-                        HairColor.Text = us.HairColor.ToString();
-                        HairLength.Text = us.HairLength.ToString();
-                        HairStyle.Text = us.HairStyle.ToString();
-                        Smoke.Text = us.Smoke.ToString();
-                        Religion.Text = us.Religion.ToString();
-                        Birth.Text = Convert.ToString(us.Birthday).Substring(0, 10);
-                        StudiesLabel.Text = us.Career;
-                        CourseLabel.Text = us.Course.ToString();
-
-                        if (us.Comment != "")
-                        {
-                            CommentLabel.Text = "About me";
-                            Comment.Text = us.Comment;
-                        }
-                        // Las multiples opciones
-
-                        // Animales
-
-                        AnimalesCEN petcen = new AnimalesCEN();
-                        IList<AnimalesEN> animales = petcen.DameAnimalesPorUsuario(us.Nickname);
-
-                        string s = "";
-                        bool primero = true;
-                        foreach (AnimalesEN animal in animales)
-                        {
-                            if (primero)
-                            {
-                                primero = false;
-                                s = animal.Name;
-                            }
-
-                            else
-                            {
-                                s += ", " + animal.Name;
-                            }
-                        }
-
-                        Pets.Text = s;
-
-
-                        // Caracteristicas                         
-                        IList<CaracteristicasEN> caracteristicasEN = new CaracteristicasCEN().DameCaracteristicasPorUsuario(us.Nickname);
-                        s = ""; primero = true;
-                        foreach (CaracteristicasEN caracteristica in caracteristicasEN)
-                        {
-                            if (primero)
-                            {
-                                primero = false;
-                                s = caracteristica.Name;
-                            }
-
-                            else
-                            {
-                                s += ", " + caracteristica.Name;
-                            }
-                        }
-                        Features.Text = s;
-
-                        // Generos Cine                         
-                        IList<CinesEN> generosCinesEN = new CinesCEN().DameGenerosDeCinePorUsuario(us.Nickname);
-                        s = ""; primero = true;
-                        foreach (CinesEN cine in generosCinesEN)
-                        {
-                            if (primero)
-                            {
-                                primero = false;
-                                s = cine.Name;
-                            }
-
-                            else
-                            {
-                                s += ", " + cine.Name;
-                            }
-                        }
-                        Film.Text = s;
-
-                        // Musica
-                        IList<MusicasEN> MusicasEN = new MusicasCEN().DameGustosMusicalesPorUsuario(us.Nickname);
-                        s = ""; primero = true;
-                        foreach (MusicasEN musica in MusicasEN)
-                        {
-                            if (primero)
-                            {
-                                primero = false;
-                                s = musica.Name;
-                            }
-
-                            else
-                            {
-                                s += ", " + musica.Name;
-                            }
-                        }
-                        Music.Text = s;
-
-                        // Deportes
-                        IList<DeportesEN> deportesEN = new DeportesCEN().DameDeportesPorUsuario(us.Nickname);
-                        s = ""; primero = true;
-                        foreach (DeportesEN deporte in deportesEN)
-                        {
-                            if (primero)
-                            {
-                                primero = false;
-                                s = deporte.Name;
-                            }
-
-                            else
-                            {
-                                s += ", " + deporte.Name;
-                            }
-                        }
-                        Sports.Text = s;
-
-                        // Hobbies
-                        IList<AficionesEN> AficionesEN = new AficionesCEN().DameHobbiesPorUsuario(us.Nickname);
-                        s = ""; primero = true;
-                        foreach (AficionesEN hobbie in AficionesEN)
-                        {
-                            if (primero)
-                            {
-                                primero = false;
-                                s = hobbie.Name;
-                            }
-
-                            else
-                            {
-                                s += ", " + hobbie.Name;
-                            }
-                        }
-                        Hobbies.Text = s;
-
-                    }
-
-
-
+                    //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('You can not see this page because " + nick + " has blocked you');", true);
+                    Response.Redirect("~/NotificacionBloqueo.aspx/" + nick);                   
                 }
-                catch (Exception ex)
+
+                else
                 {
+                    //String nick = Session["Login"].ToString();
+                    nick = HttpContext.Current.Request.Url.AbsolutePath.Replace("/VerPerfil.aspx","");
+                    String user = Session["Login"].ToString();
+
+                    if(user == admin){
+                        BotonEliminarAdmin.Visible = true;
+                        btnShow.Visible = false;
+                    }
+
+                    try
+                    {
+                        nick = nick.TrimStart('/');
+                    }
+                    catch (Exception ex) { }
+
+                    try
+                    {
+                        UsuarioCEN usuario = new UsuarioCEN();
+                        IList<UsuarioEN> usuarios = usuario.DameUsuarioPorNickname(nick);
+
+                        if (usuarios.Count == 0)
+                        {
+                            VerPerfilError.Text = "0 Salami's found with this nickname " + nick;
+                        }
+
+                        IList<string> pinchitosRecibidos = usuario.DamePinchitosRecibidosPorUsuario(user);
+                        IList<string> mensajesRecibidos = usuario.DameMensajesRecibidosPorUsuario(user);
+
+                        if (pinchitosRecibidos.Contains(nick))
+                        {
+                            pinchitosRecibidos.Remove(nick);
+                            usuario.ModificarPinchitosRecibidos(user, pinchitosRecibidos);
+                        }
+                        if (mensajesRecibidos.Contains(nick))
+                        {
+                            mensajesRecibidos.Remove(nick);
+                            usuario.ModificarMensajesRecibidos(user, mensajesRecibidos);
+                        }
+
+                        foreach (UsuarioEN us in usuarios)
+                        {
+
+                            ImagenPerfil.ImageUrl = us.UrlFoto;
+                            Nickname.Text = nick;
+                            Name.Text = us.Name;
+                            Surname.Text = us.Surname;
+                            Genero.Text = us.Gender.ToString();
+                            Orientacion.Text = us.Likes.ToString();
+                            Nationality.Text = us.Nationality;
+                            Height.Text = us.Height.ToString();
+                            BodyType.Text = us.BodyType.ToString();
+                            Ethnicity.Text = us.Ethnicity.ToString();
+                            EyeColor.Text = us.EyeColor.ToString();
+                            HairColor.Text = us.HairColor.ToString();
+                            HairLength.Text = us.HairLength.ToString();
+                            HairStyle.Text = us.HairStyle.ToString();
+                            Smoke.Text = us.Smoke.ToString();
+                            Religion.Text = us.Religion.ToString();
+                            Birth.Text = Convert.ToString(us.Birthday).Substring(0, 10);
+                            StudiesLabel.Text = us.Career;
+                            CourseLabel.Text = us.Course.ToString();
+
+                            if (us.Comment != "")
+                            {
+                                CommentLabel.Text = "About me";
+                                Comment.Text = us.Comment;
+                            }
+                            // Las multiples opciones
+
+                            // Animales
+
+                            AnimalesCEN petcen = new AnimalesCEN();
+                            IList<AnimalesEN> animales = petcen.DameAnimalesPorUsuario(us.Nickname);
+
+                            string s = "";
+                            bool primero = true;
+                            foreach (AnimalesEN animal in animales)
+                            {
+                                if (primero)
+                                {
+                                    primero = false;
+                                    s = animal.Name;
+                                }
+
+                                else
+                                {
+                                    s += ", " + animal.Name;
+                                }
+                            }
+
+                            Pets.Text = s;
+
+
+                            // Caracteristicas                         
+                            IList<CaracteristicasEN> caracteristicasEN = new CaracteristicasCEN().DameCaracteristicasPorUsuario(us.Nickname);
+                            s = ""; primero = true;
+                            foreach (CaracteristicasEN caracteristica in caracteristicasEN)
+                            {
+                                if (primero)
+                                {
+                                    primero = false;
+                                    s = caracteristica.Name;
+                                }
+
+                                else
+                                {
+                                    s += ", " + caracteristica.Name;
+                                }
+                            }
+                            Features.Text = s;
+
+                            // Generos Cine                         
+                            IList<CinesEN> generosCinesEN = new CinesCEN().DameGenerosDeCinePorUsuario(us.Nickname);
+                            s = ""; primero = true;
+                            foreach (CinesEN cine in generosCinesEN)
+                            {
+                                if (primero)
+                                {
+                                    primero = false;
+                                    s = cine.Name;
+                                }
+
+                                else
+                                {
+                                    s += ", " + cine.Name;
+                                }
+                            }
+                            Film.Text = s;
+
+                            // Musica
+                            IList<MusicasEN> MusicasEN = new MusicasCEN().DameGustosMusicalesPorUsuario(us.Nickname);
+                            s = ""; primero = true;
+                            foreach (MusicasEN musica in MusicasEN)
+                            {
+                                if (primero)
+                                {
+                                    primero = false;
+                                    s = musica.Name;
+                                }
+
+                                else
+                                {
+                                    s += ", " + musica.Name;
+                                }
+                            }
+                            Music.Text = s;
+
+                            // Deportes
+                            IList<DeportesEN> deportesEN = new DeportesCEN().DameDeportesPorUsuario(us.Nickname);
+                            s = ""; primero = true;
+                            foreach (DeportesEN deporte in deportesEN)
+                            {
+                                if (primero)
+                                {
+                                    primero = false;
+                                    s = deporte.Name;
+                                }
+
+                                else
+                                {
+                                    s += ", " + deporte.Name;
+                                }
+                            }
+                            Sports.Text = s;
+
+                            // Hobbies
+                            IList<AficionesEN> AficionesEN = new AficionesCEN().DameHobbiesPorUsuario(us.Nickname);
+                            s = ""; primero = true;
+                            foreach (AficionesEN hobbie in AficionesEN)
+                            {
+                                if (primero)
+                                {
+                                    primero = false;
+                                    s = hobbie.Name;
+                                }
+
+                                else
+                                {
+                                    s += ", " + hobbie.Name;
+                                }
+                            }
+                            Hobbies.Text = s;
+
+                        }
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+
                 }
             }
 
@@ -311,8 +351,75 @@ namespace WebApplication1
             Response.Redirect("~/SendMessage.aspx?msgTo=" + nick);
         }
 
+        protected void BotonBloquearUsuario_Click(object sender, EventArgs e)
+        {
+            String nick = Session["Login"].ToString();
+            UsuarioCEN usuario = new UsuarioCEN();
+
+            IList<string> listaUsers = usuario.DamePersonasQueTeHanBloqueado(Nickname.Text); // Lista para el usuario bloqueado
+            IList<string> nuevaListaBloqueados = usuario.DamePersonasALasQUeHasBloqueado(nick); // Lista para el usuario que bloquea
+
+            if (!listaUsers.Contains(nick) && !nuevaListaBloqueados.Contains(Nickname.Text))
+            {
+                listaUsers.Add(nick); // Persona que bloquea
+                nuevaListaBloqueados.Add(Nickname.Text); // Persona bloqueada
+                usuario.ModificarPersonasQueTeHanBloqueado(Nickname.Text, listaUsers);
+                usuario.ModificarPersonasALasQueHasBloqueado(nick, nuevaListaBloqueados);
+
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('You blocked " + Nickname.Text + "');", true);
+            }
+
+            else
+            {
+
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('You've already blocked " + Nickname.Text + "');", true);
+            }
+            
+            
+        }
+
+
+
         protected void ButtonEnviarPinchito_Click(object sender, EventArgs e)
         {
+
+            String nickUsuario = Session["Login"].ToString();
+            UsuarioCEN usuarioActual = new UsuarioCEN();
+            IList<UsuarioEN> listaUsers = usuarioActual.DameUsuarioPorNickname(nickUsuario);
+            UsuarioEN usuarioDefinitivo = listaUsers.ElementAt(0);
+
+            IList<string> usuariosBloqueados = usuarioActual.DamePersonasQueTeHanBloqueado(nickUsuario);
+
+            if (usuariosBloqueados.Contains(nick))
+            {
+                Response.Redirect("~/NotificacionBloqueo.aspx/" + nick);
+            }
+
+            else
+            {
+
+                try
+                {
+                    string user = Session["Login"].ToString();
+                    UsuarioCEN cen = new UsuarioCEN();
+
+
+                    IList<string> pinchitos = cen.DamePinchitosRecibidosPorUsuario(nick);
+
+                    if (!pinchitos.Contains(user))
+                    {
+                        pinchitos.Add(user);
+                        cen.ModificarPinchitosRecibidos(nick, pinchitos);
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your pinchito to " + nick + " has been sent');", true);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Your pinchito have not reached " + nick + "');", true);
+
+                }
+            }
         }
     }
 

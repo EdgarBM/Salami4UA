@@ -22,27 +22,26 @@ public System.Collections.Generic.IList<string> DameMensajesRecibidosPorUsuario 
         // Write here your custom code...
 
         BasicCP basic = new BasicCP ();
+
         IList<string> mensajes = new List<string>();
         try
         {
                 basic.SessionInitializeTransaction ();
 
                 UsuarioCAD usuarioCAD = new UsuarioCAD (basic.session);
-                UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault(p_oid);
+                UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault (p_oid);
 
-                foreach (string m in usuarioEN.MensajesRecibidos)
-                {
-                    mensajes.Add(m);
+                foreach (string m in usuarioEN.MensajesRecibidos) {
+                        mensajes.Add (m);
                 }
 
-                basic.SessionClose();
-
+                basic.SessionClose ();
         }
         catch (Exception ex)
         {
                 return null;
         }
-        
+
         return mensajes;
         /*PROTECTED REGION END*/
 }

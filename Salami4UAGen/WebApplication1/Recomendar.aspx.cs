@@ -71,6 +71,11 @@ namespace WebApplication1
 
             }
 
+            UsuarioEN usuarioAux = new UsuarioEN();
+            usuarioAux.Nickname = "admin";
+            listaUsuarios.Remove(usuarioAux);
+            usuarioAux.Nickname = Session["Login"].ToString();
+            listaUsuarios.Remove(usuarioAux);
 
             LabelSalami.Text = "Found " + listaUsuarios.Count + " Salami's";
 

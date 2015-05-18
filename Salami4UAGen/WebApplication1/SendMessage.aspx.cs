@@ -36,6 +36,7 @@ namespace WebApplication1
                     }
                     else
                     {
+
                         SubtitleLabel.Text = "Messages with " + nick;
 
                         UsuarioEN userDst = usuarios[0];
@@ -49,6 +50,16 @@ namespace WebApplication1
                             mensajes = cen.DameTodosLosMensajesEntreUsuarios(logedUser, nick);
                             enviados = cen.DameTodosLosMensajesEnviadosPorUsuario(logedUser);
 
+                            IList<string> mensajesRecibidos = usuario.DameMensajesRecibidosPorUsuario(logedUser);
+
+                           
+                            if (mensajesRecibidos.Contains(nick))
+                            {
+                                mensajesRecibidos.Remove(nick);
+                                usuario.ModificarMensajesRecibidos(logedUser, mensajesRecibidos);
+                            }
+
+
                             if (mensajes.Count == 0)
                             {
                                 Label l = new Label();
@@ -60,6 +71,7 @@ namespace WebApplication1
                             {
                                 foreach (MensajesEN m in mensajes)
                                 {
+
                                     String text = m.Message, aux;
                                     int tam = 80;
 
@@ -97,6 +109,7 @@ namespace WebApplication1
 
         }
 
+
         private void addMessage(bool send, string text)
         {
             Label l = new Label();
@@ -128,28 +141,56 @@ namespace WebApplication1
 
         protected void sendMessage_Click(object sender, EventArgs e)
         {
-            string msg = "";
 
-            try
+            String nickUsuario = Session["Login"].ToString();
+            UsuarioCEN usuarioActual = new UsuarioCEN();
+            IList<UsuarioEN> listaUsers = usuarioActual.DameUsuarioPorNickname(nickUsuario);
+            UsuarioEN usuarioDefinitivo = listaUsers.ElementAt(0);
+
+            IList<string> usuariosBloqueados = usuarioActual.DamePersonasQueTeHanBloqueado(nickUsuario);
+
+            if (usuariosBloqueados.Contains(nick))
             {
-                msg = textSend.Text;
-                string user = (string)Session["login"];
-                MensajesCEN mensajeCen = new MensajesCEN();
-
-                mensajeCen.New_(msg, user, nick);
-
-                //addMessage(true, msg);
-
-                textSend.Text = "";
-                LabelReport.Text = "";
-
-                Response.Redirect("~/SendMessage.aspx?msgTo=" + nick);
+                Response.Redirect("~/NotificacionBloqueo.aspx/" + nick);
             }
-            catch (Exception)
+
+            else
             {
-                LabelReport.Text = "Error sending the message, the message is too long.";
-                textSend.Text = msg;
+
+                string msg = "";
+
+                try
+                {
+                    msg = textSend.Text;
+                    string user = (string)Session["login"];
+                    MensajesCEN mensajeCen = new MensajesCEN();
+                    UsuarioCEN usuarioCen = new UsuarioCEN();
+
+                    mensajeCen.New_(msg, user, nick);
+
+                    UsuarioCEN usuarioCen2 = new UsuarioCEN();
+
+
+                    IList<string> mensajes = usuarioCen2.DameMensajesRecibidosPorUsuario(nick);
+                    if (!mensajes.Contains(user))
+                    {
+                        mensajes.Add(user);
+                        usuarioCen.ModificarMensajesRecibidos(nick, mensajes);
+                    }
+
+                    textSend.Text = "";
+                    LabelReport.Text = "";
+
+                    Response.Redirect("~/SendMessage.aspx?msgTo=" + nick);
+                }
+                catch (Exception ex)
+                {
+                    LabelReport.Text = "Error sending the message, the message is too long.";
+                    textSend.Text = msg;
+                }
             }
+
+
         }
 
         /*protected void scrollToDiv()

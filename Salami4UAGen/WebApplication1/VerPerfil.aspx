@@ -257,6 +257,7 @@
         </form>
         
         <asp:Button ID="BotonEliminarAdmin" Visible="false" runat="server" Text="Delete Profile" OnClick="BotonEliminarPerfil_Click" class="button"/>
+        <asp:Button ID="BotonBloquearUsuario" runat="server" Text="Block User" OnClick="BotonBloquearUsuario_Click" class="button"/>
         
     </div>
 

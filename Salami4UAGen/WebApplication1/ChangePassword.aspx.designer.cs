@@ -13,6 +13,24 @@ namespace WebApplication1.Account {
     public partial class ChangePassword {
         
         /// <summary>
+        /// Control LoginOk.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LoginOk;
+        
+        /// <summary>
+        /// Control LoginFail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LoginFail;
+        
+        /// <summary>
         /// Control FailureText.
         /// </summary>
         /// <remarks>
@@ -29,6 +47,15 @@ namespace WebApplication1.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ChangeUserPasswordValidationSummary;
+        
+        /// <summary>
+        /// Control Panel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
         /// Control UsernameLabel.
@@ -112,6 +139,15 @@ namespace WebApplication1.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator NewPasswordRequired;
         
         /// <summary>
+        /// Control NewPasswordRequiredSize.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator NewPasswordRequiredSize;
+        
+        /// <summary>
         /// Control ConfirmNewPasswordLabel.
         /// </summary>
         /// <remarks>
@@ -148,15 +184,6 @@ namespace WebApplication1.Account {
         protected global::System.Web.UI.WebControls.CompareValidator NewPasswordCompare;
         
         /// <summary>
-        /// Control CancelPushButton.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CancelPushButton;
-        
-        /// <summary>
         /// Control ChangePasswordPushButton.
         /// </summary>
         /// <remarks>
@@ -166,21 +193,12 @@ namespace WebApplication1.Account {
         protected global::System.Web.UI.WebControls.Button ChangePasswordPushButton;
         
         /// <summary>
-        /// Control LoginOk.
+        /// Control CancelPushButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LoginOk;
-        
-        /// <summary>
-        /// Control LoginFail.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LoginFail;
+        protected global::System.Web.UI.WebControls.Button CancelPushButton;
     }
 }

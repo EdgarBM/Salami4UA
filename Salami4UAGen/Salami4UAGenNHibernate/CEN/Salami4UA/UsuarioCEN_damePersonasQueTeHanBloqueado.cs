@@ -21,27 +21,26 @@ public System.Collections.Generic.IList<string> DamePersonasQueTeHanBloqueado (s
 
         // Write here your custom code...
 
-        BasicCP basic = new BasicCP();
+        BasicCP basic = new BasicCP ();
+
         IList<string> personas = new List<string>();
         try
         {
-            basic.SessionInitializeTransaction();
+                basic.SessionInitializeTransaction ();
 
-            UsuarioCAD usuarioCAD = new UsuarioCAD(basic.session);
-            UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault(p_oid);
+                UsuarioCAD usuarioCAD = new UsuarioCAD (basic.session);
+                UsuarioEN usuarioEN = usuarioCAD.ReadOIDDefault (p_oid);
 
 
-            foreach (string m in usuarioEN.PersonasQueTeHanBloqueado)
-            {
-                personas.Add(m);
-            }
+                foreach (string m in usuarioEN.PersonasQueTeHanBloqueado) {
+                        personas.Add (m);
+                }
 
-            basic.SessionClose();
-            
+                basic.SessionClose ();
         }
         catch (Exception ex)
         {
-            return null;
+                return null;
         }
 
         return personas;

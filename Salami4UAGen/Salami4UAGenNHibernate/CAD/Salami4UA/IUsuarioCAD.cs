@@ -68,5 +68,23 @@ System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> 
 
 
 System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN> DameUsuarioPorCurso (Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum curso);
+
+
+
+UsuarioEN ReadOID (string Nickname);
+
+
+void ModificarMensajesRecibidos (UsuarioEN usuario);
+
+
+void ModificarPinchitosRecibidos (UsuarioEN usuario);
+
+
+void ModificarPersonasQueTeHanBloqueado (UsuarioEN usuario);
+
+
+
+
+void ModificarPersonasALasQueHasBloqueado (UsuarioEN usuario);
 }
 }

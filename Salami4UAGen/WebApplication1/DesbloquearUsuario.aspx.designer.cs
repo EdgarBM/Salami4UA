@@ -7,45 +7,36 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1.Account {
+namespace WebApplication1 {
     
     
-    public partial class Login {
+    public partial class DesbloquearUsuario {
         
         /// <summary>
-        /// Control RegisterHyperLink.
+        /// Control LabelBloqueo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
+        protected global::System.Web.UI.WebControls.Label LabelBloqueo;
         
         /// <summary>
-        /// Control ErrorValidacion.
+        /// Control ButtonAceptar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrorValidacion;
+        protected global::System.Web.UI.WebControls.Button ButtonAceptar;
         
         /// <summary>
-        /// Control LoginUser.
+        /// Control ButtonCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Login LoginUser;
-        
-        /// <summary>
-        /// Control ForgotPasswordLink.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ForgotPasswordLink;
+        protected global::System.Web.UI.WebControls.Button ButtonCancelar;
     }
 }
