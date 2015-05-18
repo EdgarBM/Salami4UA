@@ -17,7 +17,6 @@ namespace WebApplication1.Account
         {
             //ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
 
-            Label.Text = "";
 
             Salami4UAGenNHibernate.CEN.Salami4UA.NationalityCEN nacion = new Salami4UAGenNHibernate.CEN.Salami4UA.NationalityCEN();          
             IList<Salami4UAGenNHibernate.EN.Salami4UA.NationalityEN> nacionalidades = nacion.DameTodaslasNacionalidades();
@@ -280,7 +279,7 @@ namespace WebApplication1.Account
                 if (animales.Count == 0)
                 {
                     //Mostrar error en un label
-                    ErrorAnimales.Text = "Please select at least one animal";
+                    ErrorAnimales.Text = "Please select one animal";
                     ok = false;
                 }
             
@@ -296,7 +295,7 @@ namespace WebApplication1.Account
                 if (caracteristicas.Count == 0)
                 {
                     //Mostrar error en un label
-                    ErrorCaracteristicas.Text = "Please select at least one characteristic feature";
+                    ErrorCaracteristicas.Text = "Please select one characteristic feature";
                     ok = false;
                 }
             
@@ -313,7 +312,7 @@ namespace WebApplication1.Account
                 if (cines.Count == 0)
                 {
                     //Mostrar error en un label
-                    ErrorCine.Text = "Please select at least one genre film";
+                    ErrorCine.Text = "Please select one genre film";
                     ok = false;
                 }
 
@@ -332,7 +331,7 @@ namespace WebApplication1.Account
                 if (musicas.Count == 0)
                 {
                     //Mostrar error en un label
-                    ErrorMusica.Text = "Please select at least one musical taste";
+                    ErrorMusica.Text = "Please select one musical taste";
                     ok = false;
                 }
 
@@ -350,7 +349,7 @@ namespace WebApplication1.Account
                 if (deportes.Count == 0)
                 {
                     //Mostrar error en un label
-                    ErrorDeportes.Text = "Please select at least one sport";
+                    ErrorDeportes.Text = "Please select one sport";
                     ok = false;
                 }
 
@@ -368,7 +367,7 @@ namespace WebApplication1.Account
                 if (hobbies.Count == 0)
                 {
                     //Mostrar error en un label
-                    ErrorHobbies.Text = "Please select at least one hobby";
+                    ErrorHobbies.Text = "Please select one hobby";
                     ok = false;
                 }
 
@@ -382,18 +381,14 @@ namespace WebApplication1.Account
                 Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion = (Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum), Religion.SelectedValue);
                 Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke = (Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum)Enum.Parse(typeof(Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum), Fumador.SelectedValue);
                 
-                DateTime tiempo = new DateTime();
-                tiempo = DateTime.Today;
 
                 if (ok)
                 {
-                    
-                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, animales, caracteristicas, hobbies, deportes, musicas, cines, NacionalidadList.SelectedValue, Email.Text, tiempo, Int32.Parse(Height.SelectedValue), Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum.Man);
+                    usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, false, animales, caracteristicas, hobbies, deportes, musicas, cines, NacionalidadList.SelectedValue, Email.Text, DateTime.Today, Int32.Parse(Height.SelectedValue));
 
                     smtpClient.Send(message);
-                    Label.Text = "Your account has been created! Check your email to log in Salami4UA! \n" +
+                    Label.Text = "Check your email to log in Salami4UA! \n" +
                         "<a href=\"https://www1.webmail.ua.es/login0.php3?idi=es\" target=\"_blank\"> WebMail  </a>";
-                    
                 }
             }
             catch (Exception ex)

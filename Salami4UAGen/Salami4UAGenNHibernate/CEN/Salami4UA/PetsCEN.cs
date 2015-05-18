@@ -68,9 +68,5 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Pets
 {
         return _IPetsCAD.DameTodosLosAnimales ();
 }
-public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN> DameAnimalesPorUsuario (Salami4UAGenNHibernate.EN.Salami4UA.UserEN usuario)
-{
-        return _IPetsCAD.DameAnimalesPorUsuario (usuario);
-}
 }
 }
