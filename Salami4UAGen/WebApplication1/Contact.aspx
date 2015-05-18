@@ -1,14 +1,19 @@
-﻿<%@ Page Title="" Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="WebApplication1.Contact" %>
+﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="WebApplication1.Contact" %>
 
 
 <asp:Content ID="aboutContent" ContentPlaceHolderID="MainContent" runat="server">
    
-   <h1> Contact </h1>
+    <h2>
+        Contact
+    </h2>
 
-    <br />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-&nbsp;<asp:Label ID="Label1" runat="server" ></asp:Label>
-    <% if (Label1.Text == "") { %>
+   <% if (Label1.Text != "") { %>
+
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+    &nbsp;<asp:Label ID="Label1" runat="server" ></asp:Label>
+
+    <% } else { %>
 
     <p>
         If you have any doubt or you want to give any advice please contact us in our 
@@ -60,9 +65,9 @@
         ControlToValidate="TextBox4" ForeColor=Red
         ErrorMessage="Please introduce a comment." ValidationGroup="1"></asp:RequiredFieldValidator>
             <br />
-        <br />
+        <br /><br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="send" runat="server" Text="Send" ValidationGroup="1" onclick="send_Click" />
+        <asp:Button ID="send" runat="server" class='button' Text="Send" ValidationGroup="1" onclick="send_Click" />
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
          

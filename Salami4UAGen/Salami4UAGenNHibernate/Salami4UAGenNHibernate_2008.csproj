@@ -95,8 +95,6 @@
 	<Compile Include="CAD\Salami4UA\UserCAD.cs" />
 			<Compile Include="CEN\Salami4UA\UserCEN_ValidationUser.cs" />
 			<Compile Include="CEN\Salami4UA\UserCEN_CambiarPassword.cs" />
-			<Compile Include="CEN\Salami4UA\UserCEN_DameUsuarioPorNacionalidad.cs" />
-			<Compile Include="CEN\Salami4UA\UserCEN_DameUsuarioPorAltura.cs" />
 	<Compile Include="EN\Salami4UA\PetsEN.cs" />
 	<Compile Include="CEN\Salami4UA\PetsCEN.cs" />
 	<Compile Include="CAD\Salami4UA\IPetsCAD.cs" />

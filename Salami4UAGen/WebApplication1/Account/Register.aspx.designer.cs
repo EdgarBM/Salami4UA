@@ -67,6 +67,15 @@ namespace WebApplication1.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator UserNameRequired;
         
         /// <summary>
+        /// Control UserRequiredSize.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator UserRequiredSize;
+        
+        /// <summary>
         /// Control EmailLabel.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,51 @@ namespace WebApplication1.Account {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator EmailCheck;
+        
+        /// <summary>
+        /// Control LabelGenre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelGenre;
+        
+        /// <summary>
+        /// Control Genre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList Genre;
+        
+        /// <summary>
+        /// Control LabelInterested.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelInterested;
+        
+        /// <summary>
+        /// Control GenreInterested.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList GenreInterested;
+        
+        /// <summary>
+        /// Control LabelInfo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelInfo;
         
         /// <summary>
         /// Control NationalityLabel.

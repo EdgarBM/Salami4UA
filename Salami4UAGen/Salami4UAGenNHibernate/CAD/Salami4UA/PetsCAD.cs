@@ -153,5 +153,35 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Pets
 
         return result;
 }
+public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN> DameAnimalesPorUsuario (Salami4UAGenNHibernate.EN.Salami4UA.UserEN usuario)
+{
+        System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PetsEN self where FROM PetsEN p WHERE p.User = :usuario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PetsENdameAnimalesPorUsuarioHQL");
+                query.SetParameter ("usuario", usuario);
+
+                result = query.List<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in PetsCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

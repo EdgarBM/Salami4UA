@@ -22,5 +22,6 @@
 		  
 		  <query name="PetsENReadAllHQL">from PetsEN</query>
 		  <query name="PetsENdameTodosLosAnimalesHQL"><![CDATA[FROM PetsEN]]></query>
+		  <query name="PetsENdameAnimalesPorUsuarioHQL"><![CDATA[FROM PetsEN p WHERE p.User = :usuario]]></query>
 		</hibernate-mapping>
 	

@@ -17,5 +17,8 @@ void Destroy (string Name);
 
 
 System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN> DameTodosLosAnimales ();
+
+
+System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.PetsEN> DameAnimalesPorUsuario (Salami4UAGenNHibernate.EN.Salami4UA.UserEN usuario);
 }
 }
