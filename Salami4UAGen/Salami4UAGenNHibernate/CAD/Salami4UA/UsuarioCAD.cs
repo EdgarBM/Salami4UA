@@ -723,5 +723,110 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Usua
 
         return result;
 }
+public UsuarioEN ReadOID (string Nickname)
+{
+        UsuarioEN usuarioEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                usuarioEN = (UsuarioEN)session.Get (typeof(UsuarioEN), Nickname);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return usuarioEN;
+}
+
+public void ModificarMensajesRecibidos (UsuarioEN usuario)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Nickname);
+
+                usuarioEN.MensajesRecibidos = usuario.MensajesRecibidos;
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void ModificarPinchitosRecibidos (UsuarioEN usuario)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Nickname);
+
+                usuarioEN.PinchitosRecibidos = usuario.PinchitosRecibidos;
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void ModificarPersonasQueTeHanBloqueado (UsuarioEN usuario)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Nickname);
+
+                usuarioEN.PersonasQueTeHanBloqueado = usuario.PersonasQueTeHanBloqueado;
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Salami4UAGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Salami4UAGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 }
 }

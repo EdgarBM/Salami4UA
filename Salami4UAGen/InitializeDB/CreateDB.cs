@@ -371,15 +371,15 @@ public static void InitializeData ()
                 master.New_ ("Analysis and Management of Mediterranean Ecosystems");
                 master.New_ ("Biomedicine");
                 master.New_ ("Biotechnology for Health and Sustainability");
-                master.New_ ("Electrochemistry. Science & Technology ");
+                master.New_ ("Electrochemistry. Science & Technology");
                 master.New_ ("Materials Science ");
                 master.New_ ("Sustainable Fisheries Management ");
                 master.New_ ("Sustainable Management and Water Technologies ");
                 master.New_ ("Management and Restoration of Natural Environment ");
                 master.New_ ("Nanoscience and Molecular Nanotechnology ");
                 master.New_ ("Applied Palaeontology");
-                master.New_ ("Sustainable and Environmental Chemistry ");
-                master.New_ ("Medical Chemistry ");
+                master.New_ ("Sustainable and Environmental Chemistry");
+                master.New_ ("Medical Chemistry");
                 master.New_ ("Nursing Sciences Research");
                 master.New_ ("Clinical and Community Nutrition");
                 master.New_ ("Optometry Advanced Visual and Visual Health");

@@ -203,6 +203,7 @@
 
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
                         <asp:MenuItem NavigateUrl="~/Admin.aspx" Text="Admin Users"/>
+                        <asp:MenuItem NavigateUrl="~/VerMensajesDesdePerfil.aspx" Text="Messages"/>
                     </Items>
                 </asp:Menu>
                 
@@ -216,6 +217,7 @@
 
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home Page"/>
                         <asp:MenuItem NavigateUrl="~/Buscar.aspx" Text="Search People"/>
+                        <asp:MenuItem NavigateUrl="~/VerMensajesDesdePerfil.aspx" Text="Messages"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About us"/>
                         <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="Contact us"/>
                     </Items>

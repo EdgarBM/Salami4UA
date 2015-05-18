@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Sign in" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page MaintainScrollPositionOnPostback="true" Title="Sign in" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Register.aspx.cs" Inherits="WebApplication1.Account.Register" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
