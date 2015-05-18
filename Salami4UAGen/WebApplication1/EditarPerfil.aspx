@@ -116,13 +116,12 @@
         
     </div>
 
-    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 310px; float: left' >
+    <div style= 'border-style: none; border-color: inherit; border-width: 3px; height: 800px; width: 410px; float: left' >
 
-        <!--<asp:Label ID="Label2" runat="server" Text="Nationality" Width="100px"></asp:Label>
-        <asp:DropDownList ID="Nationality" runat="server" Width="100px"></asp:DropDownList>
-
-        <br /> -->
-
+        <asp:Label ID="PersonalDataLabel" runat="server" Text="Personal Data" Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
+        <br /><br />
+        
         <asp:Label ID="NameLabel" runat="server" Text="Name" Width="100px"></asp:Label>
         <asp:TextBox ID="Name" runat="server" CssClass="textEntry" Width="176px" ></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredName" runat="server" ControlToValidate="Name" 
@@ -146,16 +145,7 @@
         <asp:Label ID="AlturaLabel" runat="server" Text="Heigth" Width="100px"></asp:Label>
         <asp:DropDownList ID="Alturas" runat="server" Width="100px"></asp:DropDownList>
 
-        <br /><br />
-
-        <asp:Label ID="CareerLabel" runat="server" Text="Career" Width="100px"></asp:Label>
-        <asp:DropDownList ID="Carreras" runat="server" Width="100px"></asp:DropDownList>
-
-        <br /><br />
-
-        <asp:Label ID="CourseLabel" runat="server" Text="Course" Width="100px"></asp:Label>
-        <asp:DropDownList ID="Courses" runat="server" Width="100px"></asp:DropDownList>
-
+        
         <br /><br />
 
         <asp:Label ID="Label20" runat="server" Text="Body Type" Width="100px"></asp:Label>
@@ -206,8 +196,14 @@
 
         <br /><br />
 
-        <asp:Label ID="Label6" runat="server" Text="Look for" Width="100px"></asp:Label>
-        <asp:DropDownList ID="Orientacion" runat="server" Width="100px"></asp:DropDownList>
+        <asp:Label ID="CareerLabel" runat="server" Text="Studies" Width="100px"></asp:Label>
+        <asp:DropDownList ID="Carreras" runat="server" Width="305px"></asp:DropDownList>
+
+        <br /><br />
+
+        <asp:Label ID="CourseLabel" runat="server" Text="Course" Width="100px"></asp:Label>
+        <asp:DropDownList ID="Courses" runat="server" Width="100px"></asp:DropDownList>
+
 
         <br /><br /><br />  
          
@@ -224,29 +220,54 @@
     
     </div>
 
-    <div style= 'height: 800px; width: 380px; border: 3px; float: left' >  
+    <div style= 'height: 800px; width: 280px; border: 3px; float: left' >  
             
-            <p>
-            <asp:Label ID="LabelComment" runat="server" Text="Something about you"></asp:Label>
+            <asp:Label ID="LookingForLabel" runat="server" Text="Looking For..." Font-Bold="True" 
+                        Font-Names="Tahoma" Font-Size="Medium" ForeColor="Silver"></asp:Label>
 
-            <br />
+        <br /><br />
 
-            <asp:TextBox ID="Comment" runat="server" CssClass="textEntry" 
-                TextMode="MultiLine" Height="191px" Width="340px"></asp:TextBox>
-        </p>
-            <p>
-            <asp:RegularExpressionValidator ID="CommentValidator" runat="server"             
-                ErrorMessage="The maximum characters allowed are 200"            
-                ValidationExpression="^([\S\s]{0,200})$" ValidationGroup="EditUserValidationGroup"           
-                ControlToValidate="Comment" ForeColor=Red          
-                Display="Dynamic"></asp:RegularExpressionValidator>
-                    
-            <br />
-        </p>
+        <asp:Label ID="Label41" runat="server" Text="Genre" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:DropDownList ID="GeneroBuscado" runat="server" Width="100px"></asp:DropDownList>
+
+        <br /><br />
+        <asp:Label ID="Label2" runat="server" Text="Body Type" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:DropDownList ID="BodyTypeBuscado" runat="server" Width="100px"></asp:DropDownList>
+        
+        <br /><br />
+    
+        <asp:Label ID="Label29" runat="server" Text="Ethnicity" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:DropDownList ID="EthnicityBuscado" runat="server" Width="100px"></asp:DropDownList>
+
+        <br /><br />
+
+        <asp:Label ID="Label31" runat="server" Text="Eye Color" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:DropDownList ID="EyeColorBuscado" runat="server" Width="100px"></asp:DropDownList>
+
+        <br /><br />
+
+        <asp:Label ID="Label33" runat="server" Text="Hair Color" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:DropDownList ID="HairColorBuscado" runat="server" Width="100px"></asp:DropDownList>
+
+        <br /><br />
+
+        <asp:Label ID="Label35" runat="server" Text="Hair Length" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:DropDownList ID="HairLengthBuscado" runat="server" Width="100px"></asp:DropDownList>
+
+        <br /><br />
+    
+        <asp:Label ID="Label37" runat="server" Text="Hair Style" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:DropDownList ID="HairStyleBuscado" runat="server" Width="100px"></asp:DropDownList>
+
+        <br /><br />
+
+        <asp:Label ID="Label39" runat="server" Text="Smoke" Width="100px" Font-Bold="True"></asp:Label>
+        <asp:DropDownList ID="SmokeBuscado" runat="server" Width="100px"></asp:DropDownList>
+            
 
     </div>
     
-    <div style= 'height: 1100px; width: 910px; border: 3px; float: left' >  
+    <div style= 'height: 1400px; width: 910px; border: 3px; float: left' >  
 
         <asp:Label ID="LabelAnimales" runat="server" Text="Pets" BorderColor="#33CCFF" BorderStyle="None" Font-Bold="True" Font-Names="Tahoma" Font-Size="Large" Font-Strikeout="False" ForeColor="Silver"></asp:Label>
         <asp:Label ID="ErrorAnimales" runat="server" Text="" ForeColor="Red" ></asp:Label>
@@ -282,6 +303,26 @@
         <asp:Label ID="ErrorHobbies" runat="server" Text="" ForeColor="Red" ></asp:Label>
         <asp:CheckBoxList id="Hobbies" runat="server" RepeatDirection="Horizontal"
                             CellPadding="5" CellSpacing="5" RepeatColumns="10"></asp:CheckBoxList>
+
+        <br /><br /><br />
+        
+        <p>
+        <asp:Label ID="LabelComment" runat="server" Text="Something about you"></asp:Label>
+
+        <br />
+
+        <asp:TextBox ID="Comment" runat="server" CssClass="textEntry" 
+            TextMode="MultiLine" Height="191px" Width="340px"></asp:TextBox>
+        </p>
+        <p>
+        <asp:RegularExpressionValidator ID="CommentValidator" runat="server"             
+            ErrorMessage="The maximum characters allowed are 200"            
+            ValidationExpression="^([\S\s]{0,200})$" ValidationGroup="EditUserValidationGroup"           
+            ControlToValidate="Comment" ForeColor=Red          
+            Display="Dynamic"></asp:RegularExpressionValidator>
+                    
+        <br />
+        </p>
         
     </div>
 

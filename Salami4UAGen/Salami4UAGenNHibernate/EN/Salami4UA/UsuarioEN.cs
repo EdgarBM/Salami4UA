@@ -129,18 +129,6 @@ private Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum course;
  *
  */
 
-private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN> messagesEnviados;
-
-/**
- *
- */
-
-private System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN> messagesRecibidos;
-
-/**
- *
- */
-
 private string nationality;
 
 /**
@@ -190,6 +178,30 @@ private System.Collections.Generic.IList<string> hobbies;
  */
 
 private string urlFoto;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<string> pinchitosRecibidos;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<string> mensajesRecibidos;
+
+/**
+ *
+ */
+
+private Salami4UAGenNHibernate.EN.Salami4UA.GustosEN gustos;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<string> personasQueTeHanBloqueado;
 
 
 
@@ -295,16 +307,6 @@ public virtual Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum Course {
 }
 
 
-public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN> MessagesEnviados {
-        get { return messagesEnviados; } set { messagesEnviados = value;  }
-}
-
-
-public virtual System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN> MessagesRecibidos {
-        get { return messagesRecibidos; } set { messagesRecibidos = value;  }
-}
-
-
 public virtual string Nationality {
         get { return nationality; } set { nationality = value;  }
 }
@@ -350,29 +352,47 @@ public virtual string UrlFoto {
 }
 
 
+public virtual System.Collections.Generic.IList<string> PinchitosRecibidos {
+        get { return pinchitosRecibidos; } set { pinchitosRecibidos = value;  }
+}
+
+
+public virtual System.Collections.Generic.IList<string> MensajesRecibidos {
+        get { return mensajesRecibidos; } set { mensajesRecibidos = value;  }
+}
+
+
+public virtual Salami4UAGenNHibernate.EN.Salami4UA.GustosEN Gustos {
+        get { return gustos; } set { gustos = value;  }
+}
+
+
+public virtual System.Collections.Generic.IList<string> PersonasQueTeHanBloqueado {
+        get { return personasQueTeHanBloqueado; } set { personasQueTeHanBloqueado = value;  }
+}
+
+
 
 
 
 public UsuarioEN()
 {
-        messagesEnviados = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN>();
-        messagesRecibidos = new System.Collections.Generic.List<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN>();
 }
 
 
 
-public UsuarioEN(string nickname, string password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum hairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum eyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum hairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum hairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum bodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke, string email, Nullable<DateTime> birthday, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum gender, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum likes, string name, string surname, string comment, string validationCode, string career, Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum course, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN> messagesEnviados, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN> messagesRecibidos, string nationality, int height, System.Collections.Generic.IList<string> pets, System.Collections.Generic.IList<string> films, System.Collections.Generic.IList<string> musics, System.Collections.Generic.IList<string> characteristics, System.Collections.Generic.IList<string> sports, System.Collections.Generic.IList<string> hobbies, string urlFoto)
+public UsuarioEN(string nickname, string password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum hairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum eyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum hairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum hairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum bodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke, string email, Nullable<DateTime> birthday, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum gender, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum likes, string name, string surname, string comment, string validationCode, string career, Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum course, string nationality, int height, System.Collections.Generic.IList<string> pets, System.Collections.Generic.IList<string> films, System.Collections.Generic.IList<string> musics, System.Collections.Generic.IList<string> characteristics, System.Collections.Generic.IList<string> sports, System.Collections.Generic.IList<string> hobbies, string urlFoto, System.Collections.Generic.IList<string> pinchitosRecibidos, System.Collections.Generic.IList<string> mensajesRecibidos, Salami4UAGenNHibernate.EN.Salami4UA.GustosEN gustos, System.Collections.Generic.IList<string> personasQueTeHanBloqueado)
 {
-        this.init (nickname, password, hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, email, birthday, gender, likes, name, surname, comment, validationCode, career, course, messagesEnviados, messagesRecibidos, nationality, height, pets, films, musics, characteristics, sports, hobbies, urlFoto);
+        this.init (nickname, password, hairColor, eyeColor, hairLength, hairStyle, bodyType, ethnicity, religion, smoke, email, birthday, gender, likes, name, surname, comment, validationCode, career, course, nationality, height, pets, films, musics, characteristics, sports, hobbies, urlFoto, pinchitosRecibidos, mensajesRecibidos, gustos, personasQueTeHanBloqueado);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (usuario.Nickname, usuario.Password, usuario.HairColor, usuario.EyeColor, usuario.HairLength, usuario.HairStyle, usuario.BodyType, usuario.Ethnicity, usuario.Religion, usuario.Smoke, usuario.Email, usuario.Birthday, usuario.Gender, usuario.Likes, usuario.Name, usuario.Surname, usuario.Comment, usuario.ValidationCode, usuario.Career, usuario.Course, usuario.MessagesEnviados, usuario.MessagesRecibidos, usuario.Nationality, usuario.Height, usuario.Pets, usuario.Films, usuario.Musics, usuario.Characteristics, usuario.Sports, usuario.Hobbies, usuario.UrlFoto);
+        this.init (usuario.Nickname, usuario.Password, usuario.HairColor, usuario.EyeColor, usuario.HairLength, usuario.HairStyle, usuario.BodyType, usuario.Ethnicity, usuario.Religion, usuario.Smoke, usuario.Email, usuario.Birthday, usuario.Gender, usuario.Likes, usuario.Name, usuario.Surname, usuario.Comment, usuario.ValidationCode, usuario.Career, usuario.Course, usuario.Nationality, usuario.Height, usuario.Pets, usuario.Films, usuario.Musics, usuario.Characteristics, usuario.Sports, usuario.Hobbies, usuario.UrlFoto, usuario.PinchitosRecibidos, usuario.MensajesRecibidos, usuario.Gustos, usuario.PersonasQueTeHanBloqueado);
 }
 
-private void init (string nickname, string password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum hairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum eyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum hairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum hairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum bodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke, string email, Nullable<DateTime> birthday, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum gender, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum likes, string name, string surname, string comment, string validationCode, string career, Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum course, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN> messagesEnviados, System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.MensajesEN> messagesRecibidos, string nationality, int height, System.Collections.Generic.IList<string> pets, System.Collections.Generic.IList<string> films, System.Collections.Generic.IList<string> musics, System.Collections.Generic.IList<string> characteristics, System.Collections.Generic.IList<string> sports, System.Collections.Generic.IList<string> hobbies, string urlFoto)
+private void init (string nickname, string password, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairColorEnum hairColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.EyeColorEnum eyeColor, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairLengthEnum hairLength, Salami4UAGenNHibernate.Enumerated.Salami4UA.HairStyleEnum hairStyle, Salami4UAGenNHibernate.Enumerated.Salami4UA.BodyTypeEnum bodyType, Salami4UAGenNHibernate.Enumerated.Salami4UA.EthnicityEnum ethnicity, Salami4UAGenNHibernate.Enumerated.Salami4UA.ReligionEnum religion, Salami4UAGenNHibernate.Enumerated.Salami4UA.SmokeEnum smoke, string email, Nullable<DateTime> birthday, Salami4UAGenNHibernate.Enumerated.Salami4UA.GenderEnum gender, Salami4UAGenNHibernate.Enumerated.Salami4UA.LikesEnum likes, string name, string surname, string comment, string validationCode, string career, Salami4UAGenNHibernate.Enumerated.Salami4UA.CourseEnum course, string nationality, int height, System.Collections.Generic.IList<string> pets, System.Collections.Generic.IList<string> films, System.Collections.Generic.IList<string> musics, System.Collections.Generic.IList<string> characteristics, System.Collections.Generic.IList<string> sports, System.Collections.Generic.IList<string> hobbies, string urlFoto, System.Collections.Generic.IList<string> pinchitosRecibidos, System.Collections.Generic.IList<string> mensajesRecibidos, Salami4UAGenNHibernate.EN.Salami4UA.GustosEN gustos, System.Collections.Generic.IList<string> personasQueTeHanBloqueado)
 {
         this.Nickname = Nickname;
 
@@ -415,10 +435,6 @@ private void init (string nickname, string password, Salami4UAGenNHibernate.Enum
 
         this.Course = course;
 
-        this.MessagesEnviados = messagesEnviados;
-
-        this.MessagesRecibidos = messagesRecibidos;
-
         this.Nationality = nationality;
 
         this.Height = height;
@@ -436,6 +452,14 @@ private void init (string nickname, string password, Salami4UAGenNHibernate.Enum
         this.Hobbies = hobbies;
 
         this.UrlFoto = urlFoto;
+
+        this.PinchitosRecibidos = pinchitosRecibidos;
+
+        this.MensajesRecibidos = mensajesRecibidos;
+
+        this.Gustos = gustos;
+
+        this.PersonasQueTeHanBloqueado = personasQueTeHanBloqueado;
 }
 
 public override bool Equals (object obj)

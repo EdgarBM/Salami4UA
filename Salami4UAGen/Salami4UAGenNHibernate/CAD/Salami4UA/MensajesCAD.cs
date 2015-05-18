@@ -56,16 +56,6 @@ public int New_ (MensajesEN mensajes)
         try
         {
                 SessionInitializeTransaction ();
-                if (mensajes.UserOrigen != null) {
-                        mensajes.UserOrigen = (Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN), mensajes.UserOrigen.Nickname);
-
-                        mensajes.UserOrigen.MessagesEnviados.Add (mensajes);
-                }
-                if (mensajes.UserDestino != null) {
-                        mensajes.UserDestino = (Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN)session.Load (typeof(Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN), mensajes.UserDestino.Nickname);
-
-                        mensajes.UserDestino.MessagesRecibidos.Add (mensajes);
-                }
 
                 session.Save (mensajes);
                 SessionCommit ();
@@ -95,6 +85,12 @@ public void Modify (MensajesEN mensajes)
                 MensajesEN mensajesEN = (MensajesEN)session.Load (typeof(MensajesEN), mensajes.Id);
 
                 mensajesEN.Message = mensajes.Message;
+
+
+                mensajesEN.NicknameOrigen = mensajes.NicknameOrigen;
+
+
+                mensajesEN.NicknameDestino = mensajes.NicknameDestino;
 
                 session.Update (mensajesEN);
                 SessionCommit ();
@@ -143,7 +139,7 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Mens
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MensajesEN self where FROM MensajesEN m WHERE m.UserOrigen.Nickname = :nick";
+                //String sql = @"FROM MensajesEN self where FROM MensajesEN m WHERE m.NicknameOrigen = :nick";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MensajesENdameTodosLosMensajesEnviadosPorUsuarioHQL");
                 query.SetParameter ("nick", nick);
@@ -173,7 +169,7 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Mens
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MensajesEN self where FROM MensajesEN m WHERE m.UserDestino.Nickname = :nick";
+                //String sql = @"FROM MensajesEN self where FROM MensajesEN m WHERE m.NicknameDestino = :nick";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MensajesENdameTodosLosMensajesRecibidosPorUsuarioHQL");
                 query.SetParameter ("nick", nick);
@@ -203,7 +199,7 @@ public System.Collections.Generic.IList<Salami4UAGenNHibernate.EN.Salami4UA.Mens
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MensajesEN self where FROM MensajesEN m WHERE m.UserOrigen.Nickname = :nickOrigen AND m.UserDestino.Nickname = :nickDestino";
+                //String sql = @"FROM MensajesEN self where FROM MensajesEN m WHERE m.NicknameOrigen = :nickOrigen AND m.NicknameDestino = :nickDestino";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MensajesENdameTodosLosMensajesEntreUsuariosHQL");
                 query.SetParameter ("nickOrigen", nickOrigen);

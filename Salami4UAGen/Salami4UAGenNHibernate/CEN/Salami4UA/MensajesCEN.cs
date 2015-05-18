@@ -32,7 +32,7 @@ public IMensajesCAD get_IMensajesCAD ()
         return this._IMensajesCAD;
 }
 
-public int New_ (string p_Message, string p_userOrigen, string p_userDestino)
+public int New_ (string p_Message, string p_NicknameOrigen, string p_NicknameDestino)
 {
         MensajesEN mensajesEN = null;
         int oid;
@@ -41,17 +41,9 @@ public int New_ (string p_Message, string p_userOrigen, string p_userDestino)
         mensajesEN = new MensajesEN ();
         mensajesEN.Message = p_Message;
 
+        mensajesEN.NicknameOrigen = p_NicknameOrigen;
 
-        if (p_userOrigen != null) {
-                mensajesEN.UserOrigen = new Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN ();
-                mensajesEN.UserOrigen.Nickname = p_userOrigen;
-        }
-
-
-        if (p_userDestino != null) {
-                mensajesEN.UserDestino = new Salami4UAGenNHibernate.EN.Salami4UA.UsuarioEN ();
-                mensajesEN.UserDestino.Nickname = p_userDestino;
-        }
+        mensajesEN.NicknameDestino = p_NicknameDestino;
 
         //Call to MensajesCAD
 
@@ -59,7 +51,7 @@ public int New_ (string p_Message, string p_userOrigen, string p_userDestino)
         return oid;
 }
 
-public void Modify (int p_Mensajes_OID, string p_Message)
+public void Modify (int p_Mensajes_OID, string p_Message, string p_NicknameOrigen, string p_NicknameDestino)
 {
         MensajesEN mensajesEN = null;
 
@@ -67,6 +59,8 @@ public void Modify (int p_Mensajes_OID, string p_Message)
         mensajesEN = new MensajesEN ();
         mensajesEN.Id = p_Mensajes_OID;
         mensajesEN.Message = p_Message;
+        mensajesEN.NicknameOrigen = p_NicknameOrigen;
+        mensajesEN.NicknameDestino = p_NicknameDestino;
         //Call to MensajesCAD
 
         _IMensajesCAD.Modify (mensajesEN);
