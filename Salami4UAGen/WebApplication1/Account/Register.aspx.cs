@@ -412,16 +412,6 @@ namespace WebApplication1.Account
                 try
                 {
                     tiempo = Convert.ToDateTime(FechaNacimiento.Text);
-                    var age = GetAge(tiempo);
-                    if (age < 18)
-                    {
-                        ErrorUnderAge.Text = "You must be 18 years old";
-                        ok = false;
-                    }
-                    else
-                    {
-                        ErrorUnderAge.Text = "";
-                    }
                 }
                 catch (Exception ex)
                 {
@@ -439,17 +429,7 @@ namespace WebApplication1.Account
 
                 }
 
-                if (!TermsOfUse.Checked)
-                {
-                    ok = false;
-                    ErrorTerms.Text = "You have to accept the terms of use.";
-                }
-                else
-                {
-                    ErrorTerms.Text = "";
-                }
-
-                if (ok)
+                if (ok && TermsOfUse.Checked)
                 {
 
                     usuario.New_(UserName.Text, password.ToString(), hairColor, eyeColor, hairLength, hairStyle,
@@ -466,7 +446,7 @@ namespace WebApplication1.Account
                 }
                 else
                 {
-                    
+                    ErrorTerms.Text = "You have to accept the terms of use.";
                 }
             }
             catch (Exception ex)
@@ -485,23 +465,11 @@ namespace WebApplication1.Account
             ErrorMusica.Text = "";
             ErrorCaracteristicas.Text = "";
             ErrorNickname.Text = "";
-            ErrorTerms.Text = "";
-            ErrorUnderAge.Text = "";
         }
 
         protected void ListaCaracteristicas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        int GetAge(DateTime bornDate)
-        {
-            DateTime today = DateTime.Today;
-            int age = today.Year - bornDate.Year;
-            if (bornDate > today.AddYears(-age))
-                age--;
-
-            return age;
         }
 
     }
